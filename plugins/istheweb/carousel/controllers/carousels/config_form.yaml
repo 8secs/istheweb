@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Carousel
+
+# Model Form Field configuration
+form: $/istheweb/carousel/models/carousel/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Carousel\Models\Carousel
+
+# Default redirect location
+defaultRedirect: istheweb/carousel/carousel
+
+# Create page
+create:
+    title: istheweb.carousel::lang.carousel.create_title
+    redirect: istheweb/carousel/carousels/update/:id
+    redirectClose: istheweb/carousel/carousel
+
+# Update page
+update:
+    title: istheweb.carousel::lang.carousel.update_title
+    redirect: istheweb/carousel/carousels
+    redirectClose: istheweb/carousel/carousels
+
+# Preview page
+preview:
+    title: istheweb.carousel::lang.carousel.preview_title

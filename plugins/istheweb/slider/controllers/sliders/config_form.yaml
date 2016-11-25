@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Slider
+
+# Model Form Field configuration
+form: $/istheweb/slider/models/slider/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Slider\Models\Slider
+
+# Default redirect location
+defaultRedirect: istheweb/slider/slider
+
+# Create page
+create:
+    title: istheweb.slider::lang.slider.create_title
+    redirect: istheweb/slider/sliders/update/:id
+    redirectClose: istheweb/slider/sliders
+
+# Update page
+update:
+    title: istheweb.slider::lang.slider.edit_title
+    redirect: istheweb/slider/sliders
+    redirectClose: istheweb/slider/sliders
+
+# Preview page
+preview:
+    title: istheweb.slider::lang.slider.preview_title

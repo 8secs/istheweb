@@ -1,0 +1,59 @@
+{% set slides = __SELF__.slider.slides %}
+
+<ul class="bxslider">
+    {% for slide in slides %}
+    <li>
+        <form id="sliderForm_{{ slide.id }}"
+              name="slideForm_{{ slide.id }}"
+              data-request="onSliderChange"
+              data-request-update="'Slider::tweet-content': '.modal-content'">
+            <input type="hidden" name="id" id="id_{{ slide.id }}" value="{{ slide.id }}" />
+            <input type="hidden" name="url_{{ slide.id }}" name="url__{{ slide.id }}" value="{{ slide.url }}" />
+            <a href="#" id="slide_{{ slide.id }}" class="slide">
+                <img class="img-fluid" src="{{ slide.image.path }}" />
+            </a>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="slide-modal" tabindex="-1" role="dialog" aria-labelledby="Slide Modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script type="text/javascript">
+    var slideWidth, minSlides, maxSlides, slideMargin, slides;
+    $(document).ready(function(){
+        slideWidth = '{{ slideWidth }}';
+        minSlides = '{{ minSlides }}';
+        maxSlides = '{{ maxSlides }}';
+        slideMargin = '{{ slideMargin }}';
+        $('.bxslider').bxSlider({
+            slideWidth: parseInt(slideWidth),
+            minSlides: parseInt(minSlides),
+            maxSlides: parseInt(maxSlides),
+            slideMargin: parseInt(slideMargin)
+        });
+    });
+
+    $('.slide').on('click', function(e){
+        var id, ids;
+        id = this.id;
+        ids = id.split('_');
+        //console.log(ids[1]);
+        $('#sliderForm_'+ids[1]).submit();
+        $('#slide-modal').modal('show');
+    });
+</script>
+
+
+
+{% endput %}

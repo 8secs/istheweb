@@ -1,0 +1,8 @@
+attribute_items:
+    label: istheweb.shop::lang.attributes.menu_label
+    manage:
+        form: $/istheweb/shop/models/attributeitem/fields.yaml
+        list: $/istheweb/shop/models/attributeitem/columns.yaml
+    view:
+        list: $/istheweb/shop/models/attributeitem/columns.yaml
+        toolbarButtons: create|delete

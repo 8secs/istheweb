@@ -1,0 +1,20 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    question: istheweb.faq::lang.question.label
+    answer: istheweb.faq::lang.labels.answer
+    category_id: istheweb.faq::lang.category.label
+    is_approved:
+         label: istheweb.faq::lang.labels.public
+         type: Switch
+    is_featured:
+         label: istheweb.faq::lang.labels.featured
+         type: Switch
+    reply_email:
+         label: istheweb.faq::lang.labels.replay_email
+    created_at: istheweb.faq::lang.labels.created_at

@@ -1,0 +1,47 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        hidden: true
+    category:
+        label: istheweb.faq::lang.category.label
+        type: relation
+        nameFrom: title
+        span: right
+    is_approved:
+        label: istheweb.faq::lang.labels.is_public
+        description: Make this Question visible on the site
+        type: switch
+        span: left
+    is_featured:
+        label: istheweb.faq::lang.labels.is_featured
+        description: istheweb.faq::lang.labels.make_featured
+        type: switch
+        span: left
+    question:
+        label: istheweb.faq::lang.question.label
+        description: istheweb.faq::lang.question.update_description
+        type: text
+    answer:
+        label: istheweb.faq::lang.labels.answer
+        description: istheweb.faq::lang.labels.edit_answer
+        type: markdown
+        size: small
+    picture:
+        label: istheweb.shop::lang.labels.picture
+        type: fileupload
+        mode: image
+        span: auto
+        imageHeight: 260
+        imageWidth: 260
+    created_at:
+        label: istheweb.faq::lang.labels.creation_date
+        description: istheweb.faq::lang.labels.creation_date_description
+        type: datepicker
+    reply_email:
+        label: istheweb.faq::lang.labels.notification_email
+        disabled: true

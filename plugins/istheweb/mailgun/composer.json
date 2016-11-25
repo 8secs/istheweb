@@ -1,0 +1,17 @@
+{
+  "name": "istheweb/mailgun",
+  "description": "Mailing list integration with Mailgun",
+  "homepage": "http://www.istheweb.com",
+  "keywords": ["october", "cms", "istheweb", "laravel", "mailgun"],
+  "authors": [
+    {
+      "name": "Andres Rangel",
+      "email": "info@istheweb.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "mailgun/mailgun-php": "~2.0",
+    "php-http/guzzle6-adapter": "^1.1"
+  }
+}

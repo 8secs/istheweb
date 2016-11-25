@@ -1,0 +1,23 @@
+{% if success %}
+<div class="form-group contact-form-full">
+    <div id='mail_success' class='success'>{% content 'mailing-list/success' %}</div><!-- success message -->
+</div>
+
+{% else %}
+
+{{ form_ajax('onSubscribe', {
+class: 'mailgun-form',
+update: {'home/subscribe' : '.subscribe-div' }
+}) }}
+
+
+<div class="input-box transparent">
+    <input type="email" name="email" id="mc-email" class="" placeholder="Your email address">
+</div>
+
+<input type="submit" class="button color black-hover large" value="Subscribe"/>
+
+
+{{ form_close() }}
+
+{% endif %}

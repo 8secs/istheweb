@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">{{ __SELF__.selectedSlide.name }}</h4>
+</div>
+<div class="modal-body">
+    <div class="tweet-content">
+        <blockquote class="twitter-tweet" lang="es">
+            <a href="{{ __SELF__.tweetContent }}"></a>
+        </blockquote>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

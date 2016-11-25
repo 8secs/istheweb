@@ -1,0 +1,9 @@
+
+slides:
+    label: Slide
+    manage:
+        form: $/istheweb/carousel/models/slide/fields.yaml
+        list: $/istheweb/carousel/models/slide/columns.yaml
+    view:
+        list: $/istheweb/carousel/models/slide/columns.yaml
+        toolbarButtons: create|delete

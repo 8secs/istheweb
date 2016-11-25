@@ -1,0 +1,95 @@
+<?php
+
+return [
+    'plugin'       => [
+        'name'        => 'Slider',
+        'description' => 'Slider of images with a Twitter integration.',
+    ],
+    'sidebar'      => [
+        'slider'            => 'Slider',
+        'Slide'             => 'Slide',
+    ],
+    'components'   => [
+        'slider'  => [
+            'name'          => 'Slider',
+            'description'   => 'Slider of images with Twitter integration',
+        ],
+    ],
+    'descriptions' => [
+        'maxItems'      => 'Pick the maximum amout of results from your component',
+        'itemId'        => 'Pick only one result from your component based on id number',
+        'orderBy'       => 'Pick a column from which to order the results',
+        'sort'          => 'Pick a direction to sort the results by',
+        'folder'        => 'Select folder where are the images',
+        'slideWidth'    => 'Select the with of the image',
+        'minSlides'     => 'Minimun number of slides',
+        'maxSlides'     => 'Maximum number of slides',
+        'slideMargin'   => 'Separation between images',
+    ],
+    'labels'       => [
+        'name'                      => 'Name',
+        'slug'                      => 'Slug',
+        'slug_description'          => "Look up the item using the supplied slug value.",
+        'display_empty'             => 'Display empty sliders',
+        'display_empty_description' => '',
+        'published_at'              => 'Published',
+        'description'               => 'Description',
+        'picture'                   => 'Picture',
+        'url'                       => 'Homepage Url',
+        'icon'                      => 'Icon',
+        'pictures'                  => 'Pictures',
+        'attachments'               => 'Attachments',
+        'files'                     => 'Files',
+        'created_at'                => 'Created',
+        'updated_at'                => 'Updated',
+        'source'                    => 'Source',
+        'content'                   => 'Content',
+        'descending'                => 'Descending',
+        'ascending'                 => 'Ascending',
+        'maxItems'                  => 'Max items',
+        'itemId'                    => 'Id',
+        'orderBy'                   => 'Order by',
+        'sort'                      => 'Direction',
+        'folder'                    => 'Folder',
+        'slider_width'              => 'Slider Width',
+        'min_slides'                => 'Min Slides',
+        'max_slides'                => 'Max Slides',
+        'slide_margin'              => 'Slide Margin',
+
+
+    ],
+    'slider'      => [
+        'new'           => 'New Slider',
+        'label'         => 'Slider',
+        'create_title'  => 'Create Slider',
+        'update_title'  => 'Edit Slider',
+        'preview_title' => 'Preview Slider',
+        'list_title'    => 'Manage Slider',
+        'description'   => 'Sliders list of images'
+    ],
+    'sliders'     => [
+        'delete_selected_confirm' => 'Delete the selected sliders?',
+        'menu_label'              => 'Sliders',
+        'return_to_list'          => 'Return to Sliders',
+        'delete_confirm'          => 'Do you really want to delete this slide?',
+        'delete_selected_success' => 'Successfully deleted the selected slides.',
+        'delete_selected_empty'   => 'There are no selected :name to delete.',
+    ],
+    'slide'      => [
+        'new'           => 'New Slide',
+        'label'         => 'Slide',
+        'create_title'  => 'Create Slide',
+        'update_title'  => 'Edit Slide',
+        'preview_title' => 'Preview Slide',
+        'list_title'    => 'Manage Slide',
+        'description'   => 'Slides list of images'
+    ],
+    'slides'     => [
+        'delete_selected_confirm' => 'Delete the selected slides?',
+        'menu_label'              => 'Slides',
+        'return_to_list'          => 'Return to Slides',
+        'delete_confirm'          => 'Do you really want to delete this slide?',
+        'delete_selected_success' => 'Successfully deleted the selected slides.',
+        'delete_selected_empty'   => 'There are no selected :name to delete.',
+    ],
+];

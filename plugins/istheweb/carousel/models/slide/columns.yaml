@@ -1,0 +1,49 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: istheweb.carousel::lang.labels.name
+        searchable: true
+    published_at:
+        label: istheweb.carousel::lang.labels.published_at
+        type: date
+    updated_at:
+        label: istheweb.carousel::lang.labels.updated_at
+        type: date
+
+tabs:
+  fields:
+    transition:
+        label: istheweb.carousel::lang.labels.transition
+        span: auto
+        type: dropdown
+        tab: istheweb.carousel::lang.labels.data
+    slotamount:
+        label: istheweb.carousel::lang.labels.slotamount
+        span: auto
+        comment: istheweb.carousel::lang.labels.slotamount-comment
+        tab: istheweb.carousel::lang.labels.data
+    masterspeed:
+        label: istheweb.carousel::lang.labels.masterspeed
+        span: auto
+        tab: istheweb.carousel::lang.labels.data
+    image:
+        label: istheweb.carousel::lang.labels.background
+        type: fileupload
+        mode: image
+        span: auto
+        tab: istheweb.carousel::lang.labels.background
+    items:
+        label: istheweb.carousel::lang.items.menu_label
+        type: partial
+        path: field_items
+        tab: istheweb.carousel::lang.items.menu_label
+    carousel:
+        label: istheweb.carousel::lang.carousels.menu_label
+        type: partial
+        path: field_carousel
+        tab: istheweb.carousel::lang.carousels.menu_label
+
+

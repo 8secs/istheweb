@@ -1,0 +1,13 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+        hidden: true
+    title:
+        label: istheweb.faq::lang.category.label
+        description: istheweb.faq::lang.category.update_description
+        type: text

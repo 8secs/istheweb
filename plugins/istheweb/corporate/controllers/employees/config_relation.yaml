@@ -1,0 +1,10 @@
+roles:
+    label: Roles
+    view:
+        list: $/istheweb/corporate/models/role/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/istheweb/corporate/models/role/columns.yaml
+        form: $/istheweb/corporate/models/role/fields.yaml

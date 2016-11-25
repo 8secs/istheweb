@@ -1,0 +1,79 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    first_name:
+        label: istheweb.corporate::lang.labels.first_name
+        span: auto
+    last_name:
+        label: istheweb.corporate::lang.labels.last_name
+        span: auto
+    slug:
+        label: istheweb.corporate::lang.labels.slug
+        span: right
+        required: true
+        preset:
+            field: first_name
+            type: slug
+    quote:
+        label: istheweb.corporate::lang.labels.quote
+        span: auto
+    published_at:
+        label: istheweb.corporate::lang.labels.published_at
+        type: datepicker
+        mode: date
+        span: auto
+
+tabs:
+  fields:
+    description:
+        type: richeditor
+        size: huge
+        label: istheweb.corporate::lang.labels.description
+        span: auto
+        tab: istheweb.corporate::lang.labels.description
+    picture:
+        label: istheweb.corporate::lang.labels.picture
+        type: fileupload
+        mode: image
+        span: auto
+        imageHeight: 260
+        imageWidth: 260
+        tab: istheweb.corporate::lang.labels.description
+    born_at:
+        label: istheweb.corporate::lang.labels.born_at
+        type: datepicker
+        mode: date
+        minDate: 1900-01-01
+        span: auto
+        tab: istheweb.corporate::lang.labels.information
+    email:
+        label: istheweb.corporate::lang.labels.email
+        span: auto
+        tab: istheweb.corporate::lang.labels.information
+    phone:
+        label: istheweb.corporate::lang.labels.phone
+        span: auto
+        tab: istheweb.corporate::lang.labels.information
+    roles:
+        label: istheweb.corporate::lang.roles.menu_label
+        type: partial
+        path: field_roles
+        tab: istheweb.corporate::lang.roles.menu_label
+    facebook:
+        type: text
+        label: istheweb.corporate::lang.company.facebook
+        tab: istheweb.corporate::lang.company.social
+    google:
+        type: text
+        label: istheweb.corporate::lang.company.googleplus
+        tab: istheweb.corporate::lang.company.social
+    twitter:
+        type: text
+        label: istheweb.corporate::lang.company.twitter
+        tab: istheweb.corporate::lang.company.social
+    email:
+        type: text
+        label: istheweb.corporate::lang.company.email
+        tab: istheweb.corporate::lang.company.social

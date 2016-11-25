@@ -1,0 +1,17 @@
+
+items:
+    label: Items
+    manage:
+        form: $/istheweb/carousel/models/item/fields.yaml
+        list: $/istheweb/carousel/models/item/columns.yaml
+    view:
+        list: $/istheweb/carousel/models/item/columns.yaml
+        toolbarButtons: create|delete
+carousel:
+    label: Carousel
+    view:
+        form: $/istheweb/carousel/models/carousel/fields.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/istheweb/carousel/models/carousel/fields.yaml
+        list: $/istheweb/carousel/models/carousel/columns.yaml

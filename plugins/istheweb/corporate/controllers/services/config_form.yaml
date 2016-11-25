@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Service
+
+# Model Form Field configuration
+form: $/istheweb/corporate/models/service/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Corporate\Models\Service
+
+# Default redirect location
+defaultRedirect: istheweb/corporate/services
+
+# Create page
+create:
+    title: istheweb.corporate::lang.service.create_title
+    redirect: istheweb/corporate/services/update/:id
+    redirectClose: istheweb/corporate/services
+
+# Update page
+update:
+    title: istheweb.corporate::lang.service.update_title
+    redirect: istheweb/corporate/services
+    redirectClose: istheweb/corporate/services
+
+# Preview page
+preview:
+    title: istheweb.corporate::lang.service.preview_title

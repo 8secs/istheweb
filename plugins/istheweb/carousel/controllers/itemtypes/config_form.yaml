@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Item Type
+
+# Model Form Field configuration
+form: $/istheweb/carousel/models/itemtype/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Carousel\Models\ItemType
+
+# Default redirect location
+defaultRedirect: istheweb/carousel/itemtypes
+
+# Create page
+create:
+    title: istheweb.carousel::lang.itemtype.create_title
+    redirect: istheweb/carousel/itemtypes/update/:id
+    redirectClose: istheweb/carousel/itemtypes
+
+# Update page
+update:
+    title: istheweb.carousel::lang.itemtype.edit_title
+    redirect: istheweb/carousel/itemtypes
+    redirectClose: istheweb/carousel/itemtypes
+
+# Preview page
+preview:
+    title: istheweb.carousel::lang.itemtype.preview_title

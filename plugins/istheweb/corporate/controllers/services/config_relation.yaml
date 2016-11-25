@@ -1,0 +1,10 @@
+projects:
+    label: Projects
+    view:
+        list: $/istheweb/corporate/models/project/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/istheweb/corporate/models/project/columns.yaml
+        form: $/istheweb/corporate/models/project/fields.yaml

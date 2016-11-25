@@ -1,0 +1,34 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/istheweb/faq/models/category/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Faq\Models\Category
+
+# Default redirect location
+defaultRedirect: istheweb/faq/categories
+
+# Create page
+create:
+    title: istheweb.faq::lang.category.create_title
+    redirect: istheweb/faq/categories/update/:id
+    redirectClose: istheweb/faq/categories
+    flashSave: Category added correctly.
+
+# Update page
+update:
+    title: istheweb.faq::lang.category.update_title
+    redirect: istheweb/faq/categories
+    redirectClose: istheweb/faq/categories
+    flashSave: Category updated successfully!
+    flashDelete: Category has been deleted.
+
+# Preview page
+preview:
+    title: istheweb.faq::lang.category.preview_title

@@ -1,0 +1,5 @@
+1.0.1: First version of Faq
+1.0.2:
+  - create table models
+  - create_questions_table.php
+  - create_categories_table.php

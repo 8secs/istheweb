@@ -1,0 +1,9 @@
+
+slider:
+    label: Slider
+    view:
+        form: $/istheweb/slider/models/slider/fields.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/istheweb/slider/models/slider/fields.yaml
+        list: $/istheweb/slider/models/slider/columns.yaml

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Technology
+
+# Model Form Field configuration
+form: $/istheweb/corporate/models/technology/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Corporate\Models\Technology
+
+# Default redirect location
+defaultRedirect: istheweb/corporate/technologies
+
+# Create page
+create:
+    title: istheweb.corporate::lang.technology.create_title
+    redirect: istheweb/corporate/technologies/update/:id
+    redirectClose: istheweb/corporate/technologies
+
+# Update page
+update:
+    title: istheweb.corporate::lang.technology.update_title
+    redirect: istheweb/corporate/technologies
+    redirectClose: istheweb/corporate/technologies
+
+# Preview page
+preview:
+    title: istheweb.corporate::lang.technology.preview_title

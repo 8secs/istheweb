@@ -1,0 +1,9 @@
+
+slide:
+    label: Carousel
+    view:
+        form: $/istheweb/carousel/models/slide/fields.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/istheweb/carousel/models/slide/fields.yaml
+        list: $/istheweb/carousel/models/slide/columns.yaml

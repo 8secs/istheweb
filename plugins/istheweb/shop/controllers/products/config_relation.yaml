@@ -1,0 +1,50 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+categories:
+    label: istheweb.shop::lang.categories.menu_label
+    view:
+        list: $/istheweb/shop/models/category/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/istheweb/shop/models/category/columns.yaml
+        form: $/istheweb/shop/models/category/fields.yaml
+attributes:
+    label: istheweb.shop::lang.attributes.menu_label
+    view:
+        list: $/istheweb/shop/models/attribute/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/istheweb/shop/models/attribute/columns.yaml
+        form: $/istheweb/shop/models/attribute/fields.yaml
+product_variants:
+    label: istheweb.shop::lang.product_variants.menu_label
+    manage:
+        form: $/istheweb/shop/models/productvariant/fields.yaml
+        list: $/istheweb/shop/models/productvariant/columns.yaml
+    view:
+        list: $/istheweb/shop/models/productvariant/columns.yaml
+        toolbarButtons: create|delete
+attribute_items:
+    label: istheweb.shop::lang.attributes.menu_label
+    manage:
+        form: $/istheweb/shop/models/attributeitem/fields.yaml
+        list: $/istheweb/shop/models/attributeitem/columns.yaml
+    view:
+        list: $/istheweb/shop/models/attributeitem/columns.yaml
+        toolbarButtons: create|delete
+features:
+    label: istheweb.shop::lang.features.menu_label
+    view:
+        list: $/istheweb/shop/models/feature/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/istheweb/shop/models/feature/columns.yaml
+        form: $/istheweb/shop/models/feature/fields.yaml

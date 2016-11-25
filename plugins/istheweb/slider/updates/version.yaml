@@ -1,0 +1,5 @@
+1.0.1: First version of Slider plugin
+1.0.2:
+  - Create Models of the Slider
+  - create_sliders_table.php
+  - create_slides_table.php

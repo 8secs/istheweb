@@ -1,0 +1,34 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Question
+
+# Model Form Field configuration
+form: $/istheweb/faq/models/question/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Faq\Models\Question
+
+# Default redirect location
+defaultRedirect: istheweb/faq/questions
+
+# Create page
+create:
+    title: istheweb.faq::lang.question.create_title
+    redirect: istheweb/faq/questions/update/:id
+    redirectClose: istheweb/faq/questions
+    flashSave: Question added correctly.
+
+# Update page
+update:
+    title: istheweb.faq::lang.question.update_title
+    redirect: istheweb/faq/questions
+    redirectClose: istheweb/faq/questions
+    flashSave: QUESTION updated successfully!
+    flashDelete: Question has been deleted.
+
+# Preview page
+preview:
+    title: istheweb.faq::lang.question.preview_title
