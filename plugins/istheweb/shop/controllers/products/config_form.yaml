@@ -16,16 +16,16 @@ defaultRedirect: istheweb/shop/products
 
 # Create page
 create:
-    title: istheweb.shop::lang.product.create_title
+    title: Create Product
     redirect: istheweb/shop/products/update/:id
     redirectClose: istheweb/shop/products
 
 # Update page
 update:
-    title: istheweb.shop::lang.product.update_title
+    title: Edit Product
     redirect: istheweb/shop/products
     redirectClose: istheweb/shop/products
 
 # Preview page
 preview:
-    title: istheweb.shop::lang.product.create_title
+    title: Preview Product

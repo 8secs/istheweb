@@ -7,13 +7,37 @@ namespace Composer\Autoload;
 class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\Stdlib\\' => 12,
+        ),
+        'W' => 
+        array (
+            'Webmozart\\Assert\\' => 17,
+        ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Iconv\\' => 23,
+            'Symfony\\Component\\Validator\\' => 28,
+            'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\PropertyAccess\\' => 33,
+            'Symfony\\Component\\ExpressionLanguage\\' => 37,
+            'Symfony\\Component\\EventDispatcher\\' => 34,
+            'Sylius\\Component\\Variation\\' => 27,
+            'Sylius\\Component\\Resource\\' => 26,
+            'Sylius\\Component\\Registry\\' => 26,
+            'Sylius\\Component\\Product\\' => 25,
+            'Sylius\\Component\\Attribute\\' => 27,
+            'Sylius\\Component\\Association\\' => 29,
+            'Sylius\\Component\\Archetype\\' => 27,
             'Stripe\\' => 7,
         ),
         'P' => 
@@ -25,9 +49,79 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
             'Illuminate\\Support\\' => 19,
             'Illuminate\\Contracts\\' => 21,
         ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
+            'Doctrine\\Common\\' => 16,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Zend\\Stdlib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
+        ),
+        'Webmozart\\Assert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Iconv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-iconv',
+        ),
+        'Symfony\\Component\\Validator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/validator',
+        ),
+        'Symfony\\Component\\Translation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\PropertyAccess\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/property-access',
+        ),
+        'Symfony\\Component\\ExpressionLanguage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/expression-language',
+        ),
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
+        'Sylius\\Component\\Variation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/variation',
+        ),
+        'Sylius\\Component\\Resource\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/resource',
+        ),
+        'Sylius\\Component\\Registry\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/registry',
+        ),
+        'Sylius\\Component\\Product\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/product',
+        ),
+        'Sylius\\Component\\Attribute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/attribute',
+        ),
+        'Sylius\\Component\\Association\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/association',
+        ),
+        'Sylius\\Component\\Archetype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/archetype',
+        ),
         'Stripe\\' => 
         array (
             0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
@@ -44,14 +138,37 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
         array (
             0 => __DIR__ . '/..' . '/illuminate/contracts',
         ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+        ),
     );
 
     public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'SM' => 
+            array (
+                0 => __DIR__ . '/..' . '/winzou/state-machine/src',
+            ),
+        ),
         'P' => 
         array (
             'PayPal' => 
             array (
                 0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
+            ),
+            'Pagerfanta\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/pagerfanta/pagerfanta/src',
             ),
         ),
         'G' => 
@@ -63,9 +180,17 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
         ),
         'D' => 
         array (
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
             'Doctrine\\Common\\Inflector\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
+            ),
+            'Doctrine\\Common\\Collections\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/collections/lib',
             ),
         ),
     );

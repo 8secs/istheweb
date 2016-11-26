@@ -58,78 +58,14 @@ class Plugin extends PluginBase
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
                         'description' => 'istheweb.shop::lang.product.description',
                     ],
-                    'categories'     => [
-                        'label'       => 'istheweb.shop::lang.categories.menu_label',
-                        'icon'        => 'icon-cubes',
-                        'url'         => Backend::url('istheweb/shop/categories'),
-                        'permissions' => ['istheweb.shop.access_categories'],
-                        'group'       => 'istheweb.shop::lang.sidebar.catalog',
-                        'description' => 'istheweb.shop::lang.category.description',
-                    ],
                     'attributes'     => [
                         'label'       => 'istheweb.shop::lang.attributes.menu_label',
-                        'icon'        => 'icon-filter',
+                        'icon'        => 'icon-cubes',
                         'url'         => Backend::url('istheweb/shop/attributes'),
-                        'permissions' => ['istheweb.shop.access_categories'],
+                        'permissions' => ['istheweb.shop.access_attributes'],
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
-                        'description' => 'istheweb.shop::lang.filter.description',
-                    ],
-                    'coupons'     => [
-                        'label'       => 'istheweb.shop::lang.coupons.menu_label',
-                        'icon'        => 'icon-gift',
-                        'url'         => Backend::url('istheweb/shop/coupons'),
-                        'permissions' => ['istheweb.shop.access_coupons'],
-                        'group'       => 'istheweb.shop::lang.sidebar.marketing',
-                        'description' => 'istheweb.shop::lang.coupon.description',
-                    ],
-                    'currencies'     => [
-                        'label'       => 'istheweb.shop::lang.currencies.menu_label',
-                        'icon'        => 'icon-money',
-                        'url'         => Backend::url('istheweb/shop/currencies'),
-                        'permissions' => ['istheweb.shop.access_currencies'],
-                        'group'       => 'istheweb.shop::lang.sidebar.localisation',
-                        'description' => 'istheweb.shop::lang.currency.description',
-                    ],
-                    'geozones'     => [
-                        'label'       => 'istheweb.shop::lang.geo_zones.menu_label',
-                        'icon'        => 'icon-globe',
-                        'url'         => Backend::url('istheweb/shop/geozones'),
-                        'permissions' => ['istheweb.shop.access_geo_zones'],
-                        'group'       => 'istheweb.shop::lang.sidebar.localisation',
-                        'description' => 'istheweb.shop::lang.geo_zone.description',
-                    ],
-                    'taxrates'     => [
-                        'label'       => 'istheweb.shop::lang.tax_rates.menu_label',
-                        'icon'        => 'icon-gavel',
-                        'url'         => Backend::url('istheweb/shop/taxrates'),
-                        'permissions' => ['istheweb.shop.access_tax_rates'],
-                        'group'       => 'istheweb.shop::lang.sidebar.localisation',
-                        'description' => 'istheweb.shop::lang.tax_rate.description',
-                    ],
-                    'shippings'     => [
-                        'label'       => 'istheweb.shop::lang.shippings.menu_label',
-                        'icon'        => 'icon-truck',
-                        'url'         => Backend::url('istheweb/shop/shippings'),
-                        'permissions' => ['istheweb.shop.access_shippings'],
-                        'group'       => 'istheweb.shop::lang.sidebar.localisation',
-                        'description' => 'istheweb.shop::lang.shipping.description',
-                    ],
-                    'orders'     => [
-                        'label'       => 'istheweb.shop::lang.orders.menu_label',
-                        'icon'        => 'icon-cart-arrow-down',
-                        'url'         => Backend::url('istheweb/shop/orders'),
-                        'permissions' => ['istheweb.shop.access_orders'],
-                        'group'       => 'istheweb.shop::lang.sidebar.orders',
-                        'description' => 'istheweb.shop::lang.order.description',
-                    ],
-                    'orderstatuses'     => [
-                        'label'       => 'istheweb.shop::lang.order_statuses.menu_label',
-                        'icon'        => 'icon-list',
-                        'url'         => Backend::url('istheweb/shop/orderstatuses'),
-                        'permissions' => ['istheweb.shop.access_order_statuses'],
-                        'group'       => 'istheweb.shop::lang.sidebar.orders',
-                        'description' => 'istheweb.shop::lang.order_status.description',
-                    ],
+                        'description' => 'istheweb.shop::lang.attributes.description',
+                    ]
                 ],
             ],
         ];
@@ -167,93 +103,30 @@ class Plugin extends PluginBase
                 'label' => 'istheweb.shop::lang.product.delete_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
             ],
-            'istheweb.shop.access_categories'     => [
-                'label' => 'istheweb.shop::lang.category.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
             'istheweb.shop.access_attributes'     => [
                 'label' => 'istheweb.shop::lang.attribute.list_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_coupons'     => [
-                'label' => 'istheweb.shop::lang.coupon.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_currencies'     => [
-                'label' => 'istheweb.shop::lang.currency.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_tax_rates'     => [
-                'label' => 'istheweb.shop::lang.tax_rates.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_shippings'     => [
-                'label' => 'istheweb.shop::lang.shippings.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_geo_zones'     => [
-                'label' => 'istheweb.shop::lang.geo_zones.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_orders'     => [
-                'label' => 'istheweb.shop::lang.order.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_order_statuses'     => [
-                'label' => 'istheweb.shop::lang.order_status.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_shop'      => [
-                'label' => 'istheweb.shop::lang.shop.list_title',
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-            ],
-            'istheweb.shop.access_import_export' => [
-                'tab'   => 'istheweb.shop::lang.plugin.name',
-                'label' => 'istheweb.shop::lang.product.access_import_export'
-            ],
+            ]
         ];
     }
 
     public function registerComponents()
     {
         return [
-            'Istheweb\Shop\Components\Products'                => 'Products',
-            'Istheweb\Shop\Components\Product'                 => 'Product',
-            'Istheweb\Shop\Components\Categories'              => 'Categories',
-            'Istheweb\Shop\Components\FilterTypes'             => 'FilterTypes',
-            'Istheweb\Shop\Components\Basket'                  => 'ShopBasket',
-            'Istheweb\Shop\Components\Customer'                => 'Customer',
-            'Istheweb\Shop\Components\Carousel'                => 'ClientsGallery',
+
         ];
     }
 
     public function registerSettings()
     {
         return[];
-        return [
-            'shop' => [
-                'label'       => 'istheweb.shop::lang.labels.shop',
-                'description' => 'istheweb.shop::lang.labels.shop-settings',
-                'category'    => 'system::lang.system.categories.system',
-                'icon'        => 'icon-shopping-cart',
-                'class'       => 'Istheweb\Shop\Models\Shop',
-                'order'       => 500,
-                'keywords'    => 'istheweb.shop::lang.shop.keywords',
-                'permissions' => ['istheweb.shop.access_shop'],
-            ],
-        ];
+
     }
 
     public function registerMailTemplates()
     {
         return [
-            'istheweb.shop::mail.activate'              => 'istheweb.shop::lang.email.activate',
-            'istheweb.shop::mail.welcome'               => 'istheweb.shop::lang.email.welcome',
-            'istheweb.shop::mail.restore'               => 'istheweb.shop::lang.email.restore',
-            'istheweb.shop::mail.new_user'              => 'istheweb.shop::lang.email.new_user',
-            'istheweb.shop::mail.reactivate'            => 'istheweb.shop::lang.email.reactivate',
-            'istheweb.shop::mail.orderconfirm'          => 'istheweb.shop::lang.email.orderconfirm',
-            'istheweb.shop::mail.orderconfirm_admin'    => 'istheweb.shop::lang.email.orderconfirm_admin',
+
         ];
     }
 
@@ -272,19 +145,6 @@ class Plugin extends PluginBase
 
     public function register()
     {
-        /*
-        // Register ServiceProviders
-        App::register('\Gloudemans\Shoppingcart\ShoppingcartServiceProvider');
-        // Register aliases
-        $alias = AliasLoader::getInstance();
-        $alias->alias('Cart', 'Gloudemans\Shoppingcart\Facades');
-        $alias->alias('Checkout', 'Istheweb\Shop\Facades\Checkout');
-
-        App::singleton('checkout.order', function() {
-            return \Istheweb\Shop\Classes\CheckoutManager::instance();
-        });
-        */
-
         BackendMenu::registerContextSidenavPartial('Istheweb.Shop', 'shop', 'plugins/istheweb/shop/partials/_sidebar.htm');
         set_exception_handler([$this, 'handleException']);
     }
@@ -316,95 +176,6 @@ class Plugin extends PluginBase
     public function boot()
     {
 
-        /*
-         * Register menu items for the RainLab.Pages plugin
 
-        Event::listen('pages.menuitem.listTypes', function() {
-            return [
-                'product-category'       => 'istheweb.shop::lang.menuitem.product_category',
-                'all-product-categories' => 'istheweb.shop::lang.menuitem.all_product_categories'
-            ];
-        });
-
-        Event::listen('pages.menuitem.getTypeInfo', function($type) {
-            if ($type == 'product-category' || $type == 'all-product-categories') {
-                return ProductCategory::getMenuTypeInfo($type);
-            }
-        });
-
-        Event::listen('pages.menuitem.resolveItem', function($type, $item, $url, $theme) {
-            if ($type == 'product-category' || $type == 'all-product-categories') {
-                return ProductCategory::resolveMenuItem($item, $url, $theme);
-            }
-        });
-
-        if(!App::runningInBackend()) {
-            return;
-        }
-
-        Event::listen('backend.page.beforeDisplay', function($controller, $action, $params) {
-            $controller->addCss('/plugins/istheweb/shop/assets/css/shop.css');
-            //$controller->addJs('/plugins/istheweb/shop/assets/js/jquery.treeview.js');
-        });
-
-        UserModel::extend(function($model){
-            $model->hasOne['customer'] = ['Istheweb\Shop\Models\Customer'];
-
-            $model->bindEvent('model.beforeDelete', function() use ($model) {
-                $model->customer && $model->customer->delete();
-            });
-
-            $model->addDynamicMethod('getCustomerAddressesOptions', function() use ($model){
-                return Customer::getAddresses($model->customer->id);
-            });
-
-        });
-
-        Country::extend(function($model){
-            $model->belongsToMany['geoZone'] = ['Istheweb\Shop\Models\GeoZone'];
-            $model->hasOne['address'] = ['Istheweb\Shop\Models\Address'];
-        });
-
-        State::extend(function($model){
-            $model->belongsToMany['geoZone'] = ['Istheweb\Shop\Models\GeoZone'];
-            $model->hasOne['address'] = ['Istheweb\Shop\Models\Address'];
-        });
-
-        UserController::extendFormFields(function($form, $model, $context){
-
-            if(!$model instanceof UserModel)
-                return;
-
-            if(!$model->exists) return;
-
-            if(!Customer::getFromUser($model)) return;
-
-
-
-            $form->addTabFields([
-                'customer[username]' => [
-                    'label' => 'istheweb.shop::lang.labels.username',
-                    'span'  => 'auto',
-                    'tab'   => 'istheweb.shop::lang.labels.details',
-                ],
-                'customer[phone]' => [
-                    'label' => 'istheweb.shop::lang.labels.phone',
-                    'span'  => 'auto',
-                    'tab'   => 'istheweb.shop::lang.labels.details',
-                ],
-                'customer[fax]' => [
-                    'label' => 'istheweb.shop::lang.labels.fax',
-                    'span'  => 'auto',
-                    'tab'   => 'istheweb.shop::lang.labels.details',
-                ],
-                'customer[addresses]' => [
-                    'label'     => 'Addresses',
-                    'span'      => 'auto',
-                    'type'      => 'dropdown',
-                    'options'   => 'getCustomerAddressesOptions',
-                    'tab'       => 'istheweb.shop::lang.labels.details',
-                ],
-            ]);
-        });*/
     }
 }

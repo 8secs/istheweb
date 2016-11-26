@@ -11,15 +11,17 @@ class CreateProductsTable extends Migration
         Schema::create('istheweb_shop_products', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('type');
-            $table->string('name')->index();
-            $table->string('slug')->index()->unique();
-            $table->text('caption', 200);
-            $table->text('description');
-            $table->decimal('price', 10, 2)->default(0)->nullable();
-            $table->boolean('on_sale')->default(false);
-            $table->float('discount')->nullable();
-            $table->date('published_at')->default(Carbon::now());
+            $table->string('code')->unique();
+            $table->string('name', 255)->index();
+            $table->string('slug', 255)->index()->unique();
+            $table->string('caption')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('meta_keywords', 255)->nullable();
+            $table->string('meta_description', 255)->nullable();
+            $table->longText('short_description')->nullable();
+            $table->dateTime('availableOn')->nullable();
+            $table->dateTime('availableUntil')->nullable();
+            $table->boolean('enabled');
             $table->timestamps();
         });
     }

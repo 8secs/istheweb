@@ -1,5 +1,6 @@
 <?php namespace Istheweb\Shop\Models;
 
+use Model;
 
 /**
  * Attribute Model
@@ -13,6 +14,11 @@ class Attribute extends Model
     public $table = 'istheweb_shop_attributes';
 
     /**
+     * @var array Guarded fields
+     */
+    protected $guarded = ['*'];
+
+    /**
      * @var array Fillable fields
      */
     protected $fillable = [];
@@ -22,14 +28,10 @@ class Attribute extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'attribute_items'     => 'Istheweb\Shop\Models\AttributeItem'
+        'attributeValues'       => 'Istheweb\Shop\Models\AttributeValue'
     ];
     public $belongsTo = [];
-    public $belongsToMany = [
-        'products' => ['Istheweb\Shop\Models\Product',
-            'table' => 'istheweb_shop_pivots',
-        ],
-    ];
+    public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Option
+
+# Model Form Field configuration
+form: $/istheweb/shop/models/option/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Shop\Models\Option
+
+# Default redirect location
+defaultRedirect: istheweb/shop/options
+
+# Create page
+create:
+    title: Create Option
+    redirect: istheweb/shop/options/update/:id
+    redirectClose: istheweb/shop/options
+
+# Update page
+update:
+    title: Edit Option
+    redirect: istheweb/shop/options
+    redirectClose: istheweb/shop/options
+
+# Preview page
+preview:
+    title: Preview Option

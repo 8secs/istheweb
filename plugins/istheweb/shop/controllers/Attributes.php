@@ -2,52 +2,24 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Istheweb\Shop\Models\Attribute;
 
 /**
  * Attributes Back-end Controller
  */
 class Attributes extends Controller
 {
-    public $requiredPermissions = ['istheweb.shop.access_attributes'];
-
     public $implement = [
         'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController',
-        'Backend.Behaviors.RelationController',
+        'Backend.Behaviors.ListController'
     ];
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
-    public $relationConfig = 'config_relation.yaml';
 
     public function __construct()
     {
         parent::__construct();
 
         BackendMenu::setContext('Istheweb.Shop', 'shop', 'attributes');
-    }
-
-    /**
-     * Deleted checked services.
-     */
-    public function index_onDelete()
-    {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
-
-            foreach ($checkedIds as $categoryId) {
-                if (!$category = Attribute::find($categoryId)) {
-                    continue;
-                }
-
-                $category->delete();
-            }
-
-            Flash::success(Lang::get('istheweb.shop::lang.attributes.delete_selected_success'));
-        } else {
-            Flash::error(Lang::get('istheweb.shop::lang.attributes.delete_selected_empty'));
-        }
-
-        return $this->listRefresh();
     }
 }

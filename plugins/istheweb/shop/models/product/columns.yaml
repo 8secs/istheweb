@@ -9,9 +9,12 @@ columns:
     slug:
         label: istheweb.shop::lang.labels.slug
         searchable: true
-    published_at:
-        label: istheweb.shop::lang.labels.published_at
+    code:
+        label: istheweb.shop::lang.labels.code
+        searchable: true
+    availableOn:
+        label: istheweb.shop::lang.labels.available_on
         type: date
-    updated_at:
-        label: istheweb.shop::lang.labels.updated_at
+    availableUntil:
+        label: istheweb.shop::lang.labels.available_until
         type: date

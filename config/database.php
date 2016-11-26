@@ -56,7 +56,7 @@ return [
             'driver'    => 'mysql',
             'host'      => 'localhost',
             'port'      => '3306',
-            'database'  => 'itw-dev',
+            'database'  => 'istheweb_sylius',
             'username'  => 'root',
             'password'  => 'root',
             'charset'   => 'utf8',

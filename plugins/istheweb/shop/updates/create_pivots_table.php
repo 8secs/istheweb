@@ -15,13 +15,10 @@ use Schema;
 class CreatePivotsTable extends Migration
 {
     public $models = [
-        'attribute',
         'product',
-        'product_variant',
-        'order',
-        'category',
-        'coupon',
-        'feature',
+        'option',
+        'option_value',
+        'variant',
     ];
 
     public function up()

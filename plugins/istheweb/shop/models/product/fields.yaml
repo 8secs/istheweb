@@ -14,12 +14,22 @@ fields:
         preset:
             field: name
             type: slug
-    type:
-        label: istheweb.shop::lang.labels.type
+    code:
+        label: istheweb.shop::lang.labels.code
         span: auto
-        type: dropdown
-    published_at:
-        label: istheweb.shop::lang.labels.published_at
+        type: text
+    enabled:
+        label: istheweb.shop::lang.labels.enabled
+        type: switch
+        span: right
+        tab: istheweb.shop::lang.labels.description
+    availableOn:
+        label: istheweb.shop::lang.labels.available_on
+        type: datepicker
+        mode: date
+        span: auto
+    availableUntil:
+        label: istheweb.shop::lang.labels.available_until
         type: datepicker
         mode: date
         span: auto
@@ -28,6 +38,7 @@ tabs:
   fields:
     caption:
         type: richeditor
+        size: huge
         label: istheweb.shop::lang.labels.caption
         span: auto
         tab: istheweb.shop::lang.labels.description
@@ -37,55 +48,21 @@ tabs:
         label: istheweb.shop::lang.labels.description
         span: auto
         tab: istheweb.shop::lang.labels.description
-    on_sale:
-        label: istheweb.shop::lang.labels.sale
-        type: switch
-        span: right
-        tab: istheweb.shop::lang.labels.description
-    price:
-        label: istheweb.shop::lang.labels.price
-        type: number
-        span: left
-        cssClass: padded
-        tab: istheweb.shop::lang.labels.description
-    discount:
-        label: istheweb.shop::lang.labels.discount_price
-        type: number
-        span: right
-        cssClass: padded
-        tab: istheweb.shop::lang.labels.description
-        trigger:
-              action: show
-              field: on_sale
-              condition: checked
-    categories:
-        label: istheweb.shop::lang.categories.menu_label
-        type: partial
-        path: field_categories
-        tab: istheweb.shop::lang.categories.menu_label
-    features:
-        label: istheweb.shop::lang.features.menu_label
-        type: partial
-        path: field_features
-        tab: istheweb.shop::lang.features.menu_label
-    product_variants:
-        label: Variaciones
-        type: partial
-        path: field_product_variants
-        tab: Variaciones
-    picture:
-        label: istheweb.shop::lang.labels.picture
-        type: fileupload
-        mode: image
+    meta_keywords:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.meta_keywords
         span: auto
-        imageHeight: 260
-        imageWidth: 260
-        tab: istheweb.shop::lang.labels.attachments
-    pictures:
-        label: istheweb.shop::lang.labels.pictures
-        type: fileupload
-        mode: image
+        tab: istheweb.shop::lang.labels.seo
+    meta_description:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.meta_description
         span: auto
-        imageHeight: 260
-        imageWidth: 260
-        tab: istheweb.shop::lang.labels.attachments
+        tab: istheweb.shop::lang.labels.seo
+    short_description:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.short_description
+        span: auto
+        tab: istheweb.shop::lang.labels.seo

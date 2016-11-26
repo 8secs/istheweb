@@ -1,6 +1,5 @@
 <?php namespace Istheweb\Shop\Updates;
 
-use Carbon\Carbon;
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
@@ -12,9 +11,12 @@ class CreateAttributesTable extends Migration
         Schema::create('istheweb_shop_attributes', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('value')->nullable();
-            $table->date('published_at')->default(Carbon::now());
+            $table->string('code')->unique();
+            $table->string('name');
+            $table->string('type');
+            $table->string('storage_type');
+            $table->longText('configuration');
+
             $table->timestamps();
         });
     }
