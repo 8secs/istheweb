@@ -3,6 +3,66 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+
+    code:
+        label: istheweb.shop::lang.labels.code
+        type: text
+    availableOn:
+        label: istheweb.shop::lang.labels.available_on
+        type: datepicker
+        mode: date
+        span: auto
+    availableUntil:
+        label: istheweb.shop::lang.labels.available_until
+        type: datepicker
+        mode: date
+        span: auto
+    optionSection:
+        label: Optiones del producto
+        type: section
+        comment: Esta seccion contiene las opciones de este elemento.
+    optionsValues:
+        type: partial
+        path: field_values
+    precios_section:
+        label: Precios
+        type: section
+        comment: Esta seccion contiene los precios de este elemento.
+    pricing_calculator:
+        label: istheweb.shop::lang.labels.pricing_calculator
+        span: auto
+        type: dropdown
+    price:
+        label: istheweb.shop::lang.labels.price
+        type: number
+        span: left
+        cssClass: padded
+    on_hand:
+        label: istheweb.shop::lang.labels.on_hand
+        type: number
+        span: auto
+    tracked:
+        label: istheweb.shop::lang.labels.tracked
+        type: switch
+    propiedades:
+        label: Propiedades
+        type: section
+        comment: Esta seccion contiene las propiedades de este elemento.
+    width:
+        label: Width
+        span: auto
+        type: number
+    height:
+        label: Height
+        span: auto
+        type: number
+    depth:
+        label: Depth
+        span: auto
+        type: number
+    weight:
+        label: Weight
+        span: auto
+        type: number
+
+

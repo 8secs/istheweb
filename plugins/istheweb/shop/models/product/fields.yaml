@@ -7,32 +7,32 @@ fields:
         label: istheweb.shop::lang.labels.name
         span: auto
         type: text
-    slug:
-        label: istheweb.shop::lang.labels.slug
-        span: right
-        required: true
-        preset:
-            field: name
-            type: slug
     code:
         label: istheweb.shop::lang.labels.code
         span: auto
         type: text
+    slug:
+        label: istheweb.shop::lang.labels.slug
+        span: auto
+        required: true
+        preset:
+            field: name
+            type: slug
     enabled:
         label: istheweb.shop::lang.labels.enabled
         type: switch
         span: right
-        tab: istheweb.shop::lang.labels.description
-    availableOn:
+    available_on:
         label: istheweb.shop::lang.labels.available_on
         type: datepicker
         mode: date
         span: auto
-    availableUntil:
+    available_until:
         label: istheweb.shop::lang.labels.available_until
         type: datepicker
         mode: date
         span: auto
+
 
 tabs:
   fields:
@@ -48,6 +48,46 @@ tabs:
         label: istheweb.shop::lang.labels.description
         span: auto
         tab: istheweb.shop::lang.labels.description
+    attributeValues:
+        type: partial
+        path: field_attribute_values
+        tab:  istheweb.shop::lang.labels.attributes
+    #att_values:
+    #    type: repeater
+    #    tab: istheweb.shop::lang.labels.attributes
+    #   form:
+    #      fields:
+    #        attribute_id:
+    #          label: attribute
+    #          type: dropdown
+    #          nameFrom: name
+    #        value:
+    #          label: Valor
+    #          type: text
+    #          label: value
+    options_section:
+        label: Opciones del producto
+        type: section
+        span: auto
+        comment: Esta seccion contiene las opciones de este elemento.
+        tab: Opciones y Variantes
+    variants_section:
+        label: Variantes del producto
+        type: section
+        span: auto
+        comment: Esta seccion contiene las variantes de este elemento. Para poder acceder a las variantes, primero tienes que crear un producto y sus opciones.
+        tab: Opciones y Variantes
+    options:
+        type: partial
+        path: field_options
+        span: auto
+        tab: Opciones y Variantes
+    variants:
+        type: partial
+        path: field_variants
+        span: auto
+        context: update
+        tab: Opciones y Variantes
     meta_keywords:
         type: richeditor
         size: huge

@@ -65,6 +65,14 @@ class Plugin extends PluginBase
                         'permissions' => ['istheweb.shop.access_attributes'],
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
                         'description' => 'istheweb.shop::lang.attributes.description',
+                    ],
+                    'options'     => [
+                        'label'       => 'istheweb.shop::lang.options.menu_label',
+                        'icon'        => 'icon-cubes',
+                        'url'         => Backend::url('istheweb/shop/options'),
+                        'permissions' => ['istheweb.shop.access_options'],
+                        'group'       => 'istheweb.shop::lang.sidebar.catalog',
+                        'description' => 'istheweb.shop::lang.options.description',
                     ]
                 ],
             ],
@@ -105,6 +113,10 @@ class Plugin extends PluginBase
             ],
             'istheweb.shop.access_attributes'     => [
                 'label' => 'istheweb.shop::lang.attribute.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_options'     => [
+                'label' => 'istheweb.shop::lang.option.list_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
             ]
         ];

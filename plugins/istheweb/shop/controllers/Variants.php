@@ -4,9 +4,9 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Options Back-end Controller
+ * Variants Back-end Controller
  */
-class Options extends Controller
+class Variants extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -22,6 +22,6 @@ class Options extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Istheweb.Shop', 'shop', 'options');
+        BackendMenu::setContext('Istheweb.Shop', 'shop', 'variants');
     }
 }

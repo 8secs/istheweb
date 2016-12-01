@@ -1,6 +1,5 @@
 <?php namespace Istheweb\Shop\Models;
 
-use Model;
 
 /**
  * Option Model

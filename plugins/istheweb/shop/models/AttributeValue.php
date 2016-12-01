@@ -1,6 +1,5 @@
 <?php namespace Istheweb\Shop\Models;
 
-use Model;
 
 /**
  * AttributeValue Model
@@ -12,11 +11,6 @@ class AttributeValue extends Model
      * @var string The database table used by the model.
      */
     public $table = 'istheweb_shop_attribute_values';
-
-    /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
 
     /**
      * @var array Fillable fields

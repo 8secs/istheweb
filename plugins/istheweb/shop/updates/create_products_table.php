@@ -19,8 +19,9 @@ class CreateProductsTable extends Migration
             $table->string('meta_keywords', 255)->nullable();
             $table->string('meta_description', 255)->nullable();
             $table->longText('short_description')->nullable();
-            $table->dateTime('availableOn')->nullable();
-            $table->dateTime('availableUntil')->nullable();
+            $table->dateTime('available_on')->nullable();
+            $table->dateTime('available_until')->nullable();
+            $table->longText('att_values')->nullable();
             $table->boolean('enabled');
             $table->timestamps();
         });

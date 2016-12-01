@@ -3,6 +3,11 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    code:
+        label: istheweb.shop::lang.labels.code
+        span: auto
+        type: text
+    value:
+        label: istheweb.shop::lang.labels.value
+        span: right
+        required: true

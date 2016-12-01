@@ -1,14 +1,8 @@
 <?php namespace Istheweb\Shop\Models;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Sylius\Component\Archetype\Model\ArchetypeInterface;
-use Sylius\Component\Archetype\Model\ArchetypeSubjectInterface;
-use Sylius\Component\Attribute\Model\AttributeValueInterface;
+
 use Sylius\Component\Product\Model\DateRange;
-use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ToggleableTrait;
-use Sylius\Component\Variation\Model\OptionInterface;
-use Sylius\Component\Variation\Model\VariantInterface;
+
 
 /**
  * Product Model
@@ -27,13 +21,15 @@ class Product extends Model
      */
     protected $fillable = [];
 
+    protected $jsonable = ['att_values'];
+
     /**
      * @var array Relations
      */
     public $hasOne = [];
     public $hasMany = [
-        'attributes'        => 'Istheweb/Shop/Models/AttributeValue',
-        'variants'          => 'Istheweb/Shop/Models/Variant'
+        'attributeValues'           => 'Istheweb\Shop\Models\AttributeValue',
+        'variants'                  => 'Istheweb\Shop\Models\Variant'
     ];
     public $belongsTo = [];
     public $belongsToMany = [
@@ -49,7 +45,7 @@ class Product extends Model
 
     public function __construct()
     {
-        $this->availableOn = new \DateTime();
+        $this->available_on = new \DateTime();
     }
 
     /**
@@ -57,9 +53,19 @@ class Product extends Model
      */
     public function isAvailable()
     {
-        return (new DateRange($this->availableOn, $this->availableUntil))->isInRange();
+        return (new DateRange($this->available_on, $this->available_until))->isInRange();
     }
 
+    public static function getAttributeIdOptions()
+    {
+        $attributes = Attribute::getAllAtributes();
+        //dd($attributes);
+        return $attributes;
+    }
 
+    public function beforeSave()
+    {
+        //dd(post());
+    }
 
 }

@@ -16,12 +16,12 @@ class CreateVariantsTable extends Migration
             $table->string('name');
             $table->dateTime('availableOn')->nullable();
             $table->dateTime('availableUntil')->nullable();
-            $table->integer('on_hold');
-            $table->integer('on_hand');
-            $table->tinyInteger('tracked');
+            $table->integer('on_hold')->nullable();
+            $table->integer('on_hand')->nullable();
+            $table->tinyInteger('tracked')->default(0);
             $table->integer('price');
             $table->string('pricing_calculator', 255);
-            $table->longText('pricing_configuration');
+            $table->longText('pricing_configuration')->nullable();
             $table->double('width')->nullable();
             $table->double('height')->nullable();
             $table->double('depth')->nullable();

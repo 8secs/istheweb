@@ -1,0 +1,8 @@
+values:
+    label: istheweb.shop::lang.option.menu_label
+    manage:
+        form: $/istheweb/shop/models/optionvalue/fields.yaml
+        list: $/istheweb/shop/models/optionvalue/columns.yaml
+    view:
+        list: $/istheweb/shop/models/optionvalue/columns.yaml
+        toolbarButtons: create|delete

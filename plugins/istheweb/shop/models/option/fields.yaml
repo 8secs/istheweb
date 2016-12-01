@@ -3,6 +3,18 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    name:
+        label: istheweb.shop::lang.labels.name
+        span: auto
+        type: text
+    code:
+        label: istheweb.shop::lang.labels.code
+        span: auto
+        type: text
+
+tabs:
+  fields:
+    values:
+      label: istheweb.shop::lang.labels.values
+      type: partial
+      path: field_values
