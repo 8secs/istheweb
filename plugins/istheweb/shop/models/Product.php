@@ -1,15 +1,12 @@
 <?php namespace Istheweb\Shop\Models;
 
-use Sylius\Component\Product\Model\DateRange;
-use Sylius\Component\Resource\Model\ToggleableTrait;
 
 
 /**
  * Product Model
  */
-class Product extends Model
+class Product extends Base
 {
-    use ToggleableTrait;
 
     /**
      * @var string The database table used by the model.
@@ -19,9 +16,9 @@ class Product extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['name'];
 
-    protected $jsonable = ['att_values'];
+    //protected $jsonable = ['att_values'];
 
     /**
      * @var array Relations
@@ -43,17 +40,13 @@ class Product extends Model
     public $attachOne = [];
     public $attachMany = [];
 
-    public function __construct()
-    {
-        $this->available_on = new \DateTime();
-    }
 
     /**
      * {@inheritdoc}
      */
     public function isAvailable()
     {
-        return (new DateRange($this->available_on, $this->available_until))->isInRange();
+        //return (new DateRange($this->available_on, $this->available_until))->isInRange();
     }
 
     public static function getAttributeIdOptions()

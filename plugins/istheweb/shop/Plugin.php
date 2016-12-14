@@ -129,6 +129,20 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerFormWidgets()
+    {
+        return [
+            'Istheweb\Shop\FormWidgets\ProductVariantOptions'  => [
+                'label' => 'istheweb.shop::lang.product.options',
+                'code'  => 'product_variant_options'
+            ],
+            'Istheweb\Shop\FormWidgets\ProductAttributeValues'  => [
+                'label' => 'istheweb.shop::lang.product.attributes',
+                'code'  => 'product_attribute_options'
+            ]
+        ];
+    }
+
     public function registerSettings()
     {
         return[];

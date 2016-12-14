@@ -22,8 +22,10 @@ fields:
         type: section
         comment: Esta seccion contiene las opciones de este elemento.
     optionsValues:
-        type: partial
-        path: field_values
+        type: product_variant_options
+    #optionsValues:
+        #type: partial
+        #path: field_values
     precios_section:
         label: Precios
         type: section

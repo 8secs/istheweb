@@ -1,10 +1,12 @@
 <?php namespace Istheweb\Shop\Models;
 
+use Request;
+
 
 /**
  * Variant Model
  */
-class Variant extends Model
+class Variant extends Base
 {
 
     /**
@@ -15,7 +17,15 @@ class Variant extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'code',
+        'name',
+        'availableOn',
+        'pricing_calculator',
+        'price',
+        'on_hand',
+        'tracked',
+    ];
 
     /**
      * @var array Relations
@@ -46,5 +56,25 @@ class Variant extends Model
     public function getProductsOptions(){
         $products = Product::all()->lists('name', 'id');
         return $products;
+    }
+
+    public function beforeSave()
+    {
+        $manage_id = post('manage_id');
+        if(!isset($manage_id)){
+            $path = explode('/', Request::path());
+            $id = last($path);
+            $product = Product::find($id);
+            $this->product = $product;
+            $name = $product->name;
+            $variant = post('Variant');
+            $options = $variant['optionsValues'];
+            foreach ($options as $k => $v){
+                $ov = OptionValue::find($v);
+                $name .= ' - ' . $ov->value;
+                $this->optionsValues()->add($ov);
+            }
+            $this->name = $name;
+        }
     }
 }

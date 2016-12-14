@@ -1,10 +1,9 @@
 <?php namespace Istheweb\Shop\Models;
 
-
 /**
  * Attribute Model
  */
-class Attribute extends Model
+class Attribute extends Base
 {
 
     /**

@@ -1,6 +1,10 @@
 <?php namespace Istheweb\Shop\Models;
 
 
+use October\Rain\Database\Model;
+use Request;
+
+
 /**
  * AttributeValue Model
  */
@@ -15,7 +19,18 @@ class AttributeValue extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        /*'boolean_value',
+        'text_value',
+        'date_value',
+        'datetime_value',
+        'integer_value',*/
+    ];
+
+    /**
+     * @var array Guarded fields
+     */
+    protected $guarded = ['*'];
 
     /**
      * @var array Relations
@@ -32,5 +47,30 @@ class AttributeValue extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+
+    public function beforeSave()
+    {
+
+        $attr = Attribute::find(post('attributes'));
+
+        if($attr->type == 'checkbox') $type = 'boolean_value';
+        else $type = $attr->type."_value";
+
+        if($this->attribute && $this->attribute->id != $attr->id) {
+
+            if($this->attribute->type == 'checkbox') $old_type = 'boolean_value';
+            else $old_type = $this->attribute->type."_value";
+            $this->{$old_type} = null;
+        }
+        $this->attribute = $attr;
+        if(isset($this->attributes['model'])){
+
+            $model = $this->attributes['model'];
+            if($model == 'on') $this->{$type} = 1;
+            else $this->{$type} = $model;
+            array_forget($this->attributes, 'model');
+        }
+    }
 
 }

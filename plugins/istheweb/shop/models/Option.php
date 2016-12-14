@@ -4,7 +4,7 @@
 /**
  * Option Model
  */
-class Option extends Model
+class Option extends Base
 {
 
     /**
