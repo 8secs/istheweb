@@ -1,0 +1,52 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: istheweb.iscorporate::lang.labels.name
+        span: auto
+    code:
+        label: istheweb.iscorporate::lang.labels.code
+        type: text
+        span: auto
+    availableOn:
+        label: istheweb.iscorporate::lang.labels.available_on
+        type: datepicker
+        mode: date
+        span: auto
+    availableUntil:
+        label: istheweb.iscorporate::lang.labels.available_until
+        type: datepicker
+        mode: date
+        span: auto
+    optionSection:
+        label: istheweb.iscorporate::lang.options.menu_label
+        type: section
+        comment: istheweb.iscorporate::lang.options.comment
+    optionsValues:
+        type: project_variant_options
+    #optionsValues:
+        #type: partial
+        #path: field_values
+    precios_section:
+        label: istheweb.iscorporate::lang.labels.prices
+        type: section
+        comment: istheweb.iscorporate::lang.labels.prices_section_comment
+    pricing_calculator:
+        label: istheweb.iscorporate::lang.labels.pricing_calculator
+        span: auto
+        type: dropdown
+    price:
+        label: istheweb.iscorporate::lang.labels.price
+        type: number
+        span: auto
+        cssClass: padded
+    #on_hand:
+        #label: istheweb.iscorporate::lang.labels.on_hand
+        #type: number
+        #span: auto
+    #tracked:
+        #label: istheweb.iscorporate::lang.labels.tracked
+        #type: switch

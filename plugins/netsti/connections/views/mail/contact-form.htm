@@ -1,0 +1,43 @@
+subject = New Contact
+==
+{{ 'netsti.connections::lang.fields.name'|lang }} : {{ data.name }}
+
+{{ 'netsti.connections::lang.fields.email'|lang }} : {{ data.email }}
+
+{% if data.phone %}
+{{ 'netsti.connections::lang.fields.phone'|lang }} : {{ data.phone }}
+{% endif %} 
+
+{% if data.company %}
+{{ 'netsti.connections::lang.fields.company'|lang }} : {{ data.company }}
+{% endif %}
+
+{% if data.subject %}
+{{ 'netsti.connections::lang.fields.subject'|lang }} : {{ data.subject }}
+{% endif %}
+
+{{ 'netsti.connections::lang.fields.message'|lang }} : {{ data.message }}
+==
+{{ header|raw }}
+<tr>
+	<td class="content-block">
+		<p>{{ 'netsti.connections::lang.fields.name'|lang }} : {{ data.name }}</p>
+		
+		<p>{{ 'netsti.connections::lang.fields.email'|lang }} : {{ data.email }}</p>
+		
+		{% if data.phone %}
+		<p>{{ 'netsti.connections::lang.fields.phone'|lang }} : {{ data.phone }}</p>
+		{% endif %} 
+		
+		{% if data.company %}
+		<p>{{ 'netsti.connections::lang.fields.company'|lang }} : {{ data.company }}</p>
+		{% endif %}
+
+		{% if data.subject %}
+		<p>{{ 'netsti.connections::lang.fields.subject'|lang }} : {{ data.subject }}</p>
+		{% endif %}
+
+		<p>{{ 'netsti.connections::lang.fields.message'|lang }} : {{ data.message }}</p>
+	</td>
+</tr>
+{{ footer|raw }}

@@ -1,0 +1,38 @@
+fields:
+    name:
+        label: 'netsti.connections::lang.fields.name'
+        span: auto
+        type: text
+        cssClass: 'oc-icon-user'
+    email:
+        label: 'netsti.connections::lang.fields.email'
+        span: auto
+        type: text
+        cssClass: 'oc-icon-at'
+    phone:
+        label: 'netsti.connections::lang.fields.phone'
+        span: auto
+        type: text
+        cssClass: 'oc-icon-phone'
+    company:
+        label: 'netsti.connections::lang.fields.company'
+        span: auto
+        type: text
+        cssClass: 'oc-icon-bank'
+    created_at:
+        label: 'netsti.connections::lang.fields.date'
+        mode: datetime
+        span: auto
+        type: datepicker
+        cssClass: 'oc-icon-calendar-o'
+    subject:
+        label: 'netsti.connections::lang.fields.subject'
+        span: auto
+        type: text
+        cssClass: 'oc-icon-edit'
+    message:
+        label: 'netsti.connections::lang.fields.message'
+        size: small
+        span: full
+        type: textarea
+        cssClass: 'oc-icon-comments'

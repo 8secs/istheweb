@@ -1,0 +1,34 @@
+0.0.1:
+    - 'Initialize plugin.'
+1.0.0:
+    - 'Create Tables'
+    - create_calendars_table.php
+    - create_companies_table.php
+    - create_contacts_table.php
+    - create_events_table.php
+    - create_inbox_table.php
+    - create_subscribers_table.php
+1.0.1:
+    - 'Add New Fields to Events'
+    - update_events_tables.php
+1.0.2:
+    - 'Subscribers Fixed when Name is empty'
+1.0.3:
+    - 'Add Calendar Components and Timeline View in Events'
+1.0.4:
+    - 'Add New Fields to Contacts and Companies'
+    - update_contact_tables.php
+1.0.5:
+    - 'Fixed the ModalFormBehavior and Import Fields'
+1.0.6:
+    - 'Add Import all contacts from Company'
+1.0.7:
+    - 'Email template and minors fixed'
+1.0.8:
+    - 'Mailchimp integration and minor fixes'
+1.0.9:
+    - 'Fix the company function integration'
+1.1.0:
+    - 'Fix language errors'
+1.1.1:
+    - 'Fix address field'

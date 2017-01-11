@@ -1,0 +1,10 @@
+<div class="control-breadcrumb">
+	<ul><li><?= trans('netsti.connections::lang.manage') ?></li></ul>
+    <h2 style="color:white; margin-top:4px"><?= e($this->pageTitle) ?></h2>
+    <ul>
+    	<li><a href="<?= Backend::url('netsti/connections/events') ?>"><?= trans('netsti.connections::lang.menu.events') ?></a></li>
+		<li><?= e($this->pageTitle) ?></li>
+	</ul>
+</div>
+
+<?= $this->listRender() ?>

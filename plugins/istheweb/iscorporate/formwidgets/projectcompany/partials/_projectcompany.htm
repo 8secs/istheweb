@@ -1,0 +1,24 @@
+<?php if ($this->previewMode): ?>
+<p>jdSKSF</p>
+<div class="form-control">
+    <?= $value ?>
+</div>
+
+<?php else: ?>
+    <?php if($this->model->client): ?>
+        <p>Hay client</p>
+    <?php else :  ?>
+        <p>No hay client</p>
+    <?php endif ?>
+
+    <div class="control-toolbar">
+        <div class="toolbar-item toolbar-primary">
+            <div data-control="toolbar">
+                <button type="button" class="btn btn-primary oc-icon-plus">Create post</button>
+            </div>
+        </div>
+    </div>
+
+    <?php print_r(dump($this->model->client)) ?>
+
+<?php endif ?>

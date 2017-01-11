@@ -1,0 +1,15 @@
+columns:
+    name:
+      label: 'netsti.connections::lang.fields.name'
+    email:
+      label: 'netsti.connections::lang.fields.email'
+    phone:
+      label: 'netsti.connections::lang.fields.phone'
+    company:
+      label: 'netsti.connections::lang.fields.company'
+    created_at:
+      label: 'netsti.connections::lang.fields.date'
+    subject:
+      label: 'netsti.connections::lang.fields.subject'
+    message:
+      label: 'netsti.connections::lang.fields.message'

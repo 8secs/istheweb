@@ -1,0 +1,14 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: 'netsti.connections::lang.import'
+    modelClass: NetSTI\Connections\Models\SubscriberImport
+    list: $/netsti/connections/models/subscriber/columns.yaml
+
+export:
+    title: 'netsti.connections::lang.export'
+    modelClass: NetSTI\Connections\Models\SubscriberExport
+    list: $/netsti/connections/models/subscriber/columns.yaml
+    fileName: subscriptions.csv

@@ -1,0 +1,97 @@
+fields:
+    section1:
+        label: 'netsti.connections::lang.fields.company'
+        span: full
+        type: section
+    logo:
+        label: 'netsti.connections::lang.fields.logo'
+        mode: image
+        imageWidth: 320
+        imageHeight: 120
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        type: fileupload
+    name:
+        label: 'netsti.connections::lang.fields.name'
+        span: left
+        type: text
+    slogan:
+        label: 'netsti.connections::lang.fields.slogan'
+        span: left
+        type: text
+    section2:
+        label: 'netsti.connections::lang.fields.details'
+        span: full
+        type: section
+    address:
+        label: 'netsti.connections::lang.fields.address'
+        size: tiny
+        span: full
+        type: textarea
+    phone:
+        label: 'netsti.connections::lang.fields.phone'
+        span: auto
+        type: text
+    email:
+        label: 'netsti.connections::lang.fields.email'
+        span: auto
+        type: text
+    section3:
+        label: 'netsti.connections::lang.fields.accounting'
+        span: full
+        type: section
+    company_name_nid:
+        label: 'netsti.connections::lang.fields.alias_id'
+        span: auto
+        type: text
+        default: 'NID'
+    company_nid:
+        label: 'netsti.connections::lang.fields.company_id'
+        span: auto
+        type: text
+    section_social:
+        label: 'netsti.connections::lang.fields.social_networks'
+        span: full
+        type: section
+    social:
+        span: full
+        type: repeater
+        form:
+            fields:
+                network:
+                    label: 'netsti.connections::lang.fields.network'
+                    span: auto
+                    options:
+                        appstore: App Store
+                        deviant: Deviant Art
+                        ebay: eBay
+                        github: Github
+                        linkedin: LinkedIn
+                        rss: RSS
+                        tumblr: Tumblr
+                        wordpress: Wordpress
+                        behance: BeHance
+                        dribble: Dribble
+                        facebook: Facebook
+                        gplus: Google Plus
+                        pinterest: Pinterest
+                        instagram: Instragram
+                        skype: Skype
+                        reddit: Reddit
+                        twitter: Twitter
+                        youtube: Youtube
+                        blogger: Blogger
+                        dropbox: Dropbox
+                        gdrive: Google Drive
+                        playstore: Play Store
+                        soundcloud: Sound Cloud
+                        mail: Email
+                        vimeo: Vimeo
+                    type: dropdown
+                url:
+                    label: 'netsti.connections::lang.fields.url'
+                    span: auto
+                    type: text

@@ -8,6 +8,10 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
+        'edc6464955a37aa4d5fbf39d40fb6ee7' => __DIR__ . '/..' . '/symfony/polyfill-php55/bootstrap.php',
+        '3e2471375464aac821502deb0ac64275' => __DIR__ . '/..' . '/symfony/polyfill-php54/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
@@ -24,17 +28,25 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php55\\' => 23,
+            'Symfony\\Polyfill\\Php54\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Iconv\\' => 23,
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\PropertyAccess\\' => 33,
+            'Symfony\\Component\\OptionsResolver\\' => 34,
+            'Symfony\\Component\\Intl\\' => 23,
+            'Symfony\\Component\\HttpFoundation\\' => 33,
+            'Symfony\\Component\\Form\\' => 23,
             'Symfony\\Component\\ExpressionLanguage\\' => 37,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Sylius\\Component\\Variation\\' => 27,
             'Sylius\\Component\\Resource\\' => 26,
             'Sylius\\Component\\Registry\\' => 26,
             'Sylius\\Component\\Product\\' => 25,
+            'Sylius\\Component\\Inventory\\' => 27,
+            'Sylius\\Component\\Channel\\' => 25,
             'Sylius\\Component\\Attribute\\' => 27,
             'Sylius\\Component\\Association\\' => 29,
             'Sylius\\Component\\Archetype\\' => 27,
@@ -66,6 +78,14 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'Symfony\\Polyfill\\Php55\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php55',
+        ),
+        'Symfony\\Polyfill\\Php54\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php54',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -85,6 +105,22 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
         'Symfony\\Component\\PropertyAccess\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/property-access',
+        ),
+        'Symfony\\Component\\OptionsResolver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/options-resolver',
+        ),
+        'Symfony\\Component\\Intl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/intl',
+        ),
+        'Symfony\\Component\\HttpFoundation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-foundation',
+        ),
+        'Symfony\\Component\\Form\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/form',
         ),
         'Symfony\\Component\\ExpressionLanguage\\' => 
         array (
@@ -109,6 +145,14 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
         'Sylius\\Component\\Product\\' => 
         array (
             0 => __DIR__ . '/..' . '/sylius/product',
+        ),
+        'Sylius\\Component\\Inventory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/inventory',
+        ),
+        'Sylius\\Component\\Channel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sylius/channel',
         ),
         'Sylius\\Component\\Attribute\\' => 
         array (
@@ -195,12 +239,23 @@ class ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac
         ),
     );
 
+    public static $classMap = array (
+        'CallbackFilterIterator' => __DIR__ . '/..' . '/symfony/polyfill-php54/Resources/stubs/CallbackFilterIterator.php',
+        'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
+        'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/IntlDateFormatter.php',
+        'Locale' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Locale.php',
+        'NumberFormatter' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/NumberFormatter.php',
+        'RecursiveCallbackFilterIterator' => __DIR__ . '/..' . '/symfony/polyfill-php54/Resources/stubs/RecursiveCallbackFilterIterator.php',
+        'SessionHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php54/Resources/stubs/SessionHandlerInterface.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit38e9a76f16ee89bc772c6787631d6cac::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,0 +1,24 @@
+<form data-request="{{ __SELF__ }}::onSubscribeForm" data-request-success="$('#subscribe-form-submit').button('reset')" role="form" class="form-contact {% if __SELF__.props.ifInline %}form-inline{% endif %}" novalidate>
+	<div id="subscribe-form-render">
+		<div class="form-group">
+		{% if __SELF__.props.style == "all" %}
+			<input type="text" name="name" class="{{ __SELF__.props.inputClass }}" placeholder="{{ __SELF__.fields.name }}">
+			<input type="email" name="email" class="{{ __SELF__.props.inputClass }}" placeholder="{{ __SELF__.fields.email }}">
+			<button onclick="$(this).button('loading')" id="subscribe-form-submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> {{ __SELF__.fields.wait }} ..." type="submit" class="{{ __SELF__.props.submitClass }}">{{ __SELF__.fields.subscribe }}</button>
+		{% elseif __SELF__.props.style == "email" %}
+			<input type="hidden" name="name" value="Anonymous">
+			<input type="email" name="email" class="{{ __SELF__.props.inputClass }}" placeholder="{{ __SELF__.fields.email }}">
+			<button onclick="$(this).button('loading')" id="subscribe-form-submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> {{ __SELF__.fields.wait }} ..." type="submit" class="{{ __SELF__.props.submitClass }}">{{ __SELF__.fields.subscribe }}</button>
+		{% elseif __SELF__.props.style == "emailgroup" %}
+			<div class="input-group">
+				<input type="hidden" name="name" value="Anonymous">
+				<input type="email" name="email" class="{{ __SELF__.props.inputClass }}" placeholder="{{ __SELF__.fields.email }}">
+				<span class="input-group-btn">
+					<button onclick="$(this).button('loading')" id="subscribe-form-submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> {{ __SELF__.fields.wait }} ..." type="submit" class="{{ __SELF__.props.submitClass }}">{{ __SELF__.fields.subscribe }}</button>
+				</span>
+			</div>
+		{% endif %}
+		</div>
+		<div id="subscribe-form-alert"></div>
+	</div>
+</form>

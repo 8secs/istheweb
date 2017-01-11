@@ -1,0 +1,14 @@
+name: 'netsti.connections::lang.menu.company'
+modelClass: NetSTI\Connections\Models\Company
+form: ~/plugins/netsti/connections/models/company/fields.yaml
+defaultRedirect: netsti/connections/companies
+create:
+    title: 'netsti.connections::lang.create'
+    redirect: 'netsti/connections/companies/update/:id'
+    redirectClose: netsti/connections/companies
+update:
+    title: 'netsti.connections::lang.update'
+    redirect: netsti/connections/companies
+    redirectClose: netsti/connections/companies
+preview:
+    title: 'netsti.connections::lang.preview'

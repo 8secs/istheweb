@@ -1,0 +1,14 @@
+name: 'netsti.connections::lang.menu.inbox'
+modelClass: NetSTI\Connections\Models\Inbox
+form: $/netsti/connections/models/inbox/fields.yaml
+defaultRedirect: netsti/connections/inboxes
+create:
+    title: 'netsti.connections::lang.create'
+    redirect: netsti/connections/inboxes
+    redirectClose: netsti/connections/inboxes
+update:
+    title: 'netsti.connections::lang.update'
+    redirect: netsti/connections/inboxes
+    redirectClose: netsti/connections/inboxes
+preview:
+    title: 'netsti.connections::lang.preview'

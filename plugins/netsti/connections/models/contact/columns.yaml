@@ -1,0 +1,40 @@
+columns:
+    name:
+        label: 'netsti.connections::lang.fields.name'
+        type: text
+        searchable: true
+        sortable: true
+    company:
+        label: 'netsti.connections::lang.fields.company'
+        relation: company
+        select: name
+        searchable: true
+        sortable: true
+    state:
+        label: 'netsti.connections::lang.fields.state'
+        type: text
+        searchable: true
+        sortable: true
+        invisible: true
+    city:
+        label: 'netsti.connections::lang.fields.city'
+        type: text
+        searchable: true
+        sortable: true
+        invisible: true
+    country:
+        label: 'netsti.connections::lang.fields.country'
+        type: text
+        searchable: true
+        sortable: true
+        invisible: true
+    email:
+        label: 'netsti.connections::lang.fields.email'
+        type: text
+        searchable: true
+        sortable: true
+    phone:
+        label: 'netsti.connections::lang.fields.phone'
+        type: text
+        searchable: true
+        sortable: true

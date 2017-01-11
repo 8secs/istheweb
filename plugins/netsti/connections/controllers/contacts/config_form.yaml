@@ -1,0 +1,14 @@
+name: 'netsti.connections::lang.menu.contact'
+modelClass: NetSTI\Connections\Models\Contact
+form: ~/plugins/netsti/connections/models/contact/fields.yaml
+defaultRedirect: netsti/connections/contacts
+create:
+    title: 'netsti.connections::lang.create'
+    redirect: 'netsti/connections/contacts/update/:id'
+    redirectClose: netsti/connections/contacts
+update:
+    title: 'netsti.connections::lang.update'
+    redirect: netsti/connections/contacts
+    redirectClose: netsti/connections/contacts
+preview:
+    title: 'netsti.connections::lang.preview'

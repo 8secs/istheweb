@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Empleado
+
+# Model Form Field configuration
+form: $/istheweb/corporate/models/empleado/fields.yaml
+
+# Model Class name
+modelClass: Istheweb\Corporate\Models\Empleado
+
+# Default redirect location
+defaultRedirect: istheweb/corporate/empleados
+
+# Create page
+create:
+    title: Create Empleado
+    redirect: istheweb/corporate/empleados/update/:id
+    redirectClose: istheweb/corporate/empleados
+
+# Update page
+update:
+    title: Edit Empleado
+    redirect: istheweb/corporate/empleados
+    redirectClose: istheweb/corporate/empleados
+
+# Preview page
+preview:
+    title: Preview Empleado

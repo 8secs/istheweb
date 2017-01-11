@@ -1,0 +1,17 @@
+title: 'netsti.connections::lang.menu.calendars'
+modelClass: NetSTI\Connections\Models\Calendar
+list: ~/plugins/netsti/connections/models/calendar/columns.yaml
+recordUrl: 'netsti/connections/calendars/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '10'
+showSetup: true
+showCheckboxes: true
+showSorting: 1
+defaultSort:
+    column: name
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordOnClick: '$.popup({ handler: ''onUpdateForm'', extraData: { comment_mode: 1, record_id: '':id'' } })'

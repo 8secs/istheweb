@@ -58,9 +58,17 @@ class Plugin extends PluginBase
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
                         'description' => 'istheweb.shop::lang.product.description',
                     ],
+                    'categories'     => [
+                        'label'       => 'istheweb.shop::lang.categories.menu_label',
+                        'icon'        => 'icon-cubes',
+                        'url'         => Backend::url('istheweb/shop/categories'),
+                        'permissions' => ['istheweb.shop.access_categories'],
+                        'group'       => 'istheweb.shop::lang.sidebar.catalog',
+                        'description' => 'istheweb.shop::lang.category.description',
+                    ],
                     'attributes'     => [
                         'label'       => 'istheweb.shop::lang.attributes.menu_label',
-                        'icon'        => 'icon-cubes',
+                        'icon'        => 'icon-filter',
                         'url'         => Backend::url('istheweb/shop/attributes'),
                         'permissions' => ['istheweb.shop.access_attributes'],
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
@@ -68,7 +76,7 @@ class Plugin extends PluginBase
                     ],
                     'options'     => [
                         'label'       => 'istheweb.shop::lang.options.menu_label',
-                        'icon'        => 'icon-cubes',
+                        'icon'        => 'icon-diamond',
                         'url'         => Backend::url('istheweb/shop/options'),
                         'permissions' => ['istheweb.shop.access_options'],
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
@@ -109,6 +117,10 @@ class Plugin extends PluginBase
             ],
             'istheweb.shop.delete_products'     => [
                 'label' => 'istheweb.shop::lang.product.delete_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_categories'     => [
+                'label' => 'istheweb.shop::lang.category.list_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
             ],
             'istheweb.shop.access_attributes'     => [
@@ -201,7 +213,26 @@ class Plugin extends PluginBase
 
     public function boot()
     {
+        /*
+         * Register menu items for the RainLab.Pages plugin
+        */
+        Event::listen('pages.menuitem.listTypes', function() {
+            return [
+                'product-category'       => 'istheweb.shop::lang.menuitem.product_category',
+                'all-product-categories' => 'istheweb.shop::lang.menuitem.all_product_categories'
+            ];
+        });
 
+        Event::listen('pages.menuitem.getTypeInfo', function($type) {
+            if ($type == 'product-category' || $type == 'all-product-categories') {
+                return ProductCategory::getMenuTypeInfo($type);
+            }
+        });
 
+        Event::listen('pages.menuitem.resolveItem', function($type, $item, $url, $theme) {
+            if ($type == 'product-category' || $type == 'all-product-categories') {
+                return ProductCategory::resolveMenuItem($item, $url, $theme);
+            }
+        });
     }
 }

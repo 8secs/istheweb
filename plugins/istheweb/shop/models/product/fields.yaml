@@ -48,6 +48,24 @@ tabs:
         label: istheweb.shop::lang.labels.description
         span: auto
         tab: istheweb.shop::lang.labels.description
+    meta_keywords:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.meta_keywords
+        span: auto
+        tab: istheweb.shop::lang.labels.seo
+    meta_description:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.meta_description
+        span: auto
+        tab: istheweb.shop::lang.labels.seo
+    short_description:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.short_description
+        span: auto
+        tab: istheweb.shop::lang.labels.seo
     attributeValues:
         type: partial
         path: field_attribute_values
@@ -82,27 +100,22 @@ tabs:
         path: field_options
         span: auto
         tab: Opciones y Variantes
+    categories:
+        label: istheweb.shop::lang.categories.menu_label
+        type: partial
+        path: field_categories
+        tab: istheweb.shop::lang.categories.menu_label
     variants:
         type: partial
         path: field_variants
         span: auto
         context: update
         tab: Opciones y Variantes
-    meta_keywords:
-        type: richeditor
-        size: huge
-        label: istheweb.shop::lang.labels.meta_keywords
+    pictures:
+        label: istheweb.shop::lang.labels.pictures
+        type: fileupload
+        mode: image
         span: auto
-        tab: istheweb.shop::lang.labels.seo
-    meta_description:
-        type: richeditor
-        size: huge
-        label: istheweb.shop::lang.labels.meta_description
-        span: auto
-        tab: istheweb.shop::lang.labels.seo
-    short_description:
-        type: richeditor
-        size: huge
-        label: istheweb.shop::lang.labels.short_description
-        span: auto
-        tab: istheweb.shop::lang.labels.seo
+        imageHeight: 260
+        imageWidth: 260
+        tab: istheweb.shop::lang.labels.attachments

@@ -1,0 +1,14 @@
+name: 'netsti.connections::lang.menu.calendar'
+modelClass: NetSTI\Connections\Models\Calendar
+form: ~/plugins/netsti/connections/models/calendar/fields.yaml
+defaultRedirect: netsti/connections/calendars
+create:
+    title: 'netsti.connections::lang.create'
+    redirect: 'netsti/connections/calendars/update/:id'
+    redirectClose: netsti/connections/calendars
+update:
+    title: 'netsti.connections::lang.update'
+    redirect: netsti/connections/calendars
+    redirectClose: netsti/connections/calendars
+preview:
+    title: 'netsti.connections::lang.preview'

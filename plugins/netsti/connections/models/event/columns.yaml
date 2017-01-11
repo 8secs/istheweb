@@ -1,0 +1,21 @@
+columns:
+    name:
+        label: 'netsti.connections::lang.fields.name'
+        type: text
+        searchable: true
+        sortable: true
+    caledar:
+        label: 'netsti.connections::lang.fields.calendar'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: calendar
+    start_date:
+        label: 'netsti.connections::lang.fields.start_date'
+        type: datetime
+        sortable: true
+    end_date:
+        label: 'netsti.connections::lang.fields.end_date'
+        type: datetime
+        sortable: true

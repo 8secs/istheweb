@@ -1,0 +1,14 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: 'netsti.connections::lang.import'
+    modelClass: NetSTI\Connections\Models\CompanyImport
+    list: $/netsti/connections/models/company/migration.yaml
+
+export:
+    title: 'netsti.connections::lang.export'
+    modelClass: NetSTI\Connections\Models\CompanyExport
+    list: $/netsti/connections/models/company/migration.yaml
+    fileName: companies.csv

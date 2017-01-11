@@ -1,0 +1,14 @@
+fields:
+    name:
+        label: 'netsti.connections::lang.fields.name'
+        span: full
+        required: 1
+        type: text
+    color:
+        label: 'netsti.connections::lang.fields.color'
+        span: full
+        type: colorpicker
+    webcal:
+        type: 'partial'
+        path: 'webcal'
+        context: 'update'

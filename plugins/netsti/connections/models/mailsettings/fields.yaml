@@ -1,0 +1,69 @@
+fields:
+    section:
+        label: 'netsti.connections::lang.mail.preference'
+        span: full
+        type: section
+secondaryTabs:
+    fields:
+        footer:
+            label: 'netsti.connections::lang.fields.content'
+            size: large
+            span: full
+            type: richeditor
+            tab: 'netsti.connections::lang.fields.footer'
+        social:
+            label: 'netsti.connections::lang.fields.social'
+            span: full
+            type: switch
+            tab: 'netsti.connections::lang.fields.footer'
+        subscriptor_subject:
+            label: 'netsti.connections::lang.fields.subject'
+            oc.commentPosition: ''
+            default: 'We will send you news shortly'
+            span: full
+            type: text
+            tab: 'netsti.connections::lang.menu.subscribers'
+        subscriptor:
+            label: 'netsti.connections::lang.mail.subscriptor'
+            size: large
+            default: "You've been added to our mailing list and will now be among the first to hear about new arrivals, bg events and especial offers."
+            span: full
+            type: richeditor
+            tab: 'netsti.connections::lang.menu.subscribers'
+        inbox_subject:
+            label: 'netsti.connections::lang.fields.subject'
+            span: full
+            default: 'We will be contacting you'
+            oc.commentPosition: ''
+            type: text
+            tab: 'netsti.connections::lang.menu.inboxes'
+        inbox:
+            label: 'netsti.connections::lang.mail.inbox_reply'
+            size: large
+            default: "Thank you for your interest, We have received your information, one of our support team will contact you"
+            span: full
+            type: richeditor
+            tab: 'netsti.connections::lang.menu.inboxes'
+        api_key:
+            label: 'Mailchimp API Key'
+            span: auto
+            tab: 'Mailchimp'
+            trigger:
+              action: enable
+              field: mailchimp
+              condition: checked
+        mailchimp_list:
+            label: 'netsti.connections::lang.fields.list'
+            span: auto
+            type: dropdown
+            tab: 'Mailchimp'
+            dependsOn: api_key
+            trigger:
+              action: enable
+              field: mailchimp
+              condition: checked
+        mailchimp:
+            label: 'netsti.connections::lang.fields.mailchimp'
+            span: full
+            type: switch
+            tab: 'Mailchimp'

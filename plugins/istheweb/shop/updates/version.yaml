@@ -8,3 +8,7 @@
   - create_pivots_table.php
   - create_products_table.php
   - create_variants_table.php
+1.0.3:
+  - Update Products with Categories
+  - create_categories_table.php
+  - update_pivots_table.php

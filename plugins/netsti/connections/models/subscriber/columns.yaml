@@ -1,0 +1,11 @@
+columns:
+    name:
+        label: 'netsti.connections::lang.fields.name'
+        type: text
+        searchable: true
+        sortable: true
+    email:
+        label: 'netsti.connections::lang.fields.email'
+        type: text
+        searchable: true
+        sortable: true

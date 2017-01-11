@@ -1,11 +1,11 @@
 <?php namespace Istheweb\Shop\Models;
-
+use Sylius\Component\Inventory\Model\StockableInterface;
 
 
 /**
  * Product Model
  */
-class Product extends Base
+class Product extends Base implements StockableInterface
 {
 
     /**
@@ -32,13 +32,18 @@ class Product extends Base
     public $belongsToMany = [
         'options' => ['Istheweb\Shop\Models\Option',
             'table' => 'istheweb_shop_pivots',
+        ],
+        'categories' => ['Istheweb\Shop\Models\Category',
+            'table' => 'istheweb_shop_pivots',
         ]
     ];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
     public $attachOne = [];
-    public $attachMany = [];
+    public $attachMany = [
+        'pictures' => ['System\Models\File'],
+    ];
 
 
     /**
@@ -60,5 +65,72 @@ class Product extends Base
     {
         //dd(post());
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getInventoryName()
+    {
+        // TODO: Implement getInventoryName() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function isInStock()
+    {
+        // TODO: Implement isInStock() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function isAvailableOnDemand()
+    {
+        // TODO: Implement isAvailableOnDemand() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getOnHold()
+    {
+        // TODO: Implement getOnHold() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setOnHold($onHold)
+    {
+        // TODO: Implement setOnHold() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getOnHand()
+    {
+        // TODO: Implement getOnHand() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setOnHand($onHand)
+    {
+        // TODO: Implement setOnHand() method.
+    }
+
+    public function setTracked($tracked)
+    {
+        // TODO: Implement setTracked() method.
+    }
+
+    public function isTracked()
+    {
+        // TODO: Implement isTracked() method.
+    }
+
 
 }

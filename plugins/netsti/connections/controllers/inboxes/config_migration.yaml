@@ -1,0 +1,9 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+export:
+    title: 'netsti.connections::lang.export'
+    modelClass: NetSTI\Connections\Models\InboxExport
+    list: $/netsti/connections/models/inbox/migration.yaml
+    fileName: inbox.csv

@@ -1,8 +1,12 @@
 <?php namespace Istheweb\Corporate;
 
+use App;
 use Backend;
 use BackendMenu;
 use Backend\Facades\BackendAuth;
+use Backend\Models\User as UserModel;
+use Istheweb\Corporate\Controllers\Empleados as EmpleadosController;
+use Istheweb\Corporate\Models\Empleado as EmpleadoModel;
 use System\Classes\PluginBase;
 
 /**
@@ -43,6 +47,15 @@ class Plugin extends PluginBase
                         'label'       => 'istheweb.corporate::lang.employees.menu_label',
                         'icon'        => 'icon-user',
                         'url'         => Backend::url('istheweb/corporate/employees'),
+                        'permissions' => ['istheweb.corporate.access_employees'],
+                        'group'       => 'istheweb.corporate::lang.sidebar.team',
+                        'description' => 'istheweb.corporate::lang.employee.description',
+
+                    ],
+                    'empleados'    => [
+                        'label'       => 'istheweb.corporate::lang.employees.menu_label',
+                        'icon'        => 'icon-user',
+                        'url'         => Backend::url('istheweb/corporate/empleados'),
                         'permissions' => ['istheweb.corporate.access_employees'],
                         'group'       => 'istheweb.corporate::lang.sidebar.team',
                         'description' => 'istheweb.corporate::lang.employee.description',
@@ -209,6 +222,17 @@ class Plugin extends PluginBase
     public function register()
     {
         BackendMenu::registerContextSidenavPartial('Istheweb.Corporate', 'corporate', 'plugins/istheweb/corporate/partials/_sidebar.htm');
+    }
+
+    public function boot(){
+        UserModel::extend(function ($model) {
+            $model->hasOne['empleado'] = ['Istheweb\Corporate\Models\Empleado'];
+        });
+
+
+        if(!App::runningInBackend()) {
+            return;
+        }
     }
 
 }

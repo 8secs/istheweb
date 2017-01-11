@@ -1,0 +1,27 @@
+<div id="calendarWidget"></div>
+{% put scripts %}
+<script>
+$(document).ready(function() {
+
+	var calendarOptions = {
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		events: [
+			{% for item in __SELF__.calendar.events %}
+			{
+				'title': '{{ item.name }}',
+				'start' : moment('{{ item.start_date }}'),
+				'end' : moment('{{ item.end_date }}'),
+				'color' : '{{ __SELF__.calendar.color }}'
+			},
+			{% endfor %}
+		]
+	};
+
+	$('#calendarWidget').fullCalendar(calendarOptions);
+});
+</script>
+{% endput %}

@@ -1,0 +1,33 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: 'netsti.connections::lang.import'
+    modelClass: NetSTI\Connections\Models\ContactImport
+    list: $/netsti/connections/models/contact/migration.yaml
+    form:
+      fields:
+        # concat_name:
+        #   label: 'Concatenate First and Last Name'
+        #   type: 'checkbox'
+        #   span: 'full'
+        company_import:
+          label: 'All contacts from Company?'
+          span: 'full'
+          type: 'checkbox'
+        company_all:
+          label: 'netsti.connections::lang.fields.company'
+          span: 'auto'
+          type: 'relation'
+          nameFrom: name
+          trigger:
+            action: show
+            field: company_import
+            condition: 'checked'
+
+export:
+    title: 'netsti.connections::lang.export'
+    modelClass: NetSTI\Connections\Models\ContactExport
+    list: $/netsti/connections/models/contact/migration.yaml
+    fileName: contacts.csv

@@ -26,3 +26,14 @@ options:
         recordsPerPage: 10
         list: $/istheweb/shop/models/option/columns.yaml
         form: $/istheweb/shop/models/option/fields.yaml
+
+categories:
+    label: istheweb.shop::lang.categories.menu_label
+    view:
+        list: $/istheweb/shop/models/category/columns.yaml
+        toolbarButtons: add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/istheweb/shop/models/category/columns.yaml
+        form: $/istheweb/shop/models/category/fields.yaml

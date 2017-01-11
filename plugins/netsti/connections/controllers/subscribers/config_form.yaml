@@ -1,0 +1,14 @@
+name: 'netsti.connections::lang.menu.subscriber'
+modelClass: NetSTI\Connections\Models\Subscriber
+form: ~/plugins/netsti/connections/models/subscriber/fields.yaml
+defaultRedirect: netsti/connections/subscribers
+create:
+    title: 'netsti.connections::lang.create'
+    redirect: 'netsti/connections/subscribers/update/:id'
+    redirectClose: netsti/connections/subscribers
+update:
+    title: 'netsti.connections::lang.update'
+    redirect: netsti/connections/subscribers
+    redirectClose: netsti/connections/subscribers
+preview:
+    title: 'netsti.connections::lang.preview'

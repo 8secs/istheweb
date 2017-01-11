@@ -1,0 +1,11 @@
+subject = Welcome
+==
+{{ mail.subscriptor|raw }}
+==
+{{ header|raw }}
+<tr>
+	<td class="content-block">
+		{{ mail.subscriptor|raw }}
+	</td>
+</tr>
+{{ footer|raw }}

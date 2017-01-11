@@ -1,0 +1,18 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    client[company][name]:
+        label: istheweb.iscorporate::lang.fields.company
+        searchable: true
+    motivo:
+        label: istheweb.iscorporate::lang.labels.reason
+        searchable: true
+    fecha_entrega:
+        label: istheweb.iscorporate::lang.labels.delivery_date
+        type: date
+        searchable: true
+    observaciones_entrega:
+        label: istheweb.iscorporate::lang.labels.delivery_notes
+        searchable: true

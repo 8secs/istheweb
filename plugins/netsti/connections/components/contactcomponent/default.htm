@@ -1,0 +1,77 @@
+<form data-request="{{ __SELF__ }}::onContactForm" data-request-success="$('#contact-form-submit').button('reset')" role="form" class="form-contact" novalidate>
+	{% if __SELF__.props.ifTitle %}
+		<legend>{{ __SELF__.props.formTitle }}</legend>
+	{% endif %}
+	
+	<div id="contact-form-render">
+		<div class="{{ __SELF__.props.groupClass }} has-feedback">
+			{% if __SELF__.props.ifLabel %}
+				<label>{{ __SELF__.fields.name }}</label>
+			{% endif %}
+			<input type="text" name="name" class="{{ __SELF__.props.inputClass }}" {% if not __SELF__.props.ifLabel %} placeholder="{{ __SELF__.fields.name }}" {% endif %}>
+			{% if __SELF__.props.icons %}
+				<span class="{{ __SELF__.props.iconsType }} {{ __SELF__.props.iconsType }}-user form-control-feedback" aria-hidden="true"></span>
+			{% endif %}
+		</div>
+
+		<div class="{{ __SELF__.props.groupClass }} has-feedback">
+			{% if __SELF__.props.ifLabel %}
+				<label>{{ __SELF__.fields.email }}</label>
+			{% endif %}
+			<input type="email" name="email" class="{{ __SELF__.props.inputClass }}" {% if not __SELF__.props.ifLabel %} placeholder="{{ __SELF__.fields.email }}" {% endif %}>
+			{% if __SELF__.props.icons %}
+				<span class="{{ __SELF__.props.iconsType }} {{ __SELF__.props.iconsType }}-envelope form-control-feedback" aria-hidden="true"></span>
+			{% endif %}
+		</div>
+
+		{% if __SELF__.props.ifPhone %}
+		<div class="{{ __SELF__.props.groupClass }} has-feedback">
+			{% if __SELF__.props.ifLabel %}
+				<label>{{ __SELF__.fields.phone }}</label>
+			{% endif %}
+			<input type="text" name="phone" class="{{ __SELF__.props.inputClass }}" {% if not __SELF__.props.ifLabel %} placeholder="{{ __SELF__.fields.phone }}" {% endif %}>
+			{% if __SELF__.props.icons %}
+				<span class="{{ __SELF__.props.iconsType }} {{ __SELF__.props.iconsType }}-phone form-control-feedback" aria-hidden="true"></span>
+			{% endif %}
+		</div>
+		{% endif %}
+
+		{% if __SELF__.props.ifCompany %}
+		<div class="{{ __SELF__.props.groupClass }} has-feedback">
+			{% if __SELF__.props.ifLabel %}
+				<label>{{ __SELF__.fields.company }}</label>
+			{% endif %}
+			<input type="text" name="company" class="{{ __SELF__.props.inputClass }}" {% if not __SELF__.props.ifLabel %} placeholder="{{ __SELF__.fields.company }}" {% endif %}>
+			{% if __SELF__.props.icons %}
+				<span class="{{ __SELF__.props.iconsType }} {{ __SELF__.props.iconsType }}-briefcase form-control-feedback" aria-hidden="true"></span>
+			{% endif %}
+		</div>
+		{% endif %}
+
+		{% if __SELF__.props.ifSubject %}
+		<div class="{{ __SELF__.props.groupClass }} has-feedback">
+			{% if __SELF__.props.ifLabel %}
+				<label>{{ __SELF__.fields.subject }}</label>
+			{% endif %}
+			<input type="text" name="subject" class="{{ __SELF__.props.inputClass }}" {% if not __SELF__.props.ifLabel %} placeholder="{{ __SELF__.fields.subject }}" {% endif %}>
+			{% if __SELF__.props.icons %}
+				<span class="{{ __SELF__.props.iconsType }} {{ __SELF__.props.iconsType }}-edit form-control-feedback" aria-hidden="true"></span>
+			{% endif %}
+		</div>
+		{% endif %}
+
+		<div class="{{ __SELF__.props.groupClass }} has-feedback">
+			{% if __SELF__.props.ifLabel %}
+				<label>{{ __SELF__.fields.message }}</label>
+			{% endif %}
+			<textarea name="message" class="{{ __SELF__.props.inputClass }}" {% if not __SELF__.props.ifLabel %} placeholder="{{ __SELF__.fields.message }}" {% endif %}></textarea>
+			{% if __SELF__.props.icons %}
+				<span class="{{ __SELF__.props.iconsType }} {{ __SELF__.props.iconsType }}-comment form-control-feedback" aria-hidden="true"></span>
+			{% endif %}
+		</div>
+
+		<div id="contact-form-alert"></div>
+	
+		<button onclick="$(this).button('loading')" id="contact-form-submit" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> {{ __SELF__.fields.wait }} ..." type="submit" class="{{ __SELF__.props.submitClass }}">{{ __SELF__.fields.send }}</button>
+	</div>
+</form>

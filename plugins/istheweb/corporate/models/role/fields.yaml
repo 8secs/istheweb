@@ -9,8 +9,3 @@ fields:
     description:
         label: istheweb.corporate::lang.labels.description
         span: auto
-    employees:
-        label: istheweb.corporate::lang.employees.menu_label
-        type: partial
-        path: field_employees
-        span: auto

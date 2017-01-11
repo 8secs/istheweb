@@ -1,0 +1,107 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: istheweb.iscorporate::lang.labels.name
+        span: auto
+        type: text
+    code:
+        label: istheweb.iscorporate::lang.labels.code
+        span: auto
+        type: text
+    slug:
+        label: istheweb.iscorporate::lang.labels.slug
+        span: auto
+        required: true
+        preset:
+            field: name
+            type: slug
+    enabled:
+        label: istheweb.iscorporate::lang.labels.enabled
+        type: switch
+        span: right
+    available_on:
+        label: istheweb.iscorporate::lang.labels.available_on
+        type: datepicker
+        mode: date
+        span: auto
+    available_until:
+        label: istheweb.iscorporate::lang.labels.available_until
+        type: datepicker
+        mode: date
+        span: auto
+
+
+tabs:
+  fields:
+    client:
+        label: istheweb.iscorporate::lang.client.label
+        type: partial
+        path: field_client
+        #type: project_company
+        span: auto
+        tab: istheweb.iscorporate::lang.client.label
+    project_types:
+        label: istheweb.iscorporate::lang.project_types.menu_label
+        type: partial
+        path: field_project_types
+        tab: istheweb.iscorporate::lang.project_types.menu_label
+    options_section:
+        label: istheweb.iscorporate::lang.options.menu_label
+        type: section
+        comment: istheweb.iscorporate::lang.options.comment
+        tab: istheweb.iscorporate::lang.fields.options_elements
+    options:
+        type: partial
+        path: field_options
+        tab: istheweb.iscorporate::lang.fields.options_elements
+    variants_section:
+        label: istheweb.iscorporate::lang.variants.menu_label
+        type: section
+        comment: istheweb.iscorporate::lang.variants.comment
+        tab: istheweb.iscorporate::lang.fields.options_elements
+    variants:
+        type: partial
+        path: field_variants
+        context: update
+        tab: istheweb.iscorporate::lang.fields.options_elements
+    caption:
+        type: richeditor
+        size: huge
+        label: istheweb.iscorporate::lang.labels.caption
+        span: auto
+        tab: istheweb.iscorporate::lang.labels.description
+    description:
+        type: richeditor
+        size: huge
+        label: istheweb.iscorporate::lang.labels.description
+        span: auto
+        tab: istheweb.iscorporate::lang.labels.description
+    meta_keywords:
+        type: richeditor
+        size: huge
+        label: istheweb.iscorporate::lang.labels.meta_keywords
+        span: auto
+        tab: istheweb.iscorporate::lang.labels.seo
+    meta_description:
+        type: richeditor
+        size: huge
+        label: istheweb.iscorporate::lang.labels.meta_description
+        span: auto
+        tab: istheweb.iscorporate::lang.labels.seo
+    short_description:
+        type: richeditor
+        size: huge
+        label: istheweb.iscorporate::lang.labels.short_description
+        span: auto
+        tab: istheweb.iscorporate::lang.labels.seo
+    pictures:
+        label: istheweb.iscorporate::lang.labels.pictures
+        type: fileupload
+        mode: image
+        span: auto
+        imageHeight: 260
+        imageWidth: 260
+        tab: istheweb.iscorporate::lang.labels.attachments

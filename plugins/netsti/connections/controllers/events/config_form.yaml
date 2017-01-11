@@ -1,0 +1,14 @@
+name: 'netsti.connections::lang.menu.event'
+modelClass: NetSTI\Connections\Models\Event
+form: ~/plugins/netsti/connections/models/event/fields.yaml
+defaultRedirect: netsti/connections/events
+create:
+    title: 'netsti.connections::lang.create'
+    redirect: 'netsti/connections/events/update/:id'
+    redirectClose: netsti/connections/events
+update:
+    title: 'netsti.connections::lang.update'
+    redirect: netsti/connections/events
+    redirectClose: netsti/connections/events
+preview:
+    title: 'netsti.connections::lang.preview'

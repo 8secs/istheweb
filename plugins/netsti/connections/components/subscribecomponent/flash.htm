@@ -1,0 +1,34 @@
+
+{% if validation.fails %}
+	<div class="alert alert-danger {{ flashClass|default('fadeInRight') }}" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+		<div class="media">
+			<div class="media-left">
+				<i class="media-object icon-exclamation icon-2x" aria-hidden="true"></i>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">{{ _('netsti.connections::lang.error') }}</h4>
+				
+				{% for item in validation.messages.all %}
+					<p>{{ item }}</p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% else %}
+	<div class="alert alert-success {{ flashClass|default('fadeInRight') }}" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+		<div class="media">
+			<div class="media-left">
+				<i class="media-object icon-ok icon-2x" aria-hidden="true"></i>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">{{ _('netsti.connections::lang.success') }}</h4>
+				
+				{{ _('netsti.connections::lang.success_msj') }}
+			</div>
+		</div>
+	</div>
+{% endif %}

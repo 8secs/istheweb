@@ -1,0 +1,17 @@
+title: 'netsti.connections::lang.menu.inboxes'
+modelClass: NetSTI\Connections\Models\Inbox
+list: ~/plugins/netsti/connections/models/inbox/columns.yaml
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '10'
+showSetup: true
+showCheckboxes: true
+showSorting: 1
+filter: config_filter.yaml
+defaultSort:
+    column: created_at
+    direction: desc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordOnClick: '$.popup({ handler: ''onPreviewForm'', extraData: { comment_mode: 1, record_id: '':id'' } })'

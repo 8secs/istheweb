@@ -1,0 +1,34 @@
+fields:
+    section:
+        label: 'netsti.connections::lang.slack'
+        span: full
+        type: section
+    hock:
+        label: 'netsti.connections::lang.fields.hook'
+        span: full
+        trigger:
+            action: enable
+            field: 'on'
+            condition: checked
+        type: text
+    bot:
+        label: 'netsti.connections::lang.fields.robot'
+        span: auto
+        trigger:
+            action: enable
+            field: 'on'
+            condition: checked
+        type: text
+    channel:
+        label: 'netsti.connections::lang.fields.channel'
+        span: auto
+        trigger:
+            action: enable
+            field: 'on'
+            condition: checked
+        type: text
+    'on':
+        label: 'netsti.connections::lang.fields.activate'
+        span: auto
+        type: switch
+        comment: 'netsti.connections::lang.fields.activate_slack'

@@ -1,0 +1,17 @@
+title: 'netsti.connections::lang.menu.companies'
+modelClass: NetSTI\Connections\Models\Company
+list: ~/plugins/netsti/connections/models/company/columns.yaml
+recordUrl: 'netsti/connections/companies/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '10'
+showSetup: true
+showCheckboxes: true
+showSorting: 1
+defaultSort:
+    column: name
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordOnClick: '$.popup({ handler: ''onUpdateForm'', extraData: { comment_mode: 1, record_id: '':id'' } })'

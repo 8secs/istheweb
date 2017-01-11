@@ -1,0 +1,20 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: istheweb.iscorporate::lang.labels.name
+        span: auto
+        type: text
+    code:
+        label: istheweb.iscorporate::lang.labels.code
+        span: auto
+        type: text
+
+tabs:
+  fields:
+    values@update:
+      label: istheweb.iscorporate::lang.labels.values
+      type: partial
+      path: field_values
