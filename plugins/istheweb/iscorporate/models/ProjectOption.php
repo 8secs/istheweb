@@ -1,11 +1,9 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
-
 /**
  * ProjectOption Model
  */
-class ProjectOption extends Model
+class ProjectOption extends Base
 {
 
     /**

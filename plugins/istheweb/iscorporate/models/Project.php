@@ -1,12 +1,9 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
-use October\Rain\Database\Traits\Sluggable;
-
 /**
  * Project Model
  */
-class Project extends Model
+class Project extends Base
 {
 
     /**

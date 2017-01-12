@@ -1,11 +1,9 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
-
 /**
  * OptionValue Model
  */
-class OptionValue extends Model
+class OptionValue extends Base
 {
 
     /**

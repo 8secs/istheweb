@@ -1,11 +1,10 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
 
 /**
  * Budget Model
  */
-class Budget extends Model
+class Budget extends Base
 {
 
     /**

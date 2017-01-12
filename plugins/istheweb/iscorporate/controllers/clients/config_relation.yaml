@@ -1,5 +1,5 @@
 company:
-    label: Company
+    label: istheweb.connect::lang.company.menu_label
     view:
         form: $/istheweb/connect/models/company/fields.yaml
         toolbarButtons: link|unlink|create

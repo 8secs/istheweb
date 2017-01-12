@@ -145,5 +145,7 @@
     'import_contacts' => 'Import Contacts',
     'export_contacts' => 'Export Contacts',
     'import_companies' => 'Import Companies',
-    'export_companies' => 'Export Companies'
+    'export_companies' => 'Export Companies',
+    'bank_accounts' => 'Bank\' s Accounts',
+    'bank_accounts_description' => 'Manage Company\'s accounts banks'
 ];

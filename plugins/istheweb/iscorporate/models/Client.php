@@ -1,11 +1,9 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
-
 /**
  * Client Model
  */
-class Client extends Model
+class Client extends Base
 {
 
     /**

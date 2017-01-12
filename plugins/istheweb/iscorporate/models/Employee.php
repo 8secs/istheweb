@@ -1,11 +1,10 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
 
 /**
  * Employee Model
  */
-class Employee extends Model
+class Employee extends Base
 {
 
     const MODEL_NAME = 'Employee';

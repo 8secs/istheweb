@@ -1,11 +1,10 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
 
 /**
  * Role Model
  */
-class Role extends Model
+class Role extends Base
 {
 
     /**

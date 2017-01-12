@@ -146,4 +146,6 @@
     'export_contacts' => 'Exportar Contactos',
     'import_companies' => 'Importar Compañias',
     'export_companies' => 'Exportar Compañias',
+    'bank_accounts' => 'Cuentas bancos',
+    'bank_accounts_description' => 'Gestión las cuentas bancarias de la empresa'
 ];

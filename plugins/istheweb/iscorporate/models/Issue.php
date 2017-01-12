@@ -1,15 +1,16 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+
 /**
- * Provider Model
+ * Issue Model
  */
-class Provider extends Base
+class Issue extends Base
 {
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'istheweb_iscorporate_providers';
+    public $table = 'istheweb_iscorporate_issues';
 
     /**
      * @var array Guarded fields
@@ -27,7 +28,9 @@ class Provider extends Base
     public $hasOne = [];
     public $hasMany = [];
     public $belongsTo = [
-        'company'           => 'Istheweb\Connect\Models\Company'
+        'client'            => 'Istheweb\IsCorporate\Models\Client',
+        'resource'          => 'Istheweb\IsCorporate\Models\Employee',
+        'creator'           => 'Backend\Models\User'
     ];
     public $belongsToMany = [];
     public $morphTo = [];

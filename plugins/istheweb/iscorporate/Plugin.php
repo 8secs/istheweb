@@ -164,7 +164,7 @@ class Plugin extends PluginBase
         return [
             'iscorporate' => [
                 'label'       => 'IsCorporate',
-                'url'         => Backend::url('istheweb/iscorporate/'. $this->startPage()),
+                'url'         => Backend::url('istheweb/iscorporate/'. $this->startPage('clients')),
                 'icon'        => 'icon-building',
                 'permissions' => ['istheweb.iscorporate.*'],
                 'order'       => 500,
@@ -175,7 +175,7 @@ class Plugin extends PluginBase
                         'label'       => 'istheweb.iscorporate::lang.clients.menu_label',
                         'icon'        => 'icon-university',
                         'url'         => Backend::url('istheweb/iscorporate/clients'),
-                        'permissions' => ['istheweb.iscorporate.access_employees'],
+                        'permissions' => ['istheweb.iscorporate.access_clients'],
                         'group'       => 'istheweb.iscorporate::lang.sidebar.clients',
                         'description' => 'istheweb.iscorporate::lang.client.description',
                     ],
@@ -253,7 +253,7 @@ class Plugin extends PluginBase
                 }
             }
         }
-        //print_r($page);
+        print_r($page);
         return $page;
     }
 

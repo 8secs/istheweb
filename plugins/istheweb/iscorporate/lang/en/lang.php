@@ -22,6 +22,9 @@ return [
         'orderBy'  => 'Pick a column from which to order the results',
         'sort'     => 'Pick a direction to sort the results by',
     ],
+    'templates' => [
+        'preview'           => 'Preview'
+    ],
     'fields'    => [
         'company'           => 'Company',
         'activity'          => 'Activity',
@@ -134,6 +137,7 @@ return [
         'update_title'  => 'Edit Budget',
         'preview_title' => 'Preview Budget',
         'create_project'=> 'Create project from budget',
+        'create_pdf'    => 'Create Budget PDF',
         'list_title'    => 'Manage Budgets',
         'description'   => 'Manage Company\'s budgets',
     ],
@@ -142,6 +146,7 @@ return [
         'controller_label'        => 'budgets',
         'menu_label'              => 'Budgets',
         'return_to_list'          => 'Return to Budgets',
+        'send_email'              => 'Send email to client',
         'delete_confirm'          => 'Do you really want to delete this role?',
         'delete_selected_success' => 'Successfully deleted the selected budgets.',
         'delete_selected_empty'   => 'There are no selected :name to delete.',

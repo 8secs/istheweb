@@ -61,6 +61,16 @@ class Plugin extends PluginBase
         ];
     }
 
+    // FORM WIDGETS
+    public function registerFormWidgets(){
+        return [
+            'Istheweb\Connect\FormWidgets\Address' => [
+                'label' => 'Address',
+                'code'  => 'istheweb_connect_address'
+            ],
+        ];
+    }
+
     /**
      * Registers any back-end permissions used by this plugin.
      *
@@ -102,7 +112,7 @@ class Plugin extends PluginBase
                 'url'         => Backend::url('istheweb/connect/connect'),
                 'icon'        => 'icon-connectdevelop',
                 'permissions' => ['istheweb.connect.*'],
-                'order'       => 500,
+                'order'       => 400,
 
                 'sideMenu'    => [
                     'companies'       => [
@@ -174,7 +184,7 @@ class Plugin extends PluginBase
             'bank'         => [
                 'label'       => 'istheweb.connect::lang.bank_accounts',
                 'description' => 'istheweb.connect::lang.bank_accounts_description',
-                'icon'        => 'icon-building-o',
+                'icon'        => 'icon-money',
                 'class'       => 'Istheweb\Connect\Models\BankAccountSettings',
                 'category'    => 'istheweb.connect::lang.manage',
                 'order'       => 104,

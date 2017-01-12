@@ -1,16 +1,9 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
-use Carbon\Carbon;
-use Cms\Classes\Page as CmsPage;
-use Cms\Classes\Theme;
-use URL;
-use Str;
-
 /**
  * ProjectType Model
  */
-class ProjectType extends Model
+class ProjectType extends Base
 {
 
     use \October\Rain\Database\Traits\NestedTree;

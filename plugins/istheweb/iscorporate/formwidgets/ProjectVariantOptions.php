@@ -64,7 +64,7 @@ class ProjectVariantOptions extends FormWidgetBase
      */
     public function getSaveValue($value)
     {
-        dd($value);
+        //dd($value);
         if(is_array($value)){
             $arr = array();
             foreach ($value as $k => $v){

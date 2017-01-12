@@ -22,6 +22,9 @@ return [
         'orderBy'  => 'Ordena los resultados por columna',
         'sort'     => 'Ordena resultado en sentido ascendente o descendente',
     ],
+    'templates' => [
+        'preview'           => 'Previsualizar'
+    ],
     'fields'    => [
         'company'           => 'Empresa',
         'activity'          => 'Actividad',
@@ -135,6 +138,7 @@ return [
         'update_title'  => 'Editarar Presupuesto',
         'preview_title' => 'Ver Presupuesto',
         'create_project'=> 'Crear proyecto desde presupuesto',
+        'create_pdf'    => 'Crear Presupuesto en PDF',
         'list_title'    => 'Gestionar Presupuestos',
         'description'   => 'Gestión de los presupuesto de una empresa',
     ],
@@ -142,6 +146,7 @@ return [
         'delete_selected_confirm' => 'Eliminar los presupuesto seleccionados?',
         'controller_label'        => 'presupuesto',
         'menu_label'              => 'Presupuestos',
+        'send_email'              => 'Enviar email a cliente',
         'return_to_list'          => 'Volver a presupuesto',
         'delete_confirm'          => 'Realmente quieres eliminar este cliente?',
         'delete_selected_success' => 'Se han eliminado correctamente los presupuesto seleccionados.',

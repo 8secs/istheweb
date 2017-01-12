@@ -1,13 +1,9 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use FontLib\Table\Type\post;
-use Model;
-use Request;
-
 /**
  * Variant Model
  */
-class Variant extends Model
+class Variant extends Base
 {
 
     /**
