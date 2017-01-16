@@ -1,12 +1,17 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use October\Rain\Database\Traits\Validation;
+
 
 /**
  * Note Model
  */
-class Note extends Model
+class Note extends Base
 {
+
+    use Validation;
+    use SoftDeletes;
 
     /**
      * @var string The database table used by the model.
@@ -14,26 +19,45 @@ class Note extends Model
     public $table = 'istheweb_iscorporate_notes';
 
     /**
-     * @var array Guarded fields
+     * @var array
      */
-    protected $guarded = ['*'];
+    public $rules = [
+        'user'   => 'required',
+        'ticketable' => 'required',
+        'reply'  => 'required'
+    ];
 
     /**
-     * @var array Fillable fields
+     * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['user', 'reply'];
 
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+
+    public $belongsTo = [
+        'user'   => ['Backend\Models\User'],
+    ];
+
+    public $morphTo = [
+        'ticketable' => []
+    ];
+
+    /**
+     * @param string $value
+     */
+    public function setReplyAttribute($value)
+    {
+        $this->attributes['reply'] = strip_tags(trim($value));
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOwner()
+    {
+        return $this->user->id == BackendAuth::getUser()->id;
+    }
 
 }

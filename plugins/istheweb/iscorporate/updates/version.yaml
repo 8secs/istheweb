@@ -11,5 +11,9 @@
   - create_project_options_table.php
   - create_projects_table.php
   - create_variants_table.php
+  - create_issues_table.php
+  - create_issue_messages_table.php
+  - create_issue_statuses_table.php
+  - create_issue_types_table.php
   - create_pivots_table.php
   - seed_project_type_options.php

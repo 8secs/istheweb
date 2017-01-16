@@ -26,9 +26,7 @@ class Project extends Base
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [
-        //'variants'                  => 'Istheweb\IsCorporate\Models\Variant'
-    ];
+    public $hasMany = [];
     public $belongsTo = [
         'client'            => 'Istheweb\IsCorporate\Models\Client'
     ];

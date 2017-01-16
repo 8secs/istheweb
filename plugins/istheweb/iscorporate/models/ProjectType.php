@@ -1,5 +1,7 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use Carbon\Carbon;
+
 /**
  * ProjectType Model
  */

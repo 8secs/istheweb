@@ -29,5 +29,8 @@ class Base extends Model
         'motivo_no_aceptacion',
         'actividad',
         'observaciones',
+        'reply',
+        'content',
+        'subject'
     ];
 }

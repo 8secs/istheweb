@@ -87,6 +87,14 @@ class Plugin extends PluginBase
             'Istheweb\IsCorporate\FormWidgets\ProjectCompany'  => [
                 'label' => 'istheweb.iscorporate::lang.project.company',
                 'code'  => 'project_company'
+            ],
+            'Istheweb\IsCorporate\FormWidgets\IssueToolbar'  => [
+                'label' => 'istheweb.iscorporate::lang.issue.toolbar',
+                'code'  => 'issue_toolbar'
+            ],
+            'Istheweb\IsCorporate\FormWidgets\IssueMessages' => [
+                'label' => 'istheweb.iscorporate::lang.issue.messages',
+                'code'  => 'issue_messages'
             ]
         ];
     }
@@ -150,7 +158,23 @@ class Plugin extends PluginBase
             'istheweb.iscorporate.access_options'     => [
                 'label' => 'istheweb.iscorporate::lang.option.list_title',
                 'tab'   => 'istheweb.iscorporate::lang.plugin.name',
-            ]
+            ],
+            'istheweb.iscorporate.access_issues'         => [
+                'label' => 'istheweb.iscorporate::lang.permissions.issues',
+                'tab'   => 'istheweb.iscorporate::lang.plugin.name'
+            ],
+            'istheweb.iscorporate.access_other_issues'   => [
+                'label' => 'istheweb.iscorporate::lang.permissions.other_issues',
+                'tab'   => 'istheweb.iscorporate::lang.plugin.name'
+            ],
+            'istheweb.iscorporate.access_issue_types'    => [
+                'label' => 'istheweb.iscorporate::lang.permissions.issue_types',
+                'tab'   => 'istheweb.iscorporate::lang.plugin.name'
+            ],
+            'istheweb.iscorporate.access_issue_statuses' => [
+                'label' => 'istheweb.iscorporate::lang.permissions.issue_statuses',
+                'tab'   => 'istheweb.iscorporate::lang.plugin.name'
+            ],
         ];
     }
 
@@ -228,6 +252,27 @@ class Plugin extends PluginBase
                         'group'       => 'istheweb.iscorporate::lang.sidebar.team',
                         'description' => 'istheweb.iscorporate::lang.role.description',
                     ],
+                    'issues'        => [
+                        'label'       => 'istheweb.iscorporate::lang.navigation.issues',
+                        'icon'        => 'icon-ticket',
+                        'url'         => Backend::url('istheweb/iscorporate/issues'),
+                        'group'       => 'istheweb.iscorporate::lang.sidebar.issue',
+                        'permissions' => ['istheweb.iscorporate.access_issues']
+                    ],
+                    'issuestypes'    => [
+                        'label'       => 'istheweb.iscorporate::lang.navigation.issue_types',
+                        'icon'        => 'icon-list',
+                        'url'         => Backend::url('istheweb/iscorporate/issuetypes'),
+                        'permissions' => ['istheweb.iscorporate.access_issue_types'],
+                        'group'       => 'istheweb.iscorporate::lang.sidebar.issue',
+                    ],
+                    'issuestatuses' => [
+                        'label'       => 'istheweb.iscorporate::lang.navigation.issue_statuses',
+                        'icon'        => 'icon-check-square',
+                        'url'         => Backend::url('istheweb/iscorporate/issuestatuses'),
+                        'group'       => 'istheweb.iscorporate::lang.sidebar.issue',
+                        'permissions' => ['istheweb.iscorporate.access_issue_statuses']
+                    ],
                     'providers'        => [
                         'label'       => 'istheweb.iscorporate::lang.providers.menu_label',
                         'icon'        => 'icon-code-fork',
@@ -253,7 +298,7 @@ class Plugin extends PluginBase
                 }
             }
         }
-        print_r($page);
+        $page = 'clients';
         return $page;
     }
 

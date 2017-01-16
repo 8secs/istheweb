@@ -23,7 +23,7 @@ secondaryTabs:
         address:
             label: 'istheweb.connect::lang.fields.address'
             span: full
-            type: address
+            type: istheweb_connect_address
             cssClass: oc-icon-map-marker
             fieldMap:
                 street: address

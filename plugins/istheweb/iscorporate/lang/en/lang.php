@@ -11,7 +11,8 @@ return [
         'media'         => 'Media',
         'clients'       => 'Clients',
         'providers'     => 'Proveedores',
-        'catalog'       => 'Projects'
+        'catalog'       => 'Projects',
+        'issue'         => 'Issues'
     ],
     'components'   => [
 
@@ -25,10 +26,61 @@ return [
     'templates' => [
         'preview'           => 'Preview'
     ],
+    'navigation'   => [
+        'support'         => 'Support',
+        'issues'          => 'Issues',
+        'issue_types'     => 'Issue Type',
+        'issue_statuses'  => 'Issue State',
+    ],
+    'message'      => [
+        'send'    => 'Send',
+        'success' => 'Message was send.',
+        'reply'   => 'Type reply here...',
+        'at'      => 'at',
+    ],
+    'toolbar'      => [
+        'owner'         => 'Created by',
+        'created'       => 'created',
+        'id'            => 'Ticket ID',
+        'status'        => 'Status',
+        'since'         => 'since',
+        'update_status' => 'Change status to...',
+        'open'          => 'Open Issue',
+    ],
+    'tab'          => [
+        'details'      => 'Details',
+        'messages'     => 'Messages',
+        'support_team' => 'Support Team',
+    ],
+    'status'       => [
+        'success' => 'Status was changed successfully.'
+    ],
+    'filters'      => [
+        'hide_closed' => 'Hide closed issues'
+    ],
+    'settings'     => [
+        'category'    => 'Support',
+        'label'       => 'Settings',
+        'description' => 'Manage support settings'
+    ],
+    'permissions'  => [
+        'tab'             => 'Support',
+        'ticket_types'    => 'Manage issue types',
+        'ticket_statuses' => 'Manage issue statuses',
+        'tickets'         => 'Manage issues',
+        'other_tickets'   => 'Support team access',
+        'settings'        => 'Manage settings',
+    ],
+    'messages'     => [
+        'empty' => 'Currently there are no replies for this topic.'
+    ],
     'fields'    => [
         'company'           => 'Company',
         'activity'          => 'Activity',
         'content'           => 'Content',
+        'subject'           => 'Subject',
+        'type'              => 'Type',
+        'message'           => 'Message',
         'url'               => 'URL',
         'payment_method'    => 'Payment Method',
         'notes'             => 'Notes',
@@ -243,6 +295,60 @@ return [
         'delete_selected_success' => 'Successfully deleted the selected project items.',
         'delete_selected_empty'   => 'There are no selected :name to delete.',
         'comment'                 => 'This section has the elements of this project. The project has to be created before you can create and edit elements.',
+    ],
+    'issuetype'   => [
+        'label'                   => 'Ticket Types',
+        'return_to_list'          => 'Return to the issue types list',
+        'edit'                    => 'Edit Ticket Type',
+        'create'                  => 'Create Ticket Type',
+        'manage'                  => 'Manage Ticket Types',
+        'name'                    => 'Ticket Type',
+        'delete_confirm'          => 'Do you really want to delete this Ticket Type?',
+        'new'                     => 'New Ticket Type',
+        'delete_selected_confirm' => 'Are you sure you want to remove selected Ticket Types?',
+        'delete_selected_empty'   => 'There are no selected Ticket Types to delete.',
+        'delete_selected_success' => 'Successfully deleted the selected Ticket Types.',
+    ],
+    'issuestatus' => [
+        'label'                   => 'Ticket Statuses',
+        'return_to_list'          => 'Return to the issue statuses list',
+        'edit'                    => 'Edit Ticket Status',
+        'create'                  => 'Create Ticket Status',
+        'manage'                  => 'Manage Ticket Statuses',
+        'name'                    => 'Ticket Status',
+        'delete_confirm'          => 'Do you really want to delete this Ticket Status?',
+        'new'                     => 'New Ticket Status',
+        'delete_selected_confirm' => 'Are you sure you want to remove selected Ticket Statuses?',
+        'delete_selected_empty'   => 'There are no selected Ticket Statuses to delete.',
+        'delete_selected_success' => 'Successfully deleted the selected Ticket Statuses.',
+    ],
+    'issue'       => [
+        'label'                   => 'Issue',
+        'return_to_list'          => 'Return to the issues list',
+        'edit'                    => 'Edit Issue',
+        'create'                  => 'Create Issue',
+        'manage'                  => 'Manage Issues',
+        'name'                    => 'Issue',
+        'delete_confirm'          => 'Do you really want to delete this Issue?',
+        'new'                     => 'New Issue',
+        'delete_selected_confirm' => 'Are you sure you want to remove selected Issues?',
+        'delete_selected_empty'   => 'There are no selected Issues to delete.',
+        'delete_selected_success' => 'Successfully deleted the selected Issues.',
+        'refresh'                 => 'Refresh',
+        'all_complete'            => 'Close selected',
+        'close_selected_confirm'    => 'Are you sure you want to close selected Issues?',
+        'close_selected_empty'    => 'There are no selected Issues to close.',
+        'close_selected_success'  => 'Successfully closed the selected Issues.',
+        'open'                    => 'Open Issues',
+        'closed'                  => 'Closed Issues',
+        'close'                   => 'Close Issue',
+        'toolbar'                 => 'Issue toolbar',
+        'messages'                => 'Issue messages',
+        'preview'                 => 'Preview Issue',
+        'close_confirm'           => 'Do you really want to close this Issue?',
+        'open_confirm'            => 'Do you really want to open this Issue?',
+        'close_success'           => 'Successfully closed the Issue.',
+        'open_success'            => 'Successfully opened the Issue.',
     ],
 
 ];

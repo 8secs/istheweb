@@ -11,6 +11,10 @@ class CreateNotesTable extends Migration
         Schema::create('istheweb_iscorporate_notes', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->index();
+            $table->integer('ticket_id')->unsigned()->index();
+            $table->text('reply');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

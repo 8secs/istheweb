@@ -11,12 +11,18 @@ class CreateIssuesTable extends Migration
         Schema::create('istheweb_iscorporate_issues', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('client_id')->unsigned()->index();
+            $table->integer('resource_id')->unsigned()->index();
+            $table->integer('creator_id')->unsigned()->index();
+            $table->tinyInteger('status_id')->unsigned()->index();
+            $table->tinyInteger('type_id')->unsigned()->index();
             $table->string('name_contact', 255)->nullable();
             $table->string('surname_contact', 255)->nullable();
             $table->string('subject', 600)->nullable();
-            $table->text('description')->nullable();
-            $table->tinyInteger('state')->default(0);
-            $table->date('published_at')->default(Carbon::now());
+            $table->text('content')->nullable();
+            $table->boolean('is_closed')->default(false);
+            $table->softDeletes();
+            $table->datetime('status_updated_at')->nullable();
             $table->timestamps();
         });
     }
