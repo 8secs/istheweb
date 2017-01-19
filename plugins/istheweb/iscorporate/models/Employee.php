@@ -38,10 +38,20 @@ class Employee extends Base
             'Istheweb\IsCorporate\Models\Role',
             'table' => 'istheweb_iscorporate_pivots',
         ],
+        'projects' => [
+            'Istheweb\IsCorporate\Models\Project',
+            'table' => 'istheweb_iscorporate_pivots',
+        ]/*,
+        'variants'  => [
+            'Istheweb\IsCorporate\Models\Variants',
+            'table' => 'istheweb_iscorporate_pivots',
+        ]*/,
     ];
     public $morphTo = [];
     public $morphOne = [];
-    public $morphMany = [];
+    public $morphMany = [
+
+    ];
     public $attachOne = [
         'avatar' => ['System\Models\File']
     ];

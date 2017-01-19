@@ -14,7 +14,9 @@ class OptionValue extends Base
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['code', 'value', 'price'];
+    protected $fillable = ['project_option', 'code', 'value', 'price'];
+
+    //protected $jsonable = ['data', 'urls'];
 
     /**
      * @var array Relations

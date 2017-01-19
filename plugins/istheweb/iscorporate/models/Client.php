@@ -24,7 +24,6 @@ class Client extends Base
     /**
      * @var array Relations
      */
-    public $hasOne = [];
     public $hasMany = [
         'budgets'       => 'Istheweb\IsCorporate\Models\Budget',
         'projects'       => 'Istheweb\IsCorporate\Models\Project',
@@ -32,11 +31,5 @@ class Client extends Base
     public $belongsTo = [
         'company'           => 'Istheweb\Connect\Models\Company'
     ];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
 
 }

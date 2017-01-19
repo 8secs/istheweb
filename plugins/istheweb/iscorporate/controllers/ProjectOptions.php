@@ -1,9 +1,15 @@
 <?php namespace Istheweb\IsCorporate\Controllers;
 
+use Backend\Facades\BackendAuth;
+use Backend\Models\User;
+use Backend\Models\UserGroup;
 use BackendMenu;
 use Backend\Classes\Controller;
+use Carbon\Carbon;
+use Istheweb\IsCorporate\Models\Employee;
 use Istheweb\IsCorporate\Models\OptionValue;
 use Istheweb\IsCorporate\Models\ProjectOption;
+use Istheweb\Shop\Models\Option;
 use Request;
 use Flash;
 use Redirect;
@@ -30,7 +36,10 @@ class ProjectOptions extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Istheweb.IsCorporate', 'iscorporate', 'projectoptions');
+    }
 
-        //dd($this);
+    public function onSeedData()
+    {
+
     }
 }

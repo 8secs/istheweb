@@ -36,3 +36,13 @@ client:
     manage:
         form: $/istheweb/iscorporate/models/client/fields.yaml
         list: $/istheweb/iscorporate/models/client/columns.yaml
+#employees:
+#    label: istheweb.iscorporate::lang.employees.menu_label
+#    view:
+#        list: $/istheweb/iscorporate/models/employee/columns.yaml
+#        toolbarButtons: add|remove
+#    manage:
+#        showSearch: true
+#        recordsPerPage: 10
+#        list: $/istheweb/iscorporate/models/employee/columns.yaml
+#        form: $/istheweb/iscorporate/models/employee/fields.yaml

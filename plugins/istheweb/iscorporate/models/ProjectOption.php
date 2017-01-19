@@ -11,22 +11,18 @@ class ProjectOption extends Base
      */
     public $table = 'istheweb_iscorporate_project_options';
 
-    /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
 
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'code'];
 
     /**
      * @var array Relations
      */
     public $hasOne = [];
     public $hasMany = [
-        'values'          => 'Istheweb\IsCorporate\Models\OptionValue'
+        'values'        => 'Istheweb\IsCorporate\Models\OptionValue'
     ];
     public $belongsTo = [];
     public $belongsToMany = [
@@ -35,7 +31,11 @@ class ProjectOption extends Base
         ],
         'budgets' => ['Istheweb\IsCorporate\Models\Budget',
             'table' => 'istheweb_iscorporate_pivots',
-        ],
+        ]/*,
+        'roles' => [
+            'Istheweb\IsCorporate\Models\Role',
+            'table' => 'istheweb_iscorporate_pivots',
+        ],*/
 
     ];
     public $morphTo = [];

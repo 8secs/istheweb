@@ -2,6 +2,7 @@
 #  Form Field Definitions
 # ===================================
 
+
 fields:
     name:
         label: istheweb.iscorporate::lang.labels.name
@@ -11,10 +12,19 @@ fields:
         label: istheweb.iscorporate::lang.labels.code
         span: auto
         type: text
-
-tabs:
-  fields:
+    #roles_section:
+    #    label: istheweb.iscorporate::lang.tab.roles
+    #    type: section
+    #    comment: istheweb.iscorporate::lang.labels.roles_comment
+    #roles@update:
+    #    label: istheweb.iscorporate::lang.labels.role
+    #    type: relation
+    values_section:
+        label: istheweb.iscorporate::lang.tab.service_elements
+        type: section
+        comment: istheweb.iscorporate::lang.labels.service_element_comments
     values@update:
-      label: istheweb.iscorporate::lang.labels.values
+      label: istheweb.iscorporate::lang.labels.service
       type: partial
       path: field_values
+

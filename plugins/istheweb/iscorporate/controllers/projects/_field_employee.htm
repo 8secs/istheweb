@@ -1,0 +1,18 @@
+<div class="form-group radio-field span-left">
+    <?php foreach($this->vars['allEmployees']  as $employee) : ?>
+    <div class="radio custom-radio" style="display:inline-block;">
+        <?php if($formModel->employee) : ?>
+            <?php if($formModel->employee->id == $employee->id) : ?>
+                <input id="Variant[employees][<?= $employee->id ?>]" name="Variant[employees]" value="<?= $employee->id ?>"  type="radio" checked>
+            <?php else : ?>
+                <input id="Variant[employees][<?= $employee->id ?>]" name="Variant[employees]" value="<?= $employee->id ?>"  type="radio">
+            <?php endif ?>
+        <?php else : ?>
+            <input id="Variant[employees][<?= $employee->id ?>]" name="Variant[employees]" value="<?= $employee->id ?>"  type="radio">
+        <?php endif ?>
+
+        <label class="choice" for="Variant[employees][<?= $employee->id ?>]"> <?= $employee->user->full_name ?></label>
+        <span class="help-block"><?= e(trans('istheweb.iscorporate::lang.labels.email')) ?>: <?= $employee->user->email ?></span>
+    </div>
+    <?php endforeach ?>
+</div>

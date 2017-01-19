@@ -1,0 +1,64 @@
+<br>
+<div class="scoreboard">
+    <div data-control="toolbar">
+
+        <div class="scoreboard-item title-value support-status">
+
+            <h4><?php echo e(trans('istheweb.iscorporate::lang.toolbar.status')); ?></h4>
+
+            <p><?php echo $selectedStatus; ?></p>
+
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?php echo e(trans('istheweb.iscorporate::lang.toolbar.total_time_task')); ?></h4>
+            <p><?php echo $totalDone[0] . ':' . $totalDone[1]; ?></p>
+
+            <p class="description">
+                <?php echo e(trans('istheweb.iscorporate::lang.toolbar.since')); ?>:
+                <?php echo e($model->created_at); ?>
+            </p>
+        </div>
+
+        <div class="scoreboard-item title-value">
+            <h4><?php echo e(trans('istheweb.iscorporate::lang.toolbar.assigned_to')); ?></h4>
+
+            <p><?php echo e($model->employee->user->full_name); ?></p>
+        </div>
+
+    </div>
+</div>
+
+<div class="form-buttons">
+
+    <?php if($is_resource == true) : ?>
+
+        <a href="#" id="new-report" class="btn btn-primary oc-icon-plus">Nuevo informe</a>
+    <?php endif ?>
+
+
+</div>
+
+<script type="text/javascript">
+    var isopen = false;
+
+    var form = '<input type="hidden" name="is_report" value="1" /> ' +
+        '<div class="form-group span-left"><label>Horas</label> ' +
+        '<input type="number" name="Variant[Report][hours]" value="" class="form-control" /></div> ' +
+        '<div class="form-group span-right"><label>Minutos</label> ' +
+        '<input type="number" name="Variant[Report][minutes]" value="" class="form-control" /></div> ' +
+        '<div class="form-group span-full"><label>Address</label> ' +
+        '<textarea name="Variant[Report][comments]" value="" class="form-control" /></div>';
+
+    $('#new-report').on('click', function(e){
+
+        if(!isopen){
+            $('.form-report-div').show('slow');
+            $('.form-report-div').append(form);
+            isopen = true;
+        }
+
+
+        e.preventDefault();
+    });
+</script>

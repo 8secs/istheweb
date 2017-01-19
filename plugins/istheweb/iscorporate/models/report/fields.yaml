@@ -1,0 +1,23 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    hours:
+        label: Horas
+        type: number
+        span: auto
+    minutes:
+        label: Minutos
+        type: number
+        span: auto
+    variant:
+        label: istheweb.iscorporate::lang.variants.menu_label
+        type: recordfinder
+        list: $/istheweb/iscorporate/models/variant/columns.yaml
+        nameFrom: name
+        span: auto
+    comments:
+        label: istheweb.iscorporate::lang.fields.comments
+        type: richeditor
+        size: huge

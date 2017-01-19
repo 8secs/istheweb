@@ -9,7 +9,6 @@ secondaryTabs:
           #path: field_company
           #type: project_company
           type: recordfinder
-          span: auto
           list: $/istheweb/connect/models/company/columns.yaml
           nameFrom: name
           tab: istheweb.iscorporate::lang.fields.company

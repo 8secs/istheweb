@@ -3,6 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Istheweb\IsCorporate\Models\Budget;
+use Istheweb\IsCorporate\Models\Employee;
 use Istheweb\IsCorporate\Models\Project;
 
 /**
@@ -22,6 +23,8 @@ class Projects extends Controller
     public $relationConfig = 'config_relation.yaml';
 
     public $budgets;
+    public $allEmployees;
+
 
     public function __construct()
     {
@@ -34,8 +37,7 @@ class Projects extends Controller
 
     protected function preparevars(){
         $this->budgets = $this->vars['budgets'] = $this->getBudgets();
-
-
+        $this->allEmployees = $this->vars['allEmployees'] = $this->getEmployees();
     }
 
     public function getBudgets()
@@ -44,5 +46,17 @@ class Projects extends Controller
 
         return $budgets;
     }
+
+    public function getEmployees()
+    {
+        $employees = Employee::all();
+        return $employees;
+    }
+
+    public function getColumnValue($value, $column){
+        return Project::getSelectedColumn($value, $column);
+    }
+
+
 
 }

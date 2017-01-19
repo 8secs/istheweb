@@ -15,6 +15,8 @@ class CreateOptionValuesTable extends Migration
             $table->string('code')->unique();
             $table->string('value', 255);
             $table->float('price', 18,2);
+            //$table->longText('data')->nullable();
+            //$table->longText('urls')->nullable();
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@ namespace istheweb\iscorporate\behaviors;
 use Backend\Facades\Backend;
 use Backend\Facades\BackendAuth;
 use Carbon\Carbon;
+use Istheweb\IsCorporate\Models\IssueStatus;
 use Istheweb\IsCorporate\Models\TicketStatus;
 use Event;
 use System\Classes\ModelBehavior;
@@ -107,12 +108,17 @@ class IssueModel extends ModelBehavior
         $this->model->status_updated_at = Carbon::now();
     }
 
+    public function getIssue()
+    {
+        //dd($this->model);
+    }
+
     /**
      * @param $context
      * @return bool
      */
     public function isAllowedToUpdate($context)
     {
-        return $context == 'update' && ! BackendAuth::getUser()->hasAccess('renatio.support.access_other_tickets');
+        return $context == 'update' && ! BackendAuth::getUser()->hasAccess('istheweb.iscorporate.access_other_issues');
     }
 }

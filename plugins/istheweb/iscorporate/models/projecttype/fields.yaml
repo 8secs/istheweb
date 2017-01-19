@@ -52,12 +52,7 @@ tabs:
                 action: show
                 field: is_subcategory
                 condition: checked
-        projects@update:
-            label: istheweb.iscorporate::lang.project.menu_label
-            type: partial
-            path: field_projects
-            span: auto
-            tab: istheweb.iscorporate::lang.projects.menu_label
+
         pictures:
             label: istheweb.iscorporate::lang.labels.pictures
             type: fileupload

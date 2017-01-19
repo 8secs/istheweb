@@ -15,6 +15,10 @@ class CreateProjectsTable extends Migration
             $table->string('code')->unique();
             $table->string('name', 255)->index();
             $table->string('slug', 255)->index()->unique();
+            $table->integer('status')->nullable();
+            $table->integer('now')->nullable();
+            $table->longText('comment')->nullable();
+            $table->longText('project_description')->nullable();
             $table->string('caption')->nullable();
             $table->longText('description')->nullable();
             $table->string('meta_keywords', 255)->nullable();

@@ -1,5 +1,7 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use Illuminate\Support\Facades\Lang;
+
 /**
  * Project Model
  */
@@ -21,12 +23,13 @@ class Project extends Base
      */
     protected $fillable = [];
 
-
     /**
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [];
+    public $hasMany = [
+        'reports'       => 'Istheweb\IsCorporate\Models\Report',
+    ];
     public $belongsTo = [
         'client'            => 'Istheweb\IsCorporate\Models\Client'
     ];
@@ -43,10 +46,21 @@ class Project extends Base
     public $morphMany = [
         'variants'      => ['Istheweb\IsCorporate\Models\Variant', 'name' => 'imageable']
     ];
+
+    /*
+    public $hasManyThrough = [
+        'reports' => [
+            'Istheweb\IsCorporate\Models\Report',
+            'through' => 'Istheweb\IsCorporate\Models\Variant'
+        ],
+    ];*/
+
     public $attachOne = [];
     public $attachMany = [
         'pictures' => ['System\Models\File'],
+        'documents' => ['System\Models\File'],
     ];
+
 
     public function getProjectTypesOptions()
     {
@@ -56,6 +70,45 @@ class Project extends Base
     public function getBudgetsOptions()
     {
         return Budget::all()->lists('name', 'id');
+    }
+
+    public function getStatusOptions()
+    {
+        return [
+            '1' => 'istheweb.iscorporate::lang.project_state.active',
+            '2' => 'istheweb.iscorporate::lang.project_state.discontinued',
+            '3' => 'istheweb.iscorporate::lang.project_state.completed'
+        ];
+    }
+
+    public function getNowOptions()
+    {
+        return [
+            '1'   => 'istheweb.iscorporate::lang.project_now.waiting_material',
+            '2'   => 'istheweb.iscorporate::lang.project_now.waiting_answers',
+            '3'   => 'istheweb.iscorporate::lang.project_now.in_production',
+            '4'   => 'istheweb.iscorporate::lang.project_now.in_test',
+            '5'   => 'istheweb.iscorporate::lang.project_now.waiting_payment',
+            '6'   => 'istheweb.iscorporate::lang.project_now.wating_to_public_client_server',
+            '7'   => 'istheweb.iscorporate::lang.project_now.terminated'
+        ];
+    }
+
+
+    public static function getSelectedColumn($k, $column){
+
+        $project = new Project();
+        if($column == 'status'){
+            $array = $project->getStatusOptions();
+        } else {
+            $array = $project->getNowOptions();
+        }
+
+        foreach($array as $key => $value){
+            if($k == $key) {
+                return Lang::get($value);
+            }
+        }
     }
 
     public static function getProjectBySlug($slug){

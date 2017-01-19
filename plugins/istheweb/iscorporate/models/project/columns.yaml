@@ -12,9 +12,19 @@ columns:
     code:
         label: istheweb.iscorporate::lang.labels.code
         searchable: true
-    availableOn:
+    status:
+        label: istheweb.iscorporate::lang.fields.state
+        searchable: true
+        type: partial
+        path: ~/plugins/istheweb/iscorporate/models/project/_state_column.htm
+    now:
+        label: istheweb.iscorporate::lang.fields.actually
+        searchable: true
+        type: partial
+        path: ~/plugins/istheweb/iscorporate/models/project/_now_column.htm
+    available_on:
         label: istheweb.iscorporate::lang.labels.available_on
         type: date
-    availableUntil:
+    available_until:
         label: istheweb.iscorporate::lang.labels.available_until
         type: date

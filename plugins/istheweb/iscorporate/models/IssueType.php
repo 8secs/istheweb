@@ -1,11 +1,11 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
-use Model;
+
 
 /**
  * IssueType Model
  */
-class IssueType extends Model
+class IssueType extends Base
 {
 
     /**
@@ -22,9 +22,9 @@ class IssueType extends Model
      * @var array
      */
     public $attributeNames = [
-        'name'        => 'istheweb.corporate::lang.fieds.name',
-        'description' => 'istheweb.corporate::lang.fieds.description',
-        'is_active'   => 'istheweb.corporate::lang.fieds.is_active'
+        'name'        => 'istheweb.iscorporate::lang.fieds.name',
+        'description' => 'istheweb.iscorporate::lang.fieds.description',
+        'is_active'   => 'istheweb.iscorporate::lang.fieds.is_active'
     ];
 
     /**
@@ -40,7 +40,7 @@ class IssueType extends Model
      * @var array
      */
     public $belongsToMany = [
-        'tickets' => ['Istheweb\IsCorporate\Models\Issue']
+        'issues' => ['Istheweb\IsCorporate\Models\Issue']
     ];
 
     /**

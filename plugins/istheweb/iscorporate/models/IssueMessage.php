@@ -21,7 +21,7 @@ class IssueMessage extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user', 'messageable', 'reply'];
+    protected $fillable = ['user', 'messageable_id', 'messageable_type', 'reply'];
 
     /**
      * @var array

@@ -2,11 +2,11 @@
     <div data-control="toolbar">
 
         <div class="scoreboard-item title-value">
-            <h4><?php echo e(trans('istheweb.corporate::lang.toolbar.id')); ?></h4>
+            <h4><?php echo e(trans('istheweb.iscorporate::lang.toolbar.id')); ?></h4>
 
             <p><?php echo e($model->id); ?></p>
 
-            <p class="description"><?php echo e(trans('istheweb.corporate::lang.toolbar.created')); ?>:
+            <p class="description"><?php echo e(trans('istheweb.iscorporate::lang.toolbar.created')); ?>:
                 <?php echo e($model->created_at); ?></p>
         </div>
 
@@ -17,21 +17,21 @@
         </div>
 
         <div class="scoreboard-item title-value">
-            <h4><?php echo e(trans('istheweb.corporate::lang.toolbar.owner')); ?></h4>
+            <h4><?php echo e(trans('istheweb.iscorporate::lang.toolbar.owner')); ?></h4>
 
-            <p><?php echo e($model->user->full_name); ?></p>
+            <p><?php echo e($model->creator->full_name); ?></p>
         </div>
 
     </div>
 </div>
 <div class="form-buttons">
 
-    <a href="<?php echo Backend::url('istheweb/iscorporate/tickets'); ?>"
+    <a href="<?php echo Backend::url('istheweb/iscorporate/issues'); ?>"
        class="btn btn-default oc-icon-chevron-left">
-        <?php echo e(trans('istheweb.corporate::lang.ticket.return_to_list')); ?>
+        <?php echo e(trans('istheweb.iscorporate::lang.issue.return_to_list')); ?>
     </a>
 
-    <?php if (BackendAuth::getUser()->hasAccess('istheweb.corporate.access_other_tickets')): ?>
+    <?php if (BackendAuth::getUser()->hasAccess('istheweb.iscorporate.access_other_issues')): ?>
 
     <span id="change-status">
 
@@ -39,7 +39,7 @@
 
         </span>
 
-    <span id="close-ticket">
+    <span id="close-issue">
 
             <?php if ($model->is_closed) : ?>
 
@@ -57,7 +57,7 @@
             class="oc-icon-trash-o btn btn-danger"
             data-request="onDelete"
             data-stripe-load-indicator
-            data-request-confirm="<?= e(trans('istheweb.corporate::lang.ticket.delete_confirm')) ?>">
+            data-request-confirm="<?= e(trans('istheweb.iscorporate::lang.issue.delete_confirm')) ?>">
         <?php echo e(trans('backend::lang.form.delete')); ?>
     </button>
 

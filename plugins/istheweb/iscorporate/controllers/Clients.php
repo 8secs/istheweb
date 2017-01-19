@@ -33,7 +33,6 @@ class Clients extends Controller
     public function update($recordId, $context = null)
     {
         $client = Client::with('budgets')->find($recordId);
-        //dd($client);
 
         foreach($client->budgets as $budget)
         {
@@ -42,10 +41,12 @@ class Clients extends Controller
             //dd($budget->variants);
             $project_variants = $budget->variants;
         }
-        $this->vars['project_types'] = $project_types;
-        $this->vars['options']  = $project_options;
-        $this->vars['variants'] = $project_variants;
 
+        if(count($client->budgets) > 0){
+            $this->vars['project_types'] = $project_types;
+            $this->vars['options']  = $project_options;
+            $this->vars['variants'] = $project_variants;
+        }
 
         // Call the FormController behavior update() method
         return $this->asExtension('FormController')->update($recordId, $context);

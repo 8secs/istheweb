@@ -21,6 +21,7 @@ class IssueTypeController extends BaseController
     {
         foreach (post('checked') as $typeId) {
             if ( ! $type = IssueType::find($typeId)) {
+
                 continue;
             }
 

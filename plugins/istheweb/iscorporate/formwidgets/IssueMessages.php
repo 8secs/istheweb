@@ -1,6 +1,7 @@
 <?php namespace Istheweb\IsCorporate\FormWidgets;
 
 use Backend\Classes\FormWidgetBase;
+use Istheweb\IsCorporate\Models\Issue;
 
 /**
  * IssueMessages Form Widget
@@ -34,7 +35,7 @@ class IssueMessages extends FormWidgetBase
      */
     public function prepareVars()
     {
-        $this->vars['issue'] = Issue::with(['messages.user', 'user'])->find($this->model->id);
+        $this->vars['issue'] = Issue::with(['messages.user', 'creator'])->find($this->model->id);
     }
 
     /**

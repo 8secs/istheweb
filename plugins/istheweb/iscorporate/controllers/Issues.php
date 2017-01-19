@@ -43,9 +43,9 @@ class Issues extends Controller
      * @param Ticket $ticket
      * @return string
      */
-    public function listInjectRowClass(Ticket $ticket)
+    public function listInjectRowClass(Issue $issue)
     {
-        if ($ticket->is_closed) {
+        if ($issue->is_closed) {
             return 'strike';
         }
     }

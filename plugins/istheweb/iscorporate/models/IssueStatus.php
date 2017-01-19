@@ -25,8 +25,8 @@ class IssueStatus extends Base
      * @var array
      */
     public $attributeNames = [
-        'name'      => 'istheweb.corporate::lang.fieds.name',
-        'is_active' => 'istheweb.corporate::lang.fieds.is_active'
+        'name'      => 'istheweb.iscorporate::lang.fieds.name',
+        'is_active' => 'istheweb.iscorporate::lang.fieds.is_active'
     ];
 
     /**

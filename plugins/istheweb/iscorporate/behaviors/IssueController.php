@@ -42,10 +42,10 @@ class IssueController extends BaseController
      */
     public function onSendReply($recordId)
     {
-        $issue = Ticket::with(['messages.user', 'user'])->findOrFail($recordId);
+        $issue = Issue::with(['messages.user', 'creator'])->findOrFail($recordId);
         $message = $this->createMessage($issue);
 
-        Event::fire('ticket.newReply', [$issue]);
+        Event::fire('issue.newReply', [$issue]);
 
         Flash::success(trans('istheweb.iscorporate::lang.message.success'));
 
@@ -102,14 +102,21 @@ class IssueController extends BaseController
      */
     private function createMessage(Issue $issue)
     {
-        $message = IssueMessage::create([
+        $message = new IssueMessage();
+        $message->user = BackendAuth::getUser()->id;
+        $message->messageable_id = $issue->id;
+        $message->messageable_type = get_class($issue);
+        $message->reply = post('Issue')['reply'];
+        /*$message = IssueMessage::create([
             'user'   => BackendAuth::getUser()->id,
-            'messageable' => $issue->id,
+            'messageable_id' => $issue->id,
+            'messageable_type'  => get_class($issue),
             'reply'  => post('Issue')['reply']
-        ]);
+        ]);*/
+
+
 
         $issue->messages()->save($message);
-        $issue->messages->push($message);
 
         return $message;
     }
@@ -120,7 +127,7 @@ class IssueController extends BaseController
     private function closeChecked()
     {
         foreach (post('checked') as $issueId) {
-            if ( ! $issue = Ticket::find($issueId)) {
+            if ( ! $issue = Issue::find($issueId)) {
                 continue;
             }
 
@@ -134,7 +141,7 @@ class IssueController extends BaseController
      * @param Ticket $issue
      * @return array
      */
-    protected function prepareChangeStatusResponse(Ticket $issue)
+    protected function prepareChangeStatusResponse(Issue $issue)
     {
         return [
             '#change-status'  => $this->controller->makePartial('change_status_btn',
@@ -149,7 +156,7 @@ class IssueController extends BaseController
     protected function deleteChecked()
     {
         foreach (post('checked') as $issueId) {
-            if ( ! $issue = Ticket::find($issueId)) {
+            if ( ! $issue = Issue::find($issueId)) {
                 continue;
             }
 

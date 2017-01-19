@@ -2,106 +2,176 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    name:
-        label: istheweb.iscorporate::lang.labels.name
-        span: auto
-        type: text
-    code:
-        label: istheweb.iscorporate::lang.labels.code
-        span: auto
-        type: text
-    slug:
-        label: istheweb.iscorporate::lang.labels.slug
-        span: auto
-        required: true
-        preset:
-            field: name
-            type: slug
-    enabled:
-        label: istheweb.iscorporate::lang.labels.enabled
-        type: switch
-        span: right
-    available_on:
-        label: istheweb.iscorporate::lang.labels.available_on
-        type: datepicker
-        mode: date
-        span: auto
-    available_until:
-        label: istheweb.iscorporate::lang.labels.available_until
-        type: datepicker
-        mode: date
-        span: auto
-
-
-tabs:
+secondaryTabs:
   fields:
-    client:
-        label: istheweb.iscorporate::lang.client.label
-        type: partial
-        path: field_client
-        #type: project_company
-        span: auto
-        tab: istheweb.iscorporate::lang.client.label
-    project_types:
-        label: istheweb.iscorporate::lang.project_types.menu_label
-        type: partial
-        path: field_project_types
-        tab: istheweb.iscorporate::lang.project_types.menu_label
-    options_section:
-        label: istheweb.iscorporate::lang.options.menu_label
-        type: section
-        comment: istheweb.iscorporate::lang.options.comment
-        tab: istheweb.iscorporate::lang.fields.options_elements
-    options:
-        type: partial
-        path: field_options
-        tab: istheweb.iscorporate::lang.fields.options_elements
-    variants_section:
-        label: istheweb.iscorporate::lang.variants.menu_label
-        type: section
-        comment: istheweb.iscorporate::lang.variants.comment
-        tab: istheweb.iscorporate::lang.fields.options_elements
-    variants:
-        type: partial
-        path: field_variants
-        context: update
-        tab: istheweb.iscorporate::lang.fields.options_elements
-    caption:
-        type: richeditor
-        size: huge
-        label: istheweb.iscorporate::lang.labels.caption
-        span: auto
-        tab: istheweb.iscorporate::lang.labels.description
-    description:
-        type: richeditor
-        size: huge
-        label: istheweb.iscorporate::lang.labels.description
-        span: auto
-        tab: istheweb.iscorporate::lang.labels.description
-    meta_keywords:
-        type: richeditor
-        size: huge
-        label: istheweb.iscorporate::lang.labels.meta_keywords
-        span: auto
-        tab: istheweb.iscorporate::lang.labels.seo
-    meta_description:
-        type: richeditor
-        size: huge
-        label: istheweb.iscorporate::lang.labels.meta_description
-        span: auto
-        tab: istheweb.iscorporate::lang.labels.seo
-    short_description:
-        type: richeditor
-        size: huge
-        label: istheweb.iscorporate::lang.labels.short_description
-        span: auto
-        tab: istheweb.iscorporate::lang.labels.seo
-    pictures:
-        label: istheweb.iscorporate::lang.labels.pictures
-        type: fileupload
-        mode: image
-        span: auto
-        imageHeight: 260
-        imageWidth: 260
-        tab: istheweb.iscorporate::lang.labels.attachments
+      name:
+          label: istheweb.iscorporate::lang.labels.name
+          span: auto
+          type: text
+          tab: istheweb.iscorporate::lang.tab.info
+      code:
+          label: istheweb.iscorporate::lang.labels.code
+          span: auto
+          type: text
+          tab: istheweb.iscorporate::lang.tab.info
+      enabled:
+          label: istheweb.iscorporate::lang.labels.visible
+          type: switch
+          span: auto
+          tab: istheweb.iscorporate::lang.tab.info
+      slug:
+          label: istheweb.iscorporate::lang.labels.slug
+          span: auto
+          required: true
+          tab: istheweb.iscorporate::lang.tab.info
+          trigger:
+              action: show
+              field: enabled
+              condition: checked
+          preset:
+              field: name
+              type: slug
+      client_section:
+          label: istheweb.iscorporate::lang.clients.menu_label
+          type: section
+          comment: istheweb.iscorporate::lang.clients.comment
+          tab: istheweb.iscorporate::lang.tab.info
+      client:
+          type: partial
+          path: field_client
+          #type: project_company
+          tab: istheweb.iscorporate::lang.tab.info
+      dates_state_section:
+          label: istheweb.iscorporate::lang.fields.dates_states
+          type: section
+          comment: istheweb.iscorporate::lang.fields.dates_states_comment
+          tab: istheweb.iscorporate::lang.tab.info
+      available_on:
+          label: istheweb.iscorporate::lang.labels.available_on
+          type: datepicker
+          mode: date
+          span: auto
+          tab: istheweb.iscorporate::lang.tab.info
+      available_until:
+          label: istheweb.iscorporate::lang.labels.available_until
+          type: datepicker
+          mode: date
+          span: auto
+          tab: istheweb.iscorporate::lang.tab.info
+      status:
+          label: istheweb.iscorporate::lang.fields.state
+          type: dropdown
+          span: auto
+          placeholder: istheweb.iscorporate::lang.labels.select_state_project
+          tab: istheweb.iscorporate::lang.tab.info
+      now:
+          label: istheweb.iscorporate::lang.fields.actually
+          type: dropdown
+          span: auto
+          placeholder: istheweb.iscorporate::lang.labels.select_now_project
+          tab: istheweb.iscorporate::lang.tab.info
+      comment_section:
+          label: istheweb.iscorporate::lang.fields.comments
+          type: section
+          tab: istheweb.iscorporate::lang.tab.info
+      comment:
+          label: istheweb.iscorporate::lang.fields.comment
+          type: richeditor
+          size: huge
+          span: auto
+          tab: istheweb.iscorporate::lang.tab.info
+      project_description:
+          label: istheweb.iscorporate::lang.fields.description
+          type: richeditor
+          size: huge
+          span: auto
+          tab: istheweb.iscorporate::lang.tab.info
+
+
+      project_types:
+          label: istheweb.iscorporate::lang.project_types.menu_label
+          type: partial
+          path: field_project_types
+          tab: istheweb.iscorporate::lang.project_types.menu_label
+      options_section:
+          label: istheweb.iscorporate::lang.options.menu_label
+          type: section
+          comment: istheweb.iscorporate::lang.options.comment
+          tab: istheweb.iscorporate::lang.fields.services_tasks
+      options:
+          type: partial
+          path: field_options
+          tab: istheweb.iscorporate::lang.fields.services_tasks
+      variants_section:
+          label: istheweb.iscorporate::lang.variants.menu_label
+          type: section
+          comment: istheweb.iscorporate::lang.variants.comment
+          tab: istheweb.iscorporate::lang.fields.services_tasks
+      variants:
+          type: partial
+          path: field_variants
+          context: update
+          tab: istheweb.iscorporate::lang.fields.services_tasks
+      caption:
+          type: richeditor
+          size: huge
+          label: istheweb.iscorporate::lang.labels.caption
+          span: auto
+          tab: istheweb.iscorporate::lang.labels.description
+          trigger:
+              action: show
+              field: enabled
+              condition: checked
+      description:
+          type: richeditor
+          size: huge
+          label: istheweb.iscorporate::lang.labels.description
+          span: auto
+          tab: istheweb.iscorporate::lang.labels.description
+          trigger:
+              action: show
+              field: enabled
+              condition: checked
+      meta_keywords:
+          type: richeditor
+          size: huge
+          label: istheweb.iscorporate::lang.labels.meta_keywords
+          span: auto
+          tab: istheweb.iscorporate::lang.labels.seo
+          trigger:
+              action: show
+              field: enabled
+              condition: checked
+      meta_description:
+          type: richeditor
+          size: huge
+          label: istheweb.iscorporate::lang.labels.meta_description
+          span: auto
+          tab: istheweb.iscorporate::lang.labels.seo
+          trigger:
+              action: show
+              field: enabled
+              condition: checked
+      short_description:
+          type: richeditor
+          size: huge
+          label: istheweb.iscorporate::lang.labels.short_description
+          span: auto
+          tab: istheweb.iscorporate::lang.labels.seo
+          trigger:
+              action: show
+              field: enabled
+              condition: checked
+      pictures:
+          label: istheweb.iscorporate::lang.labels.pictures
+          type: fileupload
+          mode: image
+          imageHeight: 260
+          imageWidth: 260
+          tab: istheweb.iscorporate::lang.labels.attachments
+      documents:
+          label: istheweb.iscorporate::lang.labels.files
+          type: fileupload
+          mode: file
+          tab: istheweb.iscorporate::lang.labels.attachments
+

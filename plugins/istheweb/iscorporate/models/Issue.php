@@ -1,8 +1,10 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use Illuminate\Support\Facades\DB;
 use October\Rain\Database\Traits\SoftDelete;
 use October\Rain\Database\Traits\Purgeable;
 use October\Rain\Database\Traits\Validation;
+use Event;
 
 
 /**
@@ -52,7 +54,7 @@ class Issue extends Base
     /**
      * @var array
      */
-    public $purgeable = ['ticket_toolbar', 'ticket_messages', 'reply'];
+    public $purgeable = ['issue_toolbar', 'issue_messages', 'reply'];
 
     /**
      * @var array
@@ -62,8 +64,7 @@ class Issue extends Base
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
+
     public $belongsTo = [
         'client'            => 'Istheweb\IsCorporate\Models\Client',
         'resource'          => 'Istheweb\IsCorporate\Models\Employee',
@@ -71,13 +72,10 @@ class Issue extends Base
         'status'            => 'Istheweb\IsCorporate\Models\IssueStatus',
         'type'              => ['Istheweb\IsCorporate\Models\IssueType', 'scope' => 'active'],
     ];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
+
     public $morphMany = [
         'messages' => ['Istheweb\IsCorporate\Models\IssueMessage', 'name' => 'messageable']
     ];
-    public $attachOne = [];
 
     /**
      * @var array
@@ -102,6 +100,11 @@ class Issue extends Base
         $this->setDefaults();
     }
 
+    public function beforeSave()
+    {
+        $this->getIssue();
+    }
+
     /**
      * @return void
      */
@@ -116,6 +119,27 @@ class Issue extends Base
     public function afterDelete()
     {
         $this->deleteAttachments();
+    }
+
+    public function getResourceOptions()
+    {
+        $employees = Employee::all();
+
+        $empleados = [];
+        foreach($employees as $employee){
+            $empleados[$employee->id] =  $employee->user->first_name . " " . $employee->user->last_name;
+        }
+        return $empleados;
+    }
+
+    public function getClientOptions()
+    {
+        $clients = Client::all();
+        $empresas = [];
+        foreach($clients as $client){
+            $empresas[$client->id] =  $client->company->name . " (" . $client->company->email . ")";
+        }
+        return $empresas;
     }
 
     /**

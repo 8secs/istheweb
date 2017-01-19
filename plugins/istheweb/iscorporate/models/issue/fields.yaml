@@ -3,17 +3,13 @@
 # ===================================
 
 fields:
-
     issue_toolbar@update:
         type: issue_toolbar
-
     issue_toolbar@preview:
         type: issue_toolbar
 
 tabs:
-
     fields:
-
         issue_messages@update:
             type: issue_messages
             tab: istheweb.iscorporate::lang.tab.messages
@@ -44,8 +40,31 @@ tabs:
             tab: istheweb.iscorporate::lang.tab.details
             type: relation
             nameFrom: name
+            placeholder: -- select a type of issue --
             descriptionFrom: description
             span: right
+
+        resource:
+            label: istheweb.iscorporate::lang.fields.resource
+            type: dropdown
+            span: auto
+            placeholder: -- select a empleado --
+            tab: istheweb.iscorporate::lang.tab.details
+
+        client:
+            label: istheweb.iscorporate::lang.fields.client
+            type: dropdown
+            span: auto
+            placeholder: -- select a cliente --
+            tab: istheweb.iscorporate::lang.tab.details
+        name_contact:
+            label: istheweb.iscorporate::lang.fields.name_contact
+            span: auto
+            tab: istheweb.iscorporate::lang.tab.details
+        surname_contact:
+            label: istheweb.iscorporate::lang.fields.surname_contact
+            span: auto
+            tab: istheweb.iscorporate::lang.tab.details
 
         content:
             label: istheweb.iscorporate::lang.fields.content

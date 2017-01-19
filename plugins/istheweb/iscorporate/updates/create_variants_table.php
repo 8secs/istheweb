@@ -11,27 +11,22 @@ class CreateVariantsTable extends Migration
         Schema::create('istheweb_iscorporate_variants', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            //$table->integer('project_id')->unsigned()->nullable();
-            //$table->integer('budget_id')->unsigned()->nullable();
+            $table->integer('employee_id')->unsigned();
             $table->integer('imageable_id');
             $table->string('imageable_type');
             $table->string('code')->unique();
             $table->string('name')->nullable();
             $table->dateTime('availableOn')->nullable();
             $table->dateTime('availableUntil')->nullable();
+            $table->integer('plazo');
+            $table->integer('horas');
+            $table->longText('data')->nullable();
+            $table->longText('urls')->nullable();
+            //$table->longText('reports')->nullable();
             $table->integer('price');
+            $table->integer('status')->default(1);
             $table->string('pricing_calculator', 255);
             $table->longText('pricing_configuration')->nullable();
-
-            /*
-            $table->integer('on_hold')->nullable();
-            $table->integer('on_hand')->nullable();
-            $table->tinyInteger('tracked')->default(0);
-
-            $table->double('width')->nullable();
-            $table->double('height')->nullable();
-            $table->double('depth')->nullable();
-            $table->double('weight')->nullable();*/
             $table->timestamps();
         });
     }
