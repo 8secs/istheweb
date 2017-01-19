@@ -2,6 +2,12 @@
 #  Form Field Definitions
 # ===================================
 
+fields:
+  dates_state_section@update:
+      type: partial
+      path: toolbar_reports
+      tab: istheweb.iscorporate::lang.fields.dates_states
+
 secondaryTabs:
   fields:
       name:
@@ -41,44 +47,22 @@ secondaryTabs:
           path: field_client
           #type: project_company
           tab: istheweb.iscorporate::lang.tab.info
-      dates_state_section:
-          label: istheweb.iscorporate::lang.fields.dates_states
+
+      project_types_section:
+          label: istheweb.iscorporate::lang.project_types.menu_label
           type: section
-          comment: istheweb.iscorporate::lang.fields.dates_states_comment
+          comment: istheweb.iscorporate::lang.project_types.comment
           tab: istheweb.iscorporate::lang.tab.info
-      available_on:
-          label: istheweb.iscorporate::lang.labels.available_on
-          type: datepicker
-          mode: date
-          span: auto
+
+      project_types:
+          label: istheweb.iscorporate::lang.project_types.menu_label
+          type: partial
+          path: field_project_types
           tab: istheweb.iscorporate::lang.tab.info
-      available_until:
-          label: istheweb.iscorporate::lang.labels.available_until
-          type: datepicker
-          mode: date
-          span: auto
-          tab: istheweb.iscorporate::lang.tab.info
-      status:
-          label: istheweb.iscorporate::lang.fields.state
-          type: dropdown
-          span: auto
-          placeholder: istheweb.iscorporate::lang.labels.select_state_project
-          tab: istheweb.iscorporate::lang.tab.info
-      now:
-          label: istheweb.iscorporate::lang.fields.actually
-          type: dropdown
-          span: auto
-          placeholder: istheweb.iscorporate::lang.labels.select_now_project
-          tab: istheweb.iscorporate::lang.tab.info
+
       comment_section:
-          label: istheweb.iscorporate::lang.fields.comments
+          label: istheweb.iscorporate::lang.fields.descripcion_comments
           type: section
-          tab: istheweb.iscorporate::lang.tab.info
-      comment:
-          label: istheweb.iscorporate::lang.fields.comment
-          type: richeditor
-          size: huge
-          span: auto
           tab: istheweb.iscorporate::lang.tab.info
       project_description:
           label: istheweb.iscorporate::lang.fields.description
@@ -86,13 +70,44 @@ secondaryTabs:
           size: huge
           span: auto
           tab: istheweb.iscorporate::lang.tab.info
+      comment:
+          label: istheweb.iscorporate::lang.fields.comment
+          type: richeditor
+          size: huge
+          span: auto
+          tab: istheweb.iscorporate::lang.tab.info
 
+      available_on:
+          label: istheweb.iscorporate::lang.labels.available_on
+          type: datepicker
+          mode: date
+          span: auto
+          tab: istheweb.iscorporate::lang.fields.dates_states
+      available_until:
+          label: istheweb.iscorporate::lang.labels.available_until
+          type: datepicker
+          mode: date
+          span: auto
+          tab: istheweb.iscorporate::lang.fields.dates_states
+      status:
+          label: istheweb.iscorporate::lang.fields.state
+          type: dropdown
+          span: auto
+          placeholder: istheweb.iscorporate::lang.labels.select_state_project
+          tab: istheweb.iscorporate::lang.fields.dates_states
+      now:
+          label: istheweb.iscorporate::lang.fields.actually
+          type: dropdown
+          span: auto
+          placeholder: istheweb.iscorporate::lang.labels.select_now_project
+          tab: istheweb.iscorporate::lang.fields.dates_states
 
-      project_types:
-          label: istheweb.iscorporate::lang.project_types.menu_label
+      reports@update:
           type: partial
-          path: field_project_types
-          tab: istheweb.iscorporate::lang.project_types.menu_label
+          path: field_report
+          tab: istheweb.iscorporate::lang.fields.dates_states
+
+
       options_section:
           label: istheweb.iscorporate::lang.options.menu_label
           type: section

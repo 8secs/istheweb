@@ -16,6 +16,8 @@ class Report extends Base
      */
     protected $fillable = [ 'hours', 'minutes', 'comments'];
 
+
+
     /**
      * @var array Relations
      */
@@ -33,5 +35,7 @@ class Report extends Base
     public $attachOne = [];
     public $attachMany = [];
 
-
+    public function setCommentsAttribute($value){
+        $this->attributes['comments'] = strip_tags(trim($value));
+    }
 }

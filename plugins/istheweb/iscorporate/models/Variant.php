@@ -1,5 +1,6 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use Backend\Facades\BackendAuth;
 use Illuminate\Support\Facades\Request;
 
 /**
@@ -86,6 +87,23 @@ class Variant extends Base
             }
         }
 
+    }
+
+    public function scopeProject($query)
+    {
+        $path = explode('/', Request::path());
+        $id = last($path);
+        return $query->where('imageable_id', '=', $id)
+            ->where('imageable_type', 'Istheweb\IsCorporate\Models\Project');
+    }
+
+    public function isBackendUser(){
+        //return $this->employee->user->id = BackendAuth::getUser()->id ? true : false;
+        $isbackend = false;
+        if($this->employee->user->id == BackendAuth::getUser()->id){
+            $isbackend = true;
+        }
+        return $isbackend;
     }
 
     public function beforeSave()

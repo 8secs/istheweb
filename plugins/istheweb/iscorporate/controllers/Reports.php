@@ -22,4 +22,9 @@ class Reports extends Controller
 
         BackendMenu::setContext('Istheweb.IsCorporate', 'iscorporate', 'reports');
     }
+
+    public function listExtendQuery($query)
+    {
+        $query->withTrashed();
+    }
 }

@@ -14,6 +14,13 @@ class Project extends Base
     public $table = 'istheweb_iscorporate_projects';
 
     /**
+     * @var array
+     */
+    public $implement = [
+        'Istheweb.IsCorporate.Behaviors.ProjectModel'
+    ];
+
+    /**
      * @var array Guarded fields
      */
     protected $guarded = ['*'];
@@ -114,6 +121,11 @@ class Project extends Base
     public static function getProjectBySlug($slug){
         $project = Project::where('slug', $slug)->first();
         return $project;
+    }
+
+    public function afterSave()
+    {
+        //dd($this->id);
     }
 
 }

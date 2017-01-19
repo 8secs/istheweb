@@ -16,8 +16,8 @@ class Contact extends Model
     ];
 
     public $attributeNames = [
-        'name' => 'netsti.connections::lang.fields.name',
-        'email' => 'netsti.connections::lang.fields.email'
+        'name' => 'istheweb.connect::lang.fields.name',
+        'email' => 'istheweb.connect::lang.fields.email'
     ];
 
     // PROPIEDADES

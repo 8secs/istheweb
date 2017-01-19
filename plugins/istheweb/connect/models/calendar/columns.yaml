@@ -10,4 +10,4 @@ columns:
         sortable: true
         type: partial
         width: 150px
-        path: ~/plugins/netsti/connections/partials/_list_color.htm
+        path: ~/plugins/istheweb/connect/partials/_list_color.htm

@@ -36,6 +36,14 @@ client:
     manage:
         form: $/istheweb/iscorporate/models/client/fields.yaml
         list: $/istheweb/iscorporate/models/client/columns.yaml
+reports:
+    label: istheweb.iscorporate::lang.tab.reports
+    manage:
+        form: $/istheweb/iscorporate/models/report/fields.yaml
+        list: $/istheweb/iscorporate/models/report/columns.yaml
+    view:
+        list: $/istheweb/iscorporate/models/report/columns.yaml
+        toolbarButtons: create|delete
 #employees:
 #    label: istheweb.iscorporate::lang.employees.menu_label
 #    view:

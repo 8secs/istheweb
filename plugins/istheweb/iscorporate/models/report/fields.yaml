@@ -4,11 +4,11 @@
 
 fields:
     hours:
-        label: Horas
+        label: istheweb.iscorporate::lang.labels.hours
         type: number
         span: auto
     minutes:
-        label: Minutos
+        label: istheweb.iscorporate::lang.labels.minutes
         type: number
         span: auto
     variant:
@@ -16,8 +16,8 @@ fields:
         type: recordfinder
         list: $/istheweb/iscorporate/models/variant/columns.yaml
         nameFrom: name
+        scope: project
         span: auto
     comments:
         label: istheweb.iscorporate::lang.fields.comments
-        type: richeditor
-        size: huge
+        type: textarea

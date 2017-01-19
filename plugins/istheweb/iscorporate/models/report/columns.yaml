@@ -5,8 +5,9 @@
 columns:
     variant[name]:
         label: Tarea
-   variant[employee][user][full_name]:
-        label: Recurso
+    variant[employee]:
+        label: Empleado
+        type: employee_name
     comments:
         label: Comentario
     hours:

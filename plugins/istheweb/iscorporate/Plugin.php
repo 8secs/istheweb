@@ -261,15 +261,6 @@ class Plugin extends PluginBase
                         'description' => 'istheweb.iscorporate::lang.employee.description',
 
                     ],
-                    'reports'    => [
-                        'label'       => 'istheweb.iscorporate::lang.reports.menu_label',
-                        'icon'        => 'icon-user',
-                        'url'         => Backend::url('istheweb/iscorporate/reports'),
-                        'permissions' => ['istheweb.iscorporate.access_reports'],
-                        'group'       => 'istheweb.iscorporate::lang.sidebar.team',
-                        'description' => 'istheweb.iscorporate::lang.reports.description',
-
-                    ],
                     'roles'        => [
                         'label'       => 'istheweb.iscorporate::lang.roles.menu_label',
                         'icon'        => 'icon-briefcase',
@@ -340,6 +331,18 @@ class Plugin extends PluginBase
                 //dd($manager);
             }
         });
+    }
+
+    public function registerListColumnTypes()
+    {
+        return [
+            'employee_name' => [$this, 'evalEmployeeNameListColumn'],
+        ];
+    }
+
+    public function evalEmployeeNameListColumn($value, $column, $record)
+    {
+        return strtoupper($value->user->full_name);
     }
 
 }
