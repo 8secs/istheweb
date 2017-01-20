@@ -1,4 +1,29 @@
 <div data-control="toolbar">
+
+    <div class="scoreboard">
+        <div data-control="toolbar">
+
+            <div class="scoreboard-item title-value">
+                <h4><?php echo e(trans('istheweb.iscorporate::lang.project.opened')) ?></h4>
+
+                <p><?php echo e($open); ?></p>
+            </div>
+
+            <div class="scoreboard-item title-value">
+                <h4><?php echo e(trans('istheweb.iscorporate::lang.project.closed')) ?></h4>
+
+                <p><?php echo e($closed); ?></p>
+            </div>
+
+            <div class="scoreboard-item title-value">
+                <h4><?php echo e(trans('istheweb.iscorporate::lang.project.completed')) ?></h4>
+
+                <p><?php echo e($closed); ?></p>
+            </div>
+
+        </div>
+    </div>
+
     <a
             href="<?= Backend::url('istheweb/iscorporate/projects/create') ?>"
             class="btn btn-primary oc-icon-plus">

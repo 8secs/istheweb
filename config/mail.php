@@ -56,6 +56,11 @@ return [
 
     'from' => ['address' => 'noreply@domain.tld', 'name' => 'OctoberCMS'],
 
+    'to' => [
+        'address' => 'arangeltorres@gmail.com',
+        'name' => 'Dev IsConnect'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

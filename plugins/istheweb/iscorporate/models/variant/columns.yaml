@@ -11,9 +11,9 @@ columns:
         searchable: true
     price:
       label: istheweb.iscorporate::lang.labels.price
-    availableOn:
+    available_on:
         label: istheweb.iscorporate::lang.labels.available_on
         type: date
-    availableUntil:
+    available_until:
         label: istheweb.iscorporate::lang.labels.available_until
         type: date

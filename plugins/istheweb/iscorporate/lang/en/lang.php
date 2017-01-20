@@ -197,6 +197,7 @@ return [
         'available_until'           => 'Delivery date',
         'select_state_project'      => '-- Project state --',
         'select_now_project'      => '-- Actually State --',
+        'select_status'               => '-- Select Status --',
         'manage_urls'               => 'Manage URLS',
         'manage_urls_comment'       => 'Manage all URL to work with',
         'other_data'                => 'Other data',
@@ -305,6 +306,9 @@ return [
         'preview_title' => 'Preview Project',
         'list_title'    => 'Manage Projects',
         'description'   => 'Manage Company\'s projects',
+        'opened'        => 'Opened',
+        'closed'        => 'Closed',
+        'completed'     => 'Completed',
     ],
     'projects'        => [
         'delete_selected_confirm' => 'Delete the selected projects?',

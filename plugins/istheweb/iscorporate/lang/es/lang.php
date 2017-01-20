@@ -196,6 +196,7 @@ return [
         'available_until'           => 'Fecha de finalización',
         'select_state_project'      => '--Etado del proyecto --',
         'select_now_project'      => '-- Estado actual --',
+        'select_status'               => '-- Selecciona el estado --',
         'manage_urls'               => 'Gestión URLS',
         'manage_urls_comment'       => 'Gestión todas las urls necesarias para este elemento',
         'other_data'                => 'Otros datos',
@@ -303,6 +304,9 @@ return [
         'preview_title' => 'Ver Proyecto',
         'list_title'    => 'Gestionar Proyectos',
         'description'   => 'Gestionar proyectos de la empresa',
+        'opened'        => 'Activos',
+        'closed'        => 'Suspendidos',
+        'completed'     => 'Completados',
     ],
     'projects'        => [
         'delete_selected_confirm' => 'Eliminar los proyectos seleccionados?',
@@ -312,6 +316,8 @@ return [
         'delete_confirm'          => 'Realmente quieres eliminar este role?',
         'delete_selected_success' => 'Se han eliminado correctamente los proyectos.',
         'delete_selected_empty'   => 'There are no selected :name to delete.',
+        'flash_created_message'   => 'El proyecto se ha creado correctamente',
+        'flash_error_created_message'   => 'No se ha creado el proyecto correctamente',
     ],
     'project_type'         => [
         'new'           => 'Nuevo Tipo de Proyecto',

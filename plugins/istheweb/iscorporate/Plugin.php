@@ -103,6 +103,10 @@ class Plugin extends PluginBase
             'Istheweb\IsCorporate\FormWidgets\IssueMessages' => [
                 'label' => 'istheweb.iscorporate::lang.issue.messages',
                 'code'  => 'issue_messages'
+            ],
+            'Istheweb\IsCorporate\FormWidgets\VariantEmployee' => [
+                'label' => 'istheweb.iscorporate::lang.project.employees',
+                'code'  => 'variant_employee'
             ]
         ];
     }
@@ -292,7 +296,8 @@ class Plugin extends PluginBase
         return [
             'istheweb.iscorporate::mail.new_ticket'    => 'istheweb.iscorporate::lang.mail.email_issue_to_resource',
             'istheweb.iscorporate::mail.new_reply'     => 'istheweb.iscorporate::lang.mail.email_reply_issue',
-            'istheweb.iscorporate::mail.ticket_closed' => 'istheweb.iscorporate::lang.mail.email_close_issue'
+            'istheweb.iscorporate::mail.ticket_closed' => 'istheweb.iscorporate::lang.mail.email_close_issue',
+            'istheweb.iscorporate::mail.email_budget' => 'istheweb.iscorporate::lang.mail.email_budget'
         ];
     }
 
@@ -337,12 +342,17 @@ class Plugin extends PluginBase
     {
         return [
             'employee_name' => [$this, 'evalEmployeeNameListColumn'],
+            'comments_stripe_tags'  => [$this, 'evalCommentsListColumn']
         ];
     }
 
     public function evalEmployeeNameListColumn($value, $column, $record)
     {
         return strtoupper($value->user->full_name);
+    }
+
+    public function evalCommentsListColumn($value, $column, $record){
+        return strip_tags(trim($value));
     }
 
 }

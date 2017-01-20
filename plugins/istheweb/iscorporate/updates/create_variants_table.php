@@ -12,12 +12,12 @@ class CreateVariantsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
-            $table->integer('imageable_id');
-            $table->string('imageable_type');
-            $table->string('code')->unique();
-            $table->string('name')->nullable();
-            $table->dateTime('availableOn')->nullable();
-            $table->dateTime('availableUntil')->nullable();
+            $table->integer('projectable_id');
+            $table->string('projectable_type');
+            $table->string('code');
+            $table->string('name');
+            $table->dateTime('available_on')->nullable();
+            $table->dateTime('available_until')->nullable();
             $table->integer('plazo');
             $table->integer('horas');
             $table->longText('data')->nullable();

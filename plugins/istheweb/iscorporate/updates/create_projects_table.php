@@ -15,8 +15,8 @@ class CreateProjectsTable extends Migration
             $table->string('code')->unique();
             $table->string('name', 255)->index();
             $table->string('slug', 255)->index()->unique();
-            $table->integer('status')->nullable();
-            $table->integer('now')->nullable();
+            $table->integer('status')->default(1);
+            $table->integer('now')->default(1);
             $table->longText('comment')->nullable();
             $table->longText('project_description')->nullable();
             $table->string('caption')->nullable();
@@ -24,10 +24,9 @@ class CreateProjectsTable extends Migration
             $table->string('meta_keywords', 255)->nullable();
             $table->string('meta_description', 255)->nullable();
             $table->longText('short_description')->nullable();
-            $table->dateTime('available_on')->nullable();
-            $table->dateTime('available_until')->nullable();
-            $table->longText('att_values')->nullable();
-            $table->boolean('enabled');
+            $table->dateTime('available_on');
+            $table->dateTime('available_until');
+            $table->boolean('enabled')->default(0);
             $table->timestamps();
         });
     }

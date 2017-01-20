@@ -1,10 +1,13 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use October\Rain\Database\Traits\Validation;
+
 /**
  * Client Model
  */
 class Client extends Base
 {
+    use Validation;
 
     /**
      * @var string The database table used by the model.
@@ -12,14 +15,22 @@ class Client extends Base
     public $table = 'istheweb_iscorporate_clients';
 
     /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
-
-    /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'actividad',
+        'url',
+        'forma_pago',
+        'banco',
+        'sucursal',
+        'dc',
+        'cuentas',
+        'observaciones'
+    ];
+
+    public $rules = [
+        'company'       => 'required'
+    ];
 
     /**
      * @var array Relations

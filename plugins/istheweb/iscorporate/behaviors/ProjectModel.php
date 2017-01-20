@@ -9,6 +9,7 @@
 namespace istheweb\iscorporate\behaviors;
 
 use Illuminate\Support\Facades\Lang;
+use Istheweb\IsCorporate\Models\Variant;
 use System\Classes\ModelBehavior;
 use Backend\Facades\Backend;
 use Backend\Facades\BackendAuth;
@@ -23,6 +24,21 @@ class ProjectModel extends ModelBehavior
     public function __construct($model)
     {
         parent::__construct($model);
+    }
+
+    public function getOpenedCount()
+    {
+        return $this->model->opened()->count();
+    }
+
+    public function getClosedCount()
+    {
+        return $this->model->closed()->count();
+    }
+
+    public function getCompletedCount()
+    {
+        return $this->model->completed()->count();
     }
 
     public function getProjectTime($var)
@@ -55,6 +71,35 @@ class ProjectModel extends ModelBehavior
                 return Lang::get($value);
             }
         }
+    }
+
+    public function generateProjectFromBudget($budget)
+    {
+        $client = $budget->client;
+        $c = $client->company->name."_".$budget->motivo;
+        $code = strtolower(str_replace(" ", "_",$c));
+        $slug = str_replace("_", '-', $code);
+
+        $project = $this->model->firstOrNew(['slug' => $slug]);
+        $project->name = $budget->motivo;
+        $project->client = $budget->client;
+        $project->code = $code;
+        $project->slug = $slug;
+        $project->available_on = Carbon::now();
+        $project->available_until = $budget->fecha_entrega;
+        $project->enabled = 0;
+
+        $project->project_types = $budget->project_types;
+        $project->options = $budget->options;
+
+        $project->save();
+        if(!$budget->variants->isEmpty()){
+            foreach($budget->variants as $variant){
+                $p_variant = Variant::createVariant($project, $variant);
+                $project->variants()->add($p_variant);
+            }
+        }
+        return $project;
     }
 
     public function formatDate($date){

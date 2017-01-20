@@ -2,12 +2,14 @@
 
 use Backend\Facades\BackendAuth;
 use Illuminate\Support\Facades\Request;
+use October\Rain\Database\Traits\Validation;
 
 /**
  * Variant Model
  */
 class Variant extends Base
 {
+    use Validation;
 
     /**
      * @var string The database table used by the model.
@@ -15,16 +17,42 @@ class Variant extends Base
     public $table = 'istheweb_iscorporate_variants';
 
     /**
+     * @var array
+     */
+    public $implement = [
+        'Istheweb.IsCorporate.Behaviors.VariantModel'
+    ];
+
+    /**
      * @var array Fillable fields
      */
     protected $fillable = [
         'code',
+        'employee_id',
+        'projectable_id',
+        'projectable_type',
         'name',
-        'availableOn',
+        'plazo',
+        'horas',
+        'price',
+        'available_on',
         'pricing_calculator',
     ];
 
     protected $jsonable = ['data', 'urls'];
+
+    public $rules = [
+        'code'      => 'required|unique:istheweb_iscorporate_variants',
+        'name'      => 'required',
+        'plazo'     => 'required',
+        'horas'     => 'required',
+        'price'     => 'required'
+    ];
+
+    /**
+     * @var array
+     */
+    protected $dates = ['available_on', 'available_until'];
 
     /**
      * @var array Relations
@@ -42,7 +70,7 @@ class Variant extends Base
         ],
     ];
     public $morphTo = [
-        'imageable' => []
+        'projectable' => []
     ];
     public $morphOne = [];
     public $morphMany = [];
@@ -93,17 +121,26 @@ class Variant extends Base
     {
         $path = explode('/', Request::path());
         $id = last($path);
-        return $query->where('imageable_id', '=', $id)
-            ->where('imageable_type', 'Istheweb\IsCorporate\Models\Project');
+        return $query->where('projectable_id', '=', $id)
+            ->where('projectable_type', 'Istheweb\IsCorporate\Models\Project');
     }
 
     public function isBackendUser(){
-        //return $this->employee->user->id = BackendAuth::getUser()->id ? true : false;
         $isbackend = false;
         if($this->employee->user->id == BackendAuth::getUser()->id){
             $isbackend = true;
         }
         return $isbackend;
+    }
+
+    public function getEmployees()
+    {
+        return Employee::all();
+    }
+
+    public function getBudgets()
+    {
+        return Budget::all();
     }
 
     public function beforeSave()
@@ -114,26 +151,16 @@ class Variant extends Base
             $path = explode('/', Request::path());
             $id = last($path);
             if($path[3] == 'budgets'){
-                $imageable = Budget::find($id);
+                $projectable = Budget::find($id);
             }else{
-                $imageable = Project::find($id);
+                $projectable = Project::find($id);
             }
 
             $variant = post('Variant');
 
-            $this->imageable_id = $imageable->id;
-            $this->imageable_type = get_class($imageable);
-
+            $this->projectable_id = $projectable->id;
+            $this->projectable_type = get_class($projectable);
             $this->employee = $variant['employees'];
-
-            /*
-            if(post('is_report')){
-                $report = new Report($variant['Report']);
-                $report->employee = $this->employee;
-                $report->variant_id = $this->id;
-                $this->reports()->add($report);
-            }*/
-
 
             $options = $variant['optionsValues'];
             foreach ($options as $k => $v){

@@ -17,6 +17,7 @@ class CreateBudgetsTable extends Migration
             $table->string('motivo', 255)->nullable();
             $table->text('observaciones_entrega')->nullable();
             $table->text('motivo_no_aceptacion')->nullable();
+            $table->tinyInteger('is_project_created')->default(0);
             $table->string('invoice')->nullable();
             $table->timestamps();
         });

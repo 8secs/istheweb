@@ -13,13 +13,13 @@ secondaryTabs:
           type: text
           span: auto
           tab: istheweb.iscorporate::lang.tab.info
-      availableOn:
+      available_on:
           label: istheweb.iscorporate::lang.labels.available_on
           type: datepicker
           mode: date
           span: auto
           tab: istheweb.iscorporate::lang.tab.info
-      availableUntil:
+      available_until:
           label: istheweb.iscorporate::lang.labels.available_until
           type: datepicker
           mode: date
@@ -36,8 +36,7 @@ secondaryTabs:
           comment: istheweb.iscorporate::lang.labels.employee_comment
           tab: istheweb.iscorporate::lang.tab.info
       employee:
-          type: partial
-          path: field_employee
+          type: variant_employee
           tab: istheweb.iscorporate::lang.tab.info
       optionSection:
           label: istheweb.iscorporate::lang.options.menu_label

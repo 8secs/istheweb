@@ -22,9 +22,6 @@ class Projects extends Controller
     public $listConfig = 'config_list.yaml';
     public $relationConfig = 'config_relation.yaml';
 
-    public $budgets;
-    public $allEmployees;
-
 
     public function __construct()
     {
@@ -36,21 +33,19 @@ class Projects extends Controller
     }
 
     protected function preparevars(){
-        $this->budgets = $this->vars['budgets'] = $this->getBudgets();
-        $this->allEmployees = $this->vars['allEmployees'] = $this->getEmployees();
+
     }
 
-    public function getBudgets()
+    /**
+     * @return void
+     */
+    public function index()
     {
-        $budgets = Budget::all();
+        $this->vars['completed'] = Project::getCompletedCount();
+        $this->vars['open'] = Project::getOpenedCount();
+        $this->vars['closed'] = Project::getClosedCount();
 
-        return $budgets;
-    }
-
-    public function getEmployees()
-    {
-        $employees = Employee::all();
-        return $employees;
+        $this->asExtension('ListController')->index();
     }
 
     public function getColumnValue($value, $column){

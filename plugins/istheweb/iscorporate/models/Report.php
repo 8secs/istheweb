@@ -1,10 +1,13 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use October\Rain\Database\Traits\Validation;
+
 /**
  * Report Model
  */
 class Report extends Base
 {
+    use Validation;
 
     /**
      * @var string The database table used by the model.
@@ -16,7 +19,12 @@ class Report extends Base
      */
     protected $fillable = [ 'hours', 'minutes', 'comments'];
 
+    protected $rules = [
+        'variant'   => 'required',
+        'hours'     => 'required|numeric',
+        'minutes'   => 'required|numeric'
 
+    ];
 
     /**
      * @var array Relations

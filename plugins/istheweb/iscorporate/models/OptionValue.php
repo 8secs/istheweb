@@ -1,10 +1,14 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use October\Rain\Database\Traits\Validation;
+
 /**
  * OptionValue Model
  */
 class OptionValue extends Base
 {
+
+    use Validation;
 
     /**
      * @var string The database table used by the model.
@@ -16,13 +20,17 @@ class OptionValue extends Base
      */
     protected $fillable = ['project_option', 'code', 'value', 'price'];
 
-    //protected $jsonable = ['data', 'urls'];
+    protected $rules = [
+        'project_option' => 'required',
+        'code',
+        'name',
+        'price',
+    ];
 
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
+
     public $belongsTo = [
         'project_option'       => 'Istheweb\IsCorporate\Models\ProjectOption'
     ];
@@ -31,11 +39,7 @@ class OptionValue extends Base
             'table' => 'istheweb_iscorporate_pivots',
         ]
     ];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+
 
 
 

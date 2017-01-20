@@ -3,15 +3,15 @@
 use Backend\Classes\FormWidgetBase;
 
 /**
- * ProjectCompany Form Widget
+ * VariantEmployee Form Widget
  */
-class ProjectCompany extends FormWidgetBase
+class VariantEmployee extends FormWidgetBase
 {
 
     /**
      * {@inheritDoc}
      */
-    protected $defaultAlias = 'istheweb_iscorporate_project_company';
+    protected $defaultAlias = 'istheweb_iscorporate_variant_employee';
 
     /**
      * {@inheritDoc}
@@ -26,7 +26,7 @@ class ProjectCompany extends FormWidgetBase
     public function render()
     {
         $this->prepareVars();
-        return $this->makePartial('projectcompany');
+        return $this->makePartial('variantemployee');
     }
 
     /**
@@ -37,8 +37,8 @@ class ProjectCompany extends FormWidgetBase
         $this->vars['name'] = $this->formField->getName();
         $this->vars['value'] = $this->getLoadValue();
         $this->vars['model'] = $this->model;
-
-        dd($this->model);
+        $this->vars['allEmployees'] = $this->model->getEmployees();
+        $this->vars['budgets'] = $this->model->getBudgets();
     }
 
     /**
@@ -46,8 +46,8 @@ class ProjectCompany extends FormWidgetBase
      */
     public function loadAssets()
     {
-        $this->addCss('css/projectcompany.css', 'Istheweb.IsCorporate');
-        $this->addJs('js/projectcompany.js', 'Istheweb.IsCorporate');
+        $this->addCss('css/variantemployee.css', 'Istheweb.IsCorporate');
+        $this->addJs('js/variantemployee.js', 'Istheweb.IsCorporate');
     }
 
     /**

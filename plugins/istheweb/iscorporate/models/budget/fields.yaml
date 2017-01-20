@@ -9,28 +9,34 @@ secondaryTabs:
           type: datepicker
           mode: date
           span: auto
-          tab: Varios
+          tab: istheweb.iscorporate::lang.tab.info
       motivo:
           label: istheweb.iscorporate::lang.labels.reason
           span: auto
-          tab: Varios
+          tab: istheweb.iscorporate::lang.tab.info
+      estado:
+          label: istheweb.iscorporate::lang.toolbar.status
+          type: dropdown
+          span: auto
+          placeholder: istheweb.iscorporate::lang.labels.select_status
+          tab: istheweb.iscorporate::lang.tab.info
+      client:
+          label: istheweb.iscorporate::lang.client.label
+          type: partial
+          path: field_client
+          tab: istheweb.iscorporate::lang.tab.info
       observaciones_entrega:
           label: istheweb.iscorporate::lang.labels.delivery_notes
           type: richeditor
           size: huge
-          tab: Varios
+          span: auto
+          tab: istheweb.iscorporate::lang.tab.info
       motivo_no_aceptacion:
           label: istheweb.iscorporate::lang.labels.reason_rejected
           type: richeditor
           size: huge
-          tab: Varios
-      client:
-          label: istheweb.iscorporate::lang.client.label
-          type: partial
           span: auto
-          path: field_client
-          #type: project_company
-          tab: istheweb.iscorporate::lang.client.label
+          tab: istheweb.iscorporate::lang.tab.info
       project_types_section:
           label: istheweb.iscorporate::lang.project_type.label
           type: section

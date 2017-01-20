@@ -72,7 +72,12 @@ class ProjectVariantOptions extends FormWidgetBase
                 $arr[] = $option;
             }
         }
-        return $arr ?: null;
+
+        if(isset($arr)) {
+            return $arr;
+        }else{
+            return null;
+        }
     }
 
     protected function getVariants()

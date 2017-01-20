@@ -1,11 +1,14 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
+use October\Rain\Database\Traits\Validation;
+
 
 /**
  * Employee Model
  */
 class Employee extends Base
 {
+    use Validation;
 
     const MODEL_NAME = 'Employee';
     const USER_GROUP_CODE = 'connect';
@@ -24,6 +27,10 @@ class Employee extends Base
      * @var array Fillable fields
      */
     protected $fillable = [];
+
+    public $rules = [
+       'user'   => 'required'
+    ];
 
     /**
      * @var array Relations

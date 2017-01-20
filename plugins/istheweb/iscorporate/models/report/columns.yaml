@@ -10,6 +10,7 @@ columns:
         type: employee_name
     comments:
         label: Comentario
+        type: comments_stripe_tags
     hours:
         label: Horas
         select: concat(hours, ':', minutes)

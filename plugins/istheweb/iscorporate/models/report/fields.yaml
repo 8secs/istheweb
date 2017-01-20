@@ -20,4 +20,5 @@ fields:
         span: auto
     comments:
         label: istheweb.iscorporate::lang.fields.comments
-        type: textarea
+        type: richeditor
+        size: huge
