@@ -57,6 +57,9 @@ class ProjectType extends Base
         'budgets' => ['Istheweb\IsCorporate\Models\Budget',
             'table' => 'istheweb_iscorporate_pivots',
         ],
+        'invoices' => ['Istheweb\IsCorporate\Models\Invoice',
+            'table' => 'istheweb_iscorporate_pivots',
+        ],
     ];
     public $morphTo = [];
     public $morphOne = [];

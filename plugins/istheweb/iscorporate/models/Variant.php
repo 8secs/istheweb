@@ -146,14 +146,15 @@ class Variant extends Base
     public function beforeSave()
     {
         $manage_id = post('_relation_field');
-
         if(isset($manage_id)){
             $path = explode('/', Request::path());
             $id = last($path);
             if($path[3] == 'budgets'){
-                $projectable = Budget::find($id);
+                $projectable = Budget::with(['variants'])->find($id);
+            }elseif($path[3] == 'projects'){
+                $projectable = Project::with(['variants'])->find($id);
             }else{
-                $projectable = Project::find($id);
+                $projectable = Invoice::with(['variants'])->find($id);
             }
 
             $variant = post('Variant');
@@ -161,13 +162,18 @@ class Variant extends Base
             $this->projectable_id = $projectable->id;
             $this->projectable_type = get_class($projectable);
             $this->employee = $variant['employees'];
-
             $options = $variant['optionsValues'];
+
             foreach ($options as $k => $v){
                 $ov = OptionValue::find($v);
                 $this->optionsValues()->add($ov);
             }
         }
+    }
+
+    public function afterSave()
+    {
+
     }
 
 }

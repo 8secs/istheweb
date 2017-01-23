@@ -14,7 +14,8 @@ class CreatePivotsTable extends Migration
         'project_type',
         'option_value',
         'variant',
-        'budget'
+        'budget',
+        'invoice'
     ];
 
     public function up()

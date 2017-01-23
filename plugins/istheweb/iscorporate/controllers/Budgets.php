@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Istheweb\IsCorporate\Models\Budget;
 use Renatio\DynamicPDF\Models\PDFTemplate;
 use Flash;
 
@@ -27,5 +28,15 @@ class Budgets extends Controller
 
         BackendMenu::setContext('Istheweb.IsCorporate', 'iscorporate', 'budgets');
     }
+
+
+    public function index()
+    {
+        $this->vars['scores'] = Budget::getScoresState();
+        $this->vars['total']  = Budget::getTotalBudgets();
+        $this->asExtension('ListController')->index();
+    }
+
+
 
 }

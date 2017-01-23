@@ -38,11 +38,11 @@ class ProjectOption extends Base
         ],
         'budgets' => ['Istheweb\IsCorporate\Models\Budget',
             'table' => 'istheweb_iscorporate_pivots',
-        ]/*,
-        'roles' => [
-            'Istheweb\IsCorporate\Models\Role',
+        ],
+        'invoices' => [
+            'Istheweb\IsCorporate\Models\Invoice',
             'table' => 'istheweb_iscorporate_pivots',
-        ],*/
+        ],
 
     ];
     public $morphTo = [];

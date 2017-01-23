@@ -9,6 +9,13 @@ columns:
     motivo:
         label: istheweb.iscorporate::lang.labels.reason
         searchable: true
+    estado:
+        label: istheweb.iscorporate::lang.toolbar.status
+        type: partial
+        path: ~/plugins/istheweb/iscorporate/models/budget/_state_column.htm
+    is_project_created:
+        label: istheweb.iscorporate::lang.fields.is_project_created
+        type: switch
     fecha_entrega:
         label: istheweb.iscorporate::lang.labels.delivery_date
         type: date

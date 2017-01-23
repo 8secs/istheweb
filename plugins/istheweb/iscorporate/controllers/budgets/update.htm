@@ -5,6 +5,8 @@
     </ul>
 <?php Block::endPut() ?>
 
+<?php echo $this->makePartial('toolbar_update') ?>
+
 <?php if (!$this->fatalError): ?>
 
     <?= Form::open(['class' => 'layout']) ?>
@@ -34,33 +36,6 @@
                     <?= e(trans('backend::lang.form.save_and_close')) ?>
                 </button>
 
-                <?php if(!$formModel->invoice){ ?>
-                <button
-                        type="button"
-                        data-request="onGeneratePdf"
-                        data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
-                        class="btn btn-info">
-                    <?= e(trans('istheweb.iscorporate::lang.budget.create_pdf')) ?>
-                </button>
-                <?php } else { ?>
-                <a class="btn btn-success" target="_blank"
-                   href="<?php echo Backend::url('istheweb/iscorporate/budgets/preview/' . $formModel->id); ?>">
-                    <?php echo trans('istheweb.iscorporate::lang.templates.preview'); ?></a>
-                <button
-                        type="button"
-                        data-request="onSend"
-                        data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
-                        class="btn btn-warning">
-                    <?= e(trans('istheweb.iscorporate::lang.budgets.send_email')) ?>
-                </button>
-                <?php } ?>
-                <button
-                        type="button"
-                        data-request="onGenerateProject"
-                        data-load-indicator="<?= e(trans('backend::lang.form.saving_name', ['name'=>$formRecordName])) ?>"
-                        class="btn btn-info">
-                    <?= e(trans('istheweb.iscorporate::lang.budget.create_project')) ?>
-                </button>
                 <button
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"

@@ -16,7 +16,7 @@ use Backend\Models\User as UserModel;
 class Plugin extends PluginBase
 {
 
-    public $require = ['Renatio.DynamicPDF', 'Istheweb.Connect'];
+    public $require = ['Istheweb.IsPdf', 'Istheweb.Connect'];
 
     /**
      * Returns information about this plugin.
@@ -132,6 +132,10 @@ class Plugin extends PluginBase
                 'label' => 'istheweb.iscorporate::lang.budget.list_title',
                 'tab'   => 'istheweb.iscorporate::lang.plugin.name',
             ],
+            'istheweb.iscorporate.access_invoices'    => [
+                'label' => 'istheweb.iscorporate::lang.invoice.list_title',
+                'tab'   => 'istheweb.iscorporate::lang.plugin.name',
+            ],
             'istheweb.iscorporate.access_providers'    => [
                 'label' => 'istheweb.iscorporate::lang.provider.list_title',
                 'tab'   => 'istheweb.iscorporate::lang.plugin.name',
@@ -216,6 +220,30 @@ class Plugin extends PluginBase
                         'group'       => 'istheweb.iscorporate::lang.sidebar.issue',
                         'permissions' => ['istheweb.iscorporate.access_issue_statuses']
                     ],
+                    'clients'        => [
+                        'label'       => 'istheweb.iscorporate::lang.clients.menu_label',
+                        'icon'        => 'icon-university',
+                        'url'         => Backend::url('istheweb/iscorporate/clients'),
+                        'permissions' => ['istheweb.iscorporate.access_clients'],
+                        'group'       => 'istheweb.iscorporate::lang.sidebar.clients',
+                        'description' => 'istheweb.iscorporate::lang.client.description',
+                    ],
+                    'budgets'        => [
+                        'label'       => 'istheweb.iscorporate::lang.budgets.menu_label',
+                        'icon'        => 'icon-bullseye',
+                        'url'         => Backend::url('istheweb/iscorporate/budgets'),
+                        'permissions' => ['istheweb.iscorporate.access_budgets'],
+                        'group'       => 'istheweb.iscorporate::lang.sidebar.clients',
+                        'description' => 'istheweb.iscorporate::lang.budget.description',
+                    ],
+                    'invoices'        => [
+                        'label'       => 'istheweb.iscorporate::lang.invoices.menu_label',
+                        'icon'        => 'icon-sticky-note',
+                        'url'         => Backend::url('istheweb/iscorporate/invoices'),
+                        'permissions' => ['istheweb.iscorporate.access_invoices'],
+                        'group'       => 'istheweb.iscorporate::lang.sidebar.clients',
+                        'description' => 'istheweb.iscorporate::lang.invoice.description',
+                    ],
                     'projects'     => [
                         'label'       => 'istheweb.iscorporate::lang.projects.menu_label',
                         'icon'        => 'icon-rocket',
@@ -239,22 +267,6 @@ class Plugin extends PluginBase
                         'permissions' => ['istheweb.iscorporate.access_options'],
                         'group'       => 'istheweb.iscorporate::lang.sidebar.catalog',
                         'description' => 'istheweb.iscorporate::lang.option.description',
-                    ],
-                    'clients'        => [
-                        'label'       => 'istheweb.iscorporate::lang.clients.menu_label',
-                        'icon'        => 'icon-university',
-                        'url'         => Backend::url('istheweb/iscorporate/clients'),
-                        'permissions' => ['istheweb.iscorporate.access_clients'],
-                        'group'       => 'istheweb.iscorporate::lang.sidebar.clients',
-                        'description' => 'istheweb.iscorporate::lang.client.description',
-                    ],
-                    'budgets'        => [
-                        'label'       => 'istheweb.iscorporate::lang.budgets.menu_label',
-                        'icon'        => 'icon-bullseye',
-                        'url'         => Backend::url('istheweb/iscorporate/budgets'),
-                        'permissions' => ['istheweb.iscorporate.access_budgets'],
-                        'group'       => 'istheweb.iscorporate::lang.sidebar.clients',
-                        'description' => 'istheweb.iscorporate::lang.budget.description',
                     ],
                     'employees'    => [
                         'label'       => 'istheweb.iscorporate::lang.employees.menu_label',
@@ -294,9 +306,9 @@ class Plugin extends PluginBase
     public function registerMailTemplates()
     {
         return [
-            'istheweb.iscorporate::mail.new_ticket'    => 'istheweb.iscorporate::lang.mail.email_issue_to_resource',
+            'istheweb.iscorporate::mail.new_issue'    => 'istheweb.iscorporate::lang.mail.email_issue_to_resource',
             'istheweb.iscorporate::mail.new_reply'     => 'istheweb.iscorporate::lang.mail.email_reply_issue',
-            'istheweb.iscorporate::mail.ticket_closed' => 'istheweb.iscorporate::lang.mail.email_close_issue',
+            'istheweb.iscorporate::mail.issue_closed' => 'istheweb.iscorporate::lang.mail.email_close_issue',
             'istheweb.iscorporate::mail.email_budget' => 'istheweb.iscorporate::lang.mail.email_budget'
         ];
     }
@@ -325,15 +337,12 @@ class Plugin extends PluginBase
 
         Event::listen('backend.menu.extendItems', function ($manager) {
             $openCount = Issue::getOpenedCount();
-
             if ($openCount) {
-
                 $manager->addSideMenuItems('Istheweb.IsCorporate', 'iscorporate', [
                     'issues' => [
                         'counter' => $openCount,
                     ]
                 ]);
-                //dd($manager);
             }
         });
     }
@@ -342,13 +351,19 @@ class Plugin extends PluginBase
     {
         return [
             'employee_name' => [$this, 'evalEmployeeNameListColumn'],
-            'comments_stripe_tags'  => [$this, 'evalCommentsListColumn']
+            'comments_stripe_tags'  => [$this, 'evalCommentsListColumn'],
+            'client_name'           => [$this, 'evalClientNameListColumn'],
         ];
     }
 
     public function evalEmployeeNameListColumn($value, $column, $record)
     {
         return strtoupper($value->user->full_name);
+    }
+
+    public function evalClientNameListColumn($value, $column, $record)
+    {
+        return $value->name . " (".$value->email.")";
     }
 
     public function evalCommentsListColumn($value, $column, $record){

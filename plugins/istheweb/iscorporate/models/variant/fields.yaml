@@ -50,28 +50,28 @@ secondaryTabs:
           label: istheweb.iscorporate::lang.labels.prices_times
           type: section
           comment: istheweb.iscorporate::lang.labels.prices_section_comment
-          tab: istheweb.iscorporate::lang.labels.prices_times
+          tab: istheweb.iscorporate::lang.tab.info
       plazo:
           label: istheweb.iscorporate::lang.labels.estimated_time
           type: number
           span: auto
-          tab: istheweb.iscorporate::lang.labels.prices_times
+          tab: istheweb.iscorporate::lang.tab.info
       horas:
           label: istheweb.iscorporate::lang.labels.planified_horas
           type: number
           span: auto
-          tab: istheweb.iscorporate::lang.labels.prices_times
+          tab: istheweb.iscorporate::lang.tab.info
       pricing_calculator:
           label: istheweb.iscorporate::lang.labels.pricing_calculator
           span: auto
           type: dropdown
-          tab: istheweb.iscorporate::lang.labels.prices_times
+          tab: istheweb.iscorporate::lang.tab.info
       price:
           label: istheweb.iscorporate::lang.labels.price
           type: number
           span: auto
           cssClass: padded
-          tab: istheweb.iscorporate::lang.labels.prices_times
+          tab: istheweb.iscorporate::lang.tab.info
       #reports@update:
       #    tab: istheweb.iscorporate::lang.tab.reports
       #    list: $/istheweb/iscorporate/models/report/columns.yaml

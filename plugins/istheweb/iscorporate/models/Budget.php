@@ -1,6 +1,7 @@
 <?php namespace Istheweb\IsCorporate\Models;
 
 
+use Illuminate\Support\Facades\Lang;
 use October\Rain\Database\Traits\Validation;
 
 /**
@@ -78,17 +79,31 @@ class Budget extends Base
     public function getEstadoOptions()
     {
         return [
-            '1' => 'Solicitado',
-            '2' => 'Aceptado',
-            '3' => 'Rechazado',
-            '4' => 'Entregado',
-            '5' => 'Contactado',
-            '6' => 'Low-Cost'
+            '1' => 'istheweb.iscorporate::lang.budget_state.requested',
+            '2' => 'istheweb.iscorporate::lang.budget_state.acepted',
+            '3' => 'istheweb.iscorporate::lang.budget_state.rejected',
+            '4' => 'istheweb.iscorporate::lang.budget_state.delivered',
+            '5' => 'istheweb.iscorporate::lang.budget_state.contacted',
+            '6' => 'istheweb.iscorporate::lang.budget_state.lowcost',
         ];
     }
 
     public function scopeInvoice($query){
         $query->where('invoice', '<>', '');
+    }
+
+    public function scopeEstado($query, $estado){
+        $query->where('estado', $estado);
+    }
+
+    public function filterFields($fields, $context = null)
+    {
+        if ($this->estado == 3) {
+            $fields->motivo_no_aceptacion->hidden = false;
+        }
+        else {
+            $fields->motivo_no_aceptacion->hidden = true;
+        }
     }
 
 }

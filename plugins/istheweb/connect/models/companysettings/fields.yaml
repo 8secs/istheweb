@@ -43,15 +43,42 @@ fields:
         label: 'istheweb.connect::lang.fields.accounting'
         span: full
         type: section
+    company_nid:
+        label: 'istheweb.connect::lang.fields.company_id'
+        span: auto
+        type: text
     company_name_nid:
         label: 'istheweb.connect::lang.fields.alias_id'
         span: auto
         type: text
         default: 'NID'
-    company_nid:
-        label: 'istheweb.connect::lang.fields.company_id'
+    is_year_invoice:
+        label: 'istheweb.connect::lang.fields.is_year_invoice'
+        type: switch
         span: auto
-        type: text
+    reset_year_invoice:
+        label: 'istheweb.connect::lang.fields.reset_year_invoice'
+        type: switch
+        span: auto
+    position_year_number:
+        label: 'istheweb.connect::lang.fields.position_year_number'
+        type: radio
+        span: auto
+        options:
+            before: 'istheweb.connect::lang.fields.before_year_invoice'
+            after: 'istheweb.connect::lang.fields.after_year_invoice'
+    invoice_number:
+        label: 'istheweb.connect::lang.fields.invoice_number'
+        span: auto
+        comment: 'istheweb.connect::lang.fields.invoice_number_comment'
+    legal_invoice_text:
+        label: 'istheweb.connect::lang.fields.legal_text'
+        span: auto
+        type: textarea
+    footer_invoice_text:
+        label: 'istheweb.connect::lang.fields.footer_text'
+        span: auto
+        type: textarea
     section_social:
         label: 'istheweb.connect::lang.fields.social_networks'
         span: full

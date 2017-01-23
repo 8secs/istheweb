@@ -21,7 +21,7 @@ use Istheweb\Shop\Models\Customer;
 class Plugin extends PluginBase
 {
 
-    public $require = ['RainLab.Location', 'RainLab.User', 'Renatio.DynamicPDF'];
+    public $require = ['RainLab.Location', 'RainLab.User', 'Istheweb.IsPdf'];
 
     /**
      * Returns information about this plugin.

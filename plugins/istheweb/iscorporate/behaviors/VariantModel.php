@@ -22,12 +22,12 @@ class VariantModel extends ModelBehavior
 
     public function createVariant($project, $variant)
     {
-
-        $variant = Variant::create([
+        $type = strtolower(last(explode('\\',get_class($project))));
+        $new_variant = Variant::create([
             'projectable_id'        => $project->id,
             'projectable_type'      => get_class($project),
-            'code'                  => $variant->code.'_project',
-            'employee_id'              => $variant->employee->id,
+            'code'                  => $variant->code.'_'.$type,
+            'employee_id'           => $variant->employee->id,
             'name'                  => $variant->name,
             'price'                 => $variant->price,
             'plazo'                 => $variant->plazo,
@@ -37,12 +37,14 @@ class VariantModel extends ModelBehavior
             'pricing_calculator'    => $variant->pricing_calculator,
         ]);
 
+
+
         $options = $variant->optionsValues;
-        $variant->save();
+        $new_variant->save();
         foreach ($options as $option){
-            $variant->optionsValues()->add($option);
+            $new_variant->optionsValues()->add($option);
         }
-        return $variant;
+        return $new_variant;
     }
 
     public function getTotal($variants){

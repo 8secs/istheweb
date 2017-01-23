@@ -16,5 +16,7 @@
   - create_issue_statuses_table.php
   - create_issue_types_table.php
   - create_reports_table.php
+  - create_invoices_table.php
   - create_pivots_table.php
   - seed_tables.php
+

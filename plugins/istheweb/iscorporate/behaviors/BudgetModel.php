@@ -27,7 +27,28 @@ class BudgetModel extends ModelBehavior
     }
 
     public function getBudget($id){
-        return Budget::find($id)->first();
+        //dd($id);
+        return Budget::find($id);
+    }
+
+    public function getScoresState(){
+        foreach($this->model->getEstadoOptions() as $key => $value){
+            $scores[] = $this->model->estado($key)->count();
+        }
+
+        return $scores;
+    }
+
+    public function isProjectVisible()
+    {
+        if($this->model->estado == 2 || $this->model->estado == 4 || $this->model->estado == 6){
+            return true;
+        }
+        return false;
+    }
+
+    public function getTotalBudgets(){
+        return Budget::all()->count();
     }
 
     public function getData($id, $is_created)
@@ -76,6 +97,16 @@ class BudgetModel extends ModelBehavior
             "name" => $pdf,
             'number' => $pdfNumber
         ];
+    }
+
+    public function getSelectedColumn($k){
+
+        $array = $this->model->getEstadoOptions();
+        foreach($array as $key => $value){
+            if($k == $key) {
+                return Lang::get($value);
+            }
+        }
     }
 
 }

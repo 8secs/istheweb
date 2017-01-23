@@ -26,21 +26,34 @@ class ProjectModel extends ModelBehavior
         parent::__construct($model);
     }
 
+    /**
+     * @return mixed
+     */
     public function getOpenedCount()
     {
         return $this->model->opened()->count();
     }
 
+    /**
+     * @return mixed
+     */
     public function getClosedCount()
     {
         return $this->model->closed()->count();
     }
 
+    /**
+     * @return mixed
+     */
     public function getCompletedCount()
     {
         return $this->model->completed()->count();
     }
 
+    /**
+     * @param $var
+     * @return int
+     */
     public function getProjectTime($var)
     {
         $from = Carbon::parse($this->model->available_on);
@@ -54,6 +67,9 @@ class ProjectModel extends ModelBehavior
         return $diff;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSelectedStatusName()
     {
         foreach($this->model->getStatusOptions() as $key => $value)
@@ -64,6 +80,9 @@ class ProjectModel extends ModelBehavior
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function getSelectedNowName()
     {
         foreach($this->model->getNowOptions() as $key => $value){
@@ -73,6 +92,26 @@ class ProjectModel extends ModelBehavior
         }
     }
 
+    public function getSelectedColumn($k, $column){
+
+        //$project = new Project();
+        if($column == 'status'){
+            $array = $this->model->getStatusOptions();
+        } else {
+            $array = $this->model->getNowOptions();
+        }
+
+        foreach($array as $key => $value){
+            if($k == $key) {
+                return Lang::get($value);
+            }
+        }
+    }
+
+    /**
+     * @param $budget
+     * @return mixed
+     */
     public function generateProjectFromBudget($budget)
     {
         $client = $budget->client;
@@ -102,12 +141,19 @@ class ProjectModel extends ModelBehavior
         return $project;
     }
 
+    /**
+     * @param $date
+     * @return string
+     */
     public function formatDate($date){
         setlocale(LC_TIME, 'Spanish');
         $d = Carbon::parse($date);
         return $d->formatLocalized('%d-%m-%Y');
     }
 
+    /**
+     * @return int
+     */
     public function getAssignedDaysCount()
     {
         $total = 0;
@@ -117,6 +163,9 @@ class ProjectModel extends ModelBehavior
         return $total;
     }
 
+    /**
+     * @return int
+     */
     public function getAssignedHoursCount()
     {
         $total = 0;
@@ -126,6 +175,9 @@ class ProjectModel extends ModelBehavior
         return $total;
     }
 
+    /**
+     * @return array
+     */
     public function getTotalWorkingTime()
     {
         $hours = 0;
@@ -140,6 +192,11 @@ class ProjectModel extends ModelBehavior
         return $time;
     }
 
+    /**
+     * @param $hours
+     * @param $minutes
+     * @return array
+     */
     protected function calculateTime($hours, $minutes){
         if($minutes > 60){
             $hours += 1;

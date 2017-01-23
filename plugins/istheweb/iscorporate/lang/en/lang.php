@@ -49,6 +49,8 @@ return [
         'total_tasks'   => 'Nº Tasks',
         'total_time_task'   => 'Working Time',
         'assigned_to'       => 'Assigned to',
+        'total_budgets'     => 'Nº Budgets',
+        'total_invoices'    => 'Nº Facturas'
     ],
     'tab'          => [
         'details'      => 'Details',
@@ -102,6 +104,25 @@ return [
         'discontinued'                  => 'Discontinued / Suspended',
         'completed'                     => 'Completed',
     ],
+    'budget_state' => [
+        'requested'                        => 'Requested',
+        'acepted'                  => 'Accepted',
+        'rejected'                     => 'Rejected',
+        'delivered'                        => 'Delivered',
+        'contacted'                  => 'In touch',
+        'lowcost'                     => 'Low-Cost',
+    ],
+    'invoice_state' => [
+        'waiting'       => 'Waiting payment',
+        'paid'          => 'Paid',
+    ],
+    'payment_types' => [
+        'cheque'                => 'Check',
+        'direct_debit'          => 'Direct Debit',
+        'cash'                  => 'Cash',
+        'promissory_note'       => 'Promissory Note',
+        'transfer'              => 'Transfer',
+    ],
     'fields'    => [
         'company'           => 'Company',
         'activity'          => 'Activity',
@@ -146,6 +167,8 @@ return [
         'password'            => 'Password',
         'dates_states'        => 'Dates and State',
         'dates_states_comment' => 'State and dates of project',
+        'invoicing'             => 'Invoicing',
+        'is_project_created'    => 'Project created'
 
     ],
     'labels'       => [
@@ -195,6 +218,15 @@ return [
         'reason_rejected'           => 'Rejected reasons',
         'available_on'              => 'Start date',
         'available_until'           => 'Delivery date',
+        'invoice_number'            => 'Nº Invoice',
+        'invoice_date'              => 'Invoice date',
+        'vto_date'                  => 'Expiration date',
+        'send_date'                 => 'Send date',
+        'payment_type'              => 'Payment type',
+        'taxable_base'              => 'Taxable base',
+        'tax'                       => 'TAX',
+        'total'                     => 'Total',
+        'select_payment_type'       => '-- Select payement type--',
         'select_state_project'      => '-- Project state --',
         'select_now_project'      => '-- Actually State --',
         'select_status'               => '-- Select Status --',
@@ -202,6 +234,7 @@ return [
         'manage_urls_comment'       => 'Manage all URL to work with',
         'other_data'                => 'Other data',
         'manage_data_comment'       => 'If you need to add other data to the element here is the place',
+        'invoicing_comment'         => 'Manage payment type, invoice status and prices.'
 
     ],
     'employee'     => [
@@ -278,6 +311,27 @@ return [
         'send_email'              => 'Send email to client',
         'delete_confirm'          => 'Do you really want to delete this role?',
         'delete_selected_success' => 'Successfully deleted the selected budgets.',
+        'delete_selected_empty'   => 'There are no selected :name to delete.',
+    ],
+    'invoice'         => [
+        'new'           => 'New Invoice',
+        'label'         => 'Invoice',
+        'create_title'  => 'Create Invoice',
+        'update_title'  => 'Edit Invoice',
+        'preview_title' => 'Preview Invoice',
+        'create_project'=> 'Create project from Invoice',
+        'create_pdf'    => 'Create Invoice PDF',
+        'list_title'    => 'Manage Invoices',
+        'description'   => 'Manage Company\'s Invoices',
+    ],
+    'invoices'        => [
+        'delete_selected_confirm' => 'Delete the selected Invoices?',
+        'controller_label'        => 'Invoices',
+        'menu_label'              => 'Invoices',
+        'return_to_list'          => 'Return to Invoices',
+        'send_email'              => 'Send email to client',
+        'delete_confirm'          => 'Do you really want to delete this role?',
+        'delete_selected_success' => 'Successfully deleted the selected Invoices.',
         'delete_selected_empty'   => 'There are no selected :name to delete.',
     ],
     'provider'         => [
