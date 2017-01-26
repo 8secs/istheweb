@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Option
+name: istheweb.shop::lang.option.label
 
 # Model Form Field configuration
 form: $/istheweb/shop/models/option/fields.yaml
@@ -16,16 +16,16 @@ defaultRedirect: istheweb/shop/options
 
 # Create page
 create:
-    title: Create Option
+    title: istheweb.shop::lang.option.create_title
     redirect: istheweb/shop/options/update/:id
     redirectClose: istheweb/shop/options
 
 # Update page
 update:
-    title: Edit Option
+    title: istheweb.shop::lang.option.update_title
     redirect: istheweb/shop/options
     redirectClose: istheweb/shop/options
 
 # Preview page
 preview:
-    title: Preview Option
+    title: istheweb.shop::lang.option.preview_title

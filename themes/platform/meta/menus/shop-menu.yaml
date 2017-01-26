@@ -1,0 +1,14 @@
+name: 'Shop Menu'
+items:
+    -
+        title: 'Nuevo elemento'
+        nesting: '0'
+        type: product-category
+        code: ''
+        reference: '1'
+        cmsPage: shop/categories
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

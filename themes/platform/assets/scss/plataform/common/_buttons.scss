@@ -1,0 +1,134 @@
+/*----- Buttons -----*/
+
+/*
+-------------------- HTML -------------------------
+<h3 class="sc-sub-title">Style 1</h3>
+<button class="button color-hover large">button</button><br />
+<button class="button color-hover">button</button><br />
+<button class="button color-hover small">button</button>
+
+<h3 class="sc-sub-title">Style 2</h3>
+<button class="button large">button</button><br />
+<button class="button">button</button><br />
+<button class="button small">button</button>
+
+<h3 class="sc-sub-title">Style 3</h3>
+<button class="button transparent large">button</button><br />
+<button class="button transparent">button</button><br />
+<button class="button transparent small">button</button>
+
+<h3 class="sc-sub-title">Style 4</h3>
+<button class="button transparent color-hover large">button</button><br />
+<button class="button transparent color-hover">button</button><br />
+<button class="button transparent color-hover small">button</button>
+
+<h3 class="sc-sub-title">Style 5</h3>
+<button class="button color large">button</button><br />
+<button class="button color">button</button><br />
+<button class="button color small">button</button>
+
+<h3 class="sc-sub-title">Style 6</h3>
+<button class="button color transparent large">button</button><br />
+<button class="button color transparent">button</button><br />
+<button class="button color transparent small">button</button>
+
+<h3 class="sc-sub-title">Style 7</h3>
+<button class="button color white-hover large">button</button><br />
+<button class="button color white-hover">button</button><br />
+<button class="button color white-hover small">button</button>
+
+<h3 class="sc-sub-title">Style 8</h3>
+<button class="button color black-hover large">button</button><br />
+<button class="button color black-hover">button</button><br />
+<button class="button color black-hover small">button</button>
+
+
+
+
+---------------------------------------------------
+*/
+
+.button {
+  background: $gray-dark none repeat scroll 0 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $gray-dark;
+  color: $gray-lightest;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 26px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 400ms ease-out 0s;
+  
+  &.color{
+    background: $brand-primary none repeat scroll 0 0;
+    border-color: $brand-primary;
+    &.transparent {
+      color: $brand-primary;
+      &:hover{
+        background: $brand-primary;
+      }
+    }
+    &:hover{
+      background: $gray-dark;
+      border-color: $gray-dark;
+      color: $gray-lightest;
+    }
+  }
+  &.transparent {
+    background: transparent;
+    color: $gray-dark;
+    &:hover{
+      background: $gray-dark;
+      color: $gray-lightest;
+    }
+  }
+  &.color-hover{
+    &:hover{
+      background: $brand-primary;
+      border-color: $brand-primary;
+      color: $gray-lightest;
+    }
+  }
+  &.white-hover{
+    &:hover{
+      background: $gray-lightest;
+      border-color: $gray-lightest;
+      color: $brand-primary;
+    }
+  }
+  &.black-hover{
+    &:hover{
+      background: $gray-dark;
+      border-color: $gray-dark;
+      color: $gray-lightest;
+    }
+  }
+  &.small{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 20px;
+  }
+  &.large {
+    height: 42px;
+    line-height: 42px;
+    padding: 0 32px;
+  }
+
+  &.disabled{
+    pointer-events: none;
+    cursor: default;
+    background: $gray;
+  }
+  
+  &:hover{
+    background: $gray-lightest;
+    color: $gray-dark;
+  }
+  
+}

@@ -1,0 +1,15 @@
+<div id="top-carousel" class="slider-wrap owl-carousel owl-theme">
+    {% for post in posts %}
+    <div class="single-slide">
+        {% if post.featured_images.count > 0 %}
+        <a href="{{ post.url|app }}"><img src="{{ post.featured_images.first.getPath() }}" class="img-fluid" /></a>
+        {% else %}
+        <a href="{{ post.url|app }}"><img class="media-object" src="http://placehold.it/100x100" class="img-fluid" /></a>
+        {% endif %}
+
+        <div class="slide-text-container text-center">
+            <h5><a href="{{ post.url|app }}">{{ post.title }}</a></h5>
+        </div>
+    </div><!-- /.single-slide -->
+    {% endfor %}
+</div><!-- /#top-carousel -->

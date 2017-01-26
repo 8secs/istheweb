@@ -9,7 +9,7 @@ list: $/istheweb/shop/models/product/columns.yaml
 modelClass: Istheweb\Shop\Models\Product
 
 # List Title
-title: Manage Products
+title: istheweb.shop::lang.products.manage
 
 # Link URL for each record
 recordUrl: istheweb/shop/products/update/:id
@@ -32,7 +32,7 @@ showSorting: true
 #     direction: desc
 
 # Display checkboxes next to each record
-# showCheckboxes: true
+showCheckboxes: true
 
 # Toolbar widget configuration
 toolbar:

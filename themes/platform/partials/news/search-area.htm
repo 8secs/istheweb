@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="search-form">
+                <span class="search-close"></span>
+                <form method="GET" action="{{ searchForm.resultPage|page }}">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="{{ 'Buscar'|_ }}">
+                    </div>
+                    <button class="search-btn btn" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

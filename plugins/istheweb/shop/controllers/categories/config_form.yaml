@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Category
+name: istheweb.shop::lang.category.label
 
 # Model Form Field configuration
 form: $/istheweb/shop/models/category/fields.yaml

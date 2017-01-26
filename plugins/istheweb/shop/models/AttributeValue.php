@@ -2,6 +2,7 @@
 
 
 use October\Rain\Database\Model;
+use October\Rain\Database\Traits\Purgeable;
 use Request;
 
 
@@ -10,6 +11,7 @@ use Request;
  */
 class AttributeValue extends Model
 {
+    use Purgeable;
 
     /**
      * @var string The database table used by the model.
@@ -26,6 +28,11 @@ class AttributeValue extends Model
         'datetime_value',
         'integer_value',*/
     ];
+
+    /**
+     * @var array
+     */
+    public $purgeable = ['value'];
 
     /**
      * @var array Guarded fields
@@ -71,6 +78,11 @@ class AttributeValue extends Model
             else $this->{$type} = $model;
             array_forget($this->attributes, 'model');
         }
+    }
+
+    public function getSelectedColumn($k){
+
+        dd($k);
     }
 
 }

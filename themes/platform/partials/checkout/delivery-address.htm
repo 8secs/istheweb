@@ -1,0 +1,19 @@
+<div class="panel-heading" role="tab" id="headingThree">
+    <h4 class="panel-title">
+        {% if Customer.billingAddress %}
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+            {{ 'Step 3: Delivery Details'|_ }}
+        </a>
+        {% else %}
+            {{ 'Step 3: Delivery Details'|_ }}
+        {% endif %}
+    </h4>
+</div>
+
+<div id="collapseThree" class="panel-collapse collapse  {% if Customer.billingAddress %}{% if not Customer.deliveryAddress %} in {% endif %}{% endif %}" role="tabpanel" aria-labelledby="headingThree">
+    {% partial 'Customer::addresses' type='delivery' %}
+    <div id="location_delivery">
+        {% partial 'Customer::address' type='delivery' checkout="checkout" %}
+    </div>
+    {% partial 'Customer::_countries_form' type='delivery' %}
+</div>

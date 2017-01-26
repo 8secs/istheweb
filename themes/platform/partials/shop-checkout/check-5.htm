@@ -1,0 +1,24 @@
+{% if ShopBasket.basketItems.count > 0 %}
+<div id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        {% partial 'checkout/checkout-options' %}
+    </div>
+    <div class="panel panel-default">
+        {% partial 'checkout/billing-address' %}
+    </div>
+    <div class="panel panel-default">
+        {% partial 'checkout/delivery-address' %}
+    </div>
+    <div class="panel panel-default">
+        {% partial 'checkout/payment-methods' %}
+    </div>
+    <div class="panel panel-default">
+        {% partial 'checkout/confirm-order' %}
+    </div>
+
+    {% else %}
+    <div class="no">
+        <p>{{ 'No hay artículos en tu carrito'|_ }} <a href="{{ '/'|app }}">{{ 'Ir a la tienda'|_ }}</a></p>
+    </div>
+</div>
+{% endif %}

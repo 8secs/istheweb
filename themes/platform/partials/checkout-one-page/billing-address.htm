@@ -1,0 +1,7 @@
+
+{% partial 'Customer::addresses' type='billing' %}
+
+<div id="location_billing" class="margin-tb-30">
+    {% partial 'Customer::address' type='billing' checkout="checkout" %}
+</div>
+{% partial 'Customer::_countries_form' type='billing' %}

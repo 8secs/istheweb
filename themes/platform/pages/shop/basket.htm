@@ -1,0 +1,71 @@
+title = "Cesta"
+url = "/shop/basket"
+layout = "shop"
+is_hidden = 0
+
+[Products]
+pageNumber = "{{ :page }}"
+categoryFilter = ""
+productsPerPage = 10
+noProductsMessage = "{{ 'No hay productos'|_ }}"
+sortOrder = "name asc"
+categoryPage = "shop/categories"
+productPage = "shop/product"
+==
+
+<div class="checkout-pagination">
+    <div class="container">
+        <div class="row">
+            {% partial 'checkout-one-page/pagination' step="one" %}
+        </div>
+    </div>
+</div>
+
+<div class="cart-page bg-off-white padding-bottom-90">
+    <div class="container">
+        <div class="row">
+            {# partial 'common/flash' #}
+        </div>
+        <div class="row">
+            <form data-request="ShopBasket::onUpdateCart"
+                  data-request-update="'ShopBasket::_header-nav-list-basket': '.nav-basket',
+                                            'ShopBasket::_cart': '.cart',
+                                            'ShopBasket::default': '.cart-products',
+                                            'ShopBasket::basket-responsive': '.cart-products',
+                                            'ShopBasket::_order-summary': '.order-summary'">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        {% partial 'ShopBasket::basket-responsive' %}
+                    </div>
+                </div>
+                <div class="col-xs-12 table-cart-actions">
+                    <div class="cart-action text-center">
+                        <a href="{{ '/shop'|app }}" class="button color-hover">{{ 'Seguir comprando'|_ }}   </a>
+                        <button type="submit" class="button color-hover">{{ 'Actualizar carrito'|_ }}</button>--
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12 cart-actions cart-button-cuppon">
+                <div class="cuppon-wrap">
+                    <h4>{{ 'CUPONES DESCUENTO'|_ }}</h4>
+                    <p>{{ 'Introduce tu código de descuento'|_ }}</p>
+                    <form class="cuppon-form"
+                          data-request="ShopBasket::onApplyCoupon"
+                          data-request-update="'ShopBasket::_order-summary': '.order-summary'">
+                        <input id="code" name="code" type="text">
+                        <button class="button color-hover {% if ShopBasket.basketCount == 0 %}disabled{% endif %}" {% if ShopBasket.basketCount == 0 %}disabled{% endif %}>{{ 'Aplicar'|_ }}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12 cart-checkout-process text-right">
+                <div class="wrap">
+                    {% partial 'ShopBasket::_order-summary' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

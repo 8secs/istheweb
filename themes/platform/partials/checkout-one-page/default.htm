@@ -1,0 +1,5 @@
+{% if ShopBasket.order %}
+    {% partial 'checkout-one-page/order' %}
+{% else %}
+    {% partial 'checkout-one-page/checkout-three-steps' %}
+{% endif %}

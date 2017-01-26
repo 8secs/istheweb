@@ -1,0 +1,65 @@
+name: 'Main Menu'
+items:
+    -
+        title: Inicio
+        type: url
+        url: /
+        code: header
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Características
+        type: url
+        url: /
+        code: features
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Video
+        type: url
+        url: /
+        code: video
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Imágenes
+        type: url
+        url: /
+        code: screenshots
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Revisiones
+        type: url
+        url: /
+        code: reviews
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Precios
+        type: url
+        url: /
+        code: price-table
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Subscríbete
+        type: url
+        url: /
+        code: subscribe
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

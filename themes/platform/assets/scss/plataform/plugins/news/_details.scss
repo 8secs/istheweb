@@ -1,0 +1,264 @@
+/*========================================*/
+/*  12. single-blog page
+/*========================================*/
+.single-blog-img{
+  background-size:cover;
+  //padding:300px 0;
+  position:relative;
+  overflow:hidden;
+  max-height: 500px;
+  margin-bottom: 90px;
+  &:before {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4) none repeat scroll 0 0;
+    top:0;
+    left:0;  
+  }
+}
+
+/*----------------------------------------*/
+/*  12.1 single-blog-details
+/*----------------------------------------*/
+.single-blog-details{
+  padding:64px 20px 0;
+  span{
+    &.tag{
+      color:#666;
+      display:block;
+      font-size:16px;
+      font-weight:400;
+      text-transform:uppercase;
+      margin:0 0 19px;    
+      text-align: center;
+    }
+  }
+  h1{
+    &.post-title {
+      text-align: center;
+      position:relative;
+      margin:0 0 28px;
+      &:after{
+        content:"";
+        position:absolute;
+        background:$brand-primary none repeat scroll 0 0;
+        width:170px;
+        height:2px;
+        display:inline-block;
+        top:47px;
+        left:50%;
+        margin-left:-85px;
+      }
+    }  
+  }
+  p{
+    &.post-date{
+      text-align: center;
+    }
+  }
+  .post-long-desc{
+    margin:30px 0 0;  
+  }
+}
+
+blockquote{
+  font-size:13px;
+  font-style:italic;
+  margin-left:30px;
+  margin-top:20px;
+  padding:0 100px 0 30px;
+  border-left:1px solid #ccc;
+}
+/*----------------------------------------*/
+/*  12.2 single-blog-bottom
+/*----------------------------------------*/
+.single-blog-bottom{
+  margin:40px 0 0;
+}
+
+.post-social-links{
+  span{
+    &.lbl{
+      font-size:16px;
+    }
+    a{
+      color:#999;
+      font-size:15px;
+      margin:0 4px;
+      &:last-child{
+        margin-right:0;
+      }
+      &:hover{
+        color:$brand-primary;
+      }
+    }
+  }
+}
+
+.post-tags{
+  span{
+    &.lbl{
+      font-size: 16px;
+    }
+    a{
+      color:#999;
+      font-style:italic;
+      font-weight:600;
+      margin-right:5px;
+      text-transform:uppercase;    
+      &:last-child{
+        margin-right:0;
+      }
+      &:hover{
+        color:$brand-primary;
+      }
+    }
+  }
+}
+
+/**-------------------------------------*/
+/*      SINGLE CV DETAILS               */
+/*-------------------------------------*/
+.single-cv-details {
+
+}
+
+.single-cv-content {
+  margin: 0 0 25px;
+  background-color: rgb(255, 255, 255);
+  padding: 25px !important;
+
+  /*ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+
+    }
+  }*/
+
+  .section-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+    color: $brand-primary;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 20px;
+    .fa {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      display: inline-block;
+      color: #fff;
+      border-radius: 50%;
+      background-clip: padding-box;
+      background: #2d7788;
+      text-align: center;
+      padding-top: 8px;
+      font-size: 16px;
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  .personnal-info{
+
+
+  }
+}
+
+.cv-work-experience {
+  .item {
+    margin-bottom: 30px;
+    .meta{
+      .upper-row {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 2px;
+        .job-title {
+          color: #3F4650;
+          font-size: 16px;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: 500;
+        }
+        .time {
+          position: absolute;
+          right: 0;
+          top: 0;
+          color: #97AAC3;
+          @include media-breakpoint-down(sm){
+            position: static;
+          }
+        }
+        .company {
+          margin-bottom: 10px;
+          color: #97AAC3;
+        }
+      }
+    }
+  }
+}
+
+.cv-projects{
+  .intro {
+    margin-bottom: 30px;
+  }
+  .item {
+    margin-bottom: 15px;
+    span{
+      &.project-title {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 0;
+        margin-bottom: 5px;
+        a{
+          color: $brand-primary;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.skillset {
+  .item {
+    overflow: hidden;
+    @include media-breakpoint-up(md){
+      height: 25px;
+    }
+
+  }
+  .level-title{
+    @include media-breakpoint-up(md){
+      float: left;
+      width: 50%;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    font-size: 14px;
+    margin: 0;
+
+  }
+  .level-bar {
+    @include media-breakpoint-up(md){
+      float: left;
+      top: 4px;
+      width: 50%;
+    }
+    width: 100%;
+    height: 12px;
+    background: #f5f5f5;
+    display: inline-block;
+    .level-bar-inner {
+      height: 12px;
+      background: #7bc2d3;
+    }
+  }
+}

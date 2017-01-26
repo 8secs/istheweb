@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Product
+name: istheweb.shop::lang.product.label
 
 # Model Form Field configuration
 form: $/istheweb/shop/models/product/fields.yaml
@@ -16,16 +16,16 @@ defaultRedirect: istheweb/shop/products
 
 # Create page
 create:
-    title: Create Product
+    title: istheweb.shop::lang.product.create_title
     redirect: istheweb/shop/products/update/:id
     redirectClose: istheweb/shop/products
 
 # Update page
 update:
-    title: Edit Product
+    title: istheweb.shop::lang.product.update_title
     redirect: istheweb/shop/products
     redirectClose: istheweb/shop/products
 
 # Preview page
 preview:
-    title: Preview Product
+    title: istheweb.shop::lang.product.preview_title

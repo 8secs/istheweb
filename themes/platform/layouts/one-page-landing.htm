@@ -1,0 +1,51 @@
+description = "One page landing layout"
+
+[staticMenu mainMenu]
+code = "main-menu"
+
+[googleTracker]
+
+[session]
+security = "all"
+
+[Company]
+
+[localePicker]
+forceUrl = 0
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'common/meta' %}
+</head>
+<body>
+{% set company = Company.company %}
+
+{% partial 'common/preloader' %}
+
+<div id="wrapper" class="page-wrap">
+
+    <header id="header" class="header">
+        <div class="header-home">
+            {% partial 'header/header' layout="landing" %}
+        </div>
+        {% partial 'common/hero' %}
+    </header>
+
+    <!-- START main wrapper section -->
+    <section>
+        {% page %}
+    </section>
+    <!--/ END main wrapper section -->
+
+    <footer id="footer" class="footer content-block">
+        {% partial 'common/footer' %}
+    </footer>
+
+    {% partial 'common/footer-bottom' %}
+
+</div>
+
+{% partial 'common/scripts' %}
+</body>
+</html>

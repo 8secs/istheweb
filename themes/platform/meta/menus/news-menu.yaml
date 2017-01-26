@@ -1,0 +1,26 @@
+name: 'News Menu'
+items:
+    -
+        title: Diseño
+        nesting: '0'
+        type: blog-category
+        code: ''
+        reference: '3'
+        cmsPage: news/categories
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Anuncios
+        nesting: '0'
+        type: blog-category
+        code: ''
+        reference: '2'
+        cmsPage: news/categories
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

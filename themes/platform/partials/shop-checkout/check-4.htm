@@ -1,0 +1,171 @@
+{% if ShopBasket.basketItems.count > 0 %}
+<div class="col-xs-12 col-sm-4">
+
+    <div class="access-user checkout-box {% if Customer.selectedStep == 1 %} active {% else %} done {% endif %}">
+
+        <div class="margin-tb-10">
+            <h4>{{ '1.- Información personal'|_ }}</h4>
+            <hr/>
+        </div>
+        {% if not user %}
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="margin-tb-10">
+                    <h6><strong>{{ 'Usuario Registrado'|_ }}</strong></h6>
+                </div>
+                {% partial 'Customer::signin' checkout="checkout" %}
+            </div>
+
+            <div class="col-xs-12">
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="margin-tb-10">
+                    <h6><strong>{{ 'Regístrate'|_ }}</strong></h6>
+                </div>
+                {% partial 'Customer::register' checkout="checkout" %}
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'checkout-one-page/personal-information' %}
+            </div>
+        </div>
+
+        {% endif %}
+    </div>
+</div>
+<div class="col-xs-12 col-sm-4">
+
+    {% if Customer.selectedStep < 2 %}
+    {% set ad = 'disabled' %}
+    {% else %}
+    {% if Customer.selectedStep == 2 %}
+    {% set ad = 'active' %}
+    {% else %}
+    {% set ad = 'done' %}
+    {% endif %}
+    {% endif %}
+    <div class="addresses checkout-box {{ ad }}">
+        <div class="margin-tb-10">
+            <h4>{{ '2.- Direcciones'|_ }}</h4>
+            <hr/>
+        </div>
+        <div class="margin-tb-10">
+            <h6><strong>{{ 'Dirección de facturación'|_ }}</strong></h6>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'checkout-one-page/billing-address' %}
+            </div>
+        </div>
+
+    </div>
+    <div class="spacer"></div>
+    {% if Customer.selectedStep < 3 %}
+    {% set del = 'disabled hide' %}
+    {% else %}
+    {% if Customer.selectedStep == 3 %}
+    {% set del = 'active show' %}
+    {% else %}
+    {% if Customer.notSameAddress %}
+    {% set del = 'done show' %}
+    {% else %}
+    {% set del = 'done hide' %}
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    <div class="delivery checkout-box {{ del }}">
+        <div class="margin-tb-10">
+            <h6><strong>{{ 'Dirección de envío'|_ }}</strong></h6>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'checkout-one-page/delivery-address' %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-4">
+    {% if Customer.selectedStep < 4 %}
+    {% set method = 'disabled' %}
+    {% else %}
+    {% if Customer.selectedStep == 4 %}
+    {% set method = 'active' %}
+    {% else %}
+    {% set method = 'done' %}
+    {% endif %}
+    {% endif %}
+    <div class="payment-method checkout-box {{ method }}">
+        <div class="margin-tb-10">
+            <h4>{{ '3.- Método de pago'|_ }}</h4>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'Customer::_payment_method' %}
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    {% if Customer.selectedStep < 5 %}
+    {% set resume = 'disabled' %}
+    {% else %}
+    {% set resume = 'active' %}
+    {% endif %}
+    <div class="resumen checkout-box {{ resume }}">
+        <div class="margin-tb-10">
+            <h4>{{ '4.- Resumen'|_ }}</h4>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'ShopBasket::_resumen' %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% else %}
+<div class="no">
+    <p>{{ 'No hay artículos en tu carrito'|_ }} <a href="{{ '/'|app }}">{{ 'Ir a la tienda'|_ }}</a></p>
+</div>
+{% endif %}
+
+{% put scripts %}
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        if($('.delivery').hasClass('hide')){
+            $('.delivery').hide('slow');
+        }else if($('.delivery').hasClass('show')){
+            $('.delivery').show('slow');
+            $('#not-same-address').prop('checked', true);
+        }
+
+        if($('.access-user').hasClass('active')){
+            $('.addresses :input').prop('disabled', true);
+            $('.delivery :input').prop('disabled', true);
+            $('.payment-method :input').prop('disabled', true);
+            $('.resumen :input').prop('disabled', true);
+        }else{
+            if($('.addresses').hasClass('active')){
+                $('.delivery :input').prop('disabled', true);
+                $('.payment-method :input').prop('disabled', true);
+                $('.resumen :input').prop('disabled', true);
+            }else{
+                if($('.delivery').hasClass('active')){
+                    $('.payment-method :input').prop('disabled', true);
+                    $('.resumen :input').prop('disabled', true);
+                }else{
+                    if($('.payment-method').hasClass('active')){
+                        $('.resumen :input').prop('disabled', true);
+                    }
+                }
+            }
+        }
+
+    });
+</script>
+{% endput %}

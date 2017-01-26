@@ -1,0 +1,52 @@
+{% set checkoutSteps = Customer.shopCheckoutSteps %}
+
+{% if ShopBasket.basketItems.count > 0 %}
+{% if not user %}
+<div class="access-user checkout-box">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 cart-checkout-process">
+            <div class="wrap">
+                <div class="margin-tb-10">
+                    <h4>{{ 'Usuario Registrado'|_ }}</h4>
+                </div>
+                {% partial 'Customer::signin' checkout="checkout" %}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 cart-checkout-process">
+            <div class="wrap">
+                <div class="margin-tb-10">
+                    <h4>{{ 'Regístrate'|_ }}</h4>
+                </div>
+                {% partial 'Customer::register' checkout="checkout" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+    {% set partial = 'shop-checkout/check-'~ checkoutSteps %}
+    {% partial partial %}
+{% endif %}
+{% else %}
+<div class="no">
+    <p>{{ 'No hay artículos en tu carrito'|_ }} <a href="{{ '/shop'|app }}">{{ 'Ir a la tienda'|_ }}</a></p>
+</div>
+{% endif %}
+
+{% put scripts %}
+<script type="text/javascript">
+
+    var sameAddress = false;
+
+    $('#not-same-address').on('change', function(e){
+        if($('#not-same-address').prop('checked') == true){
+            sameAddress = true;
+            $('.delivery').removeClass('hide').addClass('show');
+        }else{
+            sameAddress = false;
+            $('.delivery').removeClass('show').addClass('hide');
+        }
+    });
+
+</script>
+{% endput %}

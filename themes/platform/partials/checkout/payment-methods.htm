@@ -1,0 +1,14 @@
+<div class="panel-heading" role="tab" id="headingFour">
+    <h4 class="panel-title">
+        {% if Customer.deliveryAddress %}
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+            {{ 'Step 4: Payment Method'|_ }}
+        </a>
+        {% else %}
+            {{ 'Step 4: Payment Method'|_ }}
+        {% endif %}
+    </h4>
+</div>
+<div id="collapseFour" class="panel-collapse collapse {% if Customer.deliveryAddress %} {% if not Customer.paymentMethod %} in {% endif %} {% endif %} " role="tabpanel" aria-labelledby="headingFour">
+    {% partial 'Customer::_payment_method' %}
+</div>

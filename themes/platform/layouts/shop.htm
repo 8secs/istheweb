@@ -1,0 +1,72 @@
+description = "Default Basic Ecommerce layout"
+
+[staticPage]
+
+[staticMenu mainMenu]
+code = "shop-menu"
+
+[session]
+security = "all"
+
+[resetPassword]
+paramCode = "code"
+
+[ShopBasket]
+checkoutPage = "checkout"
+productPage = "product"
+recipientName = "Andrés"
+recipientEmail = "soporte@istheweb.com"
+paypalReturnUrl = "http://istheweb.com/shop/checkout/?success=true"
+paypalCancelUrl = "http://istheweb.com/shop/checkout/?success=false"
+
+[Customer]
+paramCode = "code"
+
+[Company]
+
+[localePicker]
+forceUrl = 0
+
+[Ratings ratings]
+symbol = ""
+toolsize = "sm"
+step = 0.5
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'common/meta' %}
+</head>
+<body>
+
+{% partial 'common/preloader' %}
+
+<div id="wrapper" class="page-wrap">
+
+    <header id="header" class="header">
+        {% partial 'header/header' layout="shop" %}
+    </header>
+
+    <!-- breadcrumb-area start -->
+    <div class="breadcrumb-area">
+        {% partial 'shop/breadcrumb' %}
+    </div>
+    <!-- breadcrumb-area end -->
+
+    <!-- START main wrapper section -->
+    <section>
+        {% page %}
+    </section>
+    <!--/ END main wrapper section -->
+
+    <footer id="footer" class="footer content-block">
+        {% partial 'common/footer' %}
+    </footer>
+
+    {% partial 'common/footer-bottom' %}
+
+</div>
+
+{% partial 'common/scripts' %}
+</body>
+</html>

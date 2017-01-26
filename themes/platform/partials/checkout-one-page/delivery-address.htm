@@ -1,0 +1,6 @@
+{% partial 'Customer::addresses' type='delivery' %}
+
+<div id="location_delivery" class="margin-tb-30">
+    {% partial 'Customer::address' type='delivery' checkout="checkout" %}
+</div>
+{% partial 'Customer::_countries_form' type='delivery' %}

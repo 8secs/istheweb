@@ -1,0 +1,18 @@
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center wow bounceIn subscribe-div" data-wow-delay="0.2s">
+            <i class="subscribe-icon ti-email color-purple"></i>
+            <h2 class="section-title">{{ 'Subscríbete a nuestro boletín de noticias'|_ }}</h2>
+            <p class="section-subtitle border-line">{{ 'Nuestra promesa es que no recibirás spam, sino nuestras últimas noticias y actualizaciones!'|_ }}</p>
+            <div class="subscribe-email-wrap">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        {% component 'ManageMailList' %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

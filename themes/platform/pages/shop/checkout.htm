@@ -1,0 +1,52 @@
+title = "Tramitar"
+url = "/shop/checkout/:code?"
+layout = "shop"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[Products]
+pageNumber = "{{ :page }}"
+productsPerPage = 10
+noProductsMessage = "{{ 'No hay productos'|_ }}"
+sortOrder = "name asc"
+categoryPage = "shop/categories"
+productPage = "shop/product"
+==
+<?php
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\RedirectResponse;
+use Istheweb\Shop\Facades\Checkout;
+
+function onStart(){
+    if(Session::has('order') ){
+        return Redirect::to('shop/order');
+    }
+}
+?>
+==
+<div class="checkout-pagination">
+    <div class="container">
+        <div class="row">
+            {% if not user %}
+                {% set step="one" %}
+            {% else %}
+                {% set step="two" %}
+            {% endif %}
+            {% partial 'shop-checkout/pagination' step=step %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {% partial 'common/flash' %}
+
+    <div class="row">
+        <div class="col-xs-12">
+            {{ ShopBasket.order }}
+            {% partial 'shop-checkout/default' %}
+        </div>
+    </div>
+</div>

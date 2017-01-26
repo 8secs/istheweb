@@ -1,0 +1,334 @@
+.header {
+
+  .header-top {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    box-shadow: 0 1px rgba(0,0,0, 0.1);
+    background:$header-background none repeat scroll 0 0;
+    color: $header-color;
+  }
+  .header-home{
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    z-index: 9999;
+    margin-top: -80px;
+    box-shadow: 0 1px rgba(0,0,0, 0.1);
+    background:$header-background none repeat scroll 0 0;
+    transition: all .50s ease-in-out;
+    &.active {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      margin-top: 0;
+    }
+  }
+  .main-nav {
+    //padding-top: 15px;
+  }
+  .header-bottom {
+    .shop-cart-search {
+      padding: 20px 0 0;
+
+      .header-search{
+        float: right;
+        position: relative;
+        input{
+          background: $header-background;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          border-radius: 0;
+          box-shadow: none;
+          height: 34px;
+          left: -245px;
+          padding: 0 15px;
+          width: 250px;
+          color: #000;
+        }
+        button {
+          background: none;
+          border: medium none;
+          color: #000;
+          font-size: 16px;
+          line-height: 16px;
+          padding: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transition: all 0.3s ease 0s;
+          width: 40px;
+          height: 34px;
+          &:hover{
+            color: #fff;
+            background: $header-search-bg;
+          }
+        }
+      }
+
+    }
+    &.stick {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 99999;
+      box-shadow: 0 1px rgba(0,0,0, 0.1);
+      background:$header-background none repeat scroll 0 0;
+    }
+  }
+}
+
+.header-top-left{
+  padding-top: 10px;
+  ul{
+    &.social-icons{
+      margin-bottom: 0;
+      li{
+        float:left;
+        margin-right:1px;
+
+        a{
+          i{
+            background:transparent;
+            color:$header-color;
+            width:35px;
+            height:40px;
+            line-height:40px;
+            text-align:center;
+            transition:all 0.4s ease 0s;
+          }
+          &:hover{
+            i{
+              color:$brand-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .top-message{
+    float: left;
+    padding-right: 20px;
+    position: relative;
+
+
+    &:after{
+      border-right: 1px solid $header-color;
+      content: "";
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 3px;
+      width: 0;
+    }
+
+  }
+
+  .phone-number{
+    float: left;
+    margin-left: 20px;
+
+    &:after{
+      content: "";
+      display: inline-block;
+      float: left;
+      font-family: FontAwesome;
+      margin-right: 5px;
+    }
+    span{
+      color: $highlight-color;
+    }
+  }
+}
+
+.header-top-right{
+
+  .top-menu{
+    float: right;
+    //padding-top: 18px;
+    .lang-select{
+      //float: left;
+      margin-top: 0;
+      margin-bottom: 0;
+      .form-control {
+        padding: 0.2rem 0.3rem;
+        border: 0;
+      }
+    }
+    ul{
+      margin-bottom: 0;
+      li{
+        display: inline-block;
+        a{
+          display: inline-block;
+          margin-right: 20px;
+          color: $header-color;
+          &:hover{
+            color: $highlight-color;
+          }
+          /*&.cart {
+            display: inline-block;
+            box-sizing: content-box;
+            padding: 0em 1.75em;
+            text-decoration: none;
+            text-transform: uppercase;
+            background: $brand-primary;
+            color: $gray-lightest;
+            margin-right: 0;
+          }*/
+        }
+        &:first-child{
+          margin-right: 20px;
+        }
+      }
+    }
+    button{
+      &.search-toggler{
+        background:none;
+        color:$header-color;
+        border:none;
+        font-size:14px;
+        outline:0;
+        //padding:0 20px;
+        transition:all 0.4s ease 0s;
+        &:hover{
+          color:$brand-primary;
+        }
+      }
+    }
+  }
+}
+
+/*----- Hero -----*/
+
+.hero {
+  background: url('#{$images-folder}bg-yavadava-way.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.shoutbox {
+  .shout-content {
+    color: #efefef;
+    padding-top: 100px;
+  }
+  .shout-title {
+    font-weight: 700;
+    padding: 10px 0;
+  }
+  .app-available {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    li{
+      margin: 0 10px;
+    }
+    .icon{
+      font-size: 25px;
+    }
+  }
+}
+
+
+.shout-carousel {
+  .owl-dot {
+    height: 10px;
+    width: 10px;
+    border: 1px solid $brand-primary;
+    padding: 2px;
+    display: inline-table;
+    margin: 0 5px;
+  }
+  .owl-dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .owl-dot {
+    &.active {
+      background-color: $brand-primary;
+    }
+  }
+}
+
+/**
+* fullscreen search-popup-area
+*/
+.search-area{
+  button {
+    &.search-btn{
+      background:none;
+      color:#fff;
+      border:none;
+      font-size:14px;
+      outline:0;
+      padding:0 20px;
+      transition:all 0.4s ease 0s;
+    }
+  }
+  background:rgba(255,255,255,0.9);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:none;
+  z-index: 999999;
+  transition:all 0.4s ease 0s;
+
+  span {
+    &.search-close {
+      position:relative;
+      float:right;
+      margin:88px 92px 0 0;
+      &:after {
+        content:"";
+        cursor:pointer;
+        display:block;
+        position:absolute;
+        background:url("#{$images-folder}close.png") no-repeat scroll 50% 50%;
+        width:50px;
+        height:50px;
+      }
+    }
+  }
+
+}
+
+.search-form {
+  input[type="text"]{
+    background:transparent;
+    border:none;
+    border-bottom:2px solid #999;
+    width:100%;
+    height:80px;
+    font-size:40px;
+    outline:0;
+    margin:190px 0 0;
+    padding:0 45px;
+    &:focus{
+      border-bottom:2px solid $brand-primary;
+    }
+  }
+  position: relative;
+  button{
+    &.search-btn {
+      color:#999;
+      font-size:40px;
+      position:absolute;
+      bottom:20px;
+      right:28px;
+      &:hover {
+        color:$brand-primary;
+      }
+    }
+  }
+}
+
+
+.header-search, .cart-total{
+  //margin-top: 15px;
+}

@@ -1,5 +1,5 @@
 values:
-    label: istheweb.shop::lang.option.menu_label
+    label: istheweb.shop::lang.options.menu_label
     manage:
         form: $/istheweb/shop/models/optionvalue/fields.yaml
         list: $/istheweb/shop/models/optionvalue/columns.yaml

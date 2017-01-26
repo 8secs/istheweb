@@ -1,0 +1,14 @@
+<div class="panel-heading" role="tab" id="headingFive">
+    <h4 class="panel-title">
+        {% if Customer.deliveryAddress %}
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+            {{ 'Step 5: Confirm Order'|_ }}
+        </a>
+        {% else %}
+            {{ 'Step 5: Confirm Order'|_ }}
+        {% endif %}
+    </h4>
+</div>
+<div id="collapseFive" class="panel-collapse collapse {% if Customer.paymentMethod %}  in {% endif %} " role="tabpanel" aria-labelledby="headingFive">
+    {% partial 'ShopBasket::confirm-order' %}
+</div>

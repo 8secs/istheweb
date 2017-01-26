@@ -12,8 +12,8 @@ namespace istheweb\iscorporate\behaviors;
 use Istheweb\IsCorporate\Models\Budget;
 use Istheweb\IsCorporate\Models\Invoice;
 use Istheweb\IsCorporate\Models\Project;
-use Renatio\DynamicPDF\Classes\PDF;
-use Renatio\DynamicPDF\Models\PDFTemplate;
+use Istheweb\IsPdf\Classes\PDF;
+use Istheweb\IsPdf\Models\PDFTemplate;
 use Illuminate\Support\Facades\Redirect;
 use October\Rain\Exception\ApplicationException;
 use Flash;
@@ -107,7 +107,7 @@ class BudgetController extends BaseController
         try {
             return PDF::loadTemplate(Budget::BUDGET_TEMPLATE_CODE, $data)->stream();
         } catch (ApplicationException $e) {
-            $this->pageTitle = trans('renatio.dynamicpdf::lang.templates.preview');
+            $this->pageTitle = trans('istheweb.ispdf::lang.templates.preview');
             $this->vars['error'] = $e->getMessage();
         }
     }

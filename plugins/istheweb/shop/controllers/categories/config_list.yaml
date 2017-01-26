@@ -9,7 +9,7 @@ list: $/istheweb/shop/models/category/columns.yaml
 modelClass: Istheweb\Shop\Models\Category
 
 # List Title
-title: Manage Categories
+title: istheweb.shop::lang.categories.manage
 
 # Link URL for each record
 recordUrl: istheweb/shop/categories/update/:id

@@ -22,6 +22,10 @@ fields:
         label: 'istheweb.connect::lang.fields.slogan'
         span: left
         type: text
+    website:
+        label: 'istheweb.connect::lang.fields.url'
+        span: left
+        type: text
     section2:
         label: 'istheweb.connect::lang.fields.details'
         span: full

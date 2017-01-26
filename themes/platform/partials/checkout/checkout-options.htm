@@ -1,0 +1,24 @@
+<div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            {{ 'Step 1: Checkout Options'|_ }}
+        </a>
+    </h4>
+</div>
+<div id="collapseOne" class="panel-collapse collapse {% if not user %}in{% endif %}" role="tabpanel" aria-labelledby="headingOne">
+    <div class="row">
+        {% if not user %}
+        <div class="col-sm-6">
+            {% partial 'Customer::signin' %}
+        </div>
+        <div class="col-sm-6">
+            {% partial 'Customer::register' %}
+        </div>
+        {% else %}
+        <div class="col-sm-12">
+            {% partial 'Customer::register' %}
+        </div>
+        {% endif %}
+    </div>
+
+</div>

@@ -1,0 +1,85 @@
+[viewBag]
+
+[blogTags]
+results = 5
+direction = "desc"
+
+[searchForm]
+resultPage = "news/search-results"
+categoryFilter = 0
+==
+
+
+
+<div class="sidebar-area fix">
+    <div class="single-sidebar-widget">
+        <h6 class="widget-title">{{ 'Sobre mi'|_ }}</h6>
+        <div class="sidebar-content about-me">
+            <div class="my-photo">
+                <a href="#"><img class="img-thumbnail" src="{{ 'assets/images/me.jpg'|theme }}" alt="My Image" /></a>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consecteturs adipisicing elit, sed do
+                eiusmod tempor incididunt labore et dolore aliqua. Ut enim ad minim veniam,</p>
+        </div><!-- /.sidebar-content -->
+    </div><!-- /.single-sidebar-widget -->
+    <div class="single-sidebar-widget">
+        <h6 class="widget-title">{{ 'Categorías'|_ }}</h6>
+        <div class="sidebar-content">
+            <div class="categories-list">
+                {% partial 'news/categories' %}
+            </div>
+        </div>
+    </div>
+    <div class="single-sidebar-widget">
+        <h6 class="widget-title">
+            {{ 'Tags'|_ }}
+        </h6>
+        <div class="sidebar-content">
+            <div class="tags-lists">
+                <ul>
+                    {% for tag in blogTags.tags %}
+                    {% set url = 'news/tag-search/' ~ tag.name %}
+                    <li><a href="{{ url|app }} "> {{ tag.name }} ({{ tag.posts|length }})</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="single-sidebar-widget">
+        <h6 class="widget-title">{{ 'Nuestro newsletter'|_ }}</h6>
+        <div class="sidebar-content">
+            {% component 'ManageMailList' %}
+        </div>
+    </div>
+    <div class="single-sidebar-widget">
+        <h6 class="widget-title">{{ 'Visitas'|_ }} {{ topic.count_views }} </h6>
+        <div class="sidebar-content">
+            {% if member %}
+            <ul>
+                <li>
+
+                    <a href="javascript:;"
+                       data-request="onFollow"
+                       data-request-update="'forumEmbedTopic::controlpanel': '#topicControlPanel'">
+                        {% if member.isFollowing(topic) %}
+                        {{ 'Dejar de seguir este artículo'|_ }}
+                        {% else %}
+                        {{ 'Seguir este artículo.'|_ }}
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if topic.is_locked %}
+                    <span class="text text-danger"><i class="icon icon-lock"></i>{{ 'Este tema está cerrado'|_ }}</span>
+                    {% else %}
+                    <a href="#postForm">
+                        {{ 'Responder a este tema'|_ }}
+                    </a>
+
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>

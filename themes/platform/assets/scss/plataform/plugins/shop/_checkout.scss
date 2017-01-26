@@ -1,0 +1,97 @@
+.checkout-pagination {
+
+  .tabbed {
+    clear:left;
+    &.cb{
+      &:after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+      h4{
+        font-size: .9em;
+        margin: 0;
+        text-align: center;
+      }
+      .tab-ctrl{
+        font-weight: normal;
+        text-transform: uppercase;
+        font-size: .75em;
+        float: left;
+        position: relative;
+        z-index: 1;
+        margin: 0 2em 0 0;
+        padding: .5em 0;
+        cursor: pointer;
+        border-bottom: 5px solid transparent;
+        color: #b7b7b7;
+        width: 30%;
+        &.active{
+          color: #3e3e3e;
+          border-bottom-style: dotted;
+          cursor: default;
+          border-bottom: 5px solid $brand-primary;
+        }
+      }
+    }
+  }
+
+  #steps5{
+    border-bottom: 1px solid #d9d9d9;
+    margin: 0 1em 3em;
+  }
+}
+
+.checkout-box {
+  //background: rgba(0,0,0,0.10) none repeat scroll 0 0;
+  padding: 10px;
+  //border: 1px solid rgba(0,0,0,0.20);
+  transition: $brand-default-transition;
+
+  button {
+    border: none;
+
+
+  }
+
+  select {
+    max-width: 300px;
+  }
+
+  label{
+    margin-bottom: 0.1rem;
+    font-size: 0.8em;
+
+  }
+
+  .form-control {
+    margin-bottom: 0.4rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  &.active {
+    background: $brand-warning none repeat scroll 0 0;
+  }
+
+  &.done {
+    background: lighten($brand-warning, 30%) none repeat scroll 0 0;
+  }
+
+  &.disabled {
+    background: rgba(0,0,0,0.30) none repeat scroll 0 0;
+    button {
+      pointer-events: none !important;
+    }
+  }
+
+}
+
+.access-user {
+  .login, .register{
+    max-width: 175px;
+    &:active {
+      text-decoration: none;
+      color: $gray-lightest
+    }
+  }
+}

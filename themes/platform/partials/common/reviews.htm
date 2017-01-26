@@ -1,0 +1,26 @@
+{% if ratings is not empty %}
+{% for rating in ratings %}
+<div class="sin-rattings">
+    <div class="ratting-star float-left">
+        {% for i in 1..rating.rating %}
+        <i class="fa fa-star"></i>
+        {% endfor %}
+        {% if rating.rating < 5 %}
+        {% set diff = 5 - rating.rating %}
+        {% for u in 1..diff %}
+        <i class="fa fa-star-o"></i>
+        {% endfor %}
+        {% endif %}
+
+        <span>({{ rating.rating }})</span>
+    </div>
+    <div class="ratting-author float-right">
+        <h3>{{ rating.author.name }}</h3>
+        <span>{{ rating.created_at|date }}</span>
+    </div>
+    <p>{{ rating.review }}</p>
+</div>
+{% endfor %}
+{% else %}
+<p>No ha comentarios</p>
+{% endif %}

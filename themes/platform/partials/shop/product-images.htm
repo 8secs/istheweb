@@ -1,0 +1,8 @@
+<div class="pro-img-thumb thumb-vertical" id="pro-img-thumb">
+    {% partial "Product::thumbs-product" theme="platform" %}
+</div>
+<div class="pro-img-big fix">
+    <div class="zoomWrapper">
+        <img src="{{ product.pictures[0].getPath() }}" alt="" data-zoom-image="{{ product.pictures[0].getPath() }}" style="position: absolute;">
+    </div>
+</div>

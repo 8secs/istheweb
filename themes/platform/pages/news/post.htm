@@ -1,0 +1,57 @@
+title = "Post"
+url = "/news/post/:slug"
+layout = "blog"
+is_hidden = 0
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "news/categories"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "news/categories"
+
+[blogTags]
+results = 5
+direction = "desc"
+
+[forumEmbedTopic]
+embedCode = "comentarios-noticias"
+channelSlug = "embedded"
+memberPage = "news/categories"
+==
+<?php
+function onEnd()
+{
+    if(isset($this->post)) $this->page->title = $this->post->title;
+}
+?>
+==
+{% set post = blogPost.post %}
+
+
+
+<div id="single-blog" class="single-blog-area">
+    <div class="single-blog-heading">
+        <div class="single-blog-img">
+            {% if post.featured_images.count > 0 %}
+            <img src="{{ post.featured_images.first.getPath() }}" class="img-fluid" />
+            {% else %}
+            <img class="media-object" src="http://placehold.it/100x100" class="img-fluid" />
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                {% partial 'news/post' %}
+                <hr>
+                {% partial 'news/embed-topic' %}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                {% partial 'news/sidebar' %}
+            </div>
+        </div>
+    </div>
+</div>

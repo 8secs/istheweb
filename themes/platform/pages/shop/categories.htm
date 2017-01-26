@@ -1,0 +1,63 @@
+title = "Categories"
+url = "/shop/categories/:slug"
+layout = "shop"
+description = "Product Categories page"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[Products]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+productsPerPage = 10
+noProductsMessage = "{{ 'No hay productos'|_ }}"
+sortOrder = "name asc"
+categoryPage = "shop/categories"
+productPage = "shop/product"
+
+[Categories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "shop/categories"
+
+[FilterTypes]
+orderBy = "id"
+sort = "desc"
+categoryPage = "shop/categories"
+==
+<?php
+function onEnd(){
+    $this->page->title = $this->category->name;
+}
+?>
+==
+
+<!-- blog-area start -->
+<div class="shop-area">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <!-- toolbar start -->
+                <div class="toolbar">
+                    {% partial 'shop/toolbar' %}
+                </div>
+                <!-- toolbar end -->
+                <div class="clear"></div>
+                <div class="row">
+                    {% component 'Products' %}
+                </div>
+            </div>
+
+            <!-- shop-left-sidebar start -->
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                {% partial 'shop/sidebar' %}
+            </div>
+            <!-- shop-left-sidebar end -->
+
+        </div>
+    </div>
+</div>
+<!-- blog-area end -->

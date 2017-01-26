@@ -2,29 +2,103 @@
 
 return [
     'plugin'       => [
-        'name'        => 'Tienda',
-        'description' => 'A eCommerce plugin that let you set up an online shop.',
+        'name'        => 'IsShop',
+        'description' => 'Plugin de comercio electrónico que permite la configuración de tu tienda online fácil y sin esfuerzos.',
+        'config_description' => 'Configuración general del comercio electrónico'
     ],
     'sidebar'      => [
-        'catalog'                       => 'Catalog',
-        'localisation'                  => 'Localisation',
+        'catalog'                       => 'Catalogo',
+        'localisation'                  => 'Localización',
         'marketing'                     => 'Marketing',
-        'orders'                        => 'Orders',
+        'orders'                        => 'Pedidos',
+        'localization'                  => 'Localización'
     ],
     'components'   => [
 
 
     ],
+    'tabs'   => [
+        'seo'       => 'SEO',
+        'options_variants' => 'Opciones y Variantes',
+        'attachments'   => 'Adjuntos',
+        'content'   => 'Contenido',
+        'local' => 'Localización',
+        'payment_method'    => 'Métodos de pago',
+        'members' => 'Miembros'
+
+    ],
     'menuitem' => [
-        'product_category'              => 'Product category',
-        'all_product_categories'        => 'All Product categories'
+        'product_category'              => 'Categoría productos',
+        'all_product_categories'        => 'Todas las categorías productos'
     ],
     'descriptions' => [
+
+    ],
+    'fields' => [
+        'owner'                         => 'Propieterario',
+        'logo'                          => 'Logo',
+        'default_customer_pass'         => 'Clave nuevo cliente por defecto',
+        'invoice_templates'             => 'Plantilla de factura',
+        'checkout_steps'                => 'Nº pasos del proceso de compra',
+        'opening-times'                 => 'Horarios de apertura',
+        'comments'                      => 'Comentarios',
+        'country'                       => 'País',
+        'state'                         => 'Provincia',
+        'countries'                     => 'Países',
+        'states'                        => 'Provincias',
+        'locale'                        => 'Idioma',
+        'currency'                      => 'Moneda',
+        'length'                        => 'Longitud',
+        'weight'                        => 'Peso',
+        'taxes'                         => 'Impuestos',
+        'payment_method'                => 'Metodo de pago',
+        'cash_delivery'                 => '<i class="fa fa-truck"></i> Pago contrarembolso',
+        'paypal'                        => '<i class="fa fa-paypal"></i> PayPal',
+        'tarjeta'                       => '<i class="fa fa-credit-card"></i> Pago tarjeta',
+        'stripe'                        => '<i class="fa fa-cc-stripe"></i> Stripe',
+        'cash_delivery_sys'             => 'Pago contrarembolso',
+        'paypal_sys'                    => 'PayPal',
+        'tarjeta_sys'                   => 'Pago tarjeta',
+        'stripe_sys'                    => 'Stripe',
+        'stripe_api_id'                 => 'Stripe Api Key',
+        'stripe_publishable_key'        => 'Api Key pública de Stripe',
+        'paypal_client_id'              => 'Client ID',
+        'paypal_secret_id'              => 'Secret ID',
+        'fuc'                           => 'Nº cliente tpv',
+        'terminal'                      => 'Terminal tpv',
+        'url_ok'                        => 'Url comercio de respuesta válida de tpv',
+        'url_ko'                        => 'Url comercio de respuesta inválida de tpv',
+        'tpv_signature'                 => 'Signature de Comercio tpv',
+        'cash_payment_method_fee'       => 'Método de pago contrarembolso',
+        'paypal_payment_method_fee'     => 'Método de pago Paypal',
+        'tpv_payment_method_fee'        => 'Método de pago TPV',
+        'stripe_payment_method_fee'     => 'Método de pago Stripe',
+        'cash_payment_fee_msg'          => '<p><span class="label label-info">Recuerda:</span><small> El pago contrarembolso tiene un 6% de comisión</small></p>',
+        'paypal_payment_fee_msg'        => '<p><span class="label label-info">Recuerda:</span><small> No es necesario que te registres en PayPal, por lo que no actives la opción de registro durante el proceso de pago.<br> La comisión aplicada a este tipo de pago es del 2%</small></p>',
+        'kilogram'                      => 'Kilogramo',
+        'gram'                          => 'Gramp',
+        'pound'                         => 'Libra',
+        'ounce'                         => 'Onza',
+        'centimeter'                    => 'Centímetro',
+        'millimeter'                    => 'Milímetro',
+        'inch'                          => 'Pulgada',
+        'iso_code'                      => 'Código ISO',
+        'iso_code_num'                  => 'Código numérico ISO',
+        'sign'                          => 'Signo',
+        'format'                        => 'Formato',
+        'conversion_rate'               => 'Tipo de cambio',
+        'decimals'                       => 'Decimales',
+        'active'                        => 'Activo',
+        'type'                          => 'Tipo',
+        'percentage'                    => 'Porcentaje',
+        'fix'                           => 'Cantidad fija',
+        'rate'                          => 'Tasa'
 
     ],
     'labels'       => [
         'name'                          => 'Nombre',
         'code'                          => 'Código',
+        'created_at'                    => 'Creado el',
         'updated_at'                    => 'Actualizado en',
         'type'                          => 'Tipo',
         'slug'                          => 'Slug (Cola de URL)',
@@ -38,7 +112,9 @@ return [
         'make_subcategory'              => 'Hacerla subcategoría?',
         'parent_category'               => 'Parent Category',
         'media'                         => 'Media',
-
+        'value'                         => 'Valor',
+        'values'                        => 'Valores',
+        'members_comment'               => 'Aquí puedes asignar los países y provincias de la zona',
     ],
     'product'      => [
         'new'                               => 'Nuevo producto',
@@ -75,7 +151,8 @@ return [
         'product_page'                      => 'Página del producto',
         'product_page_description'          => 'Nombre del archivo de la página de productos. Esta propiedad es la que se utiliza por defecto por el componente.',
         'import_product'                    => 'Importar productos',
-        'export_products'                   => 'Exportar    product0s',
+        'export_products'                   => 'Exportar productos',
+        'manage'                            => 'Gestión de productos',
     ],
     'category'      => [
         'new'                               => 'Nueva Categoría',
@@ -93,6 +170,16 @@ return [
         'delete_confirm'                    => 'Realmente quieres eliminar esta categoría?',
         'delete_selected_success'           => 'Se han eliminado las categorías seleccionadas.',
         'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'manage'                            => 'Gestionar categorías',
+    ],
+    'attribute'      => [
+        'new'                               => 'Nuevo atributo',
+        'label'                             => 'Atributo',
+        'create_title'                      => 'Crear atributo',
+        'update_title'                      => 'Editar atributo',
+        'preview_title'                     => 'Ver atributo',
+        'list_title'                        => 'Getionar atributo',
+        'description'                       => 'Listado de atributos disponibles para los productos'
     ],
     'attributes'     => [
         'delete_selected_confirm'           => 'Eliminar los atributos seleccionadas?',
@@ -101,7 +188,17 @@ return [
         'delete_confirm'                    => 'Realmente quieres eliminar esta categoría?',
         'delete_selected_success'           => 'Se han eliminado las atributos seleccionadas.',
         'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
-        'description'                       => 'Listado de atributos de productos'
+        'description'                       => 'Listado de atributos de productos',
+        'manage'                            => 'Gestión de atributos',
+    ],
+    'option'      => [
+        'new'                               => 'Nueva opción',
+        'label'                             => 'Opción',
+        'create_title'                      => 'Crear opción',
+        'update_title'                      => 'Editar opción',
+        'preview_title'                     => 'Ver opción',
+        'list_title'                        => 'Getionar opciones',
+        'description'                       => 'Listado de opciones disponibles para los productos'
     ],
     'options'     => [
         'delete_selected_confirm'           => 'Eliminar los opciones seleccionadas?',
@@ -111,5 +208,99 @@ return [
         'delete_selected_success'           => 'Se han eliminado las opciones seleccionadas.',
         'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
         'description'                       => 'Listado de opciones de productos'
+    ],
+    'variant'      => [
+        'new'                               => 'Nueva variante',
+        'label'                             => 'Variante',
+        'create_title'                      => 'Crear variante',
+        'update_title'                      => 'Editar variante',
+        'preview_title'                     => 'Ver variante',
+        'list_title'                        => 'Getionar variantes',
+        'description'                       => 'Listado de variantes que puede tener un producto'
+    ],
+    'variants'     => [
+        'delete_selected_confirm'           => 'Eliminar los variantes seleccionadas?',
+        'menu_label'                        => 'Variantes',
+        'return_to_list'                    => 'Volver a variantes',
+        'delete_confirm'                    => 'Realmente quieres eliminar esta variante?',
+        'delete_selected_success'           => 'Se han eliminado las variantes seleccionadas.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Listado de variantes de un producto'
+    ],
+    'currency'      => [
+        'new'                               => 'Nueva moneda',
+        'label'                             => 'Moneda',
+        'create_title'                      => 'Crear moneda',
+        'update_title'                      => 'Editar moneda',
+        'preview_title'                     => 'Ver moneda',
+        'list_title'                        => 'Getionar monedas',
+        'description'                       => 'Listado de monedas que puede tener un producto'
+    ],
+    'currencies'     => [
+        'delete_selected_confirm'           => 'Eliminar los monedas seleccionadas?',
+        'menu_label'                        => 'Monedas',
+        'return_to_list'                    => 'Volver a monedas',
+        'delete_confirm'                    => 'Realmente quieres eliminar esta moneda?',
+        'delete_selected_success'           => 'Se han eliminado las monedas seleccionadas.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Listado de monedas de un producto',
+        'manage'                            => 'Gestionar Monedas'
+    ],
+    'tax_rate'      => [
+        'new'                               => 'Nueva impuesto',
+        'label'                             => 'Impuesto',
+        'create_title'                      => 'Crear impuesto',
+        'update_title'                      => 'Editar impuesto',
+        'preview_title'                     => 'Ver impuesto',
+        'list_title'                        => 'Getionar impuestos',
+        'description'                       => 'Listado de impuestos que puede tener un producto'
+    ],
+    'tax_rates'     => [
+        'delete_selected_confirm'           => 'Eliminar los impuestos seleccionadas?',
+        'menu_label'                        => 'Impuestos',
+        'return_to_list'                    => 'Volver a impuestos',
+        'delete_confirm'                    => 'Realmente quieres eliminar esta impuesto?',
+        'delete_selected_success'           => 'Se han eliminado las impuestos seleccionadas.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Listado de impuestos de un producto',
+        'manage'                            => 'Gestionar impuestos'
+    ],
+    'tax_category'      => [
+        'new'                               => 'Nueva categoría impuesto',
+        'label'                             => 'Categoría Impuesto',
+        'create_title'                      => 'Crear categoría impuesto',
+        'update_title'                      => 'Editar categoría impuesto',
+        'preview_title'                     => 'Ver categoría impuesto',
+        'list_title'                        => 'Getionar categoría impuestos',
+        'description'                       => 'Listado de categoría impuestos que puede tener un producto'
+    ],
+    'tax_categories'     => [
+        'delete_selected_confirm'           => 'Eliminar los categoría impuestos seleccionadas?',
+        'menu_label'                        => 'Categorías de impuestos',
+        'return_to_list'                    => 'Volver a categoría impuestos',
+        'delete_confirm'                    => 'Realmente quieres eliminar esta categoría impuesto?',
+        'delete_selected_success'           => 'Se han eliminado las categoría impuestos seleccionadas.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Listado de categoría impuestos de un producto',
+        'manage'                            => 'Gestionar categoría impuestos'
+    ],
+    'zone'      => [
+        'new'                               => 'Nueva zona',
+        'label'                             => 'Zona',
+        'create_title'                      => 'Crear zona',
+        'update_title'                      => 'Editar zona',
+        'preview_title'                     => 'Ver zona',
+        'list_title'                        => 'Getionar zonas',
+        'description'                       => 'Listado de zonas que puede tener un producto'
+    ],
+    'zones'     => [
+        'delete_selected_confirm'           => 'Eliminar los zonas seleccionadas?',
+        'menu_label'                        => 'Zonas',
+        'return_to_list'                    => 'Volver a zonas',
+        'delete_confirm'                    => 'Realmente quieres eliminar esta zona?',
+        'delete_selected_success'           => 'Se han eliminado las zonas seleccionadas.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Listado de zonas de un producto',
+        'manage'                            => 'Gestionar zonas'
     ]
 ];

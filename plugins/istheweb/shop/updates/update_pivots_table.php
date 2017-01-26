@@ -16,7 +16,9 @@ use October\Rain\Database\Updates\Migration;
 class UpdatePivotsTable extends Migration
 {
     public $models = [
-        'category',
+        'country',
+        'state',
+        'zone'
     ];
 
     public function up()

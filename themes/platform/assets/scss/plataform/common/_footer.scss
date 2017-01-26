@@ -1,0 +1,42 @@
+/*====== Footer ======*/
+
+.footer {
+  background-color: $footer-color;
+  border-top: 1px solid $footer-border-color;
+  .section-title {
+    font-weight: 700;
+    img{
+      max-height: 100px;
+      margin: 0 auto;
+    }
+  }
+  .social-links {
+    margin-top: 20px;
+    a {
+      border: 1px solid #999999;
+      font-size: 20px;
+      height: 35px;
+      width: 35px;
+      display: inline-block;
+      line-height: 35px;
+      transition: all .15s ease-in-out;
+      &:hover {
+        border-color: $brand-primary;
+        background-color: $brand-primary;
+        color: $gray-lightest;
+      }
+    }
+  }
+}
+
+/*====== Footer Bottom ======*/
+
+.footer-bottom {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $gray-light;
+  border-top: 1px solid #cccccc;
+  .copyright {
+    margin-bottom: 0;
+  }
+}

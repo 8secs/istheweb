@@ -1,0 +1,45 @@
+{% set breadCrumbs = breadCrumbs ?: breadcrumbs %}
+
+<div class="breadcrumb-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                {% if product is not empty %}
+                    <h1>{{ product.name }}</h1>
+                {% else %}
+                    <h1>{{ this.page.title }}</h1>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="{{ '/'|app }}">{{ 'Inicio'|_ }}</a> <i class="fa fa-angle-right"></i></li>
+                        {% if this.page.isIndex is empty %}
+                            <li><a href="{{ '/shop'|app}}">{{ 'Tienda'|_ }}</a> <i class="fa fa-angle-right"></i></li>
+                        {% else %}
+                            <li>{{ 'Tienda'|_ }}</li>
+                        {% endif %}
+                        {% for breadcrumb in breadCrumbs %}
+                        <li>
+                            {% if breadcrumb.separator %}
+                                <i class="fa fa-angle-right"></i>
+                            {% elseif breadcrumb.link == '#' %}
+                                {{ breadcrumb.name }}
+                            {% else %}
+                                <a href="{{ breadcrumb.link}}">{{ breadcrumb.name}}</a>
+                            {% endif %}
+                        </li>
+                        {% else %}
+                            {% if this.page.isIndex is empty %}
+                                <li>{{ this.page.title }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

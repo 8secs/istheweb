@@ -1,0 +1,53 @@
+description = "Default layout"
+
+[staticMenu mainMenu]
+code = "main-menu"
+
+[googleTracker]
+
+[ManageMailList]
+
+[GoogleMapsEmbed]
+q = "URBANIZACIÓN EL JARDÍN 1, CASA 24, 41807 ESPARTINAS , SEVILLA - ESPAÑA"
+mapType = "roadmap"
+width = 1920
+height = 340
+responsive = 0
+
+[localePicker]
+forceUrl = 0
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'news/meta' %}
+</head>
+<body class="news">
+
+{% partial 'common/preloader' %}
+
+<div id="wrapper" class="page-wrap">
+
+    <header id="header" class="header-area">
+        <div class="header-bottom">
+            {% partial 'cv/header' %}
+        </div>
+    </header>
+
+    <!-- START main wrapper section -->
+    <section>
+        {% page %}
+    </section>
+    <!--/ END main wrapper section -->
+
+    <footer id="footer" class="footer">
+        {% partial 'cv/footer' %}
+    </footer>
+
+    {% partial 'common/footer-bottom' %}
+
+</div>
+
+{% partial 'news/scripts' %}
+</body>
+</html>

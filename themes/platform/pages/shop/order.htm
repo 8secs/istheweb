@@ -1,0 +1,42 @@
+title = "Pedido"
+url = "/shop/order"
+layout = "shop"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[Products]
+pageNumber = "{{ :page }}"
+productsPerPage = 10
+noProductsMessage = "{{ 'No hay productos'|_ }}"
+sortOrder = "name asc"
+categoryPage = "shop/categories"
+productPage = "shop/product"
+==
+<?php
+use Illuminate\Support\Facades\Session;
+
+function onStart(){
+    print_r(Session::get('order'));
+}
+?>
+==
+<div class="checkout-pagination">
+    <div class="container">
+        <div class="row">
+            {% partial 'shop-checkout/pagination' step='three' %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {% partial 'common/flash' %}
+
+    <div class="row">
+        <div class="col-xs-12">
+            {{ ShopBasket.order }}
+        </div>
+    </div>
+</div>

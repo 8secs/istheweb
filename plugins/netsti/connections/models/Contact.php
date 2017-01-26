@@ -3,7 +3,7 @@
 // LIBRERIAS
 use Model;
 use ValidationException;
-use NetSTI\Connections\Classes\Slack;
+use Ishteweb\Connect\Classes\Slack;
 
 // CLASE
 class Contact extends Model{

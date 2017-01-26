@@ -10,9 +10,11 @@ class Contact extends Model
 
     // VALIDACIONES
     use \October\Rain\Database\Traits\Validation;
+
+
     public $rules = [
         'name' => 'required|max:180|min:3',
-        'email' => 'required|email|unique:netsti_connections_contacts'
+        'email' => 'required|email|unique:istheweb_connect_contacts'
     ];
 
     public $attributeNames = [

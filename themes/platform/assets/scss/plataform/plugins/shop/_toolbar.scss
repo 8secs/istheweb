@@ -1,0 +1,52 @@
+.toolbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.view-mode{
+  float: left;
+  a{
+    &.active{
+      background: $brand-primary none repeat scroll 0 0;
+      color: #fff;
+    }
+    background: #909295 none repeat scroll 0 0;
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    height: 29px;
+    line-height: 29px;
+    margin-right: 10px;
+    text-align: center;
+    width: 29px;
+    i{
+
+    }
+  }
+}
+
+
+.show-result{
+  p{
+    color: #252525;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    margin: 0 0 0 10px;
+    padding: 0;
+  }
+}
+
+.toolbar-form{
+  float: left;
+  margin: 0;
+  select{
+    border: 1px solid #e8e8e9;
+    color: #252525;
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+    height: 28px;
+    line-height: 28px;
+    margin: 0 0 0 25px;
+    padding: 0 10px;
+    text-transform: uppercase;
+  }
+}

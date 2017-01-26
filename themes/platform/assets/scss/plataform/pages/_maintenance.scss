@@ -1,0 +1,118 @@
+.main-container {
+  height: 100vh;
+}
+
+/*===== Container Inner =====*/
+
+.container-inner {
+  display: table;
+  height: 100%;
+  &.left-content{
+    background-image: url('#{$images-folder}bg-yava-way-maintenance.jpg');
+    background-size: cover;
+    .inner-content{
+      img{
+        max-width: 300px;
+      }
+    }
+    @include media-breakpoint-between(lg, xl){
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include media-breakpoint-down(md){
+      display: block;
+      height: 400px;
+    }
+
+  }
+  &.right-content{
+    .inner-content{
+      padding: 0 100px;
+      @include media-breakpoint-between(lg, xl){
+        padding: 0 25px;
+      }
+      @include media-breakpoint-down(md){
+        padding: 50px 0;
+      }
+    }
+    .bottom-links{
+      margin: 25px 0;
+      li{
+        margin-right: 10px;
+        a{
+          font-size: 12px;
+          transition: all 0.30s ease-in-out;
+        }
+        i{
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+}
+
+.inner-content {
+  display: table-cell;
+  vertical-align: middle;
+  @include media-breakpoint-down(md){
+    display: block;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+
+.logo-content {
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  i{
+    color: $brand-primary;
+  }
+}
+
+.subtitle {
+  color: #efefef;
+  //argin: 30px 0 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.content {
+  color: #c5c5c5;
+  //font-style: italic;
+  //margin-bottom: 50px;
+}
+
+
+.maintenance{
+  .copyright {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 0;
+  }
+}
+
+
+/*===== Subscribe =====*/
+
+.subscribe-email-wrap {
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0);
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  width: auto;
+  label{
+    font-weight: 300;
+  }
+
+  .input-box {
+    @include media-breakpoint-up(sm){
+      @include input-width(0.6);
+      margin-right: 3px;
+    }
+  }
+}
+
+

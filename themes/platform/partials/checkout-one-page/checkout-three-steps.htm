@@ -1,0 +1,166 @@
+{% if ShopBasket.basketItems.count > 0 %}
+<div class="col-xs-12 col-sm-6">
+
+    <div class="access-user checkout-box {% if Customer.selectedStep == 1 %} active {% else %} done {% endif %}">
+
+        <div class="margin-tb-10">
+            <h4>{{ '1.- Información personal'|_ }} {{ Customer.selectedStep }}</h4>
+            <hr/>
+        </div>
+        {% if not user %}
+        <div class="row">
+
+            <div class="col-xs-12">
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="margin-tb-10"></div>
+                {% set addressType = 'billing' %}
+                {{ form_ajax('onRegisterCustomer') }}
+                    <input type="hidden" name="redirect" value="{{ this.page.baseFileName|page }}?register=1" />
+                    <input type="hidden" id="type" name="type" value="{{ addressType }}" />
+
+                    <div class="form-group">
+                        <label for="accountName">Nombre</label>
+                        <input name="name" type="text" class="form-control" id="accountName" required placeholder="Introduce tu nombre" value="{{ user.name }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accountSurname">Apellidos</label>
+                        <input name="surname" type="text" class="form-control" id="accountSurname" required placeholder="Introduce tus apellidos" value="{{ user.surname }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accountEmail">Email</label>
+                        <input name="email" type="email" class="form-control" id="accountEmail" required placeholder="Introduce tu email" value="{{ user.email }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accountCif">NIF / CIF</label>
+                        <input name="cif" type="text" class="form-control" id="accountCif" required placeholder="Introduce tu NIF / CIF" value="{{ user.customer.cif }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address_1_{{ addressType }}">{{ 'Dirección 1'|_ }}</label>
+                        <input name="address_1_{{ addressType }}"
+                               type="text" class="form-control"
+                               id="address_1_{{ addressType }}"
+                               placeholder="{{ 'Enter your address'|_ }}"
+                               value="{{ address.address_1 }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city_{{ addressType }}">{{ 'Población'|_ }}</label>
+                        <input name="city_{{ addressType }}"
+                               type="text"
+                               class="form-control"
+                               id="city_{{ addressType }}"
+                               placeholder="{{ 'Enter your city'|_ }}"
+                               value="{{ address.city }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postcode_{{ addressType }}">{{ 'Código postal'|_ }}</label>
+                        <input name="postcode_{{ addressType }}"
+                               type="text"
+                               class="form-control"
+                               id="postcode_{{ addressType }}"
+                               placeholder="{{ 'Enter your post code'|_ }}"
+                               value="{{ address.postcode }}"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        {% set countries = Customer.countries %}
+                        {% partial 'Customer::_countries' countries = countries type = addressType %}
+                    </div>
+
+                    <div class="form-group">
+                        <div id="states_div_{{ addressType }}">
+                            {% partial 'Customer::_states' type = addressType %}
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="default-btn">Siguiente</button>
+                {{ form_close() }}
+
+                {% partial 'Customer::_countries_form' type='billing' %}
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'checkout-one-page/personal-information' %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div class="col-xs-12 col-sm-6">
+    {% if Customer.selectedStep < 2 %}
+    {% set method = 'disabled' %}
+    {% else %}
+    {% if Customer.selectedStep == 2 %}
+    {% set method = 'active' %}
+    {% else %}
+    {% set method = 'done' %}
+    {% endif %}
+    {% endif %}
+    <div class="payment-method checkout-box {{ method }}">
+        <div class="margin-tb-10">
+            <h4>{{ '2.- Método de pago'|_ }}</h4>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'Customer::_payment_method' %}
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    {% if Customer.selectedStep < 3 %}
+    {% set resume = 'disabled' %}
+    {% else %}
+    {% set resume = 'active' %}
+    {% endif %}
+    <div class="resumen checkout-box {{ resume }}">
+        <div class="margin-tb-10">
+            <h4>{{ '3.- Resumen'|_ }}</h4>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% partial 'ShopBasket::_resumen' %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% else %}
+<div class="no">
+    <p>{{ 'No hay artículos en tu carrito'|_ }} <a href="{{ '/'|app }}">{{ 'Ir a la tienda'|_ }}</a></p>
+</div>
+{% endif %}
+
+{% put scripts %}
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        if($('.access-user').hasClass('active')){
+            $('.payment-method :input').prop('disabled', true);
+            $('.resumen :input').prop('disabled', true);
+        }else{
+
+            if($('.payment-method').hasClass('active')){
+                $('.resumen :input').prop('disabled', true);
+            }
+        }
+
+    });
+</script>
+{% endput %}

@@ -19,6 +19,9 @@ class CreatePivotsTable extends Migration
         'option',
         'option_value',
         'variant',
+        'country',
+        'state',
+        'zone',
     ];
 
     public function up()

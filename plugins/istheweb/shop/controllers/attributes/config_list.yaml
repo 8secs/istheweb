@@ -9,7 +9,7 @@ list: $/istheweb/shop/models/attribute/columns.yaml
 modelClass: Istheweb\Shop\Models\Attribute
 
 # List Title
-title: Manage Attributes
+title: istheweb.shop::lang.attributes.manage
 
 # Link URL for each record
 recordUrl: istheweb/shop/attributes/update/:id
@@ -32,7 +32,7 @@ showSorting: true
 #     direction: desc
 
 # Display checkboxes next to each record
-# showCheckboxes: true
+showCheckboxes: true
 
 # Toolbar widget configuration
 toolbar:

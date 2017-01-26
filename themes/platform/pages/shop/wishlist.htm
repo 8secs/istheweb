@@ -1,0 +1,29 @@
+title = "Favoritos"
+url = "/shop/wishlist"
+layout = "shop"
+description = "Wishlist page"
+is_hidden = 0
+
+[Products]
+pageNumber = "{{ :page }}"
+categoryFilter = ""
+productsPerPage = 10
+noProductsMessage = "{{ 'No hay productos'|_ }}"
+sortOrder = "name asc"
+categoryPage = "shop/categories"
+productPage = "shop/product"
+
+==
+
+<div class="wishlist-page bg-off-white padding-bottom-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    {% set wishlists = Customer.wishlistItems %}
+                    {% partial 'ShopBasket::_wishlist-table' wishlists=wishlists %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

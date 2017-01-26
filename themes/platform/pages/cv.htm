@@ -1,0 +1,27 @@
+title = "Resume"
+url = "/resume/"
+layout = "cv"
+description = "Curriculum Vitae"
+is_hidden = 0
+
+
+==
+
+<div id="single-cv" class="single-blog-area">
+    <div class="single-blog-heading hidden-sm-down">
+        <div class="single-blog-img">
+            <img src="{{ 'cuptea.jpeg'|media }}" alt="Working tea" class="img-fluid" />
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                {% partial 'cv/sidebar' %}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                {% partial 'cv/post' %}
+
+            </div>
+        </div>
+    </div>
+</div>

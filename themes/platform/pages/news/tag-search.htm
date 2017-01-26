@@ -1,0 +1,30 @@
+title = "Tag Search"
+url = "/news/tag-search/:tag"
+layout = "blog"
+is_hidden = 0
+
+[blogTagSearch]
+tag = "{{ :tag }}"
+pagination = 1
+page = "{{ :page }}"
+resultsPerPage = 10
+==
+{% set posts = blogTagSearch.tag.posts %}
+
+
+
+<div id="main-content" class="main-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <div class="popular-posts-area">
+                    <h2 class="section-title">{{ 'Noticias:'|_ }} <strong>{{ BlogTagSearch.tag.name }}</strong></h2>
+                    {% partial 'news/posts' posts=posts searchTerm=blogTagSearch.tag.name %}
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
+                {% partial 'news/sidebar' %}
+            </div>
+        </div>
+    </div>
+</div>

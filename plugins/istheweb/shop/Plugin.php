@@ -81,6 +81,38 @@ class Plugin extends PluginBase
                         'permissions' => ['istheweb.shop.access_options'],
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
                         'description' => 'istheweb.shop::lang.options.description',
+                    ],
+                    'currencies'     => [
+                        'label'       => 'istheweb.shop::lang.currencies.menu_label',
+                        'icon'        => 'icon-money',
+                        'url'         => Backend::url('istheweb/shop/currencies'),
+                        'permissions' => ['istheweb.shop.access_currency'],
+                        'group'       => 'istheweb.shop::lang.sidebar.localization',
+                        'description' => 'istheweb.shop::lang.currencies.description',
+                    ],
+                    'zones'     => [
+                        'label'       => 'istheweb.shop::lang.zones.menu_label',
+                        'icon'        => 'icon-globe',
+                        'url'         => Backend::url('istheweb/shop/zones'),
+                        'permissions' => ['istheweb.shop.access_zones'],
+                        'group'       => 'istheweb.shop::lang.sidebar.localization',
+                        'description' => 'istheweb.shop::lang.zone.description',
+                    ],
+                    'taxrates'     => [
+                        'label'       => 'istheweb.shop::lang.tax_rates.menu_label',
+                        'icon'        => 'icon-gavel',
+                        'url'         => Backend::url('istheweb/shop/taxrates'),
+                        'permissions' => ['istheweb.shop.access_tax_rates'],
+                        'group'       => 'istheweb.shop::lang.sidebar.localization',
+                        'description' => 'istheweb.shop::lang.tax_rate.description',
+                    ],
+                    'taxcatgories'     => [
+                        'label'       => 'istheweb.shop::lang.tax_categories.menu_label',
+                        'icon'        => 'icon-briefcase',
+                        'url'         => Backend::url('istheweb/shop/taxcategories'),
+                        'permissions' => ['istheweb.shop.access_tax_categories'],
+                        'group'       => 'istheweb.shop::lang.sidebar.localization',
+                        'description' => 'istheweb.shop::lang.tax_category.description',
                     ]
                 ],
             ],
@@ -130,6 +162,18 @@ class Plugin extends PluginBase
             'istheweb.shop.access_options'     => [
                 'label' => 'istheweb.shop::lang.option.list_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_currency'     => [
+                'label' => 'istheweb.shop::lang.currency.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_zones'     => [
+                'label' => 'istheweb.shop::lang.zones.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_tax_rates'     => [
+                'label' => 'istheweb.shop::lang.tax_rates.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
             ]
         ];
     }
@@ -155,10 +199,28 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function registerSettings()
-    {
-        return[];
-
+    // SETTINGS
+    public function registerSettings(){
+        return [
+            /*'slack'           => [
+                'label'       => 'istheweb.connect::lang.slack',
+                'description' => 'istheweb.connect::lang.slack_description',
+                'icon'        => 'icon-slack',
+                'class'       => 'Istheweb\Connect\Models\SlackSettings',
+                'category'    => 'istheweb.connect::lang.manage',
+                'order'       => 101,
+                'keywords'    => 'crm customer relationship management slack'
+            ],*/
+            'shop' => [
+                'label'       => 'istheweb.shop::lang.plugin.name',
+                'description' => 'istheweb.shop::lang.plugin.config_description',
+                'icon'        => 'icon-shopping-bag',
+                'class'       => 'Istheweb\Shop\Models\ShopSettings',
+                'category'    => 'istheweb.connect::lang.manage',
+                'order'       => 105,
+                'keywords'    => 'shop relationship sell mail'
+            ]
+        ];
     }
 
     public function registerMailTemplates()

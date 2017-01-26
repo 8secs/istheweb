@@ -1,0 +1,26 @@
+description = "All javascript theme"
+
+[viewBag]
+==
+<!-- Scripts -->
+<!--<script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> Tether for Bootstrap -->
+{% component 'googleTracker' %}
+<script src="{{ [
+    'assets/js/jquery.js',
+    'node_modules/tether/dist/js/tether.min.js',
+    'assets/js/bootstrap.min.js',
+    'node_modules/jquery.easing/jquery.easing.min.js',
+    'node_modules/owl-carousel-2-beta/dist/owl.carousel.min.js',
+    'assets/vendor/magic-popup/dist/jquery.magnific-popup.min.js',
+    'node_modules/jquery-sticky/jquery.sticky.js',
+    'node_modules/wowjs/dist/wow.min.js',
+    'node_modules/jquery-toast-plugin/dist/jquery.toast.min.js',
+    'assets/js/bootstrap.min.js',
+    'assets/vendor/meanMenu/jquery.meanmenu.min.js',
+    'assets/js/news.js'
+]|theme }}"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+
+{% framework extras %}
+{% scripts %}

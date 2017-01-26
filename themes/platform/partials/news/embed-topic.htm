@@ -1,0 +1,51 @@
+<div class="rainlab-forum">
+
+    {% flash %}
+    <div class="alert alert-{{ type == 'error' ? 'danger' : type }}">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+    {% endflash %}
+
+    {% if topic %}
+
+    <h4>{{ 'Comentarios'|_ }}</h4>
+
+    <hr>
+    <div class="news-row">
+
+        <div class="news-content">
+
+            {% partial "forumEmbedTopic::posts" %}
+
+            {% partial "forumEmbedTopic::pagination" %}
+
+            <h4>{{ 'Deja tu comentario'|_ }}</h4>
+            {% if not topic.canPost %}
+            <p>
+                {{ 'No puedes editar noticias o responder a un comentario:'|_ }}
+                {% if member.is_banned %}{{ 'Tu cuenta está baneada.'|_ }}{% endif %}
+                {% if topic.is_locked %}{{ 'Este artículo está cerrado.'|_ }}{% endif %}
+            </p>
+            {% else %}
+            {% if member %}
+            {% partial "forumEmbedTopic::postform" %}
+            {% else %}
+            <p>{{ 'Para poder dejar tu comentario debes estar logueado.'|_ }}</p>
+            {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
+
+    {% elseif channel %}
+
+    <h4>{{ 'Crear una nueva discursión de este tema.'|_ }}</h4>
+    {% partial "forumEmbedTopic::createform" %}
+
+    {% else %}
+
+    <p>{{ 'Tema no encontrado'|_ }}</p>
+
+    {% endif %}
+</div>

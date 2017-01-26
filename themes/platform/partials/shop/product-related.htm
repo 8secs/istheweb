@@ -1,0 +1,15 @@
+
+<!-- Section Title -->
+<div class="section-title col-xs-12 text-center">
+    <h2>{{ 'Te puede interesar'|_ }}</h2>
+</div>
+<div class="col-xs-12">
+    <!-- Product Slider -->
+    <div class="product-slider suggested-slider owl-carousel owl-theme owl-loaded">
+        {% for related in Product.relatedProducts %}
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                {% partial 'Products::_single-product' params=related type='grid' %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,94 @@
+[ssbuttonsssb]
+facebook = 1
+twitter = 1
+google+ = 1
+tumblr = 0
+pinterest = 1
+pocket = 1
+reddit = 0
+linkedin = 1
+wordpress = 0
+pinboard = 0
+email = 1
+theme = "simple_icons_black"
+
+[viewBag]
+==
+<div class="pro-details-price-ratting fix">
+    <!-- Product Price -->
+    <div class="pro-details-price float-left">
+        {% if product.on_sale %}
+        <span class="new">{{ ShopBasket.shopCurrency.symbol_left }}{{ product.discount }}{{ ShopBasket.shopCurrency.symbol_right }}</span>
+        <span class="old">{{ ShopBasket.shopCurrency.symbol_left }}{{ product.price }}{{ ShopBasket.shopCurrency.symbol_right }}</span>
+        {% else %}
+        <span class="new">{{ ShopBasket.shopCurrency.symbol_left }}{{ product.price }}{{ ShopBasket.shopCurrency.symbol_right }}</span>
+        {% endif %}
+    </div>
+    <!-- Product Ratting -->
+    <div class="pro-details-ratting float-right">
+        {% partial 'common/ratings' customClass="rattings" customPos="float-left" %}
+    </div>
+</div>
+<div class="pro-details-overview">
+    <h5>{{ 'overview'|_ }}:</h5>
+    <p>{{ product.description|raw }}</p>
+</div>
+{% if FilterTypes.size_filters is not empty %}
+{% set sizeFilters = FilterTypes.size_filters[0].filters %}
+<div class="pro-details-size fix">
+    <h5>size:</h5>
+    {% for size in sizeFilters %}
+    <a href="size_{{ size.id }}">{{ size.name }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<div class="pro-details-color-quantity fix">
+    {% if FilterTypes.color_filters is not empty %}
+    {% set colors = FilterTypes.color_filters[0].filters %}
+    <div class="pro-details-color float-left">
+        <h5>color:</h5>
+        {% for color in colors %}
+        <a href="color_{{ color.id }}" style="background-color: {{ color.value }}">{{ color.name }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+{% if product.inStock() %}
+<div class="stock-status">
+    <label>{{ 'Disponibilidad'|_ }}</label>: <strong>{{ 'In stock'|_ }}</strong>
+</div>
+<form
+        data-request="ShopBasket::onAddProduct"
+        data-request-data="id: {{ product.id }}"
+        data-request-update="'ShopBasket::nav-list-basket': '.nav-basket','ShopBasket::_cart': '.cart'"
+        data-request-success="refreshCart();">
+    <div class="quantity">
+        <input type="number" name="quantity" placeholder="Qty"
+               min="1" max="9999" value="1"
+               {% if product.outOfStock() %}disabled{% endif %}>
+        <button type="submit" class="pro-details-act-btn btn-text"> {{ 'Añadir al carrito'|_ }}</button>
+    </div>
+</form>
+{% else %}
+<div class="stock-status">
+    <label>{{ 'Disponibilidad'|_ }}</label>: <strong>{{ 'Out stock'|_ }}</strong>
+</div>
+{% endif %}
+
+<div class="pro-details-action fix">
+    <form id="wishlistForm_{{ product.id }}" data-request="Customer::onAddProductToWishlist"
+          data-request-data="id: {{ product.id }}">
+        <a id="{{ product.id }}" class="pro-details-act-btn btn-icon" href="javascript:{}" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><i class="fa fa-heart-o"></i></i></a>
+    </form>
+    <button class="pro-details-act-btn btn-icon"><i class="fa fa-refresh"></i></button>
+</div>
+<div class="pro-details-share fix">
+    <h5>share this on:</h5>
+    <div class="icons-social">
+        {% component 'ssbuttonsssb' %}
+    </div>
+</div>

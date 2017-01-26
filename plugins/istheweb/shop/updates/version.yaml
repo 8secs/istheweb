@@ -12,3 +12,9 @@
   - Update Products with Categories
   - create_categories_table.php
   - update_pivots_table.php
+1.0.4:
+  - Add localization tables
+  - create_currencies_table.php
+  - create_tax_rates_table.php
+  - create_tax_categories_table.php
+  - create_zones_table.php

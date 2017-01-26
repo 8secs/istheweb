@@ -2,6 +2,7 @@
 
 use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
+use Istheweb\Connect\Models\CompanySettings;
 use October\Rain\Exception\ApplicationException;
 use Istheweb\IsPdf\Classes\PDF;
 
@@ -30,6 +31,14 @@ class Layouts extends Controller
         BackendMenu::setContext('Istheweb.IsPdf', 'ispdf', 'layouts');
     }
 
+    public function update($recordId, $context = null)
+    {
+        $company = CompanySettings::instance();
+        $this->vars['company'] = $company;
+        // Call the FormController behavior update() method
+        return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
     /**
      * @param $id
      * @return mixed
@@ -55,7 +64,6 @@ class Layouts extends Controller
     public function html($id)
     {
         $model = $this->formFindModelObject($id);
-
         return response($model->html);
     }
 }

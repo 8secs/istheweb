@@ -1,0 +1,57 @@
+description = "Default layout"
+
+[staticMenu mainMenu]
+code = "news-menu"
+
+[googleTracker]
+
+[ManageMailList]
+
+[session]
+security = "all"
+
+[Company]
+
+[localePicker]
+forceUrl = 0
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'news/meta' %}
+</head>
+<body class="news">
+
+{% set company = Company.company %}
+
+{% partial 'common/preloader' %}
+
+<div id="wrapper" class="page-wrap">
+
+    <header id="header" class="header">
+        {% partial 'header/header' layout="blog" %}
+    </header>
+
+    <!-- search-area start -->
+    <div class="search-area">
+        {% partial 'news/search-area' %}
+    </div>
+    <!-- search-area end -->
+
+    <!-- START main wrapper section -->
+    <section>
+        {% page %}
+    </section>
+    <!--/ END main wrapper section -->
+
+    <footer id="footer" class="footer content-block">
+        {% partial 'common/footer' %}
+    </footer>
+
+    {% partial 'common/footer-bottom' %}
+
+</div>
+
+{% partial 'news/scripts' %}
+</body>
+</html>

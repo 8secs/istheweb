@@ -1,0 +1,56 @@
+<div class="sin-sidebar">
+    <h3 class="sidebar-title">price</h3>
+    <div class="sidebar-wrapper fix">
+        <div class="price_filter">
+            <div id="slider-range" class="slider-range"></div>
+            <form id="shoppingForm_{{ params.id }}" data-request="Products::onFilterPrices"
+                  data-request-update="'Products::default': '.products'"
+                  data-request-success="resetToolbar()">
+                <div class="price_slider_amount">
+                    <input type="text" id="from" name="from"  placeholder="From" />
+                    <input type="text" id="to" name="to"  placeholder="To" />
+                    <input type="submit"  value="Filter"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script type="text/javascript">
+    $(document).ready(function(e){
+        var slider = document.getElementById('slider-range');
+        var from = document.getElementById('from');
+        var to = document.getElementById('to');
+
+        noUiSlider.create(slider, {
+            start: [0, 300],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 300
+            }
+        });
+
+        slider.noUiSlider.on('update', function( values, handle ) {
+
+            var value = values[handle];
+
+            if ( handle ) {
+                to.value = value;
+            } else {
+                from.value = value;
+            }
+        });
+
+        from.addEventListener('change', function(){
+            slider.noUiSlider.set([this.value, null]);
+        });
+
+        to.addEventListener('change', function(){
+            slider.noUiSlider.set([null, this.value]);
+        });
+
+    });
+</script>
+{% endput %}

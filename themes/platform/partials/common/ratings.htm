@@ -1,0 +1,16 @@
+
+<div class="{{ customClass }} {{ customPos }}">
+    {% set stars = 4 %}
+    {% for i in 0..stars %}
+        {% set its = averageRating - (i+1) %}
+        {% if its > 0 %}
+            <i class="fa fa-star"></i>
+        {% elseif its == -0.5 %}
+            <i class="fa fa-star-half-o"></i>
+        {% else %}
+            <i class="fa fa-star-o"></i>
+        {% endif %}
+    {% endfor %}
+
+</div>
+<span>({{ averageRating|number_format(1) }})</span>

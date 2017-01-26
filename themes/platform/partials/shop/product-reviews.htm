@@ -1,0 +1,25 @@
+
+[viewBag]
+==
+<div class="pro-avg-ratting fix">
+    {% if ratingCount > 0 %}
+        <h4>{{ averageRating }} <span>({{ 'Promedio'|_ }})</span></h4>
+        <span>{{ 'Basado en '|_ }} {{ ratingCount }} {{ 'comentarios'|_ }}</span>
+    {% else %}
+        <h4>{{'No hay revisiones de este elemento'|_ }}</h4>
+    {% endif %}
+
+</div>
+{% if ratingCount > 0 %}
+    <div class="ratting-list fix">
+        {% partial 'common/ratingByStar' %}
+    </div>
+
+    <div class="rattings-wrapper fix">
+        {% partial 'common/reviews' %}
+    </div>
+{% endif %}
+<div class="ratting-form-wrapper fix">
+    <h3>{{ 'Incluye tu comentario'|_ }}</h3>
+    {% component 'ratings' %}
+</div>

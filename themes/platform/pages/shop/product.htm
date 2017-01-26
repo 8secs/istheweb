@@ -1,0 +1,100 @@
+title = "Product"
+url = "/shop/product/:slug"
+layout = "shop"
+is_hidden = 0
+
+[Product]
+maxItems = 20
+slug = "{{ :slug }}"
+categoryPage = "shop/categories"
+orderBy = "id"
+sort = "desc"
+
+[Products]
+pageNumber = "{{ :page }}"
+categoryFilter = ""
+productsPerPage = 10
+noProductsMessage = "{{ 'No hay productos'|_ }}"
+sortOrder = "name asc"
+categoryPage = "shop/index"
+productPage = "shop/categories"
+
+[FilterTypes]
+orderBy = "id"
+sort = "desc"
+categoryPage = "shop/categories"
+
+
+==
+
+
+<div class="product-details-page bg-off-white padding-bottom-90">
+    <div class="container">
+        <div class="row">
+            <!-- Product Details Image -->
+            <div class="product-details-image col-md-6 col-xs-12">
+                {% partial 'shop/product-images' %}
+            </div>
+            <!-- Product Details Content -->
+            <div class="product-details-content col-md-6 col-xs-12">
+                {% partial 'shop/product-details' %}
+            </div>
+        </div>
+
+        <div class="row margin-top-30">
+            <div class="col-xs-12">
+                <div class="pro-details-tab-container fix">
+                    <ul class="pro-details-tablist nav nav-tabs fix">
+                        <li class="nav-item active"><a class="nav-link" href="#description" data-toggle="tab" role="tab">{{ 'Descripción'|_ }}</a></li>
+                        {% if product.features is not empty %}
+                        <li class="nav-item"><a class="nav-link" href="#information" data-toggle="tab" role="tab">{{ 'Información'|_ }}</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link"  href="#reviews" data-toggle="tab" role="tab">{{ 'Revisiones y Comentarios'|_ }}</a></li>
+                    </ul>
+                    <div class="tab-content fix">
+                        <!-- Product Info Tab -->
+                        <div id="description" class="pro-details-tab pro-dsc-tab tab-pane active"  role="tabpanel">
+                            <p>{{ product.description|raw }}</p>
+                        </div>
+                        <!-- Product Info Tab -->
+
+                        {% if product.features is not empty %}
+                        <div id="information" class="pro-details-tab pro-info-tab tab-pane" role="tabpanel">
+                            {% for featureType in Product.featureTypes %}
+                                <h5>{{ featureType.name }}</h5>
+                                {% for feature in featureType.features %}
+                                    <span>{{ feature.name }} </span>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <!-- Product Info Tab -->
+                        <div id="reviews" class="pro-details-tab pro-rev-tab tab-pane" role="tabpanel">
+                            {% partial 'shop/product-reviews' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="suggested-product-area padding-90">
+    <div class="container">
+        <div class="row">
+            {% partial 'shop/product-related.htm' %}
+        </div>
+    </div>
+</div>
+
+{% put scripts %}
+<script type="text/javascript">
+    $('.wishlistBtn').on('click', function(e){
+        $('#wishlistForm_'+this.id).submit();
+        e.preventDefault();
+        return false;
+    });
+</script>
+{% endput %}
+

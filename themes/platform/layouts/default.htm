@@ -1,0 +1,69 @@
+description = "Default layout"
+
+[staticMenu mainMenu]
+code = "default-menu"
+
+[googleTracker]
+
+[localePicker]
+forceUrl = 0
+
+[Company]
+
+[ShopBasket]
+checkoutPage = "checkout"
+productPage = "product"
+recipientName = "Andrés"
+recipientEmail = "info@dxbwatch.es"
+paypalReturnUrl = "http://dxbwatch.es/checkout/?success=true"
+paypalCancelUrl = "http://dxbwatch.es/checkout/?success=false"
+
+[Products]
+pageNumber = "{{ :page }}"
+categoryFilter = ""
+productsPerPage = 10
+noProductsMessage = "{{ 'No hay productos'|_ }}"
+sortOrder = "name asc"
+categoryPage = "shop/categories"
+productPage = "shop/product"
+
+[Customer]
+paramCode = "{{ :code }}"
+
+[session]
+security = "all"
+
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'common/meta' %}
+</head>
+<body>
+
+{% partial 'common/preloader' %}
+
+<div id="wrapper" class="page-wrap">
+    <header id="header" class="header">
+
+        {% partial 'header/header' layout=this.param.from %}
+
+    </header>
+
+    <!-- START main wrapper section -->
+    <section>
+        {% page %}
+    </section>
+    <!--/ END main wrapper section -->
+
+    <footer id="footer" class="footer content-block">
+        {% partial 'common/footer' %}
+    </footer>
+
+    {% partial 'common/footer-bottom' %}
+
+</div>
+
+{% partial 'common/scripts' %}
+</body>
+</html>

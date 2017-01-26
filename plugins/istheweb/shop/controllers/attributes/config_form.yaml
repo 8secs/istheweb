@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Attribute
+name: istheweb.shop::lang.attribute.label
 
 # Model Form Field configuration
 form: $/istheweb/shop/models/attribute/fields.yaml
@@ -16,16 +16,16 @@ defaultRedirect: istheweb/shop/attributes
 
 # Create page
 create:
-    title: Create Attribute
+    title: istheweb.shop::lang.attribute.create_title
     redirect: istheweb/shop/attributes/update/:id
     redirectClose: istheweb/shop/attributes
 
 # Update page
 update:
-    title: Edit Attribute
+    title: istheweb.shop::lang.attribute.update_title
     redirect: istheweb/shop/attributes
     redirectClose: istheweb/shop/attributes
 
 # Preview page
 preview:
-    title: Preview Attribute
+    title: istheweb.shop::lang.attribute.preview_title

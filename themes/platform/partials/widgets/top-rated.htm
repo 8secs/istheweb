@@ -1,0 +1,13 @@
+<div class="sin-sidebar">
+    <h3 class="sidebar-title">{{ title }}</h3>
+    <div class="sidebar-wrapper fix">
+        <ul>
+            {% for recent in latestProducts %}
+            <li>
+                {% partial 'Products::_single-product' params=recent type='widget' %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>

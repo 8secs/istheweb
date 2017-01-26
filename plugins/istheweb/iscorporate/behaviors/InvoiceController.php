@@ -11,8 +11,10 @@ namespace istheweb\iscorporate\behaviors;
 use Flash;
 use Event;
 use Istheweb\IsCorporate\Models\Invoice;
+use istheweb\ispdf\classes\PDF;
 use Lang;
 use Illuminate\Support\Facades\Redirect;
+use October\Rain\Exception\ApplicationException;
 
 class InvoiceController extends BaseController
 {
@@ -62,7 +64,7 @@ class InvoiceController extends BaseController
         try {
             return PDF::loadTemplate(Invoice::INVOICE_TEMPLATE_CODE, $data)->stream();
         } catch (ApplicationException $e) {
-            $this->pageTitle = trans('renatio.dynamicpdf::lang.templates.preview');
+            $this->pageTitle = trans('istheweb.ispdf::lang.templates.preview');
             $this->vars['error'] = $e->getMessage();
         }
     }

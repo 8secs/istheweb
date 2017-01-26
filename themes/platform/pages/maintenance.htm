@@ -1,0 +1,42 @@
+title = "Maintenance"
+url = "/maintenance"
+layout = "communication"
+
+[ManageMailList]
+==
+<!-- BRGIN WRAPPER -->
+<div class="container-fluid wrapper">
+    <div class="row main-container">
+        <div class="container-inner left-content col-md-6 col-sm-12 col-xs-12">
+            <div class="inner-content">
+                <p class="copyright">&copy; {{ 'now'|date('Y') }} <span class="istheweb">IsTheWeb</span>. Todos los derechos reservados.</p>
+            </div>
+        </div>
+
+        <div class="container-inner right-content col-md-6 col-sm-12 col-xs-12">
+            <div class="inner-content">
+                <h1 class="logo-content"><img class="img-fluid" src="{{ 'assets/images/logo-blanco.png'|theme }}" /></h1>
+                <h3 class="subtitle">Simplemente la red</h3>
+                <p class="content">
+                    Pronto podrás conocer una nueva forma de crear contenido en el mundo web a través de <span class="istheweb">IsTheWeb</span>.
+                </p>
+                <h3 class="subtitle">Subscríbete a nuestro newsletter</h3>
+                <div class="subscribe-email-wrap subscribe-div">
+                    {% component 'ManageMailList' %}
+                </div>
+                <!-- begin bottom-links -->
+                <div class="bottom-links">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i> <span>Facebook</span></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="ti-twitter-alt"></i> <span>Twitter</span></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="ti-sharethis"></i> <span>Share</span></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="ti-youtube"></i> <span>Youtube</span></a></li>
+                    </ul>
+                </div>
+                <!-- end bottom-links -->
+            </div><!-- end inner-content -->
+        </div>
+
+    </div><!-- end main-container -->
+</div>
+<!-- END WRAPPER -->

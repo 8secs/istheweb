@@ -1,0 +1,180 @@
+<div id="form-alert" class="alert alert-danger alert-dismissible fade" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="msg"></div>
+</div>
+
+<div class="col-xs-12 col-sm-6 cart-checkout-process">
+    <div class="wrap">
+        {% partial 'Customer::addresses' type='billing' %}
+        <hr />
+        <div id="location_billing" class="margin-tb-30">
+            {% set billing_address = Customer.billingAddress %}
+            {% partial 'Customer::_address-form' addressType='billing' address=billing_address checkoutSteps=checkoutSteps %}
+        </div>
+        {% partial 'Customer::_countries_form' type='billing' %}
+        <!--<div class="form-group">
+            <input type="checkbox" id="not-same-address" name="not-same-address" />
+            <label for="not-same-address"><small>{{ 'Dirección de facturación y envío no son iguales.'|_ }}</small></label>
+        </div>-->
+    </div>
+    <div class="spacer"></div>
+    <div class=" delivery wrap hide">
+        {% partial 'Customer::addresses' type='delivery' %}
+        <hr />
+        <div id="location_delivery" class="margin-tb-30">
+            {% set delivery_address = Customer.deliveryAddress %}
+            {% partial 'Customer::_address-form' addressType='delivery' address=delivery_address checkoutSteps=checkoutSteps %}
+        </div>
+        {% partial 'Customer::_countries_form' type='delivery' %}
+    </div>
+</div>
+<div class="col-xs-12 col-sm-6 cart-checkout-process">
+    <div class="wrap">
+        {% partial 'Customer::_payment_method' %}
+    </div>
+    <div class="spacer"></div>
+    <div class="wrap">
+        {% partial 'ShopBasket::_resume-content' %}
+        <div class="">
+            <form id="completeCheckout">
+                <input type="hidden" id="recipientEmail" name="email" value="{{ recipientEmail }}" />
+                <button type="button" id="submit" class="button color-hover disabled">{{ 'Comprar ahora'|_ }}</button>
+            </form>
+        </div>
+        {% partial 'ShopBasket::_tpv_form' %}
+    </div>
+    <div class="spacer"></div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="stripeModal" tabindex="-1" role="dialog" aria-labelledby="stripeLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="stripeLabel">Pago con Stripe</h4>
+            </div>
+            {% partial 'ShopBasket::_stripe_form' %}
+        </div>
+    </div>
+</div>
+
+
+{% put scripts %}
+<script type="text/javascript">
+
+    var sameAddress = false;
+    var isValid;
+    var data = {};
+    function validateInput(inputs){
+        isValid = true;
+        $.each(inputs, function(key, value){
+            if(value.val().length == 0){
+                value.addClass('error');
+                isValid = false;
+            }else{
+                data[value.prop('id')] = value.val();
+                value.removeClass('error');
+            }
+        });
+        return isValid;
+    }
+
+    $(document).ready(function(){
+        $('#not-same-address').change(function(e){
+            console.log(e.parentNode);
+            if($('#not-same-address').prop('checked') == true){
+                sameAddress = true;
+                $('.delivery').removeClass('hide').addClass('show');
+            }else{
+                sameAddress = false;
+                $('.delivery').removeClass('show').addClass('hide');
+            }
+        });
+
+        $('#submit').on('click', function(e){
+            $('#form-alert').removeClass('in');
+            $('.msg').html('');
+            e.preventDefault();
+            var inputs;
+            if(sameAddress == false){
+
+                inputs = [
+                    $('#address_1_billing'),
+                    $('#city_billing'),
+                    $('#postcode_billing'),
+                    $('#countries_billing'),
+                    $('#states_billing')
+                ];
+            }else{
+                inputs = [
+                    $('#address_1_billing'),
+                    $('#city_billing'),
+                    $('#postcode_billing'),
+                    $('#countries_billing'),
+                    $('#states_billing'),
+                    $('#address_1_delivery'),
+                    $('#city_delivery'),
+                    $('#postcode_delivery'),
+                    $('#countries_delivery'),
+                    $('#states_delivery'),
+                ];
+            }
+
+            if(validateInput(inputs)){
+                if(typeof selectedPayment !== "undefined"){
+
+                    if($('#id_billing').val().length > 0){
+                        data.id_billing = $('#id_billing').val();
+                    }
+
+                    if($('#id_delivery').val().length > 0){
+                        data.id_delivery = $('#id_delivery').val();
+                    }
+
+                    data.payment_method = selectedPayment;
+                    data.comment = $('#comment').val();
+
+
+                    $('.preloader').fadeIn('slow');
+
+                    $('#completeCheckout').request('onCompleteCheckout', {
+                        'data':  data ,
+                        'success': function(data){
+                            if(data.error == 0){
+
+                                if(data.data.payment_method != 'stripe'){
+                                    $.request('onCheckout', {
+                                        'data':  data.data ,
+                                        'success': checkoutSuccess(data)
+                                    });
+                                }else{
+                                    $('.preloader').fadeOut('slow');
+                                    $('#stripeModal').modal();
+                                }
+                            }else{
+                                $('.msg').html('<strong>Error:</strong> Hemos tenido un error al guardar en la base de datos. Inténtalo más tarde.');
+                                $('#form-alert').addClass('in');
+                            }
+                        }
+                    });
+                }else{
+                    $("input[name=payment_method]:radio").parent().parent().addClass('error');
+                    $('.msg').html('<strong>Cuidado!</strong> Tienes que seleccionar un método de pago.');
+                    $('#form-alert').addClass('in');
+                }
+            }else{
+                $('.msg').html('<strong>Cuidado!</strong> Por favor, revisa los siguientes campos.');
+                $('#form-alert').addClass('in');
+            }
+        });
+
+    });
+
+</script>
+{% endput %}

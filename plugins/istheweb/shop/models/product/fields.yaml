@@ -33,8 +33,7 @@ fields:
         mode: date
         span: auto
 
-
-tabs:
+secondaryTabs:
   fields:
     caption:
         type: richeditor
@@ -48,28 +47,15 @@ tabs:
         label: istheweb.shop::lang.labels.description
         span: auto
         tab: istheweb.shop::lang.labels.description
-    meta_keywords:
-        type: richeditor
-        size: huge
-        label: istheweb.shop::lang.labels.meta_keywords
-        span: auto
-        tab: istheweb.shop::lang.labels.seo
-    meta_description:
-        type: richeditor
-        size: huge
-        label: istheweb.shop::lang.labels.meta_description
-        span: auto
-        tab: istheweb.shop::lang.labels.seo
-    short_description:
-        type: richeditor
-        size: huge
-        label: istheweb.shop::lang.labels.short_description
-        span: auto
-        tab: istheweb.shop::lang.labels.seo
+    categories:
+        label: istheweb.shop::lang.categories.menu_label
+        type: partial
+        path: field_categories
+        tab: istheweb.shop::lang.categories.menu_label
     attributeValues:
         type: partial
         path: field_attribute_values
-        tab:  istheweb.shop::lang.labels.attributes
+        tab:  istheweb.shop::lang.attributes.menu_label
     #att_values:
     #    type: repeater
     #    tab: istheweb.shop::lang.labels.attributes
@@ -84,33 +70,42 @@ tabs:
     #          type: text
     #          label: value
     options_section:
-        label: Opciones del producto
+        label: istheweb.shop::lang.options.menu_label
         type: section
-        span: auto
-        comment: Esta seccion contiene las opciones de este elemento.
-        tab: Opciones y Variantes
-    variants_section:
-        label: Variantes del producto
-        type: section
-        span: auto
-        comment: Esta seccion contiene las variantes de este elemento. Para poder acceder a las variantes, primero tienes que crear un producto y sus opciones.
-        tab: Opciones y Variantes
+        comment: istheweb.shop::lang.options.description
+        tab: istheweb.shop::lang.tabs.options_variants
     options:
         type: partial
         path: field_options
-        span: auto
-        tab: Opciones y Variantes
-    categories:
-        label: istheweb.shop::lang.categories.menu_label
-        type: partial
-        path: field_categories
-        tab: istheweb.shop::lang.categories.menu_label
+        tab: istheweb.shop::lang.tabs.options_variants
+    variants_section:
+        label: istheweb.shop::lang.variants.menu_label
+        type: section
+        comment: istheweb.shop::lang.variants.description
+        tab: istheweb.shop::lang.tabs.options_variants
     variants:
         type: partial
         path: field_variants
-        span: auto
         context: update
-        tab: Opciones y Variantes
+        tab: istheweb.shop::lang.tabs.options_variants
+    meta_keywords:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.meta_keywords
+        span: auto
+        tab: istheweb.shop::lang.tabs.seo
+    meta_description:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.meta_description
+        span: auto
+        tab: istheweb.shop::lang.tabs.seo
+    short_description:
+        type: richeditor
+        size: huge
+        label: istheweb.shop::lang.labels.short_description
+        span: auto
+        tab: istheweb.shop::lang.tabs.seo
     pictures:
         label: istheweb.shop::lang.labels.pictures
         type: fileupload
@@ -118,4 +113,4 @@ tabs:
         span: auto
         imageHeight: 260
         imageWidth: 260
-        tab: istheweb.shop::lang.labels.attachments
+        tab: istheweb.shop::lang.tabs.attachments
