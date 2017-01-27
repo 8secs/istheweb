@@ -11,7 +11,8 @@ return [
         'localisation'                  => 'Localización',
         'marketing'                     => 'Marketing',
         'orders'                        => 'Pedidos',
-        'localization'                  => 'Localización'
+        'localization'                  => 'Localización',
+        'shippings'                     => 'Transporte / Envios'
     ],
     'components'   => [
 
@@ -29,7 +30,7 @@ return [
     ],
     'menuitem' => [
         'product_category'              => 'Categoría productos',
-        'all_product_categories'        => 'Todas las categorías productos'
+        'all_product_categories'        => 'Todas las grupos productos'
     ],
     'descriptions' => [
 
@@ -92,7 +93,10 @@ return [
         'type'                          => 'Tipo',
         'percentage'                    => 'Porcentaje',
         'fix'                           => 'Cantidad fija',
-        'rate'                          => 'Tasa'
+        'rate'                          => 'Tasa',
+        'position'                      => 'Posición',
+        'calculator'                    => 'Calculadora',
+        'amount'                        => 'Cantidad',
 
     ],
     'labels'       => [
@@ -115,6 +119,18 @@ return [
         'value'                         => 'Valor',
         'values'                        => 'Valores',
         'members_comment'               => 'Aquí puedes asignar los países y provincias de la zona',
+        'record_finder'                 => 'Encontrar elemento',
+        'criteria'                      => 'Criterio',
+        'general_info'                  => 'Info General',
+        'category_requirements'         => 'Reglas del grupo',
+        'category_requirements_comments'=> 'Aquí puedes ajustar las reglas necesarias al grupo de este envío',
+        'all_units_match'               => 'Todas las unidades tienen que ser del grupo de envio',
+        'one_unit_match'                => 'Al menos una unidad tiene que conicidir con el grupo de envío',
+        'none_units_match'              => 'Ninguna unidad debe coincidir con el grupo de envío',
+        'shipping_method_charges_comment' => 'Aquí ajustamos las cantidades de este envío',
+        'flat_rate'                     => 'Tasa única por envío',
+        'per_unit_rate'                 => 'Tasa por unidad',
+
     ],
     'product'      => [
         'new'                               => 'Nuevo producto',
@@ -266,23 +282,23 @@ return [
         'manage'                            => 'Gestionar impuestos'
     ],
     'tax_category'      => [
-        'new'                               => 'Nueva categoría impuesto',
-        'label'                             => 'Categoría Impuesto',
-        'create_title'                      => 'Crear categoría impuesto',
-        'update_title'                      => 'Editar categoría impuesto',
-        'preview_title'                     => 'Ver categoría impuesto',
-        'list_title'                        => 'Getionar categoría impuestos',
-        'description'                       => 'Listado de categoría impuestos que puede tener un producto'
+        'new'                               => 'Nueva grupo impuesto',
+        'label'                             => 'Grupos Impuesto',
+        'create_title'                      => 'Crear grupo impuesto',
+        'update_title'                      => 'Editar grupo impuesto',
+        'preview_title'                     => 'Ver grupo impuesto',
+        'list_title'                        => 'Getionar grupos impuesto',
+        'description'                       => 'Listado de grupos de impuesto.'
     ],
     'tax_categories'     => [
-        'delete_selected_confirm'           => 'Eliminar los categoría impuestos seleccionadas?',
-        'menu_label'                        => 'Categorías de impuestos',
-        'return_to_list'                    => 'Volver a categoría impuestos',
-        'delete_confirm'                    => 'Realmente quieres eliminar esta categoría impuesto?',
-        'delete_selected_success'           => 'Se han eliminado las categoría impuestos seleccionadas.',
+        'delete_selected_confirm'           => 'Eliminar los grupo impuestos seleccionadas?',
+        'menu_label'                        => 'Grupos de impuesto',
+        'return_to_list'                    => 'Volver a grupos impuesto',
+        'delete_confirm'                    => 'Realmente quieres eliminar esta grupo impuesto?',
+        'delete_selected_success'           => 'Se han eliminado las grupos impuesto seleccionadas.',
         'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
-        'description'                       => 'Listado de categoría impuestos de un producto',
-        'manage'                            => 'Gestionar categoría impuestos'
+        'description'                       => 'Listado de grupos impuesto de un producto',
+        'manage'                            => 'Gestionar grupos impuesto'
     ],
     'zone'      => [
         'new'                               => 'Nueva zona',
@@ -301,6 +317,45 @@ return [
         'delete_selected_success'           => 'Se han eliminado las zonas seleccionadas.',
         'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
         'description'                       => 'Listado de zonas de un producto',
-        'manage'                            => 'Gestionar zonas'
+        'manage'                            => 'Gestionar zonas',
+    ],
+    'shipping_category'      => [
+        'new'                               => 'Nueva grupo de envío',
+        'label'                             => 'Grupo envío',
+        'create_title'                      => 'Crear grupo de envío',
+        'update_title'                      => 'Editar grupo de envío',
+        'preview_title'                     => 'Ver grupo de envío',
+        'list_title'                        => 'Getionar grupo de envíos',
+        'description'                       => 'Listado de grupo de envíos'
+    ],
+    'shipping_categories'     => [
+        'delete_selected_confirm'           => 'Eliminar los grupo de envíos seleccionadas?',
+        'menu_label'                        => 'Grupo de envíos',
+        'return_to_list'                    => 'Volver a grupo de envíos',
+        'delete_confirm'                    => 'Realmente quieres eliminar esta grupo de envío?',
+        'delete_selected_success'           => 'Se han eliminado las grupo de envíos seleccionadas.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Listado de grupo de envíos de un producto',
+        'manage'                            => 'Gestionar grupo de envíos',
+    ],
+    'shipping_method'      => [
+        'new'                               => 'Nuevo método de envío',
+        'label'                             => 'Método envío',
+        'create_title'                      => 'Crear método de envío',
+        'update_title'                      => 'Editar método de envío',
+        'preview_title'                     => 'Ver método de envío',
+        'list_title'                        => 'Getionar métodos de envío',
+        'description'                       => 'Listado de métodos de envío'
+    ],
+    'shipping_methods'     => [
+        'delete_selected_confirm'           => 'Eliminar los métodos de envío seleccionadas?',
+        'menu_label'                        => 'Métodos de envío',
+        'return_to_list'                    => 'Volver a métodos de envío',
+        'delete_confirm'                    => 'Realmente quieres eliminar este método de envío?',
+        'delete_selected_success'           => 'Se han eliminado las métodos de envío seleccionadas.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Listado de métodos de envío',
+        'manage'                            => 'Gestionar métodos de envío',
+        'charges'                           => 'Cargos de envío',
     ]
 ];

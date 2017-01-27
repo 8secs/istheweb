@@ -113,6 +113,22 @@ class Plugin extends PluginBase
                         'permissions' => ['istheweb.shop.access_tax_categories'],
                         'group'       => 'istheweb.shop::lang.sidebar.localization',
                         'description' => 'istheweb.shop::lang.tax_category.description',
+                    ],
+                    'shippingcategories'     => [
+                        'label'       => 'istheweb.shop::lang.shipping_categories.menu_label',
+                        'icon'        => 'icon-archive',
+                        'url'         => Backend::url('istheweb/shop/shippingcategories'),
+                        'permissions' => ['istheweb.shop.access_shipping_categories'],
+                        'group'       => 'istheweb.shop::lang.sidebar.shippings',
+                        'description' => 'istheweb.shop::lang.shipping_category.description',
+                    ],
+                    'shippingmethods'     => [
+                        'label'       => 'istheweb.shop::lang.shipping_methods.menu_label',
+                        'icon'        => 'icon-truck',
+                        'url'         => Backend::url('istheweb/shop/shippingmethods'),
+                        'permissions' => ['istheweb.shop.access_shipping_methods'],
+                        'group'       => 'istheweb.shop::lang.sidebar.shippings',
+                        'description' => 'istheweb.shop::lang.shipping_method.description',
                     ]
                 ],
             ],
@@ -173,6 +189,14 @@ class Plugin extends PluginBase
             ],
             'istheweb.shop.access_tax_rates'     => [
                 'label' => 'istheweb.shop::lang.tax_rates.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_shipping_categories'     => [
+                'label' => 'istheweb.shop::lang.shipping_categories.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_shipping_methods'     => [
+                'label' => 'istheweb.shop::lang.shipping_methods.list_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
             ]
         ];

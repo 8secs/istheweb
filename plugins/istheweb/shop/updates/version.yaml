@@ -18,3 +18,9 @@
   - create_tax_rates_table.php
   - create_tax_categories_table.php
   - create_zones_table.php
+  - seed_spain_states_table.php
+  - seed_portugal_states_table.php
+1.0.5:
+  - Add shippment tables
+  - create_shipping_categories_table.php
+  - create_shipping_methods_table.php

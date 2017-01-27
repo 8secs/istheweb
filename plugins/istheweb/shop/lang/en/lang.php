@@ -11,7 +11,8 @@ return [
         'localisation'                  => 'Localisation',
         'marketing'                     => 'Marketing',
         'orders'                        => 'Orders',
-        'localization'                  => 'Localization'
+        'localization'                  => 'Localization',
+        'shippings'                     => 'Transport / Shipping'
     ],
     'components'   => [
 
@@ -93,6 +94,10 @@ return [
         'type'                          => 'Type',
         'percentage'                    => 'Percentage',
         'fix'                           => 'Fix amount',
+        'rate'                          => 'Tax',
+        'position'                      => 'Position',
+        'calculator'                    => 'Calculator',
+        'amount'                        => 'Amount',
     ],
     'labels'       => [
         'name'                          => 'Name',
@@ -114,6 +119,17 @@ return [
         'value'                         => 'Value',
         'values'                        => 'Values',
         'members_comment'               => 'You can set countries and states of this zone',
+        'record_finder'                 => 'Find record',
+        'criteria'                      => 'Criteria',
+        'general_info'                  => 'General Info',
+        'category_requirements'         => 'Category Requirements',
+        'category_requirements_comments'=> 'You can set here all the rules for this shippment',
+        'all_units_match'               => 'All the units has to match the method category',
+        'one_unit_match'                => 'At least on unit has to match the method category',
+        'none_units_match'              => 'None of the units has to match the method category',
+        'shipping_method_charges_comment' => 'Here we set up the amounts of shippment',
+        'flat_rate'                     => 'Flat rate per shippment',
+        'per_unit_rate'                 => 'Flat rate per unit',
 
     ],
     'product'      => [
@@ -286,13 +302,13 @@ return [
     'zone'      => [
         'new'           => 'New Zone',
         'label'         => 'Zone',
-        'create_title'  => 'Create Zone',
+        'creatCategories_title'  => 'Create Zone',
         'update_title'  => 'Edit Zone',
         'preview_title' => 'Preview Zone',
         'list_title'    => 'Manage Zone',
         'description'   => 'Zone list available for products',
     ],
-    'zones'     => [
+    'shipping categories'     => [
         'delete_selected_confirm'           => 'Delete selected zones?',
         'menu_label'                        => 'Zones',
         'return_to_list'                    => 'Return to zones',
@@ -301,5 +317,44 @@ return [
         'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
         'description'                       => 'Show the zones of a product',
         'manage'                            => 'Manage Zones'
+    ],
+    'shipping_category'      => [
+        'new'           => 'New Shipping Category',
+        'label'         => 'Shipping Category',
+        'create_title'  => 'Create Shipping Category',
+        'update_title'  => 'Edit Shipping Category',
+        'preview_title' => 'Preview Shipping Category',
+        'list_title'    => 'Manage Shipping Category',
+        'description'   => 'Shipping Category list available for products',
+    ],
+    'shipping_categories'     => [
+        'delete_selected_confirm'           => 'Delete selected shipping categories?',
+        'menu_label'                        => 'Shipping Categories',
+        'return_to_list'                    => 'Return to shipping categories',
+        'delete_confirm'                    => 'Do you relly want to delete this zone?',
+        'delete_selected_success'           => 'Successfully deleted the selected shipping categories.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Show shipping categories of a product',
+        'manage'                            => 'Manage Shipping Categories'
+    ],
+    'shipping_method'      => [
+        'new'           => 'New Shipping Method',
+        'label'         => 'Shipping Method',
+        'create_title'  => 'Create Shipping Method',
+        'update_title'  => 'Edit Shipping Method',
+        'preview_title' => 'Preview Shipping Method',
+        'list_title'    => 'Manage Shipping Method',
+        'description'   => 'Shipping Method list available for products',
+    ],
+    'shipping_methods'     => [
+        'delete_selected_confirm'           => 'Delete selected shipping methods?',
+        'menu_label'                        => 'Shipping Methods',
+        'return_to_list'                    => 'Return to shipping methods',
+        'delete_confirm'                    => 'Do you relly want to delete this zone?',
+        'delete_selected_success'           => 'Successfully deleted the selected shipping methods.',
+        'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
+        'description'                       => 'Show shipping methods of a product',
+        'manage'                            => 'Manage Shipping Methods',
+        'charges'                           => 'Cargos de envío',
     ]
 ];
