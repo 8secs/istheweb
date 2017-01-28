@@ -42,7 +42,7 @@ tabs:
         #    context: [create, update]
         #    label: backend::lang.user.groups
         #    commentAbove: backend::lang.user.groups_comment
-        #    type: checkboxlist
+        #    type: checkboxlistpublic $bodyClass = 'compact-container';
 
         roles_section:
             label: istheweb.iscorporate::lang.roles.menu_label

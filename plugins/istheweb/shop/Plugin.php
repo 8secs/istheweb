@@ -129,6 +129,14 @@ class Plugin extends PluginBase
                         'permissions' => ['istheweb.shop.access_shipping_methods'],
                         'group'       => 'istheweb.shop::lang.sidebar.shippings',
                         'description' => 'istheweb.shop::lang.shipping_method.description',
+                    ],
+                    'customers'     => [
+                        'label'       => 'istheweb.shop::lang.customers.menu_label',
+                        'icon'        => 'icon-user',
+                        'url'         => Backend::url('istheweb/shop/customers'),
+                        'permissions' => ['istheweb.shop.access_customers'],
+                        'group'       => 'istheweb.shop::lang.customers.menu_label',
+                        'description' => 'istheweb.shop::lang.customer.description',
                     ]
                 ],
             ],
@@ -197,6 +205,10 @@ class Plugin extends PluginBase
             ],
             'istheweb.shop.access_shipping_methods'     => [
                 'label' => 'istheweb.shop::lang.shipping_methods.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_customers'     => [
+                'label' => 'istheweb.shop::lang.customers.list_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
             ]
         ];

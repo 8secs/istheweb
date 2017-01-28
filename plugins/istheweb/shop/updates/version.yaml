@@ -1,4 +1,4 @@
-1.0.1: First version of Shop
+1.0.1: First version of isShop
 1.0.2:
   - Create Product Module Tables
   - create_attribute_values_table.php
@@ -24,3 +24,7 @@
   - Add shippment tables
   - create_shipping_categories_table.php
   - create_shipping_methods_table.php
+1.0.6:
+  - Add customer tables
+  - create_addresses_table.php
+  - create_customers_table.php

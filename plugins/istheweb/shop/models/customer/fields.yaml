@@ -1,0 +1,34 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+secondaryTabs:
+  fields:
+
+    user:
+      label: Cliente
+      type: partial
+      path: field_user
+      tab: General Info
+    addresses@update:
+        label: Direcciones
+        type: partial
+        path: field_addresses
+        tab: General Info
+    phone:
+        label: istheweb.shop::lang.fields.phone
+        span: auto
+        tab: Otros datos
+    mobile:
+        label: istheweb.shop::lang.fields.mobile
+        span: auto
+        tab: Otros datos
+    fax:
+        label: istheweb.shop::lang.fields.fax
+        span: auto
+        tab: Otros datos
+    cif:
+        label: istheweb.shop::lang.fields.cif
+        span: auto
+        tab: Otros datos
+
