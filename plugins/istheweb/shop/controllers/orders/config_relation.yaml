@@ -1,0 +1,39 @@
+customer:
+    label: istheweb.shop::lang.labels.customer
+    view:
+        form: $/istheweb/shop/models/customer/fields.yaml
+        toolbarButtons: create|link|unlink
+    manage:
+        form: $/istheweb/shop/models/customer/fields.yaml
+        list: $/istheweb/shop/models/customer/columns.yaml
+        showSearch: true
+        scope: searchTerm
+        context: create
+order_items:
+    label: istheweb.shop::lang.order_items.menu_label
+    manage:
+        form: $/istheweb/shop/models/orderitem/fields.yaml
+        list: $/istheweb/shop/models/orderitem/columns.yaml
+    view:
+        list: $/istheweb/shop/models/orderitem/columns.yaml
+        toolbarButtons: create|delete
+
+shipping_address:
+    label: istheweb.shop::lang.labels.shipping_address
+    view:
+        form: $/istheweb/shop/models/address/fields.yaml
+        toolbarButtons: create|link|unlink
+    manage:
+        form: $/istheweb/shop/models/address/fields.yaml
+        list: $/istheweb/shop/models/address/columns.yaml
+        showSearch: true
+
+billing_address:
+    label: istheweb.shop::lang.labels.billing_address
+    view:
+        form: $/istheweb/shop/models/address/fields.yaml
+        toolbarButtons: create|link|unlink
+    manage:
+        form: $/istheweb/shop/models/address/fields.yaml
+        list: $/istheweb/shop/models/address/columns.yaml
+        showSearch: true

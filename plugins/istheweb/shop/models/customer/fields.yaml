@@ -2,33 +2,32 @@
 #  Field Definitions
 # ===================================
 
-secondaryTabs:
-  fields:
-
-    user:
-      label: Cliente
+fields:
+  user_section:
+    label: istheweb.shop::lang.labels.general_info
+    type: section
+    comment: istheweb.shop::lang.labels.client_comment
+  user:
+    label: Cliente
+    type: partial
+    path: field_user
+  addresses@update:
+      label: Direcciones
       type: partial
-      path: field_user
-      tab: General Info
-    addresses@update:
-        label: Direcciones
-        type: partial
-        path: field_addresses
-        tab: General Info
-    phone:
-        label: istheweb.shop::lang.fields.phone
-        span: auto
-        tab: Otros datos
-    mobile:
-        label: istheweb.shop::lang.fields.mobile
-        span: auto
-        tab: Otros datos
-    fax:
-        label: istheweb.shop::lang.fields.fax
-        span: auto
-        tab: Otros datos
-    cif:
-        label: istheweb.shop::lang.fields.cif
-        span: auto
-        tab: Otros datos
+      path: field_addresses
+  other_data_section:
+    label: istheweb.shop::lang.labels.additional_info
+    type: section
+  phone:
+      label: istheweb.shop::lang.fields.phone
+      span: auto
+  mobile:
+      label: istheweb.shop::lang.fields.mobile
+      span: auto
+  fax:
+      label: istheweb.shop::lang.fields.fax
+      span: auto
+  cif:
+      label: istheweb.shop::lang.fields.cif
+      span: auto
 

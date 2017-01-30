@@ -11,6 +11,12 @@ class CreateOrderItemsTable extends Migration
         Schema::create('istheweb_shop_order_items', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('order_id')->unsigned();
+            $table->integer('variant_id')->unsigned();
+            $table->integer('quantity');
+            $table->decimal('unit_price', 13, 2);
+            $table->decimal('unit_total', 13, 2);
+            $table->decimal('total', 13, 2);
             $table->timestamps();
         });
     }

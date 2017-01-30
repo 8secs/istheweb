@@ -3,6 +3,27 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    order:
+        label: istheweb.shop::lang.order.label
+        type: relation
+        nameFrom: reference
+    variant:
+        label: istheweb.shop.lang.variant.label
+        type: relation
+        nameFrom: name
+    unit_price:
+        label: istheweb.shop::lang.fields.unit_price
+        type: number
+        span: auto
+    quantity:
+        label: istheweb.shop::lang.fields.quantity
+        type: number
+        span: auto
+    unit_total:
+        label: istheweb.shop::lang.fields.unit_total
+        type: number
+        span: auto
+    total:
+        label: istheweb.shop::lang.fields.total
+        type: number
+        span: auto

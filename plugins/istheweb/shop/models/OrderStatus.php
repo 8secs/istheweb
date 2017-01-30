@@ -1,12 +1,15 @@
 <?php namespace Istheweb\Shop\Models;
 
-use Model;
+
+use October\Rain\Database\Traits\Validation;
+use System\Models\MailTemplate;
 
 /**
  * OrderStatus Model
  */
-class OrderStatus extends Model
+class OrderStatus extends Base
 {
+    use Validation;
 
     /**
      * @var string The database table used by the model.
@@ -16,24 +19,33 @@ class OrderStatus extends Model
     /**
      * @var array Guarded fields
      */
-    protected $guarded = ['*'];
+    protected $rules = [
+        'state' => 'required|max:20',
+    ];
 
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'state',
+        'color',
+        'send_email',
+        'attach_invoice',
+        'email_template',
+    ];
 
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $hasMany = [
+        'orders' => 'Istheweb\Shop\Models\Order',
+    ];
+
+    public function getEmailTemplateOptions()
+    {
+        return MailTemplate::listAllTemplates();
+    }
+
 
 }

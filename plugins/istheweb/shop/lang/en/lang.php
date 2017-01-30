@@ -25,7 +25,8 @@ return [
         'content'   => 'Content',
         'local' => 'Localization',
         'payment_method'    => 'Payment Methods',
-        'members' => 'Members'
+        'members' => 'Members',
+        'order_details' => 'Order\'s details',
 
     ],
     'menuitem' => [
@@ -43,6 +44,7 @@ return [
         'checkout_steps'                => 'Checkout steps',
         'opening-times'                 => 'Opening times',
         'comments'                      => 'Comments',
+        'status'                        => 'Status',
         'country'                       => 'Country',
         'countries'                     => 'Countries',
         'states'                        => 'States',
@@ -106,6 +108,19 @@ return [
         'mobile'                        => 'Mobile',
         'fax'                           => 'Fax',
         'cif'                           => 'NIF / CIF',
+        'unit_price'                    => 'Unit price',
+        'unit_total'                    => 'Unit total',
+        'quantity'                      => 'Quantity',
+        'total'                         => 'Total',
+        'subtotal'                      => 'Subtotal',
+        'shipping_address'              => 'Shipping address',
+        'billing address'               => 'Billing address',
+        'prices'                        => 'Prices',
+        'send_email_customer'           => 'Send email to customer',
+        'attach_invoice'                => 'Attach invoice',
+        'email_template'                => 'Email template',
+
+
     ],
     'labels'       => [
         'name'                          => 'Name',
@@ -130,6 +145,8 @@ return [
         'record_finder'                 => 'Find record',
         'criteria'                      => 'Criteria',
         'general_info'                  => 'General Info',
+        'client_comment'                => 'General client\'s info',
+        'additional_info'               => 'Additional info',
         'category_requirements'         => 'Category Requirements',
         'category_requirements_comments'=> 'You can set here all the rules for this shippment',
         'all_units_match'               => 'All the units has to match the method category',
@@ -138,6 +155,9 @@ return [
         'shipping_method_charges_comment' => 'Here we set up the amounts of shippment',
         'flat_rate'                     => 'Flat rate per shippment',
         'per_unit_rate'                 => 'Flat rate per unit',
+        'order_total_comment'           => 'Prices before payment methods fees',
+        'send_email_customer_comment'   => 'Send an email to the customer when his/her order status has changed.',
+        'attach_invoice_comment'        => 'Attach Invoice PDF to email',
 
     ],
     'product'      => [
@@ -420,5 +440,59 @@ return [
         'delete_selected_empty'             => 'No existe ningún elemento con nombre :name para eliminarlo.',
         'description'                       => 'Show addresses of a client',
         'manage'                            => 'Manage Addresses',
+    ],
+    'order'      => [
+        'new'           => 'New Order',
+        'label'         => 'Order',
+        'create_title'  => 'Create Order',
+        'update_title'  => 'Edit Order',
+        'preview_title' => 'Preview Order',
+        'list_title'    => 'Manage Order',
+        'description'   => 'Order List',
+        'update_order'  => 'The order has been updated',
+    ],
+    'orders'     => [
+        'delete_selected_confirm' => 'Delete the selected orders?',
+        'menu_label'              => 'Orders',
+        'return_to_list'          => 'Return to Orders',
+        'delete_confirm'          => 'Do you really want to delete this order?',
+        'delete_selected_success' => 'Successfully deleted the selected orders.',
+        'delete_selected_empty'   => 'There are no selected :name to delete.',
+        'manage'                  => 'Manage orders',
+    ],
+    'order_status'      => [
+        'new'           => 'New Order Status',
+        'label'         => 'Order Status',
+        'create_title'  => 'Create Order Status',
+        'update_title'  => 'Edit Order Status',
+        'preview_title' => 'Preview Order Status',
+        'list_title'    => 'Manage Order Status',
+        'description'   => 'Order Status List'
+    ],
+    'order_statuses'     => [
+        'delete_selected_confirm' => 'Delete the selected order statuses?',
+        'menu_label'              => 'Order Statuses',
+        'return_to_list'          => 'Return to Order Statuses',
+        'delete_confirm'          => 'Do you really want to delete this Order Status?',
+        'delete_selected_success' => 'Successfully deleted the selected Order Statuses.',
+        'delete_selected_empty'   => 'There are no selected :name to delete.',
+        'manage'                  => 'Manage order statuses',
+    ],
+    'order_item'      => [
+        'new'           => 'New Order Item',
+        'label'         => 'Order Item',
+        'create_title'  => 'Create Order Item',
+        'update_title'  => 'Edit Order Item',
+        'preview_title' => 'Preview Order Item',
+        'list_title'    => 'Manage Order Item',
+        'description'   => 'Order Item List'
+    ],
+    'order_items'     => [
+        'delete_selected_confirm' => 'Delete the selected order items?',
+        'menu_label'              => 'Order Items',
+        'return_to_list'          => 'Return to Order Items',
+        'delete_confirm'          => 'Do you really want to delete this Order Item?',
+        'delete_selected_success' => 'Successfully deleted the selected Order Items.',
+        'delete_selected_empty'   => 'There are no selected :name to delete.',
     ]
 ];

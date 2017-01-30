@@ -16,6 +16,7 @@ class CreatePivotsTable extends Migration
 {
     public $models = [
         'product',
+        'category',
         'option',
         'option_value',
         'variant',

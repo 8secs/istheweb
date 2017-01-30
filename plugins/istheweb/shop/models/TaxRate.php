@@ -25,7 +25,7 @@ class TaxRate extends Base
      * @var array Validation Rules
      */
     protected $rules = [
-        'rate' => 'required|number'
+        'rate' => 'required|numeric'
     ];
 
     /**

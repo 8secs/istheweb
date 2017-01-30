@@ -11,6 +11,12 @@ class CreateOrderStatusesTable extends Migration
         Schema::create('istheweb_shop_order_statuses', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('name', 128)->nullable();
+            $table->string('state', 20);
+            $table->string('color', 10)->nullable();
+            $table->tinyInteger('send_email')->nullable()->default(false);
+            $table->tinyInteger('attach_invoice')->nullable()->default(false);
+            $table->string('email_template')->nullable();
             $table->timestamps();
         });
     }

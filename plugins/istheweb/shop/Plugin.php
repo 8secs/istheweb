@@ -137,6 +137,22 @@ class Plugin extends PluginBase
                         'permissions' => ['istheweb.shop.access_customers'],
                         'group'       => 'istheweb.shop::lang.customers.menu_label',
                         'description' => 'istheweb.shop::lang.customer.description',
+                    ],
+                    'orders'     => [
+                        'label'       => 'istheweb.shop::lang.orders.menu_label',
+                        'icon'        => 'icon-cart-arrow-down',
+                        'url'         => Backend::url('istheweb/shop/orders'),
+                        'permissions' => ['istheweb.shop.access_orders'],
+                        'group'       => 'istheweb.shop::lang.sidebar.orders',
+                        'description' => 'istheweb.shop::lang.order.description',
+                    ],
+                    'orderstatuses'     => [
+                        'label'       => 'istheweb.shop::lang.order_statuses.menu_label',
+                        'icon'        => 'icon-list',
+                        'url'         => Backend::url('istheweb/shop/orderstatuses'),
+                        'permissions' => ['istheweb.shop.access_order_statuses'],
+                        'group'       => 'istheweb.shop::lang.sidebar.orders',
+                        'description' => 'istheweb.shop::lang.order_status.description',
                     ]
                 ],
             ],
@@ -209,6 +225,14 @@ class Plugin extends PluginBase
             ],
             'istheweb.shop.access_customers'     => [
                 'label' => 'istheweb.shop::lang.customers.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_orders'     => [
+                'label' => 'istheweb.shop::lang.order.list_title',
+                'tab'   => 'istheweb.shop::lang.plugin.name',
+            ],
+            'istheweb.shop.access_order_statuses'     => [
+                'label' => 'istheweb.shop::lang.order_status.list_title',
                 'tab'   => 'istheweb.shop::lang.plugin.name',
             ]
         ];
