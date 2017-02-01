@@ -9,8 +9,12 @@ fields:
     comment: istheweb.shop::lang.labels.client_comment
   user:
     label: Cliente
-    type: partial
-    path: field_user
+    type: user_client
+    nameFrom: name
+    descriptionFrom: email
+    list: $/rainlab/user/models/user/columns.yaml
+    #type: partial
+    #path: field_user
   addresses@update:
       label: Direcciones
       type: partial

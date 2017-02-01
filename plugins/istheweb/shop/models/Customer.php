@@ -55,4 +55,9 @@ class Customer extends Model
         return $address;
     }
 
+    public function beforeSave()
+    {
+        //dd(post());
+    }
+
 }

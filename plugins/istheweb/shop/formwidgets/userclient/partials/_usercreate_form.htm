@@ -1,0 +1,38 @@
+<div id="<?= $this->getId('popup') ?>" class="userfinder-popup">
+
+    <?= Form::open() ?>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="popup">&times;</button>
+            <h4 class="modal-title"><?= e(trans($title)) ?></h4>
+        </div>
+
+        <div class="modal-body">
+            <!-- Text Input (Left) -->
+            <?= $this->makePartial('create_form') ?>
+        </div>
+
+        <div class="modal-footer">
+            <div class="control-toolbar">
+                <div class="toolbar-item toolbar-primary">
+                    <div data-control="toolbar">
+
+                        <button
+                            class="btn btn-primary"
+                            data-request="<?= $this->getEventHandler('onSaveUser') ?>"
+                            data-request-success="closeModal()">create </button>
+                        <button class="btn btn-default"
+                                data-dismiss="popup">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= Form::close() ?>
+</div>
+
+<script>
+    function closeModal() {
+        $('.modal').modal('hide');
+    }
+</script>

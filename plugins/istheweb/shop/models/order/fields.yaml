@@ -17,8 +17,13 @@ fields:
         span: auto
         tab: istheweb.shop::lang.tabs.order_details
     customer:
-        type: relation
+        #type: recordfinder
+        #list: $/istheweb/shop/models/customer/columns.yaml
+        #nameFrom: user[name]
+        #prompt: Selecciona un cliente
         #path: field_customer
+        type: partial
+        path: field_customer
         label: istheweb.shop::lang.customer.label
         tab: istheweb.shop::lang.customer.label
     shipping_address:

@@ -7,7 +7,6 @@ customer:
         form: $/istheweb/shop/models/customer/fields.yaml
         list: $/istheweb/shop/models/customer/columns.yaml
         showSearch: true
-        scope: searchTerm
         context: create
 order_items:
     label: istheweb.shop::lang.order_items.menu_label

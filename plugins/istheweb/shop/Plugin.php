@@ -255,6 +255,10 @@ class Plugin extends PluginBase
             'Istheweb\Shop\FormWidgets\ProductAttributeValues'  => [
                 'label' => 'istheweb.shop::lang.product.attributes',
                 'code'  => 'product_attribute_options'
+            ],
+            'Istheweb\Shop\FormWidgets\UserClient'  => [
+                'label' => 'istheweb.shop::lang.customer.attributes',
+                'code'  => 'user_client'
             ]
         ];
     }
