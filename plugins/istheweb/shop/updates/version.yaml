@@ -25,3 +25,6 @@
   - create_order_statuses_table.php
   - create_order_items_table.php
   - seed_order_statuses_table.php
+1.0.5:
+  - Sedd locations tables
+  - seed_tables.php

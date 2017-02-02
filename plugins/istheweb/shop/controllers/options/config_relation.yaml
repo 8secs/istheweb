@@ -6,3 +6,4 @@ values:
     view:
         list: $/istheweb/shop/models/optionvalue/columns.yaml
         toolbarButtons: create|delete
+    deferredBinding: true

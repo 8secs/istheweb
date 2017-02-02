@@ -1,5 +1,6 @@
 <?php namespace Istheweb\Shop\Models;
 
+
 use Model;
 use October\Rain\Database\Traits\Validation;
 
@@ -20,9 +21,6 @@ class OrderItem extends Model
      */
     protected $rules = [
         'quantity' => 'required',
-        'unit_price' => 'required|numeric',
-        'unit_total' => 'required|numeric',
-        'total' => 'required|numeric',
     ];
 
     /**
@@ -40,6 +38,20 @@ class OrderItem extends Model
      */
     public $belongsTo = [
         'order'     => 'Istheweb\Shop\Models\Order',
-        'variant'   => 'Istheweb\Shop\Models\Variant',
+        //'variant'   => 'Istheweb\Shop\Models\Variant',
     ];
+
+    public $morphTo = [
+         'productable' => []
+    ];
+
+    public function beforeSave()
+    {
+        $post_variant = post('OrderItem[variant]');
+        $quantity = post('OrderItem[quantity]');
+        $variant = Variant::find($post_variant)->first();
+        $this->unit_price = $variant->price;
+        $this->unit_total = $variant->price * $quantity;
+        $this->total = $this->unit_total;
+    }
 }

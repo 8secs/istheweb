@@ -1,6 +1,33 @@
+<?php if (!$this->previewMode): ?>
+    <div class="control-toolbar">
+        <div class="toolbar-item toolbar-primary">
+            <div data-control="toolbar">
+
+                <button
+                        class="btn btn-default"
+                        data-control="popup"
+                        data-size="huge"
+                        data-handler="<?= $this->getEventHandler('onFindRecord') ?>"
+                        data-request-data="userfinder_flag: 1"
+                        type="button">
+                    <i class="icon-th-list"></i> Seleccionar usuario
+                </button>
+
+                <button
+                        class="btn btn-primary"
+                        data-control="popup"
+                        data-size="huge"
+                        data-handler="<?= $this->getEventHandler('onCreateRecord') ?>"
+                        data-request-data="usercreate_flag: 1"
+                        type="button"><i class="icon-user"></i> Crear usuario</button>
+
+            </div>
+        </div>
+    </div>
+<?php endif ?>
 <div
     id="<?= $this->getId() ?>"
-    class="field-userfinder loading-indicator-container size-input-text"
+    class="field-recordfinder loading-indicator-container size-input-text"
     data-control="userfinder"
     data-refresh-handler="<?= $this->getEventHandler('onRefresh') ?>"
     data-data-locker="#<?= $field->getId() ?>">
@@ -16,24 +43,7 @@
         <?php endif ?>
     </span>
 
-    <?php if (!$this->previewMode): ?>
-        <button
-            class="btn btn-default"
-            data-control="popup"
-            data-size="huge"
-            data-handler="<?= $this->getEventHandler('onFindRecord') ?>"
-            data-request-data="userfinder_flag: 1"
-            type="button">
-            <i class="icon-th-list"></i>
-        </button>
-        <button
-            class="btn btn-primary"
-            data-control="popup"
-            data-size="huge"
-            data-handler="<?= $this->getEventHandler('onCreateRecord') ?>"
-            data-request-data="usercreate_flag: 1"
-            type="button"><i class="icon-user"></i> </button>
-    <?php endif ?>
+
 
     <input
         type="hidden"
@@ -42,3 +52,4 @@
         value="<?= e($value) ?>"
         />
 </div>
+

@@ -1,6 +1,6 @@
 <?php return [
     'plugin' => [
-        'name' => 'Connect',
+        'name' => 'IsConnect',
         'description' => 'Administre Empresas, Contactos, Eventos, Calendarios y Suscripciones',
     ],
     'fields' => [

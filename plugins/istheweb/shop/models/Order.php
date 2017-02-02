@@ -16,6 +16,13 @@ class Order extends Model
     public $table = 'istheweb_shop_orders';
 
     /**
+     * @var array Implements bevaviors
+     */
+    public $implement = [
+        'Istheweb.Shop.Behaviors.OrderModel'
+    ];
+
+    /**
      * @var array Guarded fields
      */
     protected $rules = [
@@ -49,4 +56,14 @@ class Order extends Model
         $payment_methods = $shop->getPaymentMethodOptions();
         return $payment_methods;
     }
+
+    public function beforeSave()
+    {
+        $this->reference = self::formatReference();
+    }
+
+    public function scopeLastReference($query){
+        $query->select('reference')->orderBy('id', 'desc');
+    }
+
 }

@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Istheweb\Shop\Models\Order;
 
 /**
  * Orders Back-end Controller
@@ -12,6 +13,7 @@ class Orders extends Controller
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController',
         'Backend.Behaviors.RelationController',
+        'Istheweb.Shop.Behaviors.OrderController'
     ];
 
     public $formConfig = 'config_form.yaml';
@@ -24,4 +26,11 @@ class Orders extends Controller
 
         BackendMenu::setContext('Istheweb.Shop', 'shop', 'orders');
     }
+
+    public function update($recordId, $context = null)
+    {
+        $base_totals = Order::getBaseTotals($recordId);
+        return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
 }

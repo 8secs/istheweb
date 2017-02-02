@@ -11,6 +11,9 @@ fields:
         label: istheweb.shop::lang.labels.code
         span: auto
         type: text
+        preset:
+          field: name
+          type: slug
     type:
         label: istheweb.shop::lang.labels.type
         type: dropdown

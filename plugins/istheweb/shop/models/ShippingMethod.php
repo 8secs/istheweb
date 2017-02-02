@@ -6,7 +6,7 @@ use October\Rain\Database\Traits\Validation;
 /**
  * ShippingMethod Model
  */
-class ShippingMethod extends Model
+class ShippingMethod extends Base
 {
     use Validation;
 
@@ -22,7 +22,6 @@ class ShippingMethod extends Model
         'code'  => 'required|unique:istheweb_shop_shipping_methods|max:255',
         'name'  => 'required|max:255',
         'zone'  => 'required',
-        'tax'   => 'required',
         'calculator' => 'required',
         'amount' => 'required|numeric'
     ];

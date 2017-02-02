@@ -16,6 +16,7 @@ class CreateShippingMethodsTable extends Migration
             $table->integer('zone_id')->unsigned();
             $table->string('code', 255)->unique();
             $table->string('name', 255);
+            $table->text('description')->nullable();
             $table->string('calculator')->default('flat_rate');
             $table->decimal('amount', 13, 2);
             $table->integer('category_requirement')->default(1);

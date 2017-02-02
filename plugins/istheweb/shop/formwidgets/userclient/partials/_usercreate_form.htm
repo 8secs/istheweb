@@ -8,7 +8,6 @@
         </div>
 
         <div class="modal-body">
-            <!-- Text Input (Left) -->
             <?= $this->makePartial('create_form') ?>
         </div>
 
@@ -21,8 +20,12 @@
                             class="btn btn-primary"
                             data-request="<?= $this->getEventHandler('onSaveUser') ?>"
                             data-request-success="closeModal()">create </button>
-                        <button class="btn btn-default"
-                                data-dismiss="popup">Cancel</button>
+                        <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="popup">
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>
@@ -33,6 +36,6 @@
 
 <script>
     function closeModal() {
-        $('.modal').modal('hide');
+        $('#<?= $this->getId('popup') ?>').modal('hide');
     }
 </script>

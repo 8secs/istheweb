@@ -82,6 +82,30 @@ class Plugin extends PluginBase
                         'group'       => 'istheweb.shop::lang.sidebar.catalog',
                         'description' => 'istheweb.shop::lang.options.description',
                     ],
+                    'orders'     => [
+                        'label'       => 'istheweb.shop::lang.orders.menu_label',
+                        'icon'        => 'icon-cart-arrow-down',
+                        'url'         => Backend::url('istheweb/shop/orders'),
+                        'permissions' => ['istheweb.shop.access_orders'],
+                        'group'       => 'istheweb.shop::lang.sidebar.orders',
+                        'description' => 'istheweb.shop::lang.order.description',
+                    ],
+                    'orderstatuses'     => [
+                        'label'       => 'istheweb.shop::lang.order_statuses.menu_label',
+                        'icon'        => 'icon-list',
+                        'url'         => Backend::url('istheweb/shop/orderstatuses'),
+                        'permissions' => ['istheweb.shop.access_order_statuses'],
+                        'group'       => 'istheweb.shop::lang.sidebar.orders',
+                        'description' => 'istheweb.shop::lang.order_status.description',
+                    ],
+                    'customers'     => [
+                        'label'       => 'istheweb.shop::lang.customers.menu_label',
+                        'icon'        => 'icon-user',
+                        'url'         => Backend::url('istheweb/shop/customers'),
+                        'permissions' => ['istheweb.shop.access_customers'],
+                        'group'       => 'istheweb.shop::lang.customers.menu_label',
+                        'description' => 'istheweb.shop::lang.customer.description',
+                    ],
                     'currencies'     => [
                         'label'       => 'istheweb.shop::lang.currencies.menu_label',
                         'icon'        => 'icon-money',
@@ -129,30 +153,6 @@ class Plugin extends PluginBase
                         'permissions' => ['istheweb.shop.access_shipping_methods'],
                         'group'       => 'istheweb.shop::lang.sidebar.shippings',
                         'description' => 'istheweb.shop::lang.shipping_method.description',
-                    ],
-                    'customers'     => [
-                        'label'       => 'istheweb.shop::lang.customers.menu_label',
-                        'icon'        => 'icon-user',
-                        'url'         => Backend::url('istheweb/shop/customers'),
-                        'permissions' => ['istheweb.shop.access_customers'],
-                        'group'       => 'istheweb.shop::lang.customers.menu_label',
-                        'description' => 'istheweb.shop::lang.customer.description',
-                    ],
-                    'orders'     => [
-                        'label'       => 'istheweb.shop::lang.orders.menu_label',
-                        'icon'        => 'icon-cart-arrow-down',
-                        'url'         => Backend::url('istheweb/shop/orders'),
-                        'permissions' => ['istheweb.shop.access_orders'],
-                        'group'       => 'istheweb.shop::lang.sidebar.orders',
-                        'description' => 'istheweb.shop::lang.order.description',
-                    ],
-                    'orderstatuses'     => [
-                        'label'       => 'istheweb.shop::lang.order_statuses.menu_label',
-                        'icon'        => 'icon-list',
-                        'url'         => Backend::url('istheweb/shop/orderstatuses'),
-                        'permissions' => ['istheweb.shop.access_order_statuses'],
-                        'group'       => 'istheweb.shop::lang.sidebar.orders',
-                        'description' => 'istheweb.shop::lang.order_status.description',
                     ]
                 ],
             ],
@@ -259,6 +259,14 @@ class Plugin extends PluginBase
             'Istheweb\Shop\FormWidgets\UserClient'  => [
                 'label' => 'istheweb.shop::lang.customer.attributes',
                 'code'  => 'user_client'
+            ],
+            'Istheweb\Shop\FormWidgets\ClientAddress'  => [
+                'label' => 'istheweb.shop::lang.address.attributes',
+                'code'  => 'client_address'
+            ],
+            'Istheweb\Shop\FormWidgets\OrderItemVariant'  => [
+                'label' => 'istheweb.shop::lang.order_item.attributes',
+                'code'  => 'order_item_variant'
             ]
         ];
     }

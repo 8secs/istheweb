@@ -42,7 +42,9 @@ class Variant extends Base
     ];
     public $morphTo = [];
     public $morphOne = [];
-    public $morphMany = [];
+    public $morphMany = [
+        'order_items'      => ['Istheweb\Shop\Models\OrderItem', 'name' => 'productable']
+    ];
     public $attachOne = [];
     public $attachMany = [];
 

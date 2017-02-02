@@ -1,6 +1,7 @@
 <?php namespace Istheweb\Shop\FormWidgets;
 
 use Backend\Classes\FormWidgetBase;
+use Backend\FormWidgets\RecordFinder;
 use Istheweb\Shop\Models\Customer;
 use October\Rain\Auth\Models\User;
 use Flash;
@@ -8,82 +9,8 @@ use Flash;
 /**
  * UserClient Form Widget
  */
-class UserClient extends FormWidgetBase
+class UserClient extends RecordFinder
 {
-    use \Backend\Traits\FormModelWidget;
-
-    /**
-     * @var string Field name to use for key.
-     */
-    public $keyFrom = 'id';
-
-    /**
-     * @var string Relation column to display for the name
-     */
-    public $nameFrom;
-
-    /**
-     * @var string Relation column to display for the description
-     */
-    public $descriptionFrom;
-
-    /**
-     * @var string Text to display for the title of the popup list form
-     */
-    public $title = 'backend::lang.userfinder.find_record';
-
-    /**
-     * @var string Prompt to display if no record is selected.
-     */
-    public $prompt = 'Click the %s button to find a record';
-
-    /**
-     * @var int Maximum rows to display for each page.
-     */
-    public $recordsPerPage = 10;
-
-    /**
-     * @var string Use a custom scope method for the list query.
-     */
-    public $scope;
-
-    /**
-     * @var string Filters the relation using a raw where query statement.
-     */
-    public $conditions;
-
-    /**
-     * @var string If searching the records, specifies a policy to use.
-     * - all: result must contain all words
-     * - any: result can contain any word
-     * - exact: result must contain the exact phrase
-     */
-    public $searchMode;
-
-    /**
-     * @var string Use a custom scope method for performing searches.
-     */
-    public $searchScope;
-
-    /**
-     * {@inheritDoc}
-     */
-    protected $defaultAlias = 'istheweb_shop_user_client';
-
-    /**
-     * @var Model Relationship model
-     */
-    public $relationModel;
-
-    /**
-     * @var \Backend\Classes\WidgetBase Reference to the widget used for viewing (list or form).
-     */
-    protected $listWidget;
-
-    /**
-     * @var \Backend\Classes\WidgetBase Reference to the widget used for searching.
-     */
-    protected $searchWidget;
 
     /**
      * {@inheritDoc}
@@ -137,7 +64,6 @@ class UserClient extends FormWidgetBase
      */
     public function prepareVars()
     {
-
         if($this->model->user){
             if($this->model->user->exists){
                 $this->relationModel = $this->model->user;
@@ -175,7 +101,6 @@ class UserClient extends FormWidgetBase
      */
     public function getSaveValue($value)
     {
-
         return $value;
     }
 
@@ -257,32 +182,15 @@ class UserClient extends FormWidgetBase
         return ['#'.$this->getId('container') => $this->makePartial('userfinder')];
     }
 
-    public function getKeyValue()
-    {
-        if (!$this->relationModel) {
-
-            return null;
-        }
-        return $this->relationModel->{$this->keyFrom};
-    }
-
     public function getNameValue()
     {
         if (!$this->relationModel || !$this->nameFrom) {
             return null;
         }
-
-        return $this->relationModel->name . " " . $this->relationModel->surname;
+        $name = $this->relationModel->name . " " . $this->relationModel->surname;
+        return $name;
     }
 
-    public function getDescriptionValue()
-    {
-        if (!$this->relationModel || !$this->descriptionFrom) {
-            return null;
-        }
-
-        return $this->relationModel->{$this->descriptionFrom};
-    }
 
     protected function makeListWidget()
     {

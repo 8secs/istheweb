@@ -12,7 +12,7 @@ columns:
     name:
         label: istheweb.shop::lang.labels.name
         searchable: true
-    zone:
+    zone[name]:
         label: istheweb.shop::lang.zone.label
         type: relation
     is_enabled:

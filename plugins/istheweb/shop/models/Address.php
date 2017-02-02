@@ -49,6 +49,11 @@ class Address extends Base
     ];
     public $belongsToMany = [];
 
+    public function beforeSave()
+    {
+        dd(post());
+    }
+
     public function getCountryOptions(){
         return Country::where('is_enabled', 1)->lists('name', 'id', 'code');
     }
@@ -67,6 +72,21 @@ class Address extends Base
         }
 
         return $data;
+    }
+
+
+    public function scopeFindByCustomer($query)
+    {
+        if(post('Customer[user]')){
+            $customer = Customer::where('user_id', '=', post('Customer[user]'))->first();
+            $customer_id = $customer->id;
+        }else{
+            /**
+             * no queremos encontrar registros
+             */
+            $customer_id = 999999999999999;
+        }
+        $query->where('customer_id', '=', $customer_id);
     }
 
 }

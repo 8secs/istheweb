@@ -12,14 +12,20 @@ fields:
 
 secondaryTabs:
     fields:
-      default_customer_pass:
-          span: left
-          label: istheweb.shop::lang.fields.default_customer_pass
-          tab: istheweb.shop::lang.tabs.content
       invoiceTemplates:
           span: left
           type: dropdown
           label: istheweb.shop::lang.fields.invoice_templates
+          tab: istheweb.shop::lang.tabs.content
+      order_reference:
+          label: 'istheweb.shop::lang.fields.order_reference'
+          span: auto
+          comment: 'istheweb.shop::lang.labels.order_reference_comment'
+          tab: istheweb.shop::lang.tabs.content
+      default_customer_pass:
+          span: left
+          label: istheweb.shop::lang.fields.default_customer_pass
+          span: auto
           tab: istheweb.shop::lang.tabs.content
       checkoutSteps:
           type: dropdown

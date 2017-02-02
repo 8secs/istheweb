@@ -9,6 +9,8 @@ columns:
     code:
         label: istheweb.shop::lang.labels.code
         searchable: true
+    type:
+        label: istheweb.shop::lang.fields.type
     update_at:
         label: istheweb.shop::lang.labels.updated_at
         type: date

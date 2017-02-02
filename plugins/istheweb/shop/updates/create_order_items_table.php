@@ -12,7 +12,8 @@ class CreateOrderItemsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('order_id')->unsigned();
-            $table->integer('variant_id')->unsigned();
+            $table->integer('productable_id')->unsigned();
+            $table->string('productable_type');
             $table->integer('quantity');
             $table->decimal('unit_price', 13, 2);
             $table->decimal('unit_total', 13, 2);

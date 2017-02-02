@@ -37,7 +37,7 @@ fields:
         prompt: istheweb.shop::lang.labels.record_finder
         nameFrom: name
         span: auto
-    category_requirements:
+    category_requirement:
         type: radio
         span: auto
         options:

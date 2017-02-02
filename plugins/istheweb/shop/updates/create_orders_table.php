@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
             $table->integer('shipping_address_id')->unsigned();
             $table->integer('billing_address_id')->unsigned();
             $table->string('reference', 255)->unique();
+            $table->string('payment_method', 20);
             $table->decimal('tax', 15, 2)->nullable();
             $table->decimal('shipping', 15, 2)->nullable();
             $table->decimal('subtotal', 15, 2)->nullable();

@@ -11,10 +11,10 @@ fields:
         label: istheweb.shop::lang.labels.code
         span: auto
         type: text
-
-tabs:
-  fields:
-    values:
-      label: istheweb.shop::lang.labels.values
-      type: partial
-      path: field_values
+        preset:
+          field: name
+          type: slug
+    values@update:
+        label: istheweb.shop::lang.labels.values
+        type: partial
+        path: field_values

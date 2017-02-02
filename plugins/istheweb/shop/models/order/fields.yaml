@@ -4,8 +4,6 @@
 
 fields:
     order_status:
-        #type: partial
-        #path: field_order_status
         label: istheweb.shop::lang.order_status.label
         type: relation
         nameFrom: name
@@ -16,49 +14,60 @@ fields:
         type: dropdown
         span: auto
         tab: istheweb.shop::lang.tabs.order_details
+    user_section:
+        label: istheweb.shop::lang.customer.label
+        type: section
+        comment: istheweb.shop::lang.labels.client_comment
     customer:
-        #type: recordfinder
-        #list: $/istheweb/shop/models/customer/columns.yaml
-        #nameFrom: user[name]
-        #prompt: Selecciona un cliente
-        #path: field_customer
         type: partial
         path: field_customer
-        label: istheweb.shop::lang.customer.label
+        tab: istheweb.shop::lang.customer.label
+    shipping_address_section:
+        label: istheweb.shop::lang.fields.shipping_address
+        type: section
+        span: auto
+        tab: istheweb.shop::lang.customer.label
+    billing_address_section:
+        label: istheweb.shop::lang.fields.billing_address
+        type: section
+        span: auto
         tab: istheweb.shop::lang.customer.label
     shipping_address:
-        label: istheweb.shop::lang.fields.shipping_address
         type: partial
         path: field_shipping_address
         span: auto
         tab: istheweb.shop::lang.customer.label
     billing_address:
-        label: istheweb.shop::lang.fields.billing_address
         type: partial
         path: field_billing_address
         span: auto
         tab: istheweb.shop::lang.customer.label
-    order_items:
+
+    order_items@update:
         label: istheweb.shop::lang.order_items.menu_label
         type: partial
         path: field_order_items
         tab: istheweb.shop::order_items.menu_label
-    tax:
+    totales_section@update:
+        label: istheweb.shop::lang.fields.totals
+        type: section
+        tab: istheweb.shop::lang.customer.label
+    tax@update:
         label: istheweb.shop::lang.tax_rates.menu_label
         span: auto
         disabled: true
         tab: istheweb.shop::lang.fields.prices
-    shipping:
+    shipping@update:
         label: istheweb.shop::lang.sidebar.shippings
         span: auto
         disabled: true
         tab: istheweb.shop::lang.fields.prices
-    subtotal:
+    subtotal@update:
         label: istheweb.shop::lang.fields.subtotal
         span: auto
         disabled: true
         tab: istheweb.shop::lang.fields.prices
-    total:
+    total@update:
         label: istheweb.shop::lang.fields.total
         span: auto
         disabled: true

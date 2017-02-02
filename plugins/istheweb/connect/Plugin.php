@@ -20,10 +20,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Connect',
-            'description' => 'No description provided yet...',
+            'name'        => 'istheweb.connect::lang.plugin.name',
+            'description' => 'istheweb.connect::lang.plugin.description',
             'author'      => 'Istheweb',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-connectdevelop'
         ];
     }
 
@@ -108,7 +108,7 @@ class Plugin extends PluginBase
 
         return [
             'connect' => [
-                'label'       => 'Connect',
+                'label'       => 'istheweb.connect::lang.plugin.name',
                 'url'         => Backend::url('istheweb/connect/connect'),
                 'icon'        => 'icon-connectdevelop',
                 'permissions' => ['istheweb.connect.*'],

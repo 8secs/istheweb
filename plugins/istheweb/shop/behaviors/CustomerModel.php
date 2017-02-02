@@ -42,8 +42,4 @@ class CustomerModel extends ModelBehavior
         return $user;
     }
 
-    public function getAddresses($customer_id){
-        $addresses = Address::where('customer_id', '=', $customer_id)->get();
-        return $addresses;
-    }
 }

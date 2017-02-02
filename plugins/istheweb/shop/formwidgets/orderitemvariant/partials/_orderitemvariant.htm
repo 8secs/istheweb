@@ -1,0 +1,18 @@
+<?php if ($this->previewMode): ?>
+
+    <div class="form-control">
+        <?= $value ?>
+    </div>
+
+<?php else: ?>
+
+    <select id="variants" name="OrderItem[variant]" class="form-control custom-select">
+        <?php if(count($variants) > 0) : ?>
+            <?php foreach($variants as $key => $value) : ?>
+                <option value="<?=$value?>"><?=$key?></option>
+            <?php endforeach ?>
+        <?php endif ?>
+    </select>
+
+<?php endif ?>
+

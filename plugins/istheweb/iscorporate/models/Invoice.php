@@ -67,10 +67,6 @@ class Invoice extends Base
         'variants'      => ['Istheweb\IsCorporate\Models\Variant', 'name' => 'projectable']
     ];
 
-    public function scopeInvoiceNumber($query){
-        $query->select('invoice_number')->orderBy('id', 'desc');
-    }
-
     public function getStatusOptions()
     {
         return [
@@ -89,6 +85,10 @@ class Invoice extends Base
             '4' => 'istheweb.iscorporate::lang.payment_types.promissory_note',
             '5' => 'istheweb.iscorporate::lang.payment_types.transfer',
         ];
+    }
+
+    public function scopeInvoiceNumber($query){
+        $query->select('invoice_number')->orderBy('id', 'desc');
     }
 
     public function scopeStatus($query, $estado){

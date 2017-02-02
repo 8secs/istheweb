@@ -50,10 +50,7 @@ class Customer extends Model
         'user' => 'RainLab\User\Models\User',
     ];
 
-    public function getAddressesOptions(){
-        $address = Address::with(['country', 'state'])->where('customer_id', '=', $this->id)->get();
-        return $address;
-    }
+
 
     public function beforeSave()
     {

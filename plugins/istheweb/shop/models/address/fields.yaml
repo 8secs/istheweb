@@ -3,14 +3,13 @@
 # ===================================
 
 fields:
-    customer@update:
+    customer:
         label: istheweb.shop::lang.customer.label
-        type: recordfinder
+        type: client_address
+        #type: recordfinder
         list: $/istheweb/shop/models/customer/columns.yaml
         prompt: Haz click en el botón %s para encontrar un cliente
-        nameFrom: user[username]
-        #type: partial
-        #path: field_customer
+        nameFrom: user[name]
 
     address_1:
         label: istheweb.shop::lang.fields.address_1

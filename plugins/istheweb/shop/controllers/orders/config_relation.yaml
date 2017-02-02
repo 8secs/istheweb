@@ -1,5 +1,5 @@
 customer:
-    label: istheweb.shop::lang.labels.customer
+    label: istheweb.shop::lang.customer.label
     view:
         form: $/istheweb/shop/models/customer/fields.yaml
         toolbarButtons: create|link|unlink
@@ -18,7 +18,7 @@ order_items:
         toolbarButtons: create|delete
 
 shipping_address:
-    label: istheweb.shop::lang.labels.shipping_address
+    label: istheweb.shop::lang.fields.shipping_address
     view:
         form: $/istheweb/shop/models/address/fields.yaml
         toolbarButtons: create|link|unlink
@@ -26,9 +26,9 @@ shipping_address:
         form: $/istheweb/shop/models/address/fields.yaml
         list: $/istheweb/shop/models/address/columns.yaml
         showSearch: true
-
+        scope: findByCustomer
 billing_address:
-    label: istheweb.shop::lang.labels.billing_address
+    label: istheweb.shop::lang.fields.billing_address
     view:
         form: $/istheweb/shop/models/address/fields.yaml
         toolbarButtons: create|link|unlink
@@ -36,3 +36,4 @@ billing_address:
         form: $/istheweb/shop/models/address/fields.yaml
         list: $/istheweb/shop/models/address/columns.yaml
         showSearch: true
+        scope: findByCustomer

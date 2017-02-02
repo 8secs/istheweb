@@ -36,4 +36,5 @@ class TaxCategory extends Base
     public $hasMany = [
         'tax_rates' => 'Istheweb\Shop\Models\TaxRate',
     ];
+
 }
