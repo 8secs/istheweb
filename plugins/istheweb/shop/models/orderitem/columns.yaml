@@ -3,9 +3,9 @@
 # ===================================
 
 columns:
-    variant[name]:
+    productable_id:
         label: istheweb.shop::lang.variant.label
-        searchable: true
+        type: productable_order_item
     unit_price:
         label: istheweb.shop::lang.fields.unit_price
     quantity:

@@ -2,6 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
+use Istheweb\IsCorporate\Models\Budget;
 use Istheweb\IsCorporate\Models\Client;
 
 /**
@@ -50,5 +51,9 @@ class Clients extends Controller
 
         // Call the FormController behavior update() method
         return $this->asExtension('FormController')->update($recordId, $context);
+    }
+
+    public function getColumnValue($value){
+        return Budget::getSelectedColumn($value);
     }
 }

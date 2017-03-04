@@ -42,6 +42,12 @@ secondaryTabs:
           path: field_budget
           tab: istheweb.iscorporate::lang.budgets.menu_label
           context: update
+      projects:
+          label: istheweb.iscorporate::lang.projects.menu_label
+          type: partial
+          path: field_project
+          tab: istheweb.iscorporate::lang.projects.menu_label
+          context: update
       banco:
         label: istheweb.iscorporate::lang.fields.bank
         span: auto

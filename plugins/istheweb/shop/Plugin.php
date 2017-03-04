@@ -369,4 +369,26 @@ class Plugin extends PluginBase
             }
         });
     }
+
+    public function registerListColumnTypes()
+    {
+        return [
+            'productable_order_item'    => [$this, 'evalProductableOrderItemListColumn'],
+            'customer_order_name'       => [$this, 'evalCustomerOrderNameListColumn'],
+        ];
+    }
+
+    public function evalProductableOrderItemListColumn($value, $column, $record)
+    {
+        $type = $record->productable_type;
+        $instance = $type::where('id', $value)->first();
+
+        return strtoupper($instance->name);
+    }
+
+    public function evalCustomerOrderNameListColumn($value, $column, $record)
+    {
+        $user = Customer::getUserByCustomerId($value);
+        return ucwords($user->name . " " . $user->surname . ' ('.$user->email.')', ' ');
+    }
 }

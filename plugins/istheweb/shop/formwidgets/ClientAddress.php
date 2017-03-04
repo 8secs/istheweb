@@ -5,7 +5,9 @@ use Backend\FormWidgets\RecordFinder;
 use Backend\Traits\FormModelWidget;
 use Istheweb\IsCorporate\Models\Client;
 
+use Istheweb\Shop\Models\Address;
 use Istheweb\Shop\Models\Customer;
+use RainLab\Location\Models\State;
 use RainLab\User\Models\User;
 
 /**
@@ -70,11 +72,11 @@ class ClientAddress extends RecordFinder
      */
     public function prepareVars()
     {
-
         $this->vars['value'] = $this->getKeyValue();
         $this->vars['field'] = $this->formField;
         $this->vars['nameValue'] = $this->getNameValue();
         $this->vars['descriptionValue'] = $this->getDescriptionValue();
+        $this->vars['addresses'] = $this->getAddresses();
         $this->vars['listWidget'] = $this->listWidget;
         $this->vars['searchWidget'] = $this->searchWidget;
 
@@ -102,18 +104,39 @@ class ClientAddress extends RecordFinder
         return ['#'.$this->getId('container') => $this->makePartial('recordfinder')];
     }
 
+    public function onChange()
+    {
+        $address = Address::find(post('addresses'))->first();
+        $customer = Customer::find(post('Address[customer]'))->first();
+        $states = State::where('country_id', '=', $address->country_id)->lists('name', 'id', 'code');
+
+        return [
+            'address' => $address,
+            'customer' => $customer,
+            'states'   => $states
+        ];
+    }
+
     public function getNameValue()
     {
 
         if (!$this->relationModel || !$this->relationModel->user_id) {
-
             return null;
         }
 
         $user = User::find($this->relationModel->user_id)->first();
-        //dd($this->relationModel->user);
         $name = $user->name . " " . $user->surname;
         return $name;
+    }
+
+    public function getAddresses()
+    {
+        if(!$this->relationModel){
+            return null;
+        }
+
+        $addresses = Address::where('customer_id', '=', $this->relationModel->id)->get();
+        return $addresses;
     }
 
     /**

@@ -55,6 +55,9 @@ return [
         'weight'                        => 'Weight',
         'taxes'                         => 'Taxes',
         'inventory'                     => 'Inventory',
+        'on_hand'                       => 'Current stock',
+        'tracked'                       => 'Tracked',
+        'caption'                       => 'Caption',
         'payment_method'                => 'Payment methods',
         'cash_delivery'                 => '<i class="fa fa-truck"></i> Cash on delivery',
         'paypal'                        => '<i class="fa fa-paypal"></i> PayPal',
@@ -110,6 +113,7 @@ return [
         'fax'                           => 'Fax',
         'cif'                           => 'NIF / CIF',
         'price'                         => 'Price',
+        'pricing_calculator'            => 'Princing calculator',
         'wholesaler_price'              => 'Wholesaler price',
         'prices'                        => 'Prices',
         'unit_price'                    => 'Unit price',
@@ -130,6 +134,7 @@ return [
         'height'                        => 'Height',
         'depth'                         => 'Depth',
         'weight'                        => 'Weight',
+        'properties'                    => 'Properties',
     ],
     'labels'       => [
         'name'                          => 'Name',
@@ -175,7 +180,12 @@ return [
         'email_comment'                 => 'Set client\'s email',
         'password_comment'              => 'Introduce client\'s password',
         'password_confirmation_comment' => 'Introduce the same password again',
-        'order_reference_comment'       => 'Next order will begin with this number and it will incriment with the following orders.'
+        'order_reference_comment'       => 'Next order will begin with this number and it will incriment with the following orders.',
+        'properties_comment'            => 'You can setup the product\'s phisical properties like width or height',
+        'prices_comment'                => 'This section has the prices of this product variant',
+        'variant_select'                => 'Select variant',
+        'product_select'                => 'Select product',
+        'order_item_product_comment'    => 'Elige entre una variante de un producto compuesto o un producto simple para añadir al pedido',
 
 
     ],

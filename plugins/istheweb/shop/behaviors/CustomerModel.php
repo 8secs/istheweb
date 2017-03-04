@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 use Istheweb\Shop\Models\Address;
 use Istheweb\Shop\Models\Customer;
 use RainLab\User\Facades\Auth;
+use RainLab\User\Models\User;
 use RainLab\User\Models\UserGroup;
 use System\Classes\ModelBehavior;
 use RainLab\User\Models\Settings as UserSettings;
@@ -39,6 +40,17 @@ class CustomerModel extends ModelBehavior
         $user->groups()->add($group);
         $user->save();
 
+        return $user;
+    }
+
+    /**
+     *
+     * @param $id customer id
+     * @return \Rainlab\User\Models\User $user
+     */
+    public function getUserByCustomerId($id){
+        $customer = Customer::find($id)->first();
+        $user = User::find($customer->user_id)->first();
         return $user;
     }
 

@@ -13,3 +13,8 @@
 .payment-received {
     background-color: #27ae60;
 }
+
+.order_status {
+    padding: 5px;
+    color: #FFF;
+}

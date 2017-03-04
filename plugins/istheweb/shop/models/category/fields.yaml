@@ -52,12 +52,6 @@ tabs:
                 action: show
                 field: is_subcategory
                 condition: checked
-        products:
-            label: istheweb.shop::lang.products.menu_label
-            type: partial
-            path: field_products
-            span: auto
-            tab: istheweb.shop::lang.products.menu_label
         pictures:
             label: istheweb.shop::lang.labels.pictures
             type: fileupload

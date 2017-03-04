@@ -2,6 +2,7 @@
 
 use Model;
 use October\Rain\Database\Traits\Validation;
+use October\Rain\Support\Facades\Flash;
 use RainLab\Location\Models\Country;
 use RainLab\Location\Models\State;
 
@@ -49,10 +50,17 @@ class Address extends Base
     ];
     public $belongsToMany = [];
 
-    public function beforeSave()
+    public function beforeValidate()
     {
-        dd(post());
+        $address = Address::where('address_1', '=', post('Address[address_1]'))
+            ->where('customer_id', post('Address[customer]'))->first();
+
+        if($address->exists){
+            Flash::error('Ya existe la dirección para este cliente');
+            return false;
+        }
     }
+
 
     public function getCountryOptions(){
         return Country::where('is_enabled', 1)->lists('name', 'id', 'code');
@@ -67,13 +75,22 @@ class Address extends Base
         if($this->country){
             $data = State::where('country_id', '=', $this->country->id)->lists('name', 'id', 'code');
         }else{
-            $spain = Country::find(9);
+            $spain = Country::find(249);
             $data = State::where('country_id', '=', $spain->id)->lists('name', 'id', 'code');
         }
 
         return $data;
     }
 
+    public function getAddresses()
+    {
+        return Address::all()->lists('id', 'address_1');
+    }
+
+    public function scopeIsEnabled($query, $address, $customer){
+        $query->where('address_1', '=', $address)
+            ->where('customer_id', $customer);
+    }
 
     public function scopeFindByCustomer($query)
     {

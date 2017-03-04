@@ -25,7 +25,8 @@ return [
         'content'   => 'Contenido',
         'local' => 'Localización',
         'payment_method'    => 'Métodos de pago',
-        'members' => 'Miembros'
+        'members' => 'Miembros',
+        'order_details' => 'Detalle pedido',
 
     ],
     'menuitem' => [
@@ -54,6 +55,9 @@ return [
         'weight'                        => 'Peso',
         'taxes'                         => 'Impuestos',
         'inventory'                     => 'Inventario',
+        'on_hand'                       => 'Existencia actual',
+        'tracked'                       => 'Seguimiento de inventario',
+        'caption'                       => 'Subtítulo',
         'payment_method'                => 'Metodo de pago',
         'cash_delivery'                 => '<i class="fa fa-truck"></i> Pago contrarembolso',
         'paypal'                        => '<i class="fa fa-paypal"></i> PayPal',
@@ -108,6 +112,7 @@ return [
         'fax'                           => 'Fax',
         'cif'                           => 'NIF / CIF',
         'price'                         => 'Precio',
+        'pricing_calculator'            => 'Calculadora del precio',
         'wholesaler_price'              => 'Precio mayorista',
         'prices'                        => 'Precios',
         'unit_price'                    => 'Precio unidad',
@@ -128,6 +133,7 @@ return [
         'height'                        => 'Alto',
         'depth'                         => 'Profundidad',
         'weight'                        => 'Peso',
+        'properties'                    => 'Propiedades',
 
     ],
     'labels'       => [
@@ -177,7 +183,11 @@ return [
         'password_confirmation_comment' => 'Vuelve a introducir la misma contraseña',
         'order_reference_comment'       => 'La siguiente pedido comenzará con este número y se incrementará con cada nuevo pedido.',
         'taxes_inventory'               => 'Impuestos - Inventario',
-
+        'properties_comment'            => 'En esta sección se gestionan las propiedades físicas del producto como, ancho, alto...',
+        'prices_comment'                => 'En esta sección se encuentran los precios para esta variante del producto',
+        'variant_select'                => 'Selecciona variante',
+        'product_select'                => 'Seleccciona producto',
+        'order_item_product_comment'    => 'Elige entre una variante de un producto compuesto o un producto simple para añadir al pedido',
 
     ],
     'product'      => [

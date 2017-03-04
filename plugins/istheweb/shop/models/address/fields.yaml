@@ -6,7 +6,6 @@ fields:
     customer:
         label: istheweb.shop::lang.customer.label
         type: client_address
-        #type: recordfinder
         list: $/istheweb/shop/models/customer/columns.yaml
         prompt: Haz click en el botón %s para encontrar un cliente
         nameFrom: user[name]

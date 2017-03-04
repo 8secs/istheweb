@@ -41,12 +41,12 @@ secondaryTabs:
         span: auto
         tab: istheweb.shop::lang.labels.general_info
     on_hand:
-        label: istheweb.shop::lang.labels.on_hand
+        label: istheweb.shop::lang.fields.on_hand
         type: number
         span: auto
         tab: istheweb.shop::lang.labels.general_info
     tracked:
-        label: istheweb.shop::lang.labels.tracked
+        label: istheweb.shop::lang.fields.tracked
         type: switch
         span: auto
         tab: istheweb.shop::lang.labels.general_info
@@ -57,7 +57,7 @@ secondaryTabs:
     caption:
         type: richeditor
         size: huge
-        label: istheweb.shop::lang.labels.caption
+        label: istheweb.shop::lang.fields.caption
         span: auto
         tab: istheweb.shop::lang.labels.general_info
     description:

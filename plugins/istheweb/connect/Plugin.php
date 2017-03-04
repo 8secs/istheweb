@@ -2,6 +2,8 @@
 
 use Backend;
 use DB;
+use App;
+use Illuminate\Foundation\AliasLoader;
 use Lang;
 use Event;
 use System\Classes\PluginBase;
@@ -34,7 +36,11 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-
+        // Register ServiceProviders
+        App::register('Maknz\Slack\Laravel\ServiceProvider');
+        // Register aliases
+        $alias = AliasLoader::getInstance();
+        $alias->alias('Slack', 'Maknz\Slack\Laravel\Facade');
     }
 
     /**

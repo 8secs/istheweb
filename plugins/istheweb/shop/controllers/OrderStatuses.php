@@ -21,5 +21,7 @@ class OrderStatuses extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Istheweb.Shop', 'shop', 'orderstatuses');
+
+        $this->addCss('/plugins/istheweb/shop/assets/css/shop.css');
     }
 }

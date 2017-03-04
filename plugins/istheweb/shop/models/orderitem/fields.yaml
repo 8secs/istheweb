@@ -7,10 +7,10 @@ fields:
         #label: istheweb.shop::lang.order.label
         #type: relation
         #nameFrom: reference
-    variant:
-        label: istheweb.shop.lang.product.label
+    productable:
         type: order_item_variant
-        span: auto
+
+
     quantity:
         label: istheweb.shop::lang.fields.quantity
         type: number

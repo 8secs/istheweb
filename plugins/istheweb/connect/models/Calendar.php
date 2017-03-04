@@ -1,5 +1,8 @@
 <?php namespace Istheweb\Connect\Models;
 
+use istheweb\connect\classes\slack\ApiClient;
+use istheweb\connect\classes\slack\Channel;
+use Maknz\Slack\Facades\Slack;
 use Model;
 
 /**
@@ -49,5 +52,32 @@ class Calendar extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+    public function afterCreate()
+    {
+        //Slack::send('Hello Calendar');
+        $loop = \React\EventLoop\Factory::create();
+
+        $client = new \Slack\RealTimeClient($loop);
+        $client->setToken('xoxp-139821881159-139821881239-138483383489-6e1123867657bf563f1f40298b5d69f7');
+
+        /*
+        $client->getChannelById('C436FBWPP')->then(function (\Slack\Channel $channel) use ($client) {
+            $client->send('Hello from PHP!', $channel);
+        });*/
+
+        // disconnect after first message
+        $client->on('message', function ($data) use ($client) {
+            print_r(dump("Someone typed a message: ".$data['text']."\n"));
+            $client->disconnect();
+        });
+
+        $client->connect()->then(function () {
+            print_r(dump("Connected!\n"));
+        });
+
+        $loop->run();
+
+    }
 
 }

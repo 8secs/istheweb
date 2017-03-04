@@ -1,12 +1,15 @@
 <?php namespace Istheweb\Shop\Models;
 
 use Request;
+use Sylius\Component\Inventory\Checker\AvailabilityCheckerInterface;
+use Sylius\Component\Inventory\Model\StockableInterface;
+use Sylius\Component\Product\Model\DateRange;
 
 
 /**
  * Variant Model
  */
-class Variant extends Base
+class Variant extends Base implements StockableInterface
 {
 
     /**
@@ -30,8 +33,7 @@ class Variant extends Base
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
+
     public $belongsTo = [
         'product'       => 'Istheweb\Shop\Models\Product'
     ];
@@ -40,13 +42,10 @@ class Variant extends Base
             'table' => 'istheweb_shop_pivots',
         ]
     ];
-    public $morphTo = [];
-    public $morphOne = [];
+
     public $morphMany = [
         'order_items'      => ['Istheweb\Shop\Models\OrderItem', 'name' => 'productable']
     ];
-    public $attachOne = [];
-    public $attachMany = [];
 
     public function getPricingCalculatorOptions(){
         return [
@@ -71,12 +70,86 @@ class Variant extends Base
             $name = $product->name;
             $variant = post('Variant');
             $options = $variant['optionsValues'];
-            foreach ($options as $k => $v){
-                $ov = OptionValue::find($v);
-                $name .= ' - ' . $ov->value;
-                $this->optionsValues()->add($ov);
+            if(!is_null($options)){
+                foreach ($options as $k => $v){
+                    $ov = OptionValue::find($v);
+                    $name .= ' - ' . $ov->value;
+                    $this->optionsValues()->add($ov);
+                }
+                $this->name = $name;
             }
-            $this->name = $name;
         }
     }
+
+    public function getItemForOrder($id)
+    {
+        $item = $this->find($id)->first();
+        $product = $item->product;
+        $tax_rate = $product->getTaxRate();
+        dd($tax_rate->rate);
+        if($this->isStockable($item)){
+            if($item->on_hand > 0){
+                $item->on_hold++;
+                $item->on_hand--;
+            }
+            $item->save();
+        }
+        return $item;
+    }
+
+    public function isStockable(){
+        return $this->tracked;
+    }
+
+    public function getTaxRate(){
+        $product = Product::find($this->product_id)->first();
+        return $product->getTaxRate();
+    }
+
+    public function getInventoryName()
+    {
+        return $this->name;
+    }
+
+    public function isInStock()
+    {
+        return 0 < $this->onHand;
+    }
+
+    public function isAvailableOnDemand()
+    {
+        // TODO: Implement isAvailableOnDemand() method.
+    }
+
+    public function getOnHold()
+    {
+        return $this->on_hold;
+    }
+
+    public function setOnHold($onHold)
+    {
+        $this->on_hold = $onHold;
+    }
+
+    public function getOnHand()
+    {
+        return $this->on_hand;
+    }
+
+    public function setOnHand($onHand)
+    {
+        $this->on_hand = $onHand;
+    }
+
+    public function setTracked($tracked)
+    {
+        $this->tracked = $tracked;
+    }
+
+    public function isTracked()
+    {
+        return $this->tracked;
+    }
+
+
 }

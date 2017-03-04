@@ -17,6 +17,13 @@ class OrderItem extends Model
     public $table = 'istheweb_shop_order_items';
 
     /**
+     * @var array Implements bevaviors
+     */
+    public $implement = [
+        'Istheweb.Shop.Behaviors.OrderItemModel'
+    ];
+
+    /**
      * @var array Validation rules
      */
     protected $rules = [
@@ -38,7 +45,6 @@ class OrderItem extends Model
      */
     public $belongsTo = [
         'order'     => 'Istheweb\Shop\Models\Order',
-        //'variant'   => 'Istheweb\Shop\Models\Variant',
     ];
 
     public $morphTo = [
@@ -47,11 +53,11 @@ class OrderItem extends Model
 
     public function beforeSave()
     {
-        $post_variant = post('OrderItem[variant]');
-        $quantity = post('OrderItem[quantity]');
-        $variant = Variant::find($post_variant)->first();
-        $this->unit_price = $variant->price;
-        $this->unit_total = $variant->price * $quantity;
-        $this->total = $this->unit_total;
+        $this->getTotalItem();
+    }
+
+    public function afterSave()
+    {
+        //Order::updateTotals($this->order_id);
     }
 }

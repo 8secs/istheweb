@@ -1,6 +1,9 @@
 <?php namespace Istheweb\Connect\Models;
 
 use Model;
+use Str;
+use Html;
+use ValidationException;
 
 /**
  * Event Model
@@ -58,5 +61,15 @@ class Event extends Model
     public $attachMany = [
         'pictures' => ['System\Models\File'],
     ];
+
+    public function getSummaryAttribute(){
+        $more = '<!-- more -->';
+        if (strpos($this->description, $more) !== false) {
+            $parts = explode($more, $this->description);
+            return array_get($parts, 0);
+        }
+
+        return Str::limit(Html::strip($this->description), 200);
+    }
 
 }

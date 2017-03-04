@@ -28,8 +28,8 @@ class CreateProductsTable extends Migration
             $table->double('weight')->nullable();
             $table->decimal('wholesaler_price', 13,2)->nullable();
             $table->decimal('price', 13,2)->nullable();
-            $table->integer('on_hold')->nullable();
-            $table->integer('on_hand')->nullable();
+            $table->integer('on_hold')->default(0);
+            $table->integer('on_hand')->default(0);
             $table->tinyInteger('tracked')->default(0);
             $table->dateTime('available_on')->nullable();
             $table->dateTime('available_until')->nullable();

@@ -3,18 +3,16 @@
 # ===================================
 
 columns:
-    #customer:
-        #label: istheweb.shop::lang.customer.label
-         #relation: customer
-        #select: concat(name, ' ' , surname)
-        #searchable: true
-    #order_status:
-        #label: istheweb.shop::lang.order_status.label
-        #relation: order_status
-        #select: name
-        #type: partial
-        #path: status_name
-        #searchable: true
+    customer_id:
+        label: istheweb.shop::lang.customer.label
+        type: customer_order_name
+    order_status:
+        label: istheweb.shop::lang.order_status.label
+        relation: order_status
+        select: name
+        type: partial
+        path: status_name
+        searchable: true
     total:
         label: istheweb.shop::lang.fields.total
     created_at:

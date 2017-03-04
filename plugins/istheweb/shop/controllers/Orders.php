@@ -25,11 +25,13 @@ class Orders extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Istheweb.Shop', 'shop', 'orders');
+
+        $this->addCss('/plugins/istheweb/shop/assets/css/shop.css');
     }
 
     public function update($recordId, $context = null)
     {
-        $base_totals = Order::getBaseTotals($recordId);
+        //$base_totals = Order::getBaseTotals($recordId);
         return $this->asExtension('FormController')->update($recordId, $context);
     }
 

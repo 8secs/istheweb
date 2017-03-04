@@ -28,12 +28,13 @@ class OrderModel extends ModelBehavior
             $reference = $shopSettings->order_reference;
         }else{
             $last = Order::lastReference()->first();
-            $reference = $last + 1;
+            $reference = $last->reference + 1;
         }
         return $reference;
     }
 
-    public function getBaseTotals($recordId)
+
+    public function updateTotals($recordId)
     {
         $order = Order::with('order_items')->find($recordId)->first();
 
@@ -43,7 +44,7 @@ class OrderModel extends ModelBehavior
                 $base += $item->total;
             }
         }
-        $this->subtotal = $base;
-        return $base;
+        $this->model->subtotal = $base;
+
     }
 }

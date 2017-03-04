@@ -14,3 +14,11 @@ budgets:
     view:
         list: $/istheweb/iscorporate/models/budget/columns.yaml
         toolbarButtons: add|remove
+projects:
+    label: istheweb.iscorporate::lang.project.menu_label
+    manage:
+        form: $/istheweb/iscorporate/models/project/fields.yaml
+        list: $/istheweb/iscorporate/models/project/columns.yaml
+    view:
+        list: $/istheweb/iscorporate/models/project/columns.yaml
+        toolbarButtons: add|remove

@@ -18,7 +18,7 @@ fields:
         mode: date
         span: auto
     optionSection:
-        label: Optiones del producto
+        label: istheweb.shop::lang.options.menu_label
         type: section
         comment: Esta seccion contiene las opciones de este elemento.
     optionsValues:
@@ -27,43 +27,43 @@ fields:
         #type: partial
         #path: field_values
     precios_section:
-        label: Precios
+        label: istheweb.shop::lang.fields.prices
         type: section
-        comment: Esta seccion contiene los precios de este elemento.
+        comment: istheweb.shop::lang.labels.prices_comment
     pricing_calculator:
-        label: istheweb.shop::lang.labels.pricing_calculator
+        label: istheweb.shop::lang.fields.pricing_calculator
         span: auto
         type: dropdown
     price:
-        label: istheweb.shop::lang.labels.price
+        label: istheweb.shop::lang.fields.price
         type: number
         span: left
         cssClass: padded
     on_hand:
-        label: istheweb.shop::lang.labels.on_hand
+        label: istheweb.shop::lang.fields.on_hand
         type: number
         span: auto
     tracked:
-        label: istheweb.shop::lang.labels.tracked
+        label: istheweb.shop::lang.fields.tracked
         type: switch
     propiedades:
-        label: Propiedades
+        label: istheweb.shop::lang.fields.properties
         type: section
-        comment: Esta seccion contiene las propiedades de este elemento.
+        comment: istheweb.shop::lang.labels.properties_comment
     width:
-        label: Width
+        label: istheweb.shop::lang.fields.width
         span: auto
         type: number
     height:
-        label: Height
+        label: istheweb.shop::lang.fields.height
         span: auto
         type: number
     depth:
-        label: Depth
+        label: istheweb.shop::lang.fields.depth
         span: auto
         type: number
     weight:
-        label: Weight
+        label: istheweb.shop::lang.fields.weight
         span: auto
         type: number
 

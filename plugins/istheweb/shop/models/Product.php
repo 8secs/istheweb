@@ -6,7 +6,7 @@ use Sylius\Component\Inventory\Model\StockableInterface;
 /**
  * Product Model
  */
-class Product extends Base implements StockableInterface
+class Product extends Base
 {
 
     /**
@@ -77,90 +77,34 @@ class Product extends Base implements StockableInterface
         }
     }
 
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isAvailable()
-    {
-        //return (new DateRange($this->available_on, $this->available_until))->isInRange();
-    }
-
     public static function getAttributeIdOptions()
     {
         $attributes = Attribute::getAllAtributes();
         return $attributes;
     }
 
-    public function beforeSave()
+    public function getItemForOrder($id)
     {
-        //dd(post());
+        $item = $this->find($id)->first();
+        if($item->tracked){
+            if($item->on_hand > 0){
+                $item->on_hold++;
+                $item->on_hand--;
+            }
+            $item->save();
+        }
+        return $item;
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getInventoryName()
+    public function isStockable()
     {
-        // TODO: Implement getInventoryName() method.
+        return $this->tracked;
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function isInStock()
+    public function getTaxRate()
     {
-        // TODO: Implement isInStock() method.
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function isAvailableOnDemand()
-    {
-        // TODO: Implement isAvailableOnDemand() method.
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getOnHold()
-    {
-        // TODO: Implement getOnHold() method.
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setOnHold($onHold)
-    {
-        // TODO: Implement setOnHold() method.
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getOnHand()
-    {
-        // TODO: Implement getOnHand() method.
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function setOnHand($onHand)
-    {
-        // TODO: Implement setOnHand() method.
-    }
-
-    public function setTracked($tracked)
-    {
-        // TODO: Implement setTracked() method.
-    }
-
-    public function isTracked()
-    {
-        // TODO: Implement isTracked() method.
+        $tax_rate = TaxRate::rate($this->tax_category_id)->first();
+        return $tax_rate;
     }
 
 
