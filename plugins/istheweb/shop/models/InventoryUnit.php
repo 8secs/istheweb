@@ -1,13 +1,30 @@
 <?php namespace Istheweb\Shop\Models;
 
+use istheweb\shop\classes\StockableInterface;
 use Model;
-use Sylius\Component\Inventory\Model\StockableInterface;
+
 
 /**
  * InventoryUnit Model
  */
 class InventoryUnit extends Model
 {
+
+    /**
+     * Default states.
+     */
+    const STATE_CHECKOUT = 'checkout';
+    const STATE_ONHOLD = 'onhold';
+    const STATE_SOLD = 'sold';
+    const STATE_BACKORDERED = 'backordered';
+    const STATE_RETURNED = 'returned';
+
+    /**
+     * @var array Implements bevaviors
+     */
+    public $implement = [
+        'Istheweb.Shop.Behaviors.InventoryModel'
+    ];
 
     /**
      * @var mixed
@@ -49,5 +66,29 @@ class InventoryUnit extends Model
     public function getInventoryName()
     {
         return $this->stockable->getInventoryName();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getInventoryState()
+    {
+        return $this->inventoryState;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setInventoryState($state)
+    {
+        $this->inventoryState = $state;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isSold()
+    {
+        return InventoryUnit::STATE_SOLD === $this->inventoryState;
     }
 }

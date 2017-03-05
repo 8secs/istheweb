@@ -48,7 +48,12 @@ class Order extends Model
     ];
 
     public $hasMany = [
-        'order_items'           => [ 'Istheweb\Shop\Models\OrderItem']
+        'order_items'           => [ 'Istheweb\Shop\Models\OrderItem'],
+        'adjustments'           => ['Istheweb\Shop\Models\Adjustment']
+    ];
+
+    public $morphMany = [
+        'adjustments'      => ['Istheweb\Shop\Models\Adjustment', 'name' => 'orderable']
     ];
 
     public function getPaymentMethodOptions(){

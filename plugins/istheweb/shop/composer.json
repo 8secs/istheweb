@@ -16,6 +16,7 @@
     "stripe/stripe-php": "3.*",
     "sylius/product": "^0.19.0",
     "sylius/channel": "^0.19.0",
-    "sylius/inventory": "^0.19.0"
+    "sylius/inventory": "^0.19.0",
+    "sebdesign/laravel-state-machine": "^1.1"
   }
 }

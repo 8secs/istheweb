@@ -33,18 +33,26 @@ class OrderModel extends ModelBehavior
         return $reference;
     }
 
-
-    public function updateTotals($recordId)
+    public function calculateTotal()
     {
-        $order = Order::with('order_items')->find($recordId)->first();
 
-        if($order->order_items){
-            $base = 0;
-            foreach($order->order_items as $item){
+    }
+
+
+    public function updateTotals()
+    {
+        //$order = Order::with('order_items')->find($recordId)->first();
+        $base = 0;
+        if($this->model->order_items){
+            foreach($this->model->order_items as $item){
                 $base += $item->total;
             }
         }
         $this->model->subtotal = $base;
+
+
+        dd($this->model);
+        //$this->model->save();
 
     }
 }

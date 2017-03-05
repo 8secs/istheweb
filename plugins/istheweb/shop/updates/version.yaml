@@ -28,3 +28,8 @@
 1.0.5:
   - Sedd locations tables
   - seed_tables.php
+1.0.6:
+  - Add Adjustments to Order and Order Items
+  - create_adjustments_table.php
+  - update_order_item_with_adjustment.php
+  - update_order_with_adjustments.php

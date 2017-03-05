@@ -1,8 +1,8 @@
 <?php namespace Istheweb\Shop\Models;
 
+use istheweb\shop\classes\StockableInterface;
 use Request;
 use Sylius\Component\Inventory\Checker\AvailabilityCheckerInterface;
-use Sylius\Component\Inventory\Model\StockableInterface;
 use Sylius\Component\Product\Model\DateRange;
 
 

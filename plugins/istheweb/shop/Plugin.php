@@ -317,6 +317,12 @@ class Plugin extends PluginBase
 
     public function register()
     {
+        // Register ServiceProviders
+        App::register('Sebdesign\SM\ServiceProvider');
+        // Register aliases
+        $alias = AliasLoader::getInstance();
+        $alias->alias('StateMachine', 'Sebdesign\SM\Facade');
+
         BackendMenu::registerContextSidenavPartial('Istheweb.Shop', 'shop', 'plugins/istheweb/shop/partials/_sidebar.htm');
         set_exception_handler([$this, 'handleException']);
     }

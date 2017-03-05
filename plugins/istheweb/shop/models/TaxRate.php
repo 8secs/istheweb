@@ -43,4 +43,23 @@ class TaxRate extends Base
         $query->select(['rate', 'type'])->where('tax_category_id', '=', $tax_category_id);
     }
 
+    public function isIncludedInPrice(){
+        /**
+         * TODO: Tenemos que hacerlo dinámico
+         */
+        return false;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function calculate($base)
+    {
+        if ($this->isIncludedInPrice()) {
+            return (int) round($base - ($base / (1 + $this->rate)));
+        }
+
+        return $this->type == TaxRate::FIXED_TYPE ? $this->rate : (int) round($base * $this->rate / 100);
+    }
+
 }

@@ -83,19 +83,6 @@ class Product extends Base
         return $attributes;
     }
 
-    public function getItemForOrder($id)
-    {
-        $item = $this->find($id)->first();
-        if($item->tracked){
-            if($item->on_hand > 0){
-                $item->on_hold++;
-                $item->on_hand--;
-            }
-            $item->save();
-        }
-        return $item;
-    }
-
     public function isStockable()
     {
         return $this->tracked;

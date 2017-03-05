@@ -51,6 +51,10 @@ class OrderItem extends Model
          'productable' => []
     ];
 
+    public $morphMany = [
+        'adjustments'      => ['Istheweb\Shop\Models\Adjustment', 'name' => 'orderable']
+    ];
+
     public function beforeSave()
     {
         $this->getTotalItem();
@@ -58,6 +62,6 @@ class OrderItem extends Model
 
     public function afterSave()
     {
-        //Order::updateTotals($this->order_id);
+        $this->order->updateTotals();
     }
 }
